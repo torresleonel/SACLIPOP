@@ -1,0 +1,51 @@
+p{
+  text-align:justify;
+}
+table{
+  width: 900px;
+}
+th, td{
+  border: 1px solid #000;
+}
+td{
+  font-size: 12px;
+  height: 24px;
+  text-align: left;
+  vertical-align: top;
+}
+.cel_vaci {
+  empty-cells: hide;
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+.c{
+	text-align: center;
+}
+.dato{
+  font-size: 18px;
+}
+.n{
+  font-weight: bold;
+}
+.foto{
+  height: 75px;
+
+}
+.bor_bot{
+  border-bottom: 0px solid #fff;
+}
+.bor_top{
+  border-top: 0px solid #fff;
+}
+.bor_left{
+  border-left: 0px solid #fff;
+}
+.membrete {
+  height:190px;
+  width: 900px;
+  background:#0431B4 url(../imagen/membrete.png) no-repeat;
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    -o-background-size: auto;
+    background-size: auto;
+}
