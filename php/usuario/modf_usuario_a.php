@@ -26,8 +26,8 @@
 					$cnx_bd = conexion();
 					include('../_sql/usuario_sql.php');
 					$resultado = conslt_usuario($cnx_bd);
-					$cnx_bd -> close();
-					$fila = $resultado -> fetch_object();
+					$cnx_bd->close();
+					$fila = $resultado->fetch_object();
 				?>
 				<div id="content">
 					<h1>Modificar Perfil de Usuario</h1>
@@ -46,7 +46,7 @@
 									<div class='derecha'>
 										<div class='campo'>
 											<label for="usuario" class='rotulo' title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP">Usuario</label>
-											<input type="text" name="usuario" value="<?php echo $fila -> id_usuario; ?>" id="usuario" title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP" required />
+											<input type="text" name="usuario" value="<?php echo $fila->id_usuario; ?>" id="usuario" title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP" required />
 										</div>
 										<div class='campo'>
 											<label for="clave" class='rotulo' title="Por favor ingrese la nueva clave con la que ingresara a SACLIPOP">Nueva Clave</label>
@@ -60,23 +60,23 @@
 									<div class='izquierda'>
 										<div class='campo'>
 											<label for="nombre" class='rotulo' title="Por favor ingrese el nombre del usuario">Nombres</label>
-											<input type="text" name="nombre" value="<?php echo $fila -> nombre; ?>" id="nombre" title="Por favor ingrese el nombre del usuario" required />
+											<input type="text" name="nombre" value="<?php echo $fila->nombre; ?>" id="nombre" title="Por favor ingrese el nombre del usuario" required />
 										</div>
 										<div class='campo'>
 											<label for="apellido" class='rotulo' title="Por favor ingrese los apellidos del usuario">Apellidos</label>
-											<input type="text" name="apellido" value="<?php echo $fila -> apellido; ?>" id="apellido" title="Por favor ingrese los apellidos del usuario" required />
+											<input type="text" name="apellido" value="<?php echo $fila->apellido; ?>" id="apellido" title="Por favor ingrese los apellidos del usuario" required />
 										</div>
-											<?php if(isset($fila -> respuesta)){ ?>
+											<?php if(isset($fila->respuesta)){ ?>
 													<div class='campo'>
 														<div class="select_prgunta">
 															<label class='rotulo_cent' title="Pregunta de seguridad">Pregunta de seguridad</label>
 															<select name="preg_seg" title="Por favor elija una pregunta de seguridad" required>
 																<option value=""></option>
-																<option value="1" <?php if($fila -> pregunta == 1) echo 'selected="selected"'; ?>>¿Nombre de su primera mascota?</option>
-																<option value="2" <?php if($fila -> pregunta == 2) echo 'selected="selected"'; ?>>¿Nombre de su mejor amigo de la infancia?</option>
-																<option value="3" <?php if($fila -> pregunta == 3) echo 'selected="selected"'; ?>>¿Lugar de nacimiento de la madre?</option>
-																<option value="4" <?php if($fila -> pregunta == 4) echo 'selected="selected"'; ?>>¿Nombre de su primera escuela?</option>
-																<option value="5" <?php if($fila -> pregunta == 5) echo 'selected="selected"'; ?>>¿En que año egreso de la escuela?</option>
+																<option value="1" <?php if($fila->pregunta == 1) echo 'selected="selected"'; ?>>¿Nombre de su primera mascota?</option>
+																<option value="2" <?php if($fila->pregunta == 2) echo 'selected="selected"'; ?>>¿Nombre de su mejor amigo de la infancia?</option>
+																<option value="3" <?php if($fila->pregunta == 3) echo 'selected="selected"'; ?>>¿Lugar de nacimiento de la madre?</option>
+																<option value="4" <?php if($fila->pregunta == 4) echo 'selected="selected"'; ?>>¿Nombre de su primera escuela?</option>
+																<option value="5" <?php if($fila->pregunta == 5) echo 'selected="selected"'; ?>>¿En que año egreso de la escuela?</option>
 															</select>
 														</div>
 													</div>

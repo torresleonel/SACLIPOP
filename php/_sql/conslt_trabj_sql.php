@@ -9,7 +9,7 @@
 				JOIN laboral ON laboral.cedula = trabajador.cedula
 				WHERE cargo = 'Director(a)'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -27,7 +27,7 @@
 				ORDER BY cedula
 				ASC";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -48,7 +48,7 @@
 				  JOIN uniforme ON uniforme.cedula = trabajador.cedula
 				  WHERE trabajador.cedula = '$cedula'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -63,7 +63,7 @@
 		
 		$sql = "SELECT * FROM familia WHERE cedula = '$cedula'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -78,7 +78,7 @@
 		
 		$sql = "SELECT * FROM familia WHERE cedula = '$cedula' AND empleadof <> 0";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -93,7 +93,7 @@
 		
 		$sql = "SELECT * FROM familia WHERE cedula = '$cedula' AND empleadof = 0";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -108,7 +108,7 @@
 		
 		$sql = "SELECT * FROM referencia_personal WHERE cedula = '$cedula'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -127,7 +127,7 @@
 				JOIN laboral ON laboral.cedula = trabajador.cedula
 				WHERE trabajador.cedula = '$cedula'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -147,7 +147,7 @@
 				ORDER BY sueldo_mensual
 				DESC";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -166,7 +166,7 @@
 				ORDER BY sueldo_mensual
 				DESC";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -184,7 +184,7 @@
 				DESC
 				LIMIT 1";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -202,7 +202,7 @@
 				DESC
 				LIMIT 1";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -223,7 +223,7 @@
 				ORDER BY cedula
 				ASC";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -241,7 +241,7 @@
 				  JOIN comision_servicio ON comision_servicio.cedula = trabajador.cedula
 				  WHERE trabajador.cedula = '$cedula'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -267,7 +267,7 @@
 					SET sueldo_mensual = '$suld_mes[$i]'
 					WHERE cedula = '$ced_suld[$i]'";
 			
-			$cnx_bd -> query($sql);
+			$cnx_bd->query($sql);
 			
 			//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 			error_sql($cnx_bd);
@@ -288,7 +288,7 @@
 					SET sueldo_mensual = '$suld_mes'
 					WHERE cedula = '$ced_suld'";
 			
-			$cnx_bd -> query($sql);
+			$cnx_bd->query($sql);
 			
 			//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 			error_sql($cnx_bd);
@@ -314,7 +314,7 @@
 				  WHERE trabajador.cedula = '$cedula'
 				  AND $campo = '$fch'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -336,7 +336,7 @@
 				  AND condicion = '$dato2'
 				  AND $campo = '$fch'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -357,7 +357,7 @@
 				  WHERE condicion = '$dato'
 				  AND $campo = '$fch'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -380,7 +380,7 @@
 				AND ini_vacac
 				BETWEEN '$ini' AND '$fin'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -403,7 +403,7 @@
 				AND ini_vacac
 				BETWEEN '$ini' AND '$fin'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -425,7 +425,7 @@
 				AND ini_vacac
 				BETWEEN '$ini' AND '$fin'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);

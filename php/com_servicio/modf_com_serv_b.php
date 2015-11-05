@@ -22,7 +22,7 @@
 					include('../_conexion/conexion_funcion.php');
 					$cnx_bd = conexion();
 					include('../_sql/modf_com_serv_sql.php');
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 				<div id="msnproceso">
 					<h3>SE HAN MODIFICADO CON EXITO LOS DATOS DEL PERSONAL</h3>

@@ -8,23 +8,23 @@
 
 	$sql = "SELECT * FROM usuario WHERE id_usuario = '$user' AND clave = '$contra'";
 			
-	$resultado = $cnx_bd -> query($sql);
+	$resultado = $cnx_bd->query($sql);
 	error_sql($cnx_bd);
 
 
 
-	$fila = $resultado -> fetch_object();
+	$fila = $resultado->fetch_object();
 
 	//vemos si el usuario y contraseña son válidos
-	if ($user == $fila -> id_usuario && $contra == $fila -> clave){
+	if ($user == $fila->id_usuario && $contra == $fila->clave){
 		//usuario y contraseña válidos
 		//se define una sesion y se guarda el dato
 		session_start();
 		$_SESSION["autenticado"]= 1;
-		$_SESSION["usuario"] = $fila -> id_usuario;
-		$_SESSION["nombre"] = $fila -> nombre;
-		$_SESSION["apellido"] = $fila -> apellido;
-		$_SESSION["nivel_usuario"] = $fila -> nivel;
+		$_SESSION["usuario"] = $fila->id_usuario;
+		$_SESSION["nombre"] = $fila->nombre;
+		$_SESSION["apellido"] = $fila->apellido;
+		$_SESSION["nivel_usuario"] = $fila->nivel;
 
 		//SE ALMACENA LA SENTENCIA SQL
 		$_SESSION["sentencia"] = $sql;
@@ -39,6 +39,6 @@
 		header("Location: ../../index.php?errorusuario=1");
 	}
 	
-	$resultado -> free();
-	$cnx_bd -> close();
+	$resultado->free();
+	$cnx_bd->close();
 ?>

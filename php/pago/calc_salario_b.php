@@ -29,10 +29,10 @@
 							include('../_sql/conslt_trabj_sql.php');
 							if (isset($_GET['m']) && $_GET['m'] == 1) modf_suld_indv($cnx_bd);
 							$resultado = conslt_laboral_trb($cnx_bd);
-							$cnx_bd -> close();
-							$fila = $resultado -> fetch_object();
-							$resultado -> free();
-							echo 'NOMBRES Y APPELLIDOS: '.$fila -> nombre.' '.$fila -> apellido.'<br>CARGO: '.$fila -> cargo.'<br>SUELDO MENSUAL Bs.: '.$fila -> sueldo_mensual;
+							$cnx_bd->close();
+							$fila = $resultado->fetch_object();
+							$resultado->free();
+							echo 'NOMBRES Y APPELLIDOS: '.$fila->nombre.' '.$fila->apellido.'<br>CARGO: '.$fila->cargo.'<br>SUELDO MENSUAL Bs.: '.$fila->sueldo_mensual;
 						?>
 						<div id="steps">
 							<form id="formElem" name="formElem" action="calc_salario_c.php" method="post">
@@ -69,13 +69,13 @@
 											<input type="text" name="retro_vaci" id="retro_vaci" title="Por favor ingrese el retroactivo del trabajador" required />
 										</div>
 									</div>
-									<input type="hidden" name="cargo" value="<?=$fila -> cargo?>" />
-									<input type="hidden" name="ley" value="<?=$fila -> ley?>" />
-									<input type="hidden" name="fch_ing" value="<?=$fila -> fecha_ingreso?>" />
-									<input type="hidden" name="salr_mes" value="<?=$fila -> sueldo_mensual?>" />
-									<input type="hidden" name="nombre" value="<?=$fila -> nombre?>" />
-									<input type="hidden" name="apellido" value="<?=$fila -> apellido?>" />
-									<input type="hidden" name="cedula" value="<?=$fila -> cedula?>" />
+									<input type="hidden" name="cargo" value="<?=$fila->cargo?>" />
+									<input type="hidden" name="ley" value="<?=$fila->ley?>" />
+									<input type="hidden" name="fch_ing" value="<?=$fila->fecha_ingreso?>" />
+									<input type="hidden" name="salr_mes" value="<?=$fila->sueldo_mensual?>" />
+									<input type="hidden" name="nombre" value="<?=$fila->nombre?>" />
+									<input type="hidden" name="apellido" value="<?=$fila->apellido?>" />
+									<input type="hidden" name="cedula" value="<?=$fila->cedula?>" />
 									<div class="bot_cent">
 										<br/>
 										<br/>

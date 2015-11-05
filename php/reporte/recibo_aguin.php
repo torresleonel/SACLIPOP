@@ -30,7 +30,7 @@
 						$cnx_bd = conexion();
 						include('../_sql/conslt_trabj_sql.php');
 						$resultado = conslt_pago($cnx_bd,'aguinaldo','anno_calculo');
-						$cnx_bd -> close();
+						$cnx_bd->close();
 						if ($resultado->num_rows <= 0) {
 					?>
 							<div id="msnproceso">
@@ -41,7 +41,7 @@
 					<?php
 							exit();
 						}else{
-							$fila = $resultado -> fetch_object();
+							$fila = $resultado->fetch_object();
 							list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
 					?>
 							<b>NOMBRES Y APPELLIDOS:</b><?=' '.$fila->nombre.' '.$fila->apellido?>

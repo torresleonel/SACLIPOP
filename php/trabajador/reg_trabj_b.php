@@ -22,7 +22,7 @@
 					include('../_conexion/conexion_funcion.php');
 					$cnx_bd = conexion();
 					include('../_sql/reg_trabj_sql.php');
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 				<div id="msnproceso">
 					<h3>REGISTRO DE DATOS DEL TRABAJADOR CORRECTOS</h3>

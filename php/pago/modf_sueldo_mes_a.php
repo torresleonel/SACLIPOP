@@ -26,7 +26,7 @@
 					$empleado = conslt_rango_trb($cnx_bd,'Personal Empleado','Fijo');
 					$obrero = conslt_rango_trb($cnx_bd,'Personal Obrero','Fijo');
 					$contratado = conslt_condicion_trb($cnx_bd,'Contratado');
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 				<h1>Modificar Sueldo Mensual</h1>
 				<form action="modf_sueldo_mes_b.php" method="post">
@@ -39,18 +39,18 @@
 							<th>Cargo</th>
 							<th>Sueldo Mensual</th>
 						</tr>
-						<?php while ($fila = $alto -> fetch_object()){ ?>
+						<?php while ($fila = $alto->fetch_object()){ ?>
 							<tr>
-								<td><a href="#"><?=$fila -> cedula?></a></td>
-								<td><a href="#"><?=$fila -> nombre?></a></td>
-								<td><a href="#"><?=$fila -> apellido?></a></td>
-								<td><a href="#"><?=$fila -> cargo?></a></td>
-								<td><input type="text" name="suld_mes[]" value="<?=$fila -> sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
-								<input type="hidden" name="ced_suld[]" value="<?=$fila -> cedula?>" />
+								<td><a href="#"><?=$fila->cedula?></a></td>
+								<td><a href="#"><?=$fila->nombre?></a></td>
+								<td><a href="#"><?=$fila->apellido?></a></td>
+								<td><a href="#"><?=$fila->cargo?></a></td>
+								<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+								<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 							</tr>
 						<?php
 							}
-							$alto -> free();
+							$alto->free();
 						?>
 					</table>
 					<table id="tabla">
@@ -62,18 +62,18 @@
 							<th>Cargo</th>
 							<th>Sueldo Mensual</th>
 						</tr>
-						<?php while ($fila = $empleado -> fetch_object()){ ?>
+						<?php while ($fila = $empleado->fetch_object()){ ?>
 							<tr>
-								<td><a href="#"><?=$fila -> cedula?></a></td>
-								<td><a href="#"><?=$fila -> nombre?></a></td>
-								<td><a href="#"><?=$fila -> apellido?></a></td>
-								<td><a href="#"><?=$fila -> cargo?></a></td>
-								<td><input type="text" name="suld_mes[]" value="<?=$fila -> sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
-								<input type="hidden" name="ced_suld[]" value="<?=$fila -> cedula?>" />
+								<td><a href="#"><?=$fila->cedula?></a></td>
+								<td><a href="#"><?=$fila->nombre?></a></td>
+								<td><a href="#"><?=$fila->apellido?></a></td>
+								<td><a href="#"><?=$fila->cargo?></a></td>
+								<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+								<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 							</tr>
 						<?php
 							}
-							$empleado -> free();
+							$empleado->free();
 						?>
 					</table>
 					<table id="tabla">
@@ -85,18 +85,18 @@
 							<th>Cargo</th>
 							<th>Sueldo Mensual</th>
 						</tr>
-						<?php while ($fila = $obrero -> fetch_object()){ ?>
+						<?php while ($fila = $obrero->fetch_object()){ ?>
 							<tr>
-								<td><a href="#"><?=$fila -> cedula?></a></td>
-								<td><a href="#"><?=$fila -> nombre?></a></td>
-								<td><a href="#"><?=$fila -> apellido?></a></td>
-								<td><a href="#"><?=$fila -> cargo?></a></td>
-								<td><input type="text" name="suld_mes[]" value="<?=$fila -> sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
-								<input type="hidden" name="ced_suld[]" value="<?=$fila -> cedula?>" />
+								<td><a href="#"><?=$fila->cedula?></a></td>
+								<td><a href="#"><?=$fila->nombre?></a></td>
+								<td><a href="#"><?=$fila->apellido?></a></td>
+								<td><a href="#"><?=$fila->cargo?></a></td>
+								<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+								<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 							</tr>
 						<?php
 							}
-							$obrero -> free();
+							$obrero->free();
 						?>
 					</table>
 					<table id="tabla">
@@ -108,18 +108,18 @@
 							<th>Cargo</th>
 							<th>Sueldo Mensual</th>
 						</tr>
-						<?php while ($fila = $contratado -> fetch_object()){ ?>
+						<?php while ($fila = $contratado->fetch_object()){ ?>
 							<tr>
-								<td><a href="#"><?=$fila -> cedula?></a></td>
-								<td><a href="#"><?=$fila -> nombre?></a></td>
-								<td><a href="#"><?=$fila -> apellido?></a></td>
-								<td><a href="#"><?=$fila -> cargo?></a></td>
-								<td><input type="text" name="suld_mes[]" value="<?=$fila -> sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
-								<input type="hidden" name="ced_suld[]" value="<?=$fila -> cedula?>" />
+								<td><a href="#"><?=$fila->cedula?></a></td>
+								<td><a href="#"><?=$fila->nombre?></a></td>
+								<td><a href="#"><?=$fila->apellido?></a></td>
+								<td><a href="#"><?=$fila->cargo?></a></td>
+								<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+								<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 							</tr>
 						<?php
 							}
-							$contratado -> free();
+							$contratado->free();
 						?>
 					</table>
 					<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

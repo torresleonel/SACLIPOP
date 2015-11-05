@@ -75,7 +75,7 @@
 						<a href="calc_bono_vac_a.php" class="enlaceboton" title="Click para volver a la lista de los trabajadores">Volver</a>
 				<?php
 					}
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 			</div>
 		</div>

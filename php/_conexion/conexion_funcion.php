@@ -16,7 +16,7 @@
 		$conexion_bd = new mysqli(SERVIDOR, USUARIO, CONTRASENA, BD);
 		
 		//SE EVALUA EL EXITO DE LA CONEXIÓN
-		if ($conexion_bd -> connect_errno > 0) {
+		if ($conexion_bd->connect_errno > 0) {
 			printf(
 				'<h2>Error en la conexión con la base de datos</h2>
 				<p>
@@ -24,8 +24,8 @@
 					<br>
 					<b>Mensaje:</b> %s
 				</p>',
-				$conexion_bd -> connect_errno,
-				$conexion_bd -> connect_error
+				$conexion_bd->connect_errno,
+				$conexion_bd->connect_error
 			);
 			exit();
 		}
@@ -34,7 +34,7 @@
 	
 	//FUNCION PARA MOSTRAR ERROR DE LA CONSULTA A LA BASE DE DATOS
 	function error_sql($cnx_bd) {
-		if ($cnx_bd -> errno > 0) {
+		if ($cnx_bd->errno > 0) {
 			printf(
 				'<h2>Error en la consulta a la base de datos</h2>
 				<p>
@@ -42,10 +42,10 @@
 					<br>
 					<b>Mensaje:</b> %s
 				</p>',
-				$cnx_bd -> errno,
-				$cnx_bd -> error
+				$cnx_bd->errno,
+				$cnx_bd->error
 			);
-			$cnx_bd -> close();
+			$cnx_bd->close();
 			exit();
 		}
 	}
@@ -63,7 +63,7 @@
 		$sql = "INSERT INTO bitacora (id_usuario,nombre,apellido,sentencia)
 				VALUES ('$usuario','$nombre','$apellido','$sentencia')";
 				
-		$cnx_bd -> query($sql);
+		$cnx_bd->query($sql);
 	
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);

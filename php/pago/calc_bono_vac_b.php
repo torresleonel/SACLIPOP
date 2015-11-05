@@ -28,11 +28,11 @@
 							$cnx_bd = conexion();
 							include('../_sql/conslt_trabj_sql.php');
 							$resultado = conslt_laboral_trb($cnx_bd);
-							$cnx_bd -> close();
-							$fila = $resultado -> fetch_object();
-							$resultado -> free();
-							list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
-							echo 'NOMBRES Y APPELLIDOS: '.$fila -> nombre.' '.$fila -> apellido.'<br>CARGO: '.$fila -> cargo.'<br>SUELDO MENSUAL Bs.: '.$fila -> sueldo_mensual.'<br>FECHA DE INGRESO: '.$d.'-'.$m.'-'.$a;
+							$cnx_bd->close();
+							$fila = $resultado->fetch_object();
+							$resultado->free();
+							list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
+							echo 'NOMBRES Y APPELLIDOS: '.$fila->nombre.' '.$fila->apellido.'<br>CARGO: '.$fila->cargo.'<br>SUELDO MENSUAL Bs.: '.$fila->sueldo_mensual.'<br>FECHA DE INGRESO: '.$d.'-'.$m.'-'.$a;
 						?>
 						<div id="steps">
 							<form id="formElem" name="formElem" action="calc_bono_vac_c.php" method="post">
@@ -58,13 +58,13 @@
 											</select>
 										</div>
 									</div>
-									<input type="hidden" name="cargo" value="<?=$fila -> cargo?>" />
-									<input type="hidden" name="ley" value="<?=$fila -> ley?>" />
-									<input type="hidden" name="fch_ing" value="<?=$fila -> fecha_ingreso?>" />
-									<input type="hidden" name="salr_mes" value="<?=$fila -> sueldo_mensual?>" />
-									<input type="hidden" name="nombre" value="<?=$fila -> nombre?>" />
-									<input type="hidden" name="apellido" value="<?=$fila -> apellido?>" />
-									<input type="hidden" name="cedula" value="<?=$fila -> cedula?>" />
+									<input type="hidden" name="cargo" value="<?=$fila->cargo?>" />
+									<input type="hidden" name="ley" value="<?=$fila->ley?>" />
+									<input type="hidden" name="fch_ing" value="<?=$fila->fecha_ingreso?>" />
+									<input type="hidden" name="salr_mes" value="<?=$fila->sueldo_mensual?>" />
+									<input type="hidden" name="nombre" value="<?=$fila->nombre?>" />
+									<input type="hidden" name="apellido" value="<?=$fila->apellido?>" />
+									<input type="hidden" name="cedula" value="<?=$fila->cedula?>" />
 									<div class="bot_cent">
 										<input type="submit" name="calcular" value="Calcular" id="boton" title="Click para calcular el bono vacacional del trabajdor" />
 									</div>

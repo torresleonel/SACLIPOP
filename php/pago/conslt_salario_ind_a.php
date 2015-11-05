@@ -28,7 +28,7 @@
 							$cnx_bd = conexion();
 							include('../_sql/conslt_trabj_sql.php');
 							$resultado = conslt_trb($cnx_bd,1);
-							$cnx_bd -> close();
+							$cnx_bd->close();
 						?>
 						<div id="steps">
 							<form id="formElem" name="formElem" action="conslt_salario_ind_b.php" method="post">
@@ -40,8 +40,8 @@
 											<select name="trbj" id="trbj" title="Por favor elija el trabajador que desea consultar" required>
 												<option></option>
 												<?php
-													while ($fila = $resultado -> fetch_object()) echo '<option value="'.$fila -> cedula.' '.$fila -> nombre.' '.$fila -> apellido.'">'.$fila -> cedula.' '.$fila -> nombre.' '.$fila -> apellido.'</option>';
-													$resultado -> free();
+													while ($fila = $resultado->fetch_object()) echo '<option value="'.$fila->cedula.' '.$fila->nombre.' '.$fila->apellido.'">'.$fila->cedula.' '.$fila->nombre.' '.$fila->apellido.'</option>';
+													$resultado->free();
 												?>
 											</select>
 										</div>

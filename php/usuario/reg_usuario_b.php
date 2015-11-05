@@ -23,7 +23,7 @@
 					$cnx_bd = conexion();
 					include('../_sql/usuario_sql.php');
 					reg_usuario($cnx_bd);
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 				<div id="msnproceso">
 					<h3>REGISTRO DE USUARIO EXITOSO</h3>

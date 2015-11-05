@@ -29,24 +29,24 @@
 					$resultado = conslt_completa_trb($cnx_bd);
 					$familia = conslt_familia($cnx_bd);
 					$referencia = conslt_referencia($cnx_bd);
-					$cnx_bd -> close();
-					$fila = $resultado -> fetch_object();
-					list($a,$m,$d) = explode("-",$fila -> actualizado);
-					list($an,$mn,$dn) = explode("-",$fila -> fe_nac);
-					list($ai,$mi,$di) = explode("-",$fila -> fecha_ingreso);
-					if ($fila -> estudia == 0) $estud = 'No'; else $estud = 'Si';
-					if ($fila -> partida_naci == 0) $prtnac = 'No'; else $prtnac = 'Si';
-					if ($fila -> inscrip_militar == 0) $insmil = 'No'; else $insmil = 'Si';
-					if ($fila -> cedula_ident == 0) $ced = 'No'; else $ced = 'Si';
-					if ($fila -> rif == 0) $rif = 'No'; else $rif = 'Si';
-					if ($fila -> declaracion_jurada == 0) $decjur = 'No'; else $decjur = 'Si';
-					if ($fila -> informe_medico == 0) $infmed = 'No'; else $infmed = 'Si';
-					if ($fila -> parti_nac_h == 0) $prtnach = 'No'; else $prtnach = 'Si';
-					if ($fila -> acta_mat_div == 0) $matdiv = 'No'; else $matdiv = 'Si';
-					if ($fila -> defunciones == 0) $defu = 'No'; else $defu = 'Si';
-					if ($fila -> titulos == 0) $tit = 'No'; else $tit = 'Si';
-					if ($fila -> certificados == 0) $cert = 'No'; else $cert = 'Si';
-					if ($fila -> const_hor_est == 0) $che = 'No'; else $che = 'Si';
+					$cnx_bd->close();
+					$fila = $resultado->fetch_object();
+					list($a,$m,$d) = explode("-",$fila->actualizado);
+					list($an,$mn,$dn) = explode("-",$fila->fe_nac);
+					list($ai,$mi,$di) = explode("-",$fila->fecha_ingreso);
+					if ($fila->estudia == 0) $estud = 'No'; else $estud = 'Si';
+					if ($fila->partida_naci == 0) $prtnac = 'No'; else $prtnac = 'Si';
+					if ($fila->inscrip_militar == 0) $insmil = 'No'; else $insmil = 'Si';
+					if ($fila->cedula_ident == 0) $ced = 'No'; else $ced = 'Si';
+					if ($fila->rif == 0) $rif = 'No'; else $rif = 'Si';
+					if ($fila->declaracion_jurada == 0) $decjur = 'No'; else $decjur = 'Si';
+					if ($fila->informe_medico == 0) $infmed = 'No'; else $infmed = 'Si';
+					if ($fila->parti_nac_h == 0) $prtnach = 'No'; else $prtnach = 'Si';
+					if ($fila->acta_mat_div == 0) $matdiv = 'No'; else $matdiv = 'Si';
+					if ($fila->defunciones == 0) $defu = 'No'; else $defu = 'Si';
+					if ($fila->titulos == 0) $tit = 'No'; else $tit = 'Si';
+					if ($fila->certificados == 0) $cert = 'No'; else $cert = 'Si';
+					if ($fila->const_hor_est == 0) $che = 'No'; else $che = 'Si';
 				?>
 				<div id="content">
 					<h1>Detalles del Personal</h1>
@@ -81,15 +81,15 @@
 									<div class='derecha'>
 										<div class='campo'>
 											<label class='rotulo'>Nombres</label>
-											<span class="text_cons"><?=$fila -> nombre?></span>
+											<span class="text_cons"><?=$fila->nombre?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Cédula</label>
-											<span class="text_cons"><?=$fila -> cedula?></span>
+											<span class="text_cons"><?=$fila->cedula?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Nacionalidad</label>
-											<span class="text_cons"><?=$fila -> ciudadania?></span>
+											<span class="text_cons"><?=$fila->ciudadania?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Estudia</label>
@@ -97,45 +97,45 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Dirección</label>
-											<span class="text_cons"><?=$fila -> direccion?></span>
+											<span class="text_cons"><?=$fila->direccion?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Estado Civil</label>
-											<span class="text_cons"><?=$fila -> est_civil?></span>
+											<span class="text_cons"><?=$fila->est_civil?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Rango</label>
-											<span class="text_cons"><?=$fila -> rango?></span>
+											<span class="text_cons"><?=$fila->rango?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Condición Laboral</label>
-											<span class="text_cons"><?=$fila -> condicion?></span>
+											<span class="text_cons"><?=$fila->condicion?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Cargo</label>
-											<span class="text_cons"><?=$fila -> cargo?></span>
+											<span class="text_cons"><?=$fila->cargo?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Área de Desempeño</label>
-											<span class="text_cons"><?=$fila -> area_desemp?></span>
+											<span class="text_cons"><?=$fila->area_desemp?></span>
 										</div>
 									</div>
 									<div class='izquierda'>
 										<div class='campo'>
 											<label class='rotulo'>Apellidos</label>
-											<span class="text_cons"><?=$fila -> apellido?></span>
+											<span class="text_cons"><?=$fila->apellido?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Libreta Militar</label>
-											<span class="text_cons"><?=$fila -> libreta_militr?></span>
+											<span class="text_cons"><?=$fila->libreta_militr?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Pasaporte</label>
-											<span class="text_cons"><?=$fila -> pasaporte?></span>
+											<span class="text_cons"><?=$fila->pasaporte?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Lugar de Nacimiento</label>
-											<span class="text_cons"><?=$fila -> lug_nac?></span>
+											<span class="text_cons"><?=$fila->lug_nac?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Fecha de Nacimiento</label>
@@ -143,15 +143,15 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Teléfono</label>
-											<span class="text_cons"><?=$fila -> telefono?></span>
+											<span class="text_cons"><?=$fila->telefono?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Teléfono Emergencia</label>
-											<span class="text_cons"><?=$fila -> telefono_em?></span>
+											<span class="text_cons"><?=$fila->telefono_em?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Nombre del Conyugue</label>
-											<span class="text_cons"><?=$fila -> nconyugue?></span>
+											<span class="text_cons"><?=$fila->nconyugue?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Fecha de Ingreso</label>
@@ -159,11 +159,11 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Resolución</label>
-											<span class="text_cons"><?=$fila -> resolucion?></span>
+											<span class="text_cons"><?=$fila->resolucion?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Amparado Bajo</label>
-											<span class="text_cons"><?=$fila -> ley?></span>
+											<span class="text_cons"><?=$fila->ley?></span>
 										</div>
 									</div>
 								</fieldset>
@@ -172,12 +172,12 @@
 									<div id='sheepItForm'>
 										<div id='sheepItForm_template'>
 											<?php 
-												$num_filas_f = $familia -> num_rows;
+												$num_filas_f = $familia->num_rows;
 												if ($num_filas_f != 0) {
-													while ($fila_f = $familia -> fetch_object()) {
-														if ($fila_f -> empleadof == 0) $empf = 'No'; elseif ($fila_f -> empleadof == 1) $empf = 'De la institución'; else $empf = 'De la alcaldia';
-														if ($fila_f -> estudiaf == 0) $estf = 'No'; else $estf = 'Si';
-														list($af,$mf,$df) = explode("-",$fila_f -> fecha_nacf);
+													while ($fila_f = $familia->fetch_object()) {
+														if ($fila_f->empleadof == 0) $empf = 'No'; elseif ($fila_f->empleadof == 1) $empf = 'De la institución'; else $empf = 'De la alcaldia';
+														if ($fila_f->estudiaf == 0) $estf = 'No'; else $estf = 'Si';
+														list($af,$mf,$df) = explode("-",$fila_f->fecha_nacf);
 														$A_actual= date("Y");
 														$M_actual = date("n");
 														$D_actual = date("j");
@@ -196,15 +196,15 @@
 														<div class='derecha'>
 															<div class='campo'>
 																<label class='rotulo'>Nombres</label>
-																<span class="text_cons"><?=$fila_f -> nombref?></span>
+																<span class="text_cons"><?=$fila_f->nombref?></span>
 															</div>
 															<div class='campo'>
 																<label class='rotulo'>Cédula</label>
-																<span class="text_cons"><?=$fila_f -> cedulaf?></span>
+																<span class="text_cons"><?=$fila_f->cedulaf?></span>
 															</div>
 															<div class='campo'>
 																<label class='rotulo'>Parentesco</label>
-																<span class="text_cons"><?=$fila_f -> parentescof?></span>
+																<span class="text_cons"><?=$fila_f->parentescof?></span>
 															</div>
 															<div class='campo'>
 																<label class='rotulo'>Empleado</label>
@@ -214,7 +214,7 @@
 														<div class='izquierda'>
 															<div class='campo'>
 																<label class='rotulo'>Apellidos</label>
-																<span class="text_cons"><?=$fila_f -> apellidof?></span>
+																<span class="text_cons"><?=$fila_f->apellidof?></span>
 															</div>
 															<div class='campo'>
 																<label class='rotulo'>Fecha de Nacimiento</label>
@@ -230,7 +230,7 @@
 															</div>
 															<div class='campo'>
 																<label class='rotulo'>Cargo</label>
-																<span class="text_cons"><?=$fila_f -> cargof?></span>
+																<span class="text_cons"><?=$fila_f->cargof?></span>
 															</div>
 														</div>
 											<?php 
@@ -248,25 +248,25 @@
 									<div class='derecha'>
 										<div class='campo'>
 											<label class='rotulo'>Estudios</label>
-											<span class="text_cons"><?=$fila -> estudios?></span>
+											<span class="text_cons"><?=$fila->estudios?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Lugar de Estudio</label>
-											<span class="text_cons"><?=$fila -> lugar_estudio?></span>
+											<span class="text_cons"><?=$fila->lugar_estudio?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Año</label>
-											<span class="text_cons"><?=$fila -> anno?></span>
+											<span class="text_cons"><?=$fila->anno?></span>
 										</div>
 									</div>
 									<div class='izquierda'>
 										<div class='campo'>
 											<label class='rotulo'>Titulo Obtenido</label>
-											<span class="text_cons"><?=$fila -> titulo?></span>
+											<span class="text_cons"><?=$fila->titulo?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Observaciones</label>
-											<span class="text_cons"><?=$fila -> observacion?></span>
+											<span class="text_cons"><?=$fila->observacion?></span>
 										</div>
 									</div>
 								</fieldset>
@@ -337,25 +337,25 @@
 											<div class='derecha'>
 												<div class='campo'>
 													<label class='rotulo'>Nombres</label>
-													<span class="text_cons"><?=$fila_r -> nombre_rp?></span>
+													<span class="text_cons"><?=$fila_r->nombre_rp?></span>
 												</div>
 												<div class='campo'>
 													<label class='rotulo'>Cédula</label>
-													<span class="text_cons"><?=$fila_r -> cedula_rp?></span>
+													<span class="text_cons"><?=$fila_r->cedula_rp?></span>
 												</div>
 												<div class='campo'>
 													<label class='rotulo'>Teléfono</label>
-													<span class="text_cons"><?=$fila_r -> telefono_rp?></span>
+													<span class="text_cons"><?=$fila_r->telefono_rp?></span>
 												</div>
 											</div>
 											<div class='izquierda'>
 												<div class='campo'>
 													<label class='rotulo'>Apellidos</label>
-													<span class="text_cons"><?=$fila_r -> apellido_rp?></span>
+													<span class="text_cons"><?=$fila_r->apellido_rp?></span>
 												</div>
 												<div class='campo'>
 													<label class='rotulo'>Ocupación</label>
-													<span class="text_cons"><?=$fila_r -> ocupacion_rp?></span>
+													<span class="text_cons"><?=$fila_r->ocupacion_rp?></span>
 												</div>
 											</div>
 									<?php
@@ -367,23 +367,23 @@
 									<div class='centro'>
 										<div class='campo'>
 											<label class='rotulo'>Talla Camisa</label>
-											<span class="text_cons"><?=$fila -> camisa?></span>
+											<span class="text_cons"><?=$fila->camisa?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Talla Pantalon</label>
-											<span class="text_cons"><?=$fila -> pantalon?></span>
+											<span class="text_cons"><?=$fila->pantalon?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Talla Calzado</label>
-											<span class="text_cons"><?=$fila -> calzado?></span>
+											<span class="text_cons"><?=$fila->calzado?></span>
 										</div>
 									</div>
 								</fieldset>
 								<fieldset class="step">
 									<?php
-										$resultado -> free();
-										$familia -> free();
-										$referencia -> free();
+										$resultado->free();
+										$familia->free();
+										$referencia->free();
 									?>
 								</fieldset>
 							</form>

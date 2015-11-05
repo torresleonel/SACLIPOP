@@ -39,7 +39,7 @@ var
 	// Map over the $ in case of overwrite
 	_$ = window.$,
 
-	// [[Class]] -> type pairs
+	// [[Class]]->type pairs
 	class2type = {},
 
 	// List of deleted data cache ids, so we can reuse them
@@ -141,7 +141,7 @@ jQuery.fn = jQuery.prototype = {
 			// Match html or make sure no context is specified for #id
 			if ( match && (match[1] || !context) ) {
 
-				// HANDLE: $(html) -> $(array)
+				// HANDLE: $(html)->$(array)
 				if ( match[1] ) {
 					context = context instanceof jQuery ? context[0] : context;
 
@@ -9272,7 +9272,7 @@ jQuery.speed = function( speed, easing, fn ) {
 	opt.duration = jQuery.fx.off ? 0 : typeof opt.duration === "number" ? opt.duration :
 		opt.duration in jQuery.fx.speeds ? jQuery.fx.speeds[ opt.duration ] : jQuery.fx.speeds._default;
 
-	// normalize opt.queue - true/undefined/null -> "fx"
+	// normalize opt.queue - true/undefined/null->"fx"
 	if ( opt.queue == null || opt.queue === true ) {
 		opt.queue = "fx";
 	}

@@ -29,7 +29,7 @@
 						'<br>FECHA DE INGRESO: '.$di.'-'.$mi.'-'.$ai.
 						'<br>SUELDO MENSUAL Bs.: '.$_POST['salr_mes'];
 					$aguin = calc_aguinaldos($cnx_bd);
-					$cnx_bd -> close();
+					$cnx_bd->close();
 					if (!$aguin) {
 						echo '
 							<div id="msnproceso">

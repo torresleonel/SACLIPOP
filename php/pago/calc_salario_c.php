@@ -24,7 +24,7 @@
 					$cnx_bd = conexion();
 					include('../_sql/calculo_pago_sql.php');
 					list($inicio_quincena,$fin_quincena,$salr_quincena,$d_adicional,$t_dia_adic,$retro_suld,$retro_agin,$retro_vaci,$sso,$spf,$faov,$inasistencia,$t_inasist,$islr,$t_deduccion,$t_asign,$total_pagar) = calc_salario($cnx_bd);
-					$cnx_bd -> close();
+					$cnx_bd->close();
 					list($ai,$mi,$di) = explode('-',$inicio_quincena);
 					list($af,$mf,$df) = explode('-',$fin_quincena);
 					echo '

@@ -24,8 +24,8 @@
 					$cnx_bd = conexion();
 					include('../_sql/conslt_trabj_sql.php');
 					$resultado = conslt_pago($cnx_bd,'salario','inicio_quincena');
-					$cnx_bd -> close();
-					if ($resultado -> num_rows <= 0) {
+					$cnx_bd->close();
+					if ($resultado->num_rows <= 0) {
 						if ($_POST['dia'] == 1) $d = 'primera quincena';
 						else $d = 'segunda quincena';
 				?>
@@ -35,16 +35,16 @@
 						</div>
 				<?php
 					}else{
-						$fila = $resultado -> fetch_object();
-						$resultado -> free();
-						list($ai,$mi,$di) = explode('-',$fila -> inicio_quincena);
-						list($af,$mf,$df) = explode('-',$fila -> fin_quincena);
+						$fila = $resultado->fetch_object();
+						$resultado->free();
+						list($ai,$mi,$di) = explode('-',$fila->inicio_quincena);
+						list($af,$mf,$df) = explode('-',$fila->fin_quincena);
 				?>
-						<b>NOMBRES Y APELLIDOS:</b><?=' '.$fila -> nombre.' '.$fila -> apellido?>
+						<b>NOMBRES Y APELLIDOS:</b><?=' '.$fila->nombre.' '.$fila->apellido?>
 						<br>
-						<b>CARGO:</b><?=' '.$fila -> cargo?>
+						<b>CARGO:</b><?=' '.$fila->cargo?>
 						<br>
-						<b>SUELDO MENSUAL Bs.:</b><?=' '.$fila -> sueldo_mensual?>
+						<b>SUELDO MENSUAL Bs.:</b><?=' '.$fila->sueldo_mensual?>
 						<br><br>
 						<b>Quincena del:</b><?=' '.$di.'-'.$mi.'-'.$ai.' '?>
 						<b>al:</b><?=' '.$df.'-'.$mf.'-'.$af?>
@@ -58,71 +58,71 @@
 							<tr>
 								<td>Sueldo</td>
 								<td>15</td>
-								<td>Bs <?=$fila -> sueldo_quincena?></td>
+								<td>Bs <?=$fila->sueldo_quincena?></td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>Dia Adicional</td>
-								<td><?=$fila -> dia_adicional?></td>
-								<td>Bs <?=$fila -> total_dia_adic?></td>
+								<td><?=$fila->dia_adicional?></td>
+								<td>Bs <?=$fila->total_dia_adic?></td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>Retroactivo Sueldo</td>
 								<td></td>
-								<td>Bs <?=$fila -> retro_sueldo?></td>
+								<td>Bs <?=$fila->retro_sueldo?></td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>Retroactivo Aguinaldo</td>
 								<td></td>
-								<td>Bs <?=$fila -> retro_vacaciones?></td>
+								<td>Bs <?=$fila->retro_vacaciones?></td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>Retroactivo Vacaciones</td>
 								<td></td>
-								<td>Bs <?=$fila -> retro_aguinaldos?></td>
+								<td>Bs <?=$fila->retro_aguinaldos?></td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>S.S.O.</td>
 								<td></td>
 								<td></td>
-								<td>Bs <?=$fila -> sso?></td>
+								<td>Bs <?=$fila->sso?></td>
 							</tr>
 							<tr>
 								<td>S.P.F.</td>
 								<td></td>
 								<td></td>
-								<td>Bs <?=$fila -> spf?></td>
+								<td>Bs <?=$fila->spf?></td>
 							</tr>
 							<tr>
 								<td>F.A.O.V.</td>
 								<td></td>
 								<td></td>
-								<td>Bs <?=$fila -> faov?></td>
+								<td>Bs <?=$fila->faov?></td>
 							</tr>
 							<tr>
 								<td>Inasistencias</td>
-								<td><?=$fila -> inasistencias?></td>
+								<td><?=$fila->inasistencias?></td>
 								<td></td>
-								<td>Bs <?=$fila -> total_inasist?></td>
+								<td>Bs <?=$fila->total_inasist?></td>
 							</tr>
 							<tr>
 								<td>Otros (ISLR)</td>
 								<td></td>
 								<td></td>
-								<td>Bs <?=$fila -> islr?></td>
+								<td>Bs <?=$fila->islr?></td>
 							</tr>
 							<tr>
 								<td colspan="2">Total</td>
-								<td>Bs <?=$fila -> total_asignaciones?></td>
-								<td>Bs <?=$fila -> total_deducciones?></td>
+								<td>Bs <?=$fila->total_asignaciones?></td>
+								<td>Bs <?=$fila->total_deducciones?></td>
 							</tr>
 							<tr>
 								<td colspan="3">TOTAL A PAGAR</td>
-								<td>Bs <?=$fila -> total_pagar?></td>
+								<td>Bs <?=$fila->total_pagar?></td>
 							</tr>
 						</table>
 				<?php } ?>

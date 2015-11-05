@@ -35,7 +35,7 @@
 			SET cedula = '$cedula',nombre = '$nombre',apellido = '$apellido',ciudadania = '$nacionalidad',pasaporte = '$pasaporte',libreta_militr = '$libreta_militr',fe_nac = '$fecha_nac',lug_nac = '$lug_nac',est_civil = '$est_civil',nconyugue = '$nconyugue',estudia = '$estudia',direccion = '$direccion',telefono = '$telefono',estado = '$estado',actualizado = '$actualizacion'
 			WHERE cedula = '$ced_vj'";
 		
-	$cnx_bd -> query($sql);
+	$cnx_bd->query($sql);
 	
 	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 	error_sql($cnx_bd);
@@ -51,7 +51,7 @@
 			SET cedula = '$cedula',dpt_envia = '$dept_env',fecha_ingreso = '$fecha_ing',cargo = '$cargo',observacion = '$observacion'
 			WHERE cedula = '$ced_vj'";
 		
-	$cnx_bd -> query($sql);
+	$cnx_bd->query($sql);
 	
 	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 	error_sql($cnx_bd);

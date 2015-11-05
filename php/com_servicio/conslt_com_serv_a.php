@@ -24,7 +24,7 @@
 					include('../_sql/conslt_trabj_sql.php');
 					$com_actv = conslt_coms($cnx_bd,1);
 					$com_inactv = conslt_coms($cnx_bd,0);
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 				<h1>Consulta Personal de la Clinica por Comisión de Servicio</h1>
 				<table id="tabla">
@@ -35,20 +35,20 @@
 						<th>Apellidos</th>
 						<th>Acciones</th>
 					</tr>
-					<?php while ($fila = $com_actv -> fetch_object()){ ?>
+					<?php while ($fila = $com_actv->fetch_object()){ ?>
 						<tr>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila -> cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila -> cedula; ?></a></td>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila -> cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila -> nombre; ?></a></td>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila -> cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila -> apellido; ?></a></td>
+							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->cedula; ?></a></td>
+							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->nombre; ?></a></td>
+							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->apellido; ?></a></td>
 							<td>				
 								<div class="izq">
-									<a href= "modf_com_serv_a.php?c=<?php echo $fila -> cedula; ?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
+									<a href= "modf_com_serv_a.php?c=<?php echo $fila->cedula; ?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
 								</div>
 							</td>
 						</tr>
 					<?php
 						}
-						$com_actv -> free();
+						$com_actv->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -59,23 +59,23 @@
 						<th>Apellidos</th>
 						<th>Acciones</th>
 					</tr>
-					<?php while ($fila = $com_inactv -> fetch_object()){ ?>
+					<?php while ($fila = $com_inactv->fetch_object()){ ?>
 						<tr>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila -> cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila -> cedula; ?></a></td>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila -> cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila -> nombre; ?></a></td>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila -> cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila -> apellido; ?></a></td>
+							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->cedula; ?></a></td>
+							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->nombre; ?></a></td>
+							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->apellido; ?></a></td>
 							<td>				
 								<div class="izq">
-									<a href= "modf_com_serv_a.php?c=<?php echo $fila -> cedula; ?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
+									<a href= "modf_com_serv_a.php?c=<?php echo $fila->cedula; ?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
 								</div>
 								<div class="izq">
-									<a href= "pdf/constancia.php?id=<?php echo $fila -> cedula; ?>" target="_blank" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
+									<a href= "pdf/constancia.php?id=<?php echo $fila->cedula; ?>" target="_blank" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
 								</div>
 							</td>
 						</tr>
 					<?php
 						}
-						$com_inactv -> free();
+						$com_inactv->free();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

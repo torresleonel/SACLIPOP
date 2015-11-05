@@ -14,7 +14,7 @@
 				BETWEEN '$ini' 
 				AND '$fin'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -37,7 +37,7 @@
 				BETWEEN '$ini' 
 				AND '$fin'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);

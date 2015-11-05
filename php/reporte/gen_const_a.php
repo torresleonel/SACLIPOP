@@ -23,7 +23,7 @@
 					$cnx_bd = conexion();
 					include('../_sql/conslt_trabj_sql.php');
 					$trb_actv = conslt_trb($cnx_bd,1);
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 				<h1>Constancia de Trabajo</h1>
 				<table id="tabla">
@@ -34,20 +34,20 @@
 						<th>Apellidos</th>
 						<th>Constancia Trabajo</th>
 					</tr>
-					<?php while ($fila = $trb_actv -> fetch_object()){ ?>
+					<?php while ($fila = $trb_actv->fetch_object()){ ?>
 						<tr>
-							<td><?=$fila -> cedula?></td>
-							<td><?=$fila -> nombre?></td>
-							<td><?=$fila -> apellido?></td>
+							<td><?=$fila->cedula?></td>
+							<td><?=$fila->nombre?></td>
+							<td><?=$fila->apellido?></td>
 							<td>
 								<div class="izq">
-									<a href= "gen_const_b.php?c=<?=$fila -> cedula?>" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
+									<a href= "gen_const_b.php?c=<?=$fila->cedula?>" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
 								</div>
 							</td>
 						</tr>
 					<?php
 						}
-						$trb_actv -> free();
+						$trb_actv->free();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

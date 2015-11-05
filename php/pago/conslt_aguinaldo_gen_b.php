@@ -27,8 +27,8 @@
 					$empleado = conslt_pago_rango_gen($cnx_bd,'aguinaldo','Personal Empleado','Fijo','anno_calculo');
 					$obrero = conslt_pago_rango_gen($cnx_bd,'aguinaldo','Personal Obrero','Fijo','anno_calculo');
 					$contratado = conslt_pago_condicion_gen($cnx_bd,'aguinaldo','Contratado','anno_calculo');
-					$cnx_bd -> close();
-					if ($alto -> num_rows <= 0 && $empleado -> num_rows <= 0 && $obrero -> num_rows <= 0 && $contratado -> num_rows <= 0) {
+					$cnx_bd->close();
+					if ($alto->num_rows <= 0 && $empleado->num_rows <= 0 && $obrero->num_rows <= 0 && $contratado->num_rows <= 0) {
 				?>
 						<div id="msnproceso">
 							<h3>No se ha realizado calculado de aguinaldos para el año<?=' '.$_POST['a']?></h3>
@@ -51,21 +51,21 @@
 								<th>Aguinaldos</th>
 							</tr>
 							<?php
-								while($fila = $alto -> fetch_object()){
-									list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
+								while($fila = $alto->fetch_object()){
+									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
 							?>
 									<tr>
-										<td><?=$fila -> nombre.' '.$fila -> apellido?></td>
-										<td><?=$fila -> cedula?></td>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
 										<td><?=$d.'-'.$m.'-'.$a?></td>
-										<td>Bs <?=$fila -> sueldo_mensual?></td>
-										<td>Bs <?=$fila -> sid?></td>
-										<td>Bs <?=$fila -> total_pagar?></td>
+										<td>Bs <?=$fila->sueldo_mensual?></td>
+										<td>Bs <?=$fila->sid?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
 									</tr>
 							<?php
-									$subt_a += $fila -> total_pagar;
+									$subt_a += $fila->total_pagar;
 								}
-								$alto -> free();
+								$alto->free();
 							?>
 							<tr>
 								<td colspan="5">SUB-TOTAL</td>
@@ -83,21 +83,21 @@
 								<th>Aguinaldos</th>
 							</tr>
 							<?php
-								while($fila = $empleado -> fetch_object()){
-									list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
+								while($fila = $empleado->fetch_object()){
+									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
 							?>
 									<tr>
-										<td><?=$fila -> nombre.' '.$fila -> apellido?></td>
-										<td><?=$fila -> cedula?></td>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
 										<td><?=$d.'-'.$m.'-'.$a?></td>
-										<td>Bs <?=$fila -> sueldo_mensual?></td>
-										<td>Bs <?=$fila -> sid?></td>
-										<td>Bs <?=$fila -> total_pagar?></td>
+										<td>Bs <?=$fila->sueldo_mensual?></td>
+										<td>Bs <?=$fila->sid?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
 									</tr>
 							<?php
-									$subt_e += $fila -> total_pagar;
+									$subt_e += $fila->total_pagar;
 								}
-								$empleado -> free();
+								$empleado->free();
 							?>
 							<tr>
 								<td colspan="5">SUB-TOTAL</td>
@@ -115,21 +115,21 @@
 								<th>Aguinaldos</th>
 							</tr>
 							<?php
-								while($fila = $obrero -> fetch_object()){
-									list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
+								while($fila = $obrero->fetch_object()){
+									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
 							?>
 									<tr>
-										<td><?=$fila -> nombre.' '.$fila -> apellido?></td>
-										<td><?=$fila -> cedula?></td>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
 										<td><?=$d.'-'.$m.'-'.$a?></td>
-										<td>Bs <?=$fila -> sueldo_mensual?></td>
-										<td>Bs <?=$fila -> sid?></td>
-										<td>Bs <?=$fila -> total_pagar?></td>
+										<td>Bs <?=$fila->sueldo_mensual?></td>
+										<td>Bs <?=$fila->sid?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
 									</tr>
 							<?php
-									$subt_o += $fila -> total_pagar;
+									$subt_o += $fila->total_pagar;
 								}
-								$obrero -> free();
+								$obrero->free();
 							?>
 							<tr>
 								<td colspan="5">SUB-TOTAL</td>
@@ -147,21 +147,21 @@
 								<th>Aguinaldos</th>
 							</tr>
 							<?php
-								while($fila = $contratado -> fetch_object()){
-									list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
+								while($fila = $contratado->fetch_object()){
+									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
 							?>
 									<tr>
-										<td><?=$fila -> nombre.' '.$fila -> apellido?></td>
-										<td><?=$fila -> cedula?></td>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
 										<td><?=$d.'-'.$m.'-'.$a?></td>
-										<td>Bs <?=$fila -> sueldo_mensual?></td>
-										<td>Bs <?=$fila -> sid?></td>
-										<td>Bs <?=$fila -> total_pagar?></td>
+										<td>Bs <?=$fila->sueldo_mensual?></td>
+										<td>Bs <?=$fila->sid?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
 									</tr>
 							<?php
-									$subt_c += $fila -> total_pagar;
+									$subt_c += $fila->total_pagar;
 								}
-								$contratado -> free();
+								$contratado->free();
 							?>
 							<tr>
 								<td colspan="5">SUB-TOTAL</td>

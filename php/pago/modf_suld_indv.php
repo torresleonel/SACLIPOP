@@ -23,9 +23,9 @@
 					$cnx_bd = conexion();
 					include('../_sql/conslt_trabj_sql.php');
 					$resultado = conslt_laboral_trb($cnx_bd);
-					$cnx_bd -> close();
-					$fila = $resultado -> fetch_object();
-					$resultado -> free();
+					$cnx_bd->close();
+					$fila = $resultado->fetch_object();
+					$resultado->free();
 				?>
 				<h1>Modificar Sueldo Mensual</h1>
 				<form action="calc_salario_b.php?m=1" method="post">
@@ -39,12 +39,12 @@
 							<th>Sueldo Mensual</th>
 						</tr>
 						<tr>
-							<td><a href="#"><?php echo $fila -> cedula; ?></a></td>
-							<td><a href="#"><?php echo $fila -> nombre; ?></a></td>
-							<td><a href="#"><?php echo $fila -> apellido; ?></a></td>
-							<td><a href="#"><?php echo $fila -> cargo; ?></a></td>
-							<td><input type="text" name="suld_mes" value="<?php echo $fila -> sueldo_mensual; ?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
-							<input type="hidden" name="ced_suld" value="<?php echo $fila -> cedula; ?>" />
+							<td><a href="#"><?php echo $fila->cedula; ?></a></td>
+							<td><a href="#"><?php echo $fila->nombre; ?></a></td>
+							<td><a href="#"><?php echo $fila->apellido; ?></a></td>
+							<td><a href="#"><?php echo $fila->cargo; ?></a></td>
+							<td><input type="text" name="suld_mes" value="<?php echo $fila->sueldo_mensual; ?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+							<input type="hidden" name="ced_suld" value="<?php echo $fila->cedula; ?>" />
 						</tr>
 					</table>
 					<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

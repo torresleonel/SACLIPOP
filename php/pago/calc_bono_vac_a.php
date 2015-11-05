@@ -39,24 +39,24 @@
 						<th>Ultimas Vacaciones</th>
 					</tr>
 					<?php 
-						while ($fila = $alto -> fetch_object()){
-							$fcha = conslt_fch($cnx_bd,'ini_vacac','bono_vacac',$fila -> cedula);
-							$fch_fila = $fcha -> fetch_object();
+						while ($fila = $alto->fetch_object()){
+							$fcha = conslt_fch($cnx_bd,'ini_vacac','bono_vacac',$fila->cedula);
+							$fch_fila = $fcha->fetch_object();
 							$d='00';$m='00';$a='0000';
-							if (isset($fch_fila)) list($a,$m,$d) = explode('-', $fch_fila -> ini_vacac);
+							if (isset($fch_fila)) list($a,$m,$d) = explode('-', $fch_fila->ini_vacac);
 					?>
 							<tr>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> cedula?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> nombre?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> apellido?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> cargo?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> sueldo_mensual?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$d.'-'.$m.'-'.$a?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->cedula?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->nombre?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->apellido?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->cargo?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->sueldo_mensual?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$d.'-'.$m.'-'.$a?></a></td>
 							</tr>
 					<?php
-							$fcha -> free();
+							$fcha->free();
 						}
-						$alto -> free();
+						$alto->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -70,24 +70,24 @@
 						<th>Ultimas Vacaciones</th>
 					</tr>
 					<?php 
-						while ($fila = $empleado -> fetch_object()){
-							$fcha = conslt_fch($cnx_bd,'ini_vacac','bono_vacac',$fila -> cedula);
-							$fch_fila = $fcha -> fetch_object();
+						while ($fila = $empleado->fetch_object()){
+							$fcha = conslt_fch($cnx_bd,'ini_vacac','bono_vacac',$fila->cedula);
+							$fch_fila = $fcha->fetch_object();
 							$d='00';$m='00';$a='0000';
-							if (isset($fch_fila)) list($a,$m,$d) = explode('-', $fch_fila -> ini_vacac);
+							if (isset($fch_fila)) list($a,$m,$d) = explode('-', $fch_fila->ini_vacac);
 					?>
 							<tr>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> cedula?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> nombre?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> apellido?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> cargo?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> sueldo_mensual?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$d.'-'.$m.'-'.$a?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->cedula?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->nombre?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->apellido?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->cargo?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->sueldo_mensual?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$d.'-'.$m.'-'.$a?></a></td>
 							</tr>
 					<?php
-							$fcha -> free();
+							$fcha->free();
 						}
-						$empleado -> free();
+						$empleado->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -101,24 +101,24 @@
 						<th>Ultimas Vacaciones</th>
 					</tr>
 					<?php 
-						while ($fila = $obrero -> fetch_object()){
-							$fcha = conslt_fch($cnx_bd,'ini_vacac','bono_vacac',$fila -> cedula);
-							$fch_fila = $fcha -> fetch_object();
+						while ($fila = $obrero->fetch_object()){
+							$fcha = conslt_fch($cnx_bd,'ini_vacac','bono_vacac',$fila->cedula);
+							$fch_fila = $fcha->fetch_object();
 							$d='00';$m='00';$a='0000';
-							if (isset($fch_fila)) list($a,$m,$d) = explode('-', $fch_fila -> ini_vacac);
+							if (isset($fch_fila)) list($a,$m,$d) = explode('-', $fch_fila->ini_vacac);
 					?>
 							<tr>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> cedula?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> nombre?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> apellido?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> cargo?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> sueldo_mensual?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$d.'-'.$m.'-'.$a?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->cedula?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->nombre?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->apellido?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->cargo?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->sueldo_mensual?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$d.'-'.$m.'-'.$a?></a></td>
 							</tr>
 					<?php
-							$fcha -> free();
+							$fcha->free();
 						}
-						$obrero -> free();
+						$obrero->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -132,25 +132,25 @@
 						<th>Ultimas Vacaciones</th>
 					</tr>
 					<?php 
-						while ($fila = $contratado -> fetch_object()){
-							$fcha = conslt_fch($cnx_bd,'ini_vacac','bono_vacac',$fila -> cedula);
-							$fch_fila = $fcha -> fetch_object();
+						while ($fila = $contratado->fetch_object()){
+							$fcha = conslt_fch($cnx_bd,'ini_vacac','bono_vacac',$fila->cedula);
+							$fch_fila = $fcha->fetch_object();
 							$d='00';$m='00';$a='0000';
-							if (isset($fch_fila)) list($a,$m,$d) = explode('-', $fch_fila -> ini_vacac);
+							if (isset($fch_fila)) list($a,$m,$d) = explode('-', $fch_fila->ini_vacac);
 					?>
 							<tr>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> cedula?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> nombre?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> apellido?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> cargo?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila -> sueldo_mensual?></a></td>
-								<td><a href="calc_bono_vac_b.php?c=<?=$fila -> cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$d.'-'.$m.'-'.$a?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->cedula?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->nombre?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->apellido?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->cargo?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$fila->sueldo_mensual?></a></td>
+								<td><a href="calc_bono_vac_b.php?c=<?=$fila->cedula?>" title="Click para calcular el bono vacacional del trabajador"><?=$d.'-'.$m.'-'.$a?></a></td>
 							</tr>
 					<?php
-							$fcha -> free();
+							$fcha->free();
 						}
-						$contratado -> free();
-						$cnx_bd -> close();
+						$contratado->free();
+						$cnx_bd->close();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

@@ -23,7 +23,7 @@
 					$cnx_bd = conexion();
 					include('../_sql/conslt_trabj_sql.php');
 					modf_suld_gen($cnx_bd);
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 				<div id="msnproceso">
 					<h3>SE HA MODIFICADO CON EXITO EL SUELDO MENSUAL DE LOS TRABAJADORES</h3>

@@ -24,7 +24,7 @@
 					$cnx_bd = conexion();
 					include('../_sql/usuario_sql.php');
 					$resultado = conslt_usuario_all($cnx_bd);
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 				<h1>Usuarios de SACLIPOP</h1>
 				<table id="tabla">
@@ -36,24 +36,24 @@
 						<th>Acción</th>
 					</tr>
 					<?php
-						while ($fila = $resultado -> fetch_object()){
-							if ($fila -> nivel == 1) $nivel = "Administrador";
+						while ($fila = $resultado->fetch_object()){
+							if ($fila->nivel == 1) $nivel = "Administrador";
 							else $nivel = "Básico";
 					?>
 							<tr>
-								<td><?php echo $fila -> nombre; ?></td>
-								<td><?php echo $fila -> apellido; ?></td>
-								<td><?php echo $fila -> id_usuario; ?></td>
+								<td><?php echo $fila->nombre; ?></td>
+								<td><?php echo $fila->apellido; ?></td>
+								<td><?php echo $fila->id_usuario; ?></td>
 								<td><?php echo $nivel; ?></td>
 								<td>				
 									<div class="izq">
-										<a href= "#" class="eliminar" title="Click para eliminar usuario de SACLIPOP" onclick="envia_elim('<?php echo $fila -> id_usuario; ?>')">Eliminar</a>
+										<a href= "#" class="eliminar" title="Click para eliminar usuario de SACLIPOP" onclick="envia_elim('<?php echo $fila->id_usuario; ?>')">Eliminar</a>
 									</div>
 								</td>
 							</tr>
 					<?php
 						}
-						$resultado -> free();
+						$resultado->free();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

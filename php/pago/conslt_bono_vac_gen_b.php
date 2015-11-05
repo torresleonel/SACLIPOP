@@ -27,8 +27,8 @@
 					$empleado = conslt_bono_vac_rang_gen($cnx_bd,'Personal Empleado','Fijo');
 					$obrero = conslt_bono_vac_rang_gen($cnx_bd,'Personal Obrero','Fijo');
 					$contratado = conslt_bono_vac_cond_gen($cnx_bd,'Contratado');
-					$cnx_bd -> close();
-					if ($alto -> num_rows <= 0 && $empleado -> num_rows <= 0 && $obrero -> num_rows <= 0 && $contratado -> num_rows <= 0) {
+					$cnx_bd->close();
+					if ($alto->num_rows <= 0 && $empleado->num_rows <= 0 && $obrero->num_rows <= 0 && $contratado->num_rows <= 0) {
 				?>
 						<div id="msnproceso">
 							<h3>No se ha realizado cálculo de bono vacacional para el año<?=' '.$_POST['a']?></h3>
@@ -58,31 +58,31 @@
 								<th>Bono Vacacional</th>
 							</tr>
 							<?php
-								while($fila = $alto -> fetch_object()){
-									list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
-									list($ai,$mi,$di) = explode('-',$fila -> ini_vacac);
-									list($af,$mf,$df) = explode('-',$fila -> fin_vacac);
-									list($ar,$mr,$dr) = explode('-',$fila -> reincorpor);
+								while($fila = $alto->fetch_object()){
+									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
+									list($ai,$mi,$di) = explode('-',$fila->ini_vacac);
+									list($af,$mf,$df) = explode('-',$fila->fin_vacac);
+									list($ar,$mr,$dr) = explode('-',$fila->reincorpor);
 							?>
 									<tr>
-										<td><?=$fila -> nombre.' '.$fila -> apellido?></td>
-										<td><?=$fila -> cedula?></td>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
 										<td><?=$d.'-'.$m.'-'.$a?></td>
-										<td>Bs <?=$fila -> sueldo_mensual?></td>
-										<td>Bs <?=$fila -> sueldo_dia?></td>
+										<td>Bs <?=$fila->sueldo_mensual?></td>
+										<td>Bs <?=$fila->sueldo_dia?></td>
 										<td><?=$di.'-'.$mi.'-'.$ai?></td>
 										<td><?=$df.'-'.$mf.'-'.$af?></td>
 										<td><?=$dr.'-'.$mr.'-'.$ar?></td>
-										<td><?=$fila -> dia_vacac?></td>
-										<td><?=$fila -> dia_adicional?></td>
-										<td>Bs <?=$fila -> total_dia_v?></td>
-										<td>Bs <?=$fila -> total_dia_adic?></td>
-										<td>Bs <?=$fila -> total_pagar?></td>
+										<td><?=$fila->dia_vacac?></td>
+										<td><?=$fila->dia_adicional?></td>
+										<td>Bs <?=$fila->total_dia_v?></td>
+										<td>Bs <?=$fila->total_dia_adic?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
 									</tr>
 							<?php
-									$subt_a += $fila -> total_pagar;
+									$subt_a += $fila->total_pagar;
 								}
-								$alto -> free();
+								$alto->free();
 							?>
 							<tr>
 								<td colspan="12">SUB-TOTAL</td>
@@ -107,31 +107,31 @@
 								<th>Bono Vacacional</th>
 							</tr>
 							<?php
-								while($fila = $empleado -> fetch_object()){
-									list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
-									list($ai,$mi,$di) = explode('-',$fila -> ini_vacac);
-									list($af,$mf,$df) = explode('-',$fila -> fin_vacac);
-									list($ar,$mr,$dr) = explode('-',$fila -> reincorpor);
+								while($fila = $empleado->fetch_object()){
+									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
+									list($ai,$mi,$di) = explode('-',$fila->ini_vacac);
+									list($af,$mf,$df) = explode('-',$fila->fin_vacac);
+									list($ar,$mr,$dr) = explode('-',$fila->reincorpor);
 							?>
 									<tr>
-										<td><?=$fila -> nombre.' '.$fila -> apellido?></td>
-										<td><?=$fila -> cedula?></td>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
 										<td><?=$d.'-'.$m.'-'.$a?></td>
-										<td>Bs <?=$fila -> sueldo_mensual?></td>
-										<td>Bs <?=$fila -> sueldo_dia?></td>
+										<td>Bs <?=$fila->sueldo_mensual?></td>
+										<td>Bs <?=$fila->sueldo_dia?></td>
 										<td><?=$di.'-'.$mi.'-'.$ai?></td>
 										<td><?=$df.'-'.$mf.'-'.$af?></td>
 										<td><?=$dr.'-'.$mr.'-'.$ar?></td>
-										<td><?=$fila -> dia_vacac?></td>
-										<td><?=$fila -> dia_adicional?></td>
-										<td>Bs <?=$fila -> total_dia_v?></td>
-										<td>Bs <?=$fila -> total_dia_adic?></td>
-										<td>Bs <?=$fila -> total_pagar?></td>
+										<td><?=$fila->dia_vacac?></td>
+										<td><?=$fila->dia_adicional?></td>
+										<td>Bs <?=$fila->total_dia_v?></td>
+										<td>Bs <?=$fila->total_dia_adic?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
 									</tr>
 							<?php
-									$subt_e += $fila -> total_pagar;
+									$subt_e += $fila->total_pagar;
 								}
-								$empleado -> free();
+								$empleado->free();
 							?>
 							<tr>
 								<td colspan="12">SUB-TOTAL</td>
@@ -156,31 +156,31 @@
 								<th>Bono Vacacional</th>
 							</tr>
 							<?php
-								while($fila = $obrero -> fetch_object()){
-									list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
-									list($ai,$mi,$di) = explode('-',$fila -> ini_vacac);
-									list($af,$mf,$df) = explode('-',$fila -> fin_vacac);
-									list($ar,$mr,$dr) = explode('-',$fila -> reincorpor);
+								while($fila = $obrero->fetch_object()){
+									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
+									list($ai,$mi,$di) = explode('-',$fila->ini_vacac);
+									list($af,$mf,$df) = explode('-',$fila->fin_vacac);
+									list($ar,$mr,$dr) = explode('-',$fila->reincorpor);
 							?>
 									<tr>
-										<td><?=$fila -> nombre.' '.$fila -> apellido?></td>
-										<td><?=$fila -> cedula?></td>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
 										<td><?=$d.'-'.$m.'-'.$a?></td>
-										<td>Bs <?=$fila -> sueldo_mensual?></td>
-										<td>Bs <?=$fila -> sueldo_dia?></td>
+										<td>Bs <?=$fila->sueldo_mensual?></td>
+										<td>Bs <?=$fila->sueldo_dia?></td>
 										<td><?=$di.'-'.$mi.'-'.$ai?></td>
 										<td><?=$df.'-'.$mf.'-'.$af?></td>
 										<td><?=$dr.'-'.$mr.'-'.$ar?></td>
-										<td><?=$fila -> dia_vacac?></td>
-										<td><?=$fila -> dia_adicional?></td>
-										<td>Bs <?=$fila -> total_dia_v?></td>
-										<td>Bs <?=$fila -> total_dia_adic?></td>
-										<td>Bs <?=$fila -> total_pagar?></td>
+										<td><?=$fila->dia_vacac?></td>
+										<td><?=$fila->dia_adicional?></td>
+										<td>Bs <?=$fila->total_dia_v?></td>
+										<td>Bs <?=$fila->total_dia_adic?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
 									</tr>
 							<?php
-									$subt_o += $fila -> total_pagar;
+									$subt_o += $fila->total_pagar;
 								}
-								$obrero -> free();
+								$obrero->free();
 							?>
 							<tr>
 								<td colspan="12">SUB-TOTAL</td>
@@ -205,31 +205,31 @@
 								<th>Bono Vacacional</th>
 							</tr>
 							<?php
-								while($fila = $contratado -> fetch_object()){
-									list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
-									list($ai,$mi,$di) = explode('-',$fila -> ini_vacac);
-									list($af,$mf,$df) = explode('-',$fila -> fin_vacac);
-									list($ar,$mr,$dr) = explode('-',$fila -> reincorpor);
+								while($fila = $contratado->fetch_object()){
+									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
+									list($ai,$mi,$di) = explode('-',$fila->ini_vacac);
+									list($af,$mf,$df) = explode('-',$fila->fin_vacac);
+									list($ar,$mr,$dr) = explode('-',$fila->reincorpor);
 							?>
 									<tr>
-										<td><?=$fila -> nombre.' '.$fila -> apellido?></td>
-										<td><?=$fila -> cedula?></td>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
 										<td><?=$d.'-'.$m.'-'.$a?></td>
-										<td>Bs <?=$fila -> sueldo_mensual?></td>
-										<td>Bs <?=$fila -> sueldo_dia?></td>
+										<td>Bs <?=$fila->sueldo_mensual?></td>
+										<td>Bs <?=$fila->sueldo_dia?></td>
 										<td><?=$di.'-'.$mi.'-'.$ai?></td>
 										<td><?=$df.'-'.$mf.'-'.$af?></td>
 										<td><?=$dr.'-'.$mr.'-'.$ar?></td>
-										<td><?=$fila -> dia_vacac?></td>
-										<td><?=$fila -> dia_adicional?></td>
-										<td>Bs <?=$fila -> total_dia_v?></td>
-										<td>Bs <?=$fila -> total_dia_adic?></td>
-										<td>Bs <?=$fila -> total_pagar?></td>
+										<td><?=$fila->dia_vacac?></td>
+										<td><?=$fila->dia_adicional?></td>
+										<td>Bs <?=$fila->total_dia_v?></td>
+										<td>Bs <?=$fila->total_dia_adic?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
 									</tr>
 							<?php
-									$subt_c += $fila -> total_pagar;
+									$subt_c += $fila->total_pagar;
 								}
-								$contratado -> free();
+								$contratado->free();
 							?>
 							<tr>
 								<td colspan="12">SUB-TOTAL</td>

@@ -40,24 +40,24 @@
 						<th>Ultima Quincena</th>
 					</tr>
 					<?php
-						while ($fila = $alto -> fetch_object()){
-							$fcha = conslt_fch_qicn($cnx_bd,$fila -> cedula);
-							$fch_fila = $fcha -> fetch_object();
-							list(,,$di) = explode('-', $fch_fila -> inicio_quincena);
-							list($af,$mf,$df) = explode('-', $fch_fila -> fin_quincena);
+						while ($fila = $alto->fetch_object()){
+							$fcha = conslt_fch_qicn($cnx_bd,$fila->cedula);
+							$fch_fila = $fcha->fetch_object();
+							list(,,$di) = explode('-', $fch_fila->inicio_quincena);
+							list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
 					?>
 							<tr>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> cedula?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> nombre?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> apellido?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> cargo?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> sueldo_mensual?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?='del: '.$di.' al: '.$df.'-'.$mf.'-'.$af?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cedula?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->nombre?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->apellido?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cargo?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->sueldo_mensual?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?='del: '.$di.' al: '.$df.'-'.$mf.'-'.$af?></a></td>
 							</tr>
 					<?php
-							$fcha -> free();
+							$fcha->free();
 						}
-						$alto -> free();
+						$alto->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -71,24 +71,24 @@
 						<th>Ultima Quincena</th>
 					</tr>
 					<?php 
-						while ($fila = $empleado -> fetch_object()){
-							$fcha = conslt_fch_qicn($cnx_bd,$fila -> cedula);
-							$fch_fila = $fcha -> fetch_object();
-							list(,,$di) = explode('-', $fch_fila -> inicio_quincena);
-							list($af,$mf,$df) = explode('-', $fch_fila -> fin_quincena);
+						while ($fila = $empleado->fetch_object()){
+							$fcha = conslt_fch_qicn($cnx_bd,$fila->cedula);
+							$fch_fila = $fcha->fetch_object();
+							list(,,$di) = explode('-', $fch_fila->inicio_quincena);
+							list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
 					?>
 							<tr>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> cedula?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> nombre?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> apellido?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> cargo?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> sueldo_mensual?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?='del: '.$di.' al: '.$df.'-'.$mf.'-'.$af?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cedula?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->nombre?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->apellido?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cargo?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->sueldo_mensual?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?='del: '.$di.' al: '.$df.'-'.$mf.'-'.$af?></a></td>
 							</tr>
 					<?php
-							$fcha -> free();
+							$fcha->free();
 						}
-						$empleado -> free();
+						$empleado->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -102,24 +102,24 @@
 						<th>Ultima Quincena</th>
 					</tr>
 					<?php 
-						while ($fila = $obrero -> fetch_object()){
-							$fcha = conslt_fch_qicn($cnx_bd,$fila -> cedula);
-							$fch_fila = $fcha -> fetch_object();
-							list(,,$di) = explode('-', $fch_fila -> inicio_quincena);
-							list($af,$mf,$df) = explode('-', $fch_fila -> fin_quincena);
+						while ($fila = $obrero->fetch_object()){
+							$fcha = conslt_fch_qicn($cnx_bd,$fila->cedula);
+							$fch_fila = $fcha->fetch_object();
+							list(,,$di) = explode('-', $fch_fila->inicio_quincena);
+							list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
 					?>
 							<tr>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> cedula?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> nombre?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> apellido?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> cargo?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> sueldo_mensual?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?='del: '.$di.' al: '.$df.'-'.$mf.'-'.$af?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cedula?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->nombre?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->apellido?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cargo?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->sueldo_mensual?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?='del: '.$di.' al: '.$df.'-'.$mf.'-'.$af?></a></td>
 							</tr>
 					<?php
-							$fcha -> free();
+							$fcha->free();
 						}
-						$obrero -> free();
+						$obrero->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -133,25 +133,25 @@
 						<th>Ultima Quincena</th>
 					</tr>
 					<?php 
-						while ($fila = $contratado -> fetch_object()){
-							$fcha = conslt_fch_qicn($cnx_bd,$fila -> cedula);
-							$fch_fila = $fcha -> fetch_object();
-							list(,,$di) = explode('-', $fch_fila -> inicio_quincena);
-							list($af,$mf,$df) = explode('-', $fch_fila -> fin_quincena);
+						while ($fila = $contratado->fetch_object()){
+							$fcha = conslt_fch_qicn($cnx_bd,$fila->cedula);
+							$fch_fila = $fcha->fetch_object();
+							list(,,$di) = explode('-', $fch_fila->inicio_quincena);
+							list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
 					?>
 							<tr>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> cedula?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> nombre?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> apellido?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> cargo?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?=$fila -> sueldo_mensual?></a></td>
-								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila -> sueldo_mensual?>','<?=$fila -> cedula?>')"><?='del: '.$di.' al: '.$df.'-'.$mf.'-'.$af?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cedula?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->nombre?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->apellido?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cargo?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->sueldo_mensual?></a></td>
+								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?='del: '.$di.' al: '.$df.'-'.$mf.'-'.$af?></a></td>
 							</tr>
 					<?php
-							$fcha -> free();
+							$fcha->free();
 						}
-						$contratado -> free();
-						$cnx_bd -> close();
+						$contratado->free();
+						$cnx_bd->close();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

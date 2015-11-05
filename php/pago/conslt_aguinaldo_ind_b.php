@@ -24,8 +24,8 @@
 					$cnx_bd = conexion();
 					include('../_sql/conslt_trabj_sql.php');
 					$resultado = conslt_pago($cnx_bd,'aguinaldo','anno_calculo');
-					$cnx_bd -> close();
-					if ($resultado -> num_rows <= 0) {
+					$cnx_bd->close();
+					if ($resultado->num_rows <= 0) {
 				?>
 						<div id="msnproceso">
 							<h3>No se han calculado aguinaldos del trabajador:<?=' '.$_POST['trbj']?></h3>
@@ -33,13 +33,13 @@
 						</div>
 				<?php
 					}else{
-						$fila = $resultado -> fetch_object();
+						$fila = $resultado->fetch_object();
 				?>
-						<b>NOMBRES Y APPELLIDOS:</b><?=' '.$fila -> nombre.' '.$fila -> apellido?>
+						<b>NOMBRES Y APPELLIDOS:</b><?=' '.$fila->nombre.' '.$fila->apellido?>
 						<br>
-						<b>FECHA DE INGRESO:</b><?=' '.$fila -> fecha_ingreso?>
+						<b>FECHA DE INGRESO:</b><?=' '.$fila->fecha_ingreso?>
 						<br>
-						<b>SUELDO MENSUAL Bs.:</b><?=' '.$fila -> sueldo_mensual?>
+						<b>SUELDO MENSUAL Bs.:</b><?=' '.$fila->sueldo_mensual?>
 						<br><br>
 						<table id="tabla">
 							<caption>Aguinaldos</caption>
@@ -49,9 +49,9 @@
 								<th>TOTAL A PAGAR</th>
 							</tr>
 							<tr>
-								<td><?=$fila -> cantidad_mes?></td>
-								<td>Bs <?=$fila -> sid?></td>
-								<td>Bs <?=$fila -> total_pagar?></td>
+								<td><?=$fila->cantidad_mes?></td>
+								<td>Bs <?=$fila->sid?></td>
+								<td>Bs <?=$fila->total_pagar?></td>
 							</tr>
 						</table>
 				<?php } ?>

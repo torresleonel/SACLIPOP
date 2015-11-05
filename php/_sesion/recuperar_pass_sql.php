@@ -6,13 +6,13 @@
 
 		$sql = "SELECT * FROM usuario WHERE id_usuario ='$user'";
 				
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		error_sql($cnx_bd);
 
-		$fila = $resultado -> fetch_object();
+		$fila = $resultado->fetch_object();
 
 		//vemos si el usuario es válido
-		if ($user != $fila -> id_usuario){
+		if ($user != $fila->id_usuario){
 			//si no existe se va a index.php
 			header("Location: ../../index.php?errorusuario=3");
 		}
@@ -27,13 +27,13 @@
 
 		$sql = "SELECT id_usuario,respuesta FROM usuario WHERE id_usuario = '$user'";
 				
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		error_sql($cnx_bd);
 
-		$fila = $resultado -> fetch_object();
+		$fila = $resultado->fetch_object();
 
 		//vemos si el usuario y contraseña son válidos
-		if ($resp != $fila -> respuesta){
+		if ($resp != $fila->respuesta){
 			//si es incorrecta se va a index.php
 			header("Location: ../../index.php?errorusuario=4");
 		}
@@ -51,7 +51,7 @@
 				SET clave = '$pass'
 				WHERE usuario.id_usuario = '$user'";
 				
-		$cnx_bd -> query($sql);
+		$cnx_bd->query($sql);
 		error_sql($cnx_bd);
 
 	}

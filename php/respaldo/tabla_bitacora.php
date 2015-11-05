@@ -5,8 +5,8 @@
 	include('../_sql/bitacora_sql.php');
 	if ($_POST['u'] == 'Todos los usuarios') $resultado = conslt_bitacora($cnx_bd);
 	else $resultado = conslt_bitacora_user($cnx_bd);
-	$cnx_bd -> close();
-	if ($resultado -> num_rows <= 0) {
+	$cnx_bd->close();
+	if ($resultado->num_rows <= 0) {
 ?>
 		<div id="msnproceso">
 			<h3>No existen registros para la consulta que ha realizado.</h3>
@@ -26,9 +26,9 @@
 			</thead>
 			<tbody>
 				<?php
-					while($fila = $resultado -> fetch_object()){
+					while($fila = $resultado->fetch_object()){
 						$sql = array();
-						$sql = explode(" ",$fila -> sentencia);
+						$sql = explode(" ",$fila->sentencia);
 						$num_palab = count($sql);
 						for($i = 0; $i < $num_palab; $i++) {
 							switch($sql[$i]) {
@@ -90,7 +90,7 @@
 								break;
 							}
 						}
-						list($fch,$hr) = explode(' ',$fila -> fecha);
+						list($fch,$hr) = explode(' ',$fila->fecha);
 						list($a,$m,$d) = explode('-',$fch);
 						list($h,$min,$seg) = explode(':',$hr);
 						if($h == 0) {
@@ -105,15 +105,15 @@
 						<tr>
 							<td><?=$accion?></td>
 							<td><?=$tabla?></td>
-							<td><?=$fila -> id_usuario?></td>
-							<td><?=$fila -> nombre.' '.$fila -> apellido?></td>
+							<td><?=$fila->id_usuario?></td>
+							<td><?=$fila->nombre.' '.$fila->apellido?></td>
 							<td><?=$d.'-'.$m.'-'.$a.' '.$h.':'.$min.':'.$seg.' '.$format?></td>
 						</tr>
 				<?php } ?>
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="5">Cantidad de resultados: <?=$resultado -> num_rows?></th>
+					<th colspan="5">Cantidad de resultados: <?=$resultado->num_rows?></th>
 				</tr>
 			</tfoot>
 		</table>

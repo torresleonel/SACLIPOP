@@ -55,7 +55,7 @@
 		// Cuerpo de página
 		function cuerpo($drct,$trbj){
 
-		    list($a,$m,$d) = explode('-',$trbj -> fecha_ingreso);
+		    list($a,$m,$d) = explode('-',$trbj->fecha_ingreso);
 		    if (date('j') == 1) $cadena = 'al dia ('.date('j').') '.nombre_fecha('dia',date('j'));
 		    else $cadena = 'a los ('.date('j').') '.nombre_fecha('dia',date('j')).' dias';
 
@@ -67,13 +67,13 @@
 		    $this->SetLineWidth(.3);
 			$this->SetFont('','');
 				$this->Ln();
-		    $this->MultiCell(195,8,'Quien suscribe, DR(a). '.$drct -> nombre.' '.$drct -> apellido.', Director(a) del I.A.M CLÍNICA POPULAR JOSÉ MARTÍ ubicada en Av. 25 de noviembre, cruce con Boulevard  del Estudiante, parte posterior del CSSR Dr. Ricardo Sergent Geriátrico Parroquia Montalbán  del Municipio Campo Elías.',0,'J');
+		    $this->MultiCell(195,8,'Quien suscribe, DR(a). '.$drct->nombre.' '.$drct->apellido.', Director(a) del I.A.M CLÍNICA POPULAR JOSÉ MARTÍ ubicada en Av. 25 de noviembre, cruce con Boulevard  del Estudiante, parte posterior del CSSR Dr. Ricardo Sergent Geriátrico Parroquia Montalbán  del Municipio Campo Elías.',0,'J');
 			$this->Ln(10);
 			$this->SetFont('Arial','B',12);
 		    $this->Cell(0,5,'HACE CONSTAR',0,0,'C');
 		    $this->SetFont('Arial','',12);
 		    $this->Ln(10);
-		    $this->MultiCell(195,8,'Que el ciudadano(a) '.$trbj -> nombre.' '.$trbj -> apellido.' titular de la Cedula de Identidad V.- '.$trbj -> cedula.', presta sus servicios en la  Área de '.$trbj -> area_desemp.' de esta Institución, en el cargo de '.$trbj -> cargo.', desde el día ('.$d.') '.nombre_fecha('dia',intval($d)).' de '.nombre_fecha('mes',intval($m)).' de '.$a.' hasta la actualidad, devengando un sueldo mensual de Bs. '.$trbj -> sueldo_mensual.'.',0,'J');
+		    $this->MultiCell(195,8,'Que el ciudadano(a) '.$trbj->nombre.' '.$trbj->apellido.' titular de la Cedula de Identidad V.- '.$trbj->cedula.', presta sus servicios en la  Área de '.$trbj->area_desemp.' de esta Institución, en el cargo de '.$trbj->cargo.', desde el día ('.$d.') '.nombre_fecha('dia',intval($d)).' de '.nombre_fecha('mes',intval($m)).' de '.$a.' hasta la actualidad, devengando un sueldo mensual de Bs. '.$trbj->sueldo_mensual.'.',0,'J');
 		    $this->Ln(5);
 		    $this->MultiCell(195,8,'Constancia que se expide a petición  de la parte interesada para '.$_POST['motivo'].',  en la Ciudad  de Ejido  '.$cadena.' del mes de '.nombre_fecha('mes',date('n')).' del '.date('Y').'.',0,'J');
 
@@ -88,7 +88,7 @@
 		    
 		    $this->Ln(5);
 
-		    $this->Cell(0,5,'Dr(a). '.$drct -> nombre.' '.$drct -> apellido,0,0,'C');
+		    $this->Cell(0,5,'Dr(a). '.$drct->nombre.' '.$drct->apellido,0,0,'C');
 			$this->Ln();
 		    $this->Cell(0,5,"Director(a) de I.A.M Clínica Popular José Martí",0,0,'C');
 			
@@ -104,16 +104,16 @@
 	include('../_sql/conslt_trabj_sql.php');
 	$trabajador = conslt_laboral_trb($cnx_bd);
 	$director = conslt_director($cnx_bd);
-	$cnx_bd -> close();
+	$cnx_bd->close();
 
-	$fila_t = $trabajador -> fetch_object();
-	$fila_d = $director -> fetch_object();	
+	$fila_t = $trabajador->fetch_object();
+	$fila_d = $director->fetch_object();	
 
 	$pdf = new PDF('P','mm','Letter');
 	$pdf->SetFont('Arial','',12);
 	$pdf->AddPage();
 	$pdf->cuerpo($fila_d,$fila_t);
-	$pdf->Output("constancia_trbj_".$fila_t -> nombre."_".$fila_t -> apellido.".pdf",'i');
+	$pdf->Output("constancia_trbj_".$fila_t->nombre."_".$fila_t->apellido.".pdf",'i');
 
 ?>
 

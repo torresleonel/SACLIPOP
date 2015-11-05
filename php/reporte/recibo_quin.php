@@ -31,8 +31,8 @@
 						$cnx_bd = conexion();
 						include('../_sql/conslt_trabj_sql.php');
 						$resultado = conslt_pago($cnx_bd,'salario','inicio_quincena');
-						$cnx_bd -> close();
-						if ($resultado -> num_rows <= 0) {
+						$cnx_bd->close();
+						if ($resultado->num_rows <= 0) {
 							if ($_POST['dia'] == 1) $d = 'primera quincena';
 							else $d = 'segunda quincena';
 					?>
@@ -44,10 +44,10 @@
 					<?php
 							exit();
 						}else{
-							$fila = $resultado -> fetch_object();
-							$resultado -> free();
-							list($ai,$mi,$di) = explode('-',$fila -> inicio_quincena);
-							list($af,$mf,$df) = explode('-',$fila -> fin_quincena);
+							$fila = $resultado->fetch_object();
+							$resultado->free();
+							list($ai,$mi,$di) = explode('-',$fila->inicio_quincena);
+							list($af,$mf,$df) = explode('-',$fila->fin_quincena);
 					?>
 							<b>NOMBRES Y APELLIDOS:</b><?=' '.$fila->nombre.' '.$fila->apellido?> <b>CEDULA:</b><?=' '.$fila->cedula?> <b>CARGO:</b><?=' '.$fila->cargo?>
 							<br><br>

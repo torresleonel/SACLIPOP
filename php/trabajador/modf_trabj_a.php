@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="../../js/valida_modf_trabj.js"></script>
 		<script type="text/javascript">  
 	       
-			/*$(document).ready(function() {
+			$(document).ready(function() {
 
 				var sheepItForm = $('#sheepItForm').sheepIt({
 					separator: '',
@@ -30,34 +30,34 @@
 					removeAllConfirmation: true,
 					removeLastConfirmationMsg: '¿Está seguro que desea eliminar el familiar?',
 					removeCurrentConfirmationMsg: '¿Está seguro que desea eliminar el familiar?',
-					removeAllConfirmationMsg: '¿Está seguro que desea eliminar el familiar?',*/
+					removeAllConfirmationMsg: '¿Está seguro que desea eliminar el familiar?',
 					<?php
 						/*SE LLAMA A LOS ARCHIVOS QUE CONTIENEN LA FUNCION DE CONEXION A LA BD Y LA FUNCION DE CONSULTA TRABAJADOR*/
 						include('../_conexion/conexion_funcion.php');
 						$cnx_bd = conexion();
 						include('../_sql/conslt_trabj_sql.php');
-						/*$familia = conslt_familia($cnx_bd);
+						$familia = conslt_familia($cnx_bd);
 						$cont_fam=0;
-						WHILE($fila_f = $familia -> fetch_object()){
-							$RES4[$cont_fam]['fecha_nacf']=$fila_f -> fecha_nacf;
-							$RES4[$cont_fam]['empleadof']=$fila_f -> empleadof;
-							$RES4[$cont_fam]['estudiaf']=$fila_f -> estudiaf;
+						WHILE($fila_f = $familia->fetch_object()){
+							$RES4[$cont_fam]['fecha_nacf']=$fila_f->fecha_nacf;
+							$RES4[$cont_fam]['empleadof']=$fila_f->empleadof;
+							$RES4[$cont_fam]['estudiaf']=$fila_f->estudiaf;
 							if($cont_fam==0) echo "data: [";
 							echo "
 								{
-									'sheepItForm_#index#nombre': '$fila_f -> nombref',
-									'sheepItForm_#index#apellido': '$fila_f -> apellidof',
-									'sheepItForm_#index#cedula': '$fila_f -> cedulaf',
-									'sheepItForm_#index#parentesco': '$fila_f -> parentescof',
-									'sheepItForm_#index#cargo': '$fila_f -> cargof',
+									'sheepItForm_#index#nombre': '$fila_f->nombref',
+									'sheepItForm_#index#apellido': '$fila_f->apellidof',
+									'sheepItForm_#index#cedula': '$fila_f->cedulaf',
+									'sheepItForm_#index#parentesco': '$fila_f->parentescof',
+									'sheepItForm_#index#cargo': '$fila_f->cargof',
 								},
 							";
 							$cont_fam++;
 						}
-						if($cont_fam!=0) echo "]";*/
+						if($cont_fam!=0) echo "]";
 					?>
-				/*});
-			});*/
+				});
+			});
 		</script>
     </head>
 	<body>
@@ -73,12 +73,12 @@
 				<?php
 					$resultado = conslt_completa_trb($cnx_bd);
 					$referencia = conslt_referencia($cnx_bd);
-					$cnx_bd -> close();
-					$fila = $resultado -> fetch_object();
-					list($a,$m,$d) = explode("-",$fila -> actualizado);
-					list($an,$mn,$dn) = explode("-",$fila -> fe_nac);
-					list($ai,$mi,$di) = explode("-",$fila -> fecha_ingreso);
-					/*if($cont_fam!=0){
+					$cnx_bd->close();
+					$fila = $resultado->fetch_object();
+					list($a,$m,$d) = explode("-",$fila->actualizado);
+					list($an,$mn,$dn) = explode("-",$fila->fe_nac);
+					list($ai,$mi,$di) = explode("-",$fila->fecha_ingreso);
+					if($cont_fam!=0){
 						for($i=0;$i<$cont_fam;$i++){
 							$fecha_nac_temp=$RES4[$i]['fecha_nacf'];
 							list($ano_temp,$mes_temp,$dia_temp) = explode("-",$fecha_nac_temp);
@@ -108,7 +108,7 @@
 								});	
 								</script>";
 						}
-					}*/
+					}
 				?>
 				<div id="content">
 					<h1>Modificar Personal</h1>
@@ -146,11 +146,11 @@
 									<p>
 		                                <label class='rotulo' for="Estado">Estado</label>
 										<select name="estado" id='estado' required>
-											<option value="1" <?php if($fila -> estado == 1) echo 'selected="selected"'; ?>>Activo</option>
-											<option value="0" <?php if($fila -> estado == 0) echo 'selected="selected"'; ?>>Inactivo</option>
+											<option value="1" <?php if($fila->estado == 1) echo 'selected="selected"'; ?>>Activo</option>
+											<option value="0" <?php if($fila->estado == 0) echo 'selected="selected"'; ?>>Inactivo</option>
 										</select>
 										<?php 
-											if($fila -> estado == 1) $sty = 'activo';
+											if($fila->estado == 1) $sty = 'activo';
 											else $sty = 'inactivo';
 										?>
 											<span id="color" class="<?php echo $sty; ?>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -158,101 +158,101 @@
 									<div class='derecha'>
 										<div class='campo'>
 											<label for="nombre" class='rotulo' title="Por favor ingrese el nombre completo del trabajador">Nombres</label>
-											<input type="text" name="nombre" value="<?php echo $fila -> nombre; ?>" id="nombre" title="Por favor ingrese el nombre completo del trabajador" required />
+											<input type="text" name="nombre" value="<?php echo $fila->nombre; ?>" id="nombre" title="Por favor ingrese el nombre completo del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label for="cedula" class='rotulo' title="Por favor ingrese la cédula de identidad del trabajador">Cédula</label>
-											<input type="text" name="cedula" value="<?php echo $fila -> cedula; ?>" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
+											<input type="text" name="cedula" value="<?php echo $fila->cedula; ?>" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador">Nacionalidad</label>
-											<input type="text" name="nacionalidad" value="<?php echo $fila -> ciudadania; ?>" id="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador" required />
+											<input type="text" name="nacionalidad" value="<?php echo $fila->ciudadania; ?>" id="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador estudia">Estudia</label>
-											<input type="radio" name="estudia" value="1" <?php if($fila -> estudia == 1) echo 'checked="checked"'?> id="estudia_s" title="Si estudia">
+											<input type="radio" name="estudia" value="1" <?php if($fila->estudia == 1) echo 'checked="checked"'?> id="estudia_s" title="Si estudia">
 											<label for="estudia_s" title="Si estudia" class="rotulo_r">Si</label>
-											<input type="radio" name="estudia" value="0" <?php if($fila -> estudia == 0) echo 'checked="checked"'?> id="estudia_n" title="No estudia">
+											<input type="radio" name="estudia" value="0" <?php if($fila->estudia == 0) echo 'checked="checked"'?> id="estudia_n" title="No estudia">
 											<label for="estudia_n" title="No estudia" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label for="direccion" class='rotulo' title="Por favor ingrese la dirección de habitación del tabajador">Dirección</label>
-											<textarea name="direccion" id="direccion" title="Por favor ingrese la dirección de habitación del tabajador" required><?php echo $fila -> direccion; ?></textarea>
+											<textarea name="direccion" id="direccion" title="Por favor ingrese la dirección de habitación del tabajador" required><?php echo $fila->direccion; ?></textarea>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija el estado civil del tabajador">Estado Civil</label>
 											<select name="est_civil" title="Por favor elija el estado civil del tabajador" required>
 												<option value=""></option>
-												<option value="Soltero" <?php if($fila -> est_civil == 'Soltero') echo 'selected="selected"'; ?>>Soltero</option>
-												<option value="Casado" <?php if($fila -> est_civil == 'Casado') echo 'selected="selected"'; ?>>Casado</option>
-												<option value="Divorsiado" <?php if($fila -> est_civil == 'Divorsiado') echo 'selected="selected"'; ?>>Divorsiado</option>
-												<option value="Viudo" <?php if($fila -> est_civil == 'Viudo') echo 'selected="selected"'; ?>>Viudo</option>
+												<option value="Soltero" <?php if($fila->est_civil == 'Soltero') echo 'selected="selected"'; ?>>Soltero</option>
+												<option value="Casado" <?php if($fila->est_civil == 'Casado') echo 'selected="selected"'; ?>>Casado</option>
+												<option value="Divorsiado" <?php if($fila->est_civil == 'Divorsiado') echo 'selected="selected"'; ?>>Divorsiado</option>
+												<option value="Viudo" <?php if($fila->est_civil == 'Viudo') echo 'selected="selected"'; ?>>Viudo</option>
 											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija el rango laboral del tabajador">Rango</label>
 											<select name="rango" title="Por favor elija el rango laboral del tabajador" required>
 												<option value=""></option>
-												<option value="Personal de Alto Nivel" <?php if($fila -> rango == 'Personal de Alto Nivel') echo 'selected="selected"'; ?>>Personal de Alto Nivel</option>
-												<option value="Personal Empleado" <?php if($fila -> rango == 'Personal Empleado') echo 'selected="selected"'; ?>>Personal Empleado</option>
-												<option value="Personal Obrero" <?php if($fila -> rango == 'Personal Obrero') echo 'selected="selected"'; ?>>Personal Obrero</option>
+												<option value="Personal de Alto Nivel" <?php if($fila->rango == 'Personal de Alto Nivel') echo 'selected="selected"'; ?>>Personal de Alto Nivel</option>
+												<option value="Personal Empleado" <?php if($fila->rango == 'Personal Empleado') echo 'selected="selected"'; ?>>Personal Empleado</option>
+												<option value="Personal Obrero" <?php if($fila->rango == 'Personal Obrero') echo 'selected="selected"'; ?>>Personal Obrero</option>
 											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija la condición laboral del tabajador">Condición Laboral</label>
 											<select name="condicion" title="Por favor elija la condición laboral del tabajador" required>
 												<option value=""></option>
-												<option value="Fijo" <?php if($fila -> condicion == 'Fijo') echo 'selected="selected"'; ?>>Fijo</option>
-												<option value="Contratado" <?php if($fila -> condicion == 'Contratado') echo 'selected="selected"'; ?>>Contratado</option>
+												<option value="Fijo" <?php if($fila->condicion == 'Fijo') echo 'selected="selected"'; ?>>Fijo</option>
+												<option value="Contratado" <?php if($fila->condicion == 'Contratado') echo 'selected="selected"'; ?>>Contratado</option>
 											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor ingrese el cargo del trabajador">Cargo</label>
 											<select name="cargo" title="Por favor ingrese el cargo del trabajador" required>
 												<option value=""></option>
-												<option value="Director(a)" <?php if($fila -> cargo == 'Director(a)') echo 'selected="selected"'; ?>>Director(a)</option>
-												<option value="Administrador(a)" <?php if($fila -> cargo == 'Administrador(a)') echo 'selected="selected"'; ?>>Administrador(a)</option>
-												<option value="Coordinador(a)" <?php if($fila -> cargo == 'Coordinador(a)') echo 'selected="selected"'; ?>>Coordinador(a)</option>
-												<option value="Fisioterapeuta" <?php if($fila -> cargo == 'Fisioterapeuta') echo 'selected="selected"'; ?>>Fisioterapeuta</option>
-												<option value="Medico Fisiatra" <?php if($fila -> cargo == 'Medico Fisiatra') echo 'selected="selected"'; ?>>Medico Fisiatra</option>
-												<option value="Auxiliar Fisioterapeuta" <?php if($fila -> cargo == 'Auxiliar Fisioterapeuta') echo 'selected="selected"'; ?>>Auxiliar Fisioterapeuta</option>
-												<option value="Auxiliar Esterilizacion" <?php if($fila -> cargo == 'Auxiliar Esterilizacion') echo 'selected="selected"'; ?>>Auxiliar Esterilización</option>
-												<option value="Secretaria" <?php if($fila -> cargo == 'Secretaria') echo 'selected="selected"'; ?>>Secretaria</option>
-												<option value="Recepcionista" <?php if($fila -> cargo == 'Recepcionista') echo 'selected="selected"'; ?>>Recepcionista</option>
-												<option value="Portero(a)" <?php if($fila -> cargo == 'Portero(a)') echo 'selected="selected"'; ?>>Portero(a)</option>
-												<option value="Mantenimiento" <?php if($fila -> cargo == 'Mantenimiento') echo 'selected="selected"'; ?>>Mantenimiento</option>
-												<option value="Aseador(a)" <?php if($fila -> cargo == 'Aseador(a)') echo 'selected="selected"'; ?>>Aseador(a)</option>
+												<option value="Director(a)" <?php if($fila->cargo == 'Director(a)') echo 'selected="selected"'; ?>>Director(a)</option>
+												<option value="Administrador(a)" <?php if($fila->cargo == 'Administrador(a)') echo 'selected="selected"'; ?>>Administrador(a)</option>
+												<option value="Coordinador(a)" <?php if($fila->cargo == 'Coordinador(a)') echo 'selected="selected"'; ?>>Coordinador(a)</option>
+												<option value="Fisioterapeuta" <?php if($fila->cargo == 'Fisioterapeuta') echo 'selected="selected"'; ?>>Fisioterapeuta</option>
+												<option value="Medico Fisiatra" <?php if($fila->cargo == 'Medico Fisiatra') echo 'selected="selected"'; ?>>Medico Fisiatra</option>
+												<option value="Auxiliar Fisioterapeuta" <?php if($fila->cargo == 'Auxiliar Fisioterapeuta') echo 'selected="selected"'; ?>>Auxiliar Fisioterapeuta</option>
+												<option value="Auxiliar Esterilizacion" <?php if($fila->cargo == 'Auxiliar Esterilizacion') echo 'selected="selected"'; ?>>Auxiliar Esterilización</option>
+												<option value="Secretaria" <?php if($fila->cargo == 'Secretaria') echo 'selected="selected"'; ?>>Secretaria</option>
+												<option value="Recepcionista" <?php if($fila->cargo == 'Recepcionista') echo 'selected="selected"'; ?>>Recepcionista</option>
+												<option value="Portero(a)" <?php if($fila->cargo == 'Portero(a)') echo 'selected="selected"'; ?>>Portero(a)</option>
+												<option value="Mantenimiento" <?php if($fila->cargo == 'Mantenimiento') echo 'selected="selected"'; ?>>Mantenimiento</option>
+												<option value="Aseador(a)" <?php if($fila->cargo == 'Aseador(a)') echo 'selected="selected"'; ?>>Aseador(a)</option>
 											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija el área de desempeño del tabajador">Área de Desempeño</label>
 											<select name="area_d" title="Por favor elija el área de desempeño del tabajador" required>
 												<option value=""></option>
-												<option value="Direccion" <?php if($fila -> area_desemp == 'Direccion') echo 'selected="selected"'; ?>>Dirección</option>
-												<option value="Administracion" <?php if($fila -> area_desemp == 'Administracion') echo 'selected="selected"'; ?>>Administración</option>
-												<option value="Fisiatria" <?php if($fila -> area_desemp == 'Fisiatria') echo 'selected="selected"'; ?>>Fisiatria</option>
-												<option value="Odontologia" <?php if($fila -> area_desemp == 'Odontologia') echo 'selected="selected"'; ?>>Odontologia</option>
-												<option value="Recepcion" <?php if($fila -> area_desemp == 'Recepcion') echo 'selected="selected"'; ?>>Recepción</option>
-												<option value="Mantenimiento" <?php if($fila -> area_desemp == 'Mantenimiento') echo 'selected="selected"'; ?>>Mantenimiento</option>
+												<option value="Direccion" <?php if($fila->area_desemp == 'Direccion') echo 'selected="selected"'; ?>>Dirección</option>
+												<option value="Administracion" <?php if($fila->area_desemp == 'Administracion') echo 'selected="selected"'; ?>>Administración</option>
+												<option value="Fisiatria" <?php if($fila->area_desemp == 'Fisiatria') echo 'selected="selected"'; ?>>Fisiatria</option>
+												<option value="Odontologia" <?php if($fila->area_desemp == 'Odontologia') echo 'selected="selected"'; ?>>Odontologia</option>
+												<option value="Recepcion" <?php if($fila->area_desemp == 'Recepcion') echo 'selected="selected"'; ?>>Recepción</option>
+												<option value="Mantenimiento" <?php if($fila->area_desemp == 'Mantenimiento') echo 'selected="selected"'; ?>>Mantenimiento</option>
 											</select>
 										</div>
 									</div>
 									<div class='izquierda'>
 										<div class='campo'>
 											<label for="apellido" class='rotulo' title="Por favor ingrese los apellidos del trabajador">Apellidos</label>
-											<input type="text" name="apellido" value="<?php echo $fila -> apellido; ?>" id="apellido" title="Por favor ingrese los apellidos del trabajador" required />
+											<input type="text" name="apellido" value="<?php echo $fila->apellido; ?>" id="apellido" title="Por favor ingrese los apellidos del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label for="libreta_militr" class='rotulo' title="Por favor ingrese el número de la libreta militar">Libreta Militar</label>
-											<input type="text" name="libreta_militr" value="<?php echo $fila -> libreta_militr; ?>" id="libreta_militr" title="Por favor ingrese el número de la libreta militar" required />
+											<input type="text" name="libreta_militr" value="<?php echo $fila->libreta_militr; ?>" id="libreta_militr" title="Por favor ingrese el número de la libreta militar" required />
 										</div>
 										<div class='campo'>
 											<label for="pasaporte" class='rotulo' title="Por favor ingrese los datos del pasaporte">Pasaporte</label>
-											<input type="text" name="pasaporte" value="<?php echo $fila -> pasaporte; ?>" id="pasaporte" title="Por favor ingrese el número de pasaporte" required />
+											<input type="text" name="pasaporte" value="<?php echo $fila->pasaporte; ?>" id="pasaporte" title="Por favor ingrese el número de pasaporte" required />
 										</div>
 										<div class='campo'>
 											<label for="lug_nac" class='rotulo' title="Por favor ingrese el lugar de nacimiento del trabajador">Lugar de Nacimiento</label>
-											<input type="text" name="lug_nac" value="<?php echo $fila -> lug_nac; ?>" id="lug_nac" title="Por favor ingrese el lugar de nacimiento del trabajador" required />
+											<input type="text" name="lug_nac" value="<?php echo $fila->lug_nac; ?>" id="lug_nac" title="Por favor ingrese el lugar de nacimiento del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor ingrese la fecha de nacimiento del trabajador">Fecha de Nacimiento</label>
@@ -296,15 +296,15 @@
 										</div>
 										<div class='campo'>
 											<label for="telefono" class='rotulo' title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000">Teléfono</label>
-											<input name="telefono" value="<?php echo $fila -> telefono; ?>" type="text" id="telefono" title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
+											<input name="telefono" value="<?php echo $fila->telefono; ?>" type="text" id="telefono" title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
 										</div>
 										<div class='campo'>
 											<label for="telefono_em" class='rotulo' title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000">Teléfono Emergencia</label>
-											<input name="telefono_em" value="<?php echo $fila -> telefono_em; ?>" type="text" id="telefono_em" title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000" size="20" maxlength="12"  required />
+											<input name="telefono_em" value="<?php echo $fila->telefono_em; ?>" type="text" id="telefono_em" title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000" size="20" maxlength="12"  required />
 										</div>
 										<div class='campo'>
 											<label for="nconyugue" class='rotulo' title="Por favor ingrese el nombre del conyugue">Nombre del Conyugue</label>
-											<input type="text" name="nconyugue" value="<?php echo $fila -> nconyugue; ?>" id="nconyugue" title="Por favor ingrese el nombre del conyugue" />
+											<input type="text" name="nconyugue" value="<?php echo $fila->nconyugue; ?>" id="nconyugue" title="Por favor ingrese el nombre del conyugue" />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija la fecha en que ingreso el trabajador a la clinica">Fecha de Ingreso</label>
@@ -348,14 +348,14 @@
 										</div>
 										<div class='campo'>
 											<label for="resolucion" class='rotulo' title="Por favor ingrese el número de resolucion">Resolución</label>
-											<input type="text" name="resolucion" value="<?php echo $fila -> resolucion; ?>" id="resolucion" title="Por favor ingrese el número de resolucion" required />
+											<input type="text" name="resolucion" value="<?php echo $fila->resolucion; ?>" id="resolucion" title="Por favor ingrese el número de resolucion" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija la ley bajo la cual esta amparado el tabajador">Amparado Bajo</label>
 											<select name="ley" title="Por favor elija la ley bajo la cual esta amparado el tabajador" required>
 												<option value=""></option>
-												<option value="LOTTT" <?php if($fila -> ley == 'LOTTT') echo 'selected="selected"'; ?> title="Ley Orgánica del Trabajo, los Trabajadores y Trabajadoras">LOTTT</option>
-												<option value="LEFP" <?php if($fila -> ley == 'LEFP') echo 'selected="selected"'; ?> title="Ley del Estatuto de la Función Pública">LEFP</option>
+												<option value="LOTTT" <?php if($fila->ley == 'LOTTT') echo 'selected="selected"'; ?> title="Ley Orgánica del Trabajo, los Trabajadores y Trabajadoras">LOTTT</option>
+												<option value="LEFP" <?php if($fila->ley == 'LEFP') echo 'selected="selected"'; ?> title="Ley del Estatuto de la Función Pública">LEFP</option>
 											</select>
 										</div>
 									</div>
@@ -434,7 +434,7 @@
 													<select name="anonac_fam[#index#]" id="sheepItForm_#index#anonac_fam" title="Por favor elija el año de nacimiento del familiar del trabajador" required>
 														<option></option>
 														<?php 
-															for($i=date('o'); $i>=1980; $i--) echo '<option value="'.$i.'">'.$i.'</option>';
+															for($i=date('o'); $i>=1900; $i--) echo '<option value="'.$i.'">'.$i.'</option>';
 														?>
 													</select>
 												</div>
@@ -493,30 +493,30 @@
 											<label class='rotulo' title="Por favor elija el nivel del estudio del trabajador">Estudios</label>
 											<select name="estudio" title="Por favor elija el nivel del estudio del trabajador" id="estudio" required>
 												<option value=""></option>
-												<option value="Primaria" <?php if($fila -> estudios == 'Primaria') echo 'selected="selected"'; ?>>Primaria</option>
-												<option value="Secundaria" <?php if($fila -> estudios == 'Secundaria') echo 'selected="selected"'; ?>>Secundaria</option>
-												<option value="Universitario" <?php if($fila -> estudios == 'Universitario') echo 'selected="selected"'; ?>>Universitario</option>
-												<option value="Postgrado" <?php if($fila -> estudios == 'Postgrado') echo 'selected="selected"'; ?>>Post/grado</option>
-												<option value="Otros" <?php if($fila -> estudios == 'Otros') echo 'selected="selected"'; ?>>Otros</option>
+												<option value="Primaria" <?php if($fila->estudios == 'Primaria') echo 'selected="selected"'; ?>>Primaria</option>
+												<option value="Secundaria" <?php if($fila->estudios == 'Secundaria') echo 'selected="selected"'; ?>>Secundaria</option>
+												<option value="Universitario" <?php if($fila->estudios == 'Universitario') echo 'selected="selected"'; ?>>Universitario</option>
+												<option value="Postgrado" <?php if($fila->estudios == 'Postgrado') echo 'selected="selected"'; ?>>Post/grado</option>
+												<option value="Otros" <?php if($fila->estudios == 'Otros') echo 'selected="selected"'; ?>>Otros</option>
 											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="lug_estudio" title="Por favor ingrese el lugar de estudio del trabajador">Lugar de Estudio</label>
-											<input type="text" name="lug_estudio" value="<?php echo $fila -> lugar_estudio; ?>" id="lug_estudio" title="Por favor ingrese el lugar de estudio del trabajador" required />
+											<input type="text" name="lug_estudio" value="<?php echo $fila->lugar_estudio; ?>" id="lug_estudio" title="Por favor ingrese el lugar de estudio del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="ano" title="Por favor ingrese el año de graduación del trabajador">Año</label>
-											<input type="text" name="ano" value="<?php echo $fila -> anno; ?>" id="ano" title="Por favor ingrese el año de graduación del trabajador" required />
+											<input type="text" name="ano" value="<?php echo $fila->anno; ?>" id="ano" title="Por favor ingrese el año de graduación del trabajador" required />
 										</div>
 									</div>
 									<div class='izquierda'>
 										<div class='campo'>
 											<label class='rotulo' for="titulos" title="Por favor ingrese el titulo obtenido del trabajador">Titulo Obtenido</label>
-											<input type="text" name="titulos" value="<?php echo $fila -> titulo; ?>" id="titulos" title="Por favor ingrese el titulo obtenido del trabajador" required />
+											<input type="text" name="titulos" value="<?php echo $fila->titulo; ?>" id="titulos" title="Por favor ingrese el titulo obtenido del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="observacion" title="Por favor ingrese el titulo obtenido del trabajador">Observaciones</label>
-											<input type="text" name="observacion" value="<?php echo $fila -> observacion; ?>" id="observacion" title="Por favor ingrese las observaciones" required />
+											<input type="text" name="observacion" value="<?php echo $fila->observacion; ?>" id="observacion" title="Por favor ingrese las observaciones" required />
 										</div>
 									</div>
 								</fieldset>
@@ -525,88 +525,88 @@
 									<div class='derecha'>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno partida de nacimiento">Partida de nacimiento</label>
-											<input type="radio" name="part_nac" value="1" <?php if($fila -> partida_naci == 1) echo 'checked="checked"'?> id="part_nac_si" title="Si consigno partida de nacimiento" />
+											<input type="radio" name="part_nac" value="1" <?php if($fila->partida_naci == 1) echo 'checked="checked"'?> id="part_nac_si" title="Si consigno partida de nacimiento" />
 											<label for="part_nac_si" title="Si consigno partida de nacimiento" class="rotulo_r">Si</label>
-											<input type="radio" name="part_nac" value="0" <?php if($fila -> partida_naci == 0) echo 'checked="checked"'?> id="part_nac_no" title="No consigno partida de nacimineto" />
+											<input type="radio" name="part_nac" value="0" <?php if($fila->partida_naci == 0) echo 'checked="checked"'?> id="part_nac_no" title="No consigno partida de nacimineto" />
 											<label for="part_nac_no" title="No consigno partida de nacimiento" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno inscripción militar">Inscripción Militar</label>
-											<input type="radio" name="ins_milt" value="1" <?php if($fila -> inscrip_militar == 1) echo 'checked="checked"'?> id="ins_milt_si" title="Si consigno inscripción militar" />
+											<input type="radio" name="ins_milt" value="1" <?php if($fila->inscrip_militar == 1) echo 'checked="checked"'?> id="ins_milt_si" title="Si consigno inscripción militar" />
 											<label for="ins_milt_si" title="Si consigno inscripción militar" class="rotulo_r">Si</label>
-											<input type="radio" name="ins_milt" value="0" <?php if($fila -> inscrip_militar == 0) echo 'checked="checked"'?> id="ins_milt_no" title="No consigno inscripción militar" />
+											<input type="radio" name="ins_milt" value="0" <?php if($fila->inscrip_militar == 0) echo 'checked="checked"'?> id="ins_milt_no" title="No consigno inscripción militar" />
 											<label for="ins_milt_no" title="No consigno inscripción militar" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno cédula de identidad">Cédula de Identidad</label>
-											<input type="radio" name="ced_iden" value="1" <?php if($fila -> cedula_ident == 1) echo 'checked="checked"'?> id="ced_iden_si" title="Si consigno cédula de identidad" />
+											<input type="radio" name="ced_iden" value="1" <?php if($fila->cedula_ident == 1) echo 'checked="checked"'?> id="ced_iden_si" title="Si consigno cédula de identidad" />
 											<label for="ced_iden_si" title="Si consigno cédula de identidad" class="rotulo_r">Si</label>
-											<input type="radio" name="ced_iden" value="0" <?php if($fila -> cedula_ident == 0) echo 'checked="checked"'?> id="ced_iden_no" title="No consigno cédula de identidad" />
+											<input type="radio" name="ced_iden" value="0" <?php if($fila->cedula_ident == 0) echo 'checked="checked"'?> id="ced_iden_no" title="No consigno cédula de identidad" />
 											<label for="ced_iden_no" title="No consigno cédula de identidad" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno RIF">RIF</label>
-											<input type="radio" name="rif" value="1" <?php if($fila -> rif == 1) echo 'checked="checked"'?> id="rif_si" title="Si consigno RIF" />
+											<input type="radio" name="rif" value="1" <?php if($fila->rif == 1) echo 'checked="checked"'?> id="rif_si" title="Si consigno RIF" />
 											<label for="rif_si" title="Si consigno RIF" class="rotulo_r">Si</label>
-											<input type="radio" name="rif" value="0" <?php if($fila -> rif == 0) echo 'checked="checked"'?> id="rif_no" title="No consigno RIF" />
+											<input type="radio" name="rif" value="0" <?php if($fila->rif == 0) echo 'checked="checked"'?> id="rif_no" title="No consigno RIF" />
 											<label for="rif_no" title="No consigno RIF" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno declaración jurada">Declaración Jurada</label>
-											<input type="radio" name="dec_jur" value="1" <?php if($fila -> declaracion_jurada == 1) echo 'checked="checked"'?> id="dec_jur_si" title="Si consigno declaración jurada" />
+											<input type="radio" name="dec_jur" value="1" <?php if($fila->declaracion_jurada == 1) echo 'checked="checked"'?> id="dec_jur_si" title="Si consigno declaración jurada" />
 											<label for="dec_jur_si" title="Si consigno declaración jurada" class="rotulo_r">Si</label>
-											<input type="radio" name="dec_jur" value="0" <?php if($fila -> declaracion_jurada == 0) echo 'checked="checked"'?> id="dec_jur_no" title="No consigno declaración jurada" />
+											<input type="radio" name="dec_jur" value="0" <?php if($fila->declaracion_jurada == 0) echo 'checked="checked"'?> id="dec_jur_no" title="No consigno declaración jurada" />
 											<label for="dec_jur_no" title="No consigno declaración jurada" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno informe medico">Informe Medico</label>
-											<input type="radio" name="inf_med" value="1" <?php if($fila -> informe_medico == 1) echo 'checked="checked"'?> id="inf_med_si" title="Si consigno informe medico" />
+											<input type="radio" name="inf_med" value="1" <?php if($fila->informe_medico == 1) echo 'checked="checked"'?> id="inf_med_si" title="Si consigno informe medico" />
 											<label for="inf_med_si" title="Si consigno informe medico" class="rotulo_r">Si</label>
-											<input type="radio" name="inf_med" value="0" <?php if($fila -> informe_medico == 0) echo 'checked="checked"'?> id="inf_med_no" title="No consigno informe medico" />
+											<input type="radio" name="inf_med" value="0" <?php if($fila->informe_medico == 0) echo 'checked="checked"'?> id="inf_med_no" title="No consigno informe medico" />
 											<label for="inf_med_no" title="No consigno informe medico" class="rotulo_r">No</label>
 										</div>
 									</div>
 									<div class='izquierda'>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno partida de nacimiento de hijos">Partida de Nacimiento de Hijos</label>
-											<input type="radio" name="part_nac_h" value="1" <?php if($fila -> parti_nac_h == 1) echo 'checked="checked"'?> id="part_nac_h_si" title="Si consigno partida de nacimiento de hijos" />
+											<input type="radio" name="part_nac_h" value="1" <?php if($fila->parti_nac_h == 1) echo 'checked="checked"'?> id="part_nac_h_si" title="Si consigno partida de nacimiento de hijos" />
 											<label for="part_nac_h_si" title="Si consigno partida de nacimiento de hijos" class="rotulo_r">Si</label>
-											<input type="radio" name="part_nac_h" value="0" <?php if($fila -> parti_nac_h == 0) echo 'checked="checked"'?> id="part_nac_h_no" title="No consigno partida de nacimiento de hijos" />
+											<input type="radio" name="part_nac_h" value="0" <?php if($fila->parti_nac_h == 0) echo 'checked="checked"'?> id="part_nac_h_no" title="No consigno partida de nacimiento de hijos" />
 											<label for="part_nac_h_no" title="No consigno partida de nacimiento de hijos" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno acta de matrimonio y/o divorcio">Acta de Matrimonio y/o Divorcio</label>
-											<input type="radio" name="matr_divr" value="1" <?php if($fila -> acta_mat_div == 1) echo 'checked="checked"'?> id="matr_divr_si" title="Si consigno acta de matrimonio y/o divorcio" />
+											<input type="radio" name="matr_divr" value="1" <?php if($fila->acta_mat_div == 1) echo 'checked="checked"'?> id="matr_divr_si" title="Si consigno acta de matrimonio y/o divorcio" />
 											<label for="matr_divr_si" title="Si consigno acta de matrimonio y/o divorcio" class="rotulo_r">Si</label>
-											<input type="radio" name="matr_divr" value="0" <?php if($fila -> acta_mat_div == 0) echo 'checked="checked"'?> id="matr_divr_no" title="No consigno acta de matrimonio y/o divorcio" />
+											<input type="radio" name="matr_divr" value="0" <?php if($fila->acta_mat_div == 0) echo 'checked="checked"'?> id="matr_divr_no" title="No consigno acta de matrimonio y/o divorcio" />
 											<label for="matr_divr_no" title="No consigno acta de matrimonio y/o divorcio" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno defunciones">Defunciones</label>
-											<input type="radio" name="defunc" value="1" <?php if($fila -> defunciones == 1) echo 'checked="checked"'?> id="defunc_si" title="Si consigno defunciones" />
+											<input type="radio" name="defunc" value="1" <?php if($fila->defunciones == 1) echo 'checked="checked"'?> id="defunc_si" title="Si consigno defunciones" />
 											<label for="defunc_si" title="Si consigno defunciones" class="rotulo_r">Si</label>
-											<input type="radio" name="defunc" value="0" <?php if($fila -> defunciones == 0) echo 'checked="checked"'?> id="defunc_no" title="No consigno defunciones" />
+											<input type="radio" name="defunc" value="0" <?php if($fila->defunciones == 0) echo 'checked="checked"'?> id="defunc_no" title="No consigno defunciones" />
 											<label for="defunc_no" title="No consigno defunciones" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno titulos">Titulos</label>
-											<input type="radio" name="titul" value="1" <?php if($fila -> titulos == 1) echo 'checked="checked"'?> id="titul_si" title="Si consigno titulos" />
+											<input type="radio" name="titul" value="1" <?php if($fila->titulos == 1) echo 'checked="checked"'?> id="titul_si" title="Si consigno titulos" />
 											<label for="titul_si" title="Si consigno titulos" class="rotulo_r">Si</label>
-											<input type="radio" name="titul" value="0" <?php if($fila -> titulos == 0) echo 'checked="checked"'?> id="titul_no" title="No consigno titulos" />
+											<input type="radio" name="titul" value="0" <?php if($fila->titulos == 0) echo 'checked="checked"'?> id="titul_no" title="No consigno titulos" />
 											<label for="titul_no" title="No consigno titulos" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno certificados">Certificados</label>
-											<input type="radio" name="certf" value="1" <?php if($fila -> certificados == 1) echo 'checked="checked"'?> id="certf_si" title="Si consigno certificados" />
+											<input type="radio" name="certf" value="1" <?php if($fila->certificados == 1) echo 'checked="checked"'?> id="certf_si" title="Si consigno certificados" />
 											<label for="certf_si" title="Si consigno certificados" class="rotulo_r">Si</label>
-											<input type="radio" name="certf" value="0" <?php if($fila -> certificados == 0) echo 'checked="checked"'?> id="certf_no" title="No consigno certificados" />
+											<input type="radio" name="certf" value="0" <?php if($fila->certificados == 0) echo 'checked="checked"'?> id="certf_no" title="No consigno certificados" />
 											<label for="certf_no" title="No consigno certificados" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno constancias y horarios de estudios">Constancias y Horarios de Estudios</label>
-											<input type="radio" name="const_hora" value="1" <?php if($fila -> const_hor_est == 1) echo 'checked="checked"'?> id="const_hora_si" title="Si consigno constancias y horarios de estudios" />
+											<input type="radio" name="const_hora" value="1" <?php if($fila->const_hor_est == 1) echo 'checked="checked"'?> id="const_hora_si" title="Si consigno constancias y horarios de estudios" />
 											<label for="const_hora_si" title="Si consigno constancias y horarios de estudios" class="rotulo_r">Si</label>
-											<input type="radio" name="const_hora" value="0" <?php if($fila -> const_hor_est == 0) echo 'checked="checked"'?> id="const_hora_no" title="No consigno constancias y horarios de estudios" />
+											<input type="radio" name="const_hora" value="0" <?php if($fila->const_hor_est == 0) echo 'checked="checked"'?> id="const_hora_no" title="No consigno constancias y horarios de estudios" />
 											<label for="const_hora_no" title="No consigno constancias y horarios de estudios" class="rotulo_r">No</label>
 										</div>
 									</div>
@@ -615,7 +615,7 @@
 									<legend>Referencias Personales</legend>
 									<?php
 										$i = 0;//variable para determinar número de input
-										while ($fila_r = $referencia -> fetch_object()) {
+										while ($fila_r = $referencia->fetch_object()) {
 									?>
 											<div class='division'>
 												<h3>Referencia número <?php echo ++$i; ?></h3>
@@ -623,25 +623,25 @@
 											<div class='derecha'>
 												<div class='campo'>
 													<label class='rotulo' for="nombre_rp_<?php echo $i; ?>" title="Por favor ingrese el nombre completo">Nombres</label>
-													<input type="text" name="nombre_rp[]" value="<?php echo $fila_r -> nombre_rp; ?>" id="nombre_rp_<?php echo $i; ?>" title="Por favor ingrese el nombre completo" required />
+													<input type="text" name="nombre_rp[]" value="<?php echo $fila_r->nombre_rp; ?>" id="nombre_rp_<?php echo $i; ?>" title="Por favor ingrese el nombre completo" required />
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="cedula_rp_<?php echo $i; ?>" title="Por favor ingrese la cédula de identidad">Cédula</label>
-													<input type="text" name="cedula_rp[]" value="<?php echo $fila_r -> cedula_rp; ?>" id="cedula_rp_<?php echo $i; ?>" title="Por favor ingrese la cédula de identidad" required />
+													<input type="text" name="cedula_rp[]" value="<?php echo $fila_r->cedula_rp; ?>" id="cedula_rp_<?php echo $i; ?>" title="Por favor ingrese la cédula de identidad" required />
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="telefono_rp_<?php echo $i; ?>" title="Por favor ingrese el número telefónico con formato 0000-0000000">Teléfono</label>
-													<input type="text" name="telefono_rp[]" value="<?php echo $fila_r -> telefono_rp; ?>" id="telefono_rp_<?php echo $i; ?>" title="Por favor ingrese el número telefónico con formato 0000-0000000" size="20" maxlength="12" required />
+													<input type="text" name="telefono_rp[]" value="<?php echo $fila_r->telefono_rp; ?>" id="telefono_rp_<?php echo $i; ?>" title="Por favor ingrese el número telefónico con formato 0000-0000000" size="20" maxlength="12" required />
 												</div>
 											</div>
 											<div class='izquierda'>
 												<div class='campo'>
 													<label class='rotulo' for="apellido_rp_<?php echo $i; ?>" title="Por favor ingrese los apellidos">Apellidos</label>
-													<input type="text" name="apellido_rp[]" value="<?php echo $fila_r -> apellido_rp; ?>" id="apellido_rp_<?php echo $i; ?>" title="Por favor ingrese los apellidos" required />
+													<input type="text" name="apellido_rp[]" value="<?php echo $fila_r->apellido_rp; ?>" id="apellido_rp_<?php echo $i; ?>" title="Por favor ingrese los apellidos" required />
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="ocupacion_rp_<?php echo $i; ?>" title="Por favor ingrese la ocupación">Ocupación</label>
-													<input type="text" name="ocupacion_rp[]" value="<?php echo $fila_r -> ocupacion_rp; ?>" id="ocupacion_rp_<?php echo $i; ?>" title="Por favor ingrese la ocupación" required />
+													<input type="text" name="ocupacion_rp[]" value="<?php echo $fila_r->ocupacion_rp; ?>" id="ocupacion_rp_<?php echo $i; ?>" title="Por favor ingrese la ocupación" required />
 												</div>
 											</div>
 									<?php
@@ -655,19 +655,19 @@
 											<label class='rotulo' for="tall_cam" title="Por favor elija la talla de camisa del trabajador">Talla Camisa</label>
 											<select name="tall_cam" id="tall_cam" title="Por favor elija la talla de camisa del trabajador" required>
 												<option value=""></option>
-												<option value="S" <?php if($fila -> camisa == 'S') echo 'selected="selected"'; ?>>S</option>
-												<option value="M" <?php if($fila -> camisa == 'M') echo 'selected="selected"'; ?>>M</option>
-												<option value="L" <?php if($fila -> camisa == 'L') echo 'selected="selected"'; ?>>L</option>
-												<option value="XL" <?php if($fila -> camisa == 'XL') echo 'selected="selected"'; ?>>XL</option>
+												<option value="S" <?php if($fila->camisa == 'S') echo 'selected="selected"'; ?>>S</option>
+												<option value="M" <?php if($fila->camisa == 'M') echo 'selected="selected"'; ?>>M</option>
+												<option value="L" <?php if($fila->camisa == 'L') echo 'selected="selected"'; ?>>L</option>
+												<option value="XL" <?php if($fila->camisa == 'XL') echo 'selected="selected"'; ?>>XL</option>
 											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="tall_pant" title="Por favor ingrese la talla del pantalon del trabajador">Talla Pantalon</label>
-											<input type="text" name="tall_pant" value="<?php echo $fila -> pantalon; ?>" id="tall_pant" title="Por favor ingrese la talla del pantalon del trabajador" required />
+											<input type="text" name="tall_pant" value="<?php echo $fila->pantalon; ?>" id="tall_pant" title="Por favor ingrese la talla del pantalon del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="tall_calz" title="Por favor ingrese la talla del calzado del trabajador">Talla Calzado</label>
-											<input type="text" name="tall_calz" value="<?php echo $fila -> calzado; ?>" id="tall_calz" title="Por favor ingrese la talla del calzado del trabajador" required />
+											<input type="text" name="tall_calz" value="<?php echo $fila->calzado; ?>" id="tall_calz" title="Por favor ingrese la talla del calzado del trabajador" required />
 										</div>
 									</div>
 								</fieldset>

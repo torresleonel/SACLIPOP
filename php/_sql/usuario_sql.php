@@ -12,7 +12,7 @@
 		$sql = "INSERT INTO usuario (id_usuario,clave,nombre,apellido,nivel)
 				VALUES ('$usuario','$pass','$nombre','$apellido','$nivel')";
 			
-		$cnx_bd -> query($sql);
+		$cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -28,7 +28,7 @@
 
 		$sql = "SELECT id_usuario,nombre,apellido,pregunta,respuesta FROM usuario WHERE id_usuario='$usuario'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -41,7 +41,7 @@
 
 		$sql = "SELECT id_usuario,nombre,apellido,nivel FROM usuario";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -55,7 +55,7 @@
 
 		$sql = "DELETE FROM usuario WHERE id_usuario = '$usuario'";
 
-		$cnx_bd -> query($sql);
+		$cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -81,7 +81,7 @@
 				SET id_usuario = '$usuario',clave = '$clave',nombre = '$nombre',apellido = '$apellido',pregunta = '$preg_seg',respuesta = '$respuesta'
 				WHERE usuario.id_usuario = '$viejo_usuario'";
 
-		$cnx_bd -> query($sql);
+		$cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);

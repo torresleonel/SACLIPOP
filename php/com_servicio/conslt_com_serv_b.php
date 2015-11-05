@@ -26,12 +26,12 @@
 					$cnx_bd = conexion();
 					include('../_sql/conslt_trabj_sql.php');
 					$resultado = conslt_completa_coms($cnx_bd);
-					$cnx_bd -> close();
-					$fila = $resultado -> fetch_object();
-					list($a,$m,$d) = explode("-",$fila -> actualizado);
-					list($an,$mn,$dn) = explode("-",$fila -> fe_nac);
-					list($ai,$mi,$di) = explode("-",$fila -> fecha_ingreso);
-					if ($fila -> estudia == 0) $estud = 'No'; else $estud = 'Si';
+					$cnx_bd->close();
+					$fila = $resultado->fetch_object();
+					list($a,$m,$d) = explode("-",$fila->actualizado);
+					list($an,$mn,$dn) = explode("-",$fila->fe_nac);
+					list($ai,$mi,$di) = explode("-",$fila->fecha_ingreso);
+					if ($fila->estudia == 0) $estud = 'No'; else $estud = 'Si';
 				?>
 				<div id="content">
 					<h1>Detalles del Personal</h1>
@@ -51,15 +51,15 @@
 									<div class='derecha'>
 										<div class='campo'>
 											<label class='rotulo'>Nombres</label>
-											<span class="text_cons"><?php echo $fila -> nombre; ?></span>
+											<span class="text_cons"><?php echo $fila->nombre; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Cédula</label>
-											<span class="text_cons"><?php echo $fila -> cedula; ?></span>
+											<span class="text_cons"><?php echo $fila->cedula; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Nacionalidad</label>
-											<span class="text_cons"><?php echo $fila -> ciudadania; ?></span>
+											<span class="text_cons"><?php echo $fila->ciudadania; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Estudia</label>
@@ -67,37 +67,37 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Dirección</label>
-											<span class="text_cons"><?php echo $fila -> direccion; ?></span>
+											<span class="text_cons"><?php echo $fila->direccion; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Estado Civil</label>
-											<span class="text_cons"><?php echo $fila -> est_civil; ?></span>
+											<span class="text_cons"><?php echo $fila->est_civil; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Nombre del Conyugue</label>
-											<span class="text_cons"><?php echo $fila -> nconyugue; ?></span>
+											<span class="text_cons"><?php echo $fila->nconyugue; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Departamento Envia</label>
-											<span class="text_cons"><?php echo $fila -> dpt_envia; ?></span>
+											<span class="text_cons"><?php echo $fila->dpt_envia; ?></span>
 										</div>
 									</div>
 									<div class='izquierda'>
 										<div class='campo'>
 											<label class='rotulo'>Apellidos</label>
-											<span class="text_cons"><?php echo $fila -> apellido; ?></span>
+											<span class="text_cons"><?php echo $fila->apellido; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Libreta Militar</label>
-											<span class="text_cons"><?php echo $fila -> libreta_militr; ?></span>
+											<span class="text_cons"><?php echo $fila->libreta_militr; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Pasaporte</label>
-											<span class="text_cons"><?php echo $fila -> pasaporte; ?></span>
+											<span class="text_cons"><?php echo $fila->pasaporte; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Lugar de Nacimiento</label>
-											<span class="text_cons"><?php echo $fila -> lug_nac; ?></span>
+											<span class="text_cons"><?php echo $fila->lug_nac; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Fecha de Nacimiento</label>
@@ -105,11 +105,11 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Teléfono</label>
-											<span class="text_cons"><?php echo $fila -> telefono; ?></span>
+											<span class="text_cons"><?php echo $fila->telefono; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Cargo</label>
-											<span class="text_cons"><?php echo $fila -> cargo; ?></span>
+											<span class="text_cons"><?php echo $fila->cargo; ?></span>
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Fecha de Ingreso</label>
@@ -117,13 +117,13 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo'>Observación</label>
-											<span class="text_cons"><?php echo $fila -> observacion; ?></span>
+											<span class="text_cons"><?php echo $fila->observacion; ?></span>
 										</div>
 									</div>
 								</fieldset>
 								<fieldset class="step">
 									<?php
-										$resultado -> free();
+										$resultado->free();
 									?>
 								</fieldset>
 							</form>

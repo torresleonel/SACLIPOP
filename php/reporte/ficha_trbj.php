@@ -29,12 +29,12 @@
 					$familia_depn = conslt_familia_depn($cnx_bd);
 					$familia_emp = conslt_familia_emp($cnx_bd);
 					$referencia = conslt_referencia($cnx_bd);
-					$cnx_bd -> close();
-					$fila = $resultado -> fetch_object();
-					list($a,$m,$d) = explode("-",$fila -> actualizado);
-					list($an,$mn,$dn) = explode("-",$fila -> fe_nac);
-					list($ai,$mi,$di) = explode("-",$fila -> fecha_ingreso);
-					if ($fila -> estudia == 1) $estudia = 'Si';
+					$cnx_bd->close();
+					$fila = $resultado->fetch_object();
+					list($a,$m,$d) = explode("-",$fila->actualizado);
+					list($an,$mn,$dn) = explode("-",$fila->fe_nac);
+					list($ai,$mi,$di) = explode("-",$fila->fecha_ingreso);
+					if ($fila->estudia == 1) $estudia = 'Si';
 					else $estudia = 'No';
 				?>
 				<div id="ficha">
@@ -80,11 +80,11 @@
 						</tr>
 						<!-- FILA 5 -->
 						<tr>
-							<td colspan="4" rowspan="2"><b>APELLIDOS Y NOMBRES:</b> <span class="dato"><?=$fila -> apellido.' '.$fila -> nombre?></span></td>
+							<td colspan="4" rowspan="2"><b>APELLIDOS Y NOMBRES:</b> <span class="dato"><?=$fila->apellido.' '.$fila->nombre?></span></td>
 							<td><b>DIA</b></td>
 							<td><b>MES</b></td>
 							<td><b>AÑO</b></td>
-							<td rowspan="2"><span class="dato"><?=$fila -> resolucion?></span></td>
+							<td rowspan="2"><span class="dato"><?=$fila->resolucion?></span></td>
 						</tr>
 						<!-- FILA 6 -->
 						<tr>
@@ -94,23 +94,23 @@
 						</tr>
 						<!-- FILA 7 -->
 						<tr>
-							<td colspan="2"><b>C.I. N°</b> <span class="dato"><?=$fila -> cedula?></span></td>
-							<td colspan="2"><b>LIBRETA MILITAR N°</b> <span class="dato"><?=$fila -> libreta_militr?></span></td>
-							<td colspan="3"><b>PASAPORTE N°</b> <span class="dato"><?=$fila -> pasaporte?></span></td>
+							<td colspan="2"><b>C.I. N°</b> <span class="dato"><?=$fila->cedula?></span></td>
+							<td colspan="2"><b>LIBRETA MILITAR N°</b> <span class="dato"><?=$fila->libreta_militr?></span></td>
+							<td colspan="3"><b>PASAPORTE N°</b> <span class="dato"><?=$fila->pasaporte?></span></td>
 							<td><b>CARGO:</b></td>
 						</tr>
 						<!-- FILA 8 -->
 						<tr>
-							<td colspan="3"><b>NACIONALIDAD:</b> <span class="dato"><?=$fila -> ciudadania?></span></td>
+							<td colspan="3"><b>NACIONALIDAD:</b> <span class="dato"><?=$fila->ciudadania?></span></td>
 							<td><b>FECHA DE NACIMIENTO:</b></td>
 							<td><b>DIA</b></td>
 							<td><b>MES</b></td>
 							<td><b>AÑO</b></td>
-							<td rowspan="3"><span class="dato"><?=$fila -> cargo?></span></td>
+							<td rowspan="3"><span class="dato"><?=$fila->cargo?></span></td>
 						</tr>
 						<!-- FILA 9 -->
 						<tr>
-							<td colspan="3"><b>ESTADO CIVIL:</b> <span class="dato"><?=$fila -> est_civil?></span></td>
+							<td colspan="3"><b>ESTADO CIVIL:</b> <span class="dato"><?=$fila->est_civil?></span></td>
 							<td><b>ESTUDIA:</b> <span class="dato"><?=$estudia?></span></td>
 							<td><span class="dato"><?=$dn?></span></td>
 							<td><span class="dato"><?=$mn?></span></td>
@@ -118,12 +118,12 @@
 						</tr>
 						<!-- FILA 10 -->
 						<tr>
-							<td colspan="3"><b>TELFS:</b> <span class="dato"><?=$fila -> telefono?></span></td>
-							<td colspan="4"><b>LUGAR DE NACIMIENTO:</b> <span class="dato"><?=$fila -> lug_nac?></span></td>
+							<td colspan="3"><b>TELFS:</b> <span class="dato"><?=$fila->telefono?></span></td>
+							<td colspan="4"><b>LUGAR DE NACIMIENTO:</b> <span class="dato"><?=$fila->lug_nac?></span></td>
 						</tr>
 						<!-- FILA 11 -->
 						<tr>
-							<td colspan="5" rowspan="3"><b>DIRECCION DE HABITACION:</b> <span class="dato"><?=$fila -> direccion?></span></td>
+							<td colspan="5" rowspan="3"><b>DIRECCION DE HABITACION:</b> <span class="dato"><?=$fila->direccion?></span></td>
 							<td colspan="3"><b>EN CASO DE EMERGENCIA LLAMAR</b></td>
 						</tr>
 						<!-- FILA 12 -->
@@ -136,7 +136,7 @@
 						</tr>
 						<!-- FILA 14 -->
 						<tr>
-							<td colspan="5"><b>NOMBRE DEL CONYUGUE:</b> <span class="dato"><?=$fila -> nconyugue?></span></td>
+							<td colspan="5"><b>NOMBRE DEL CONYUGUE:</b> <span class="dato"><?=$fila->nconyugue?></span></td>
 							<td colspan="3">&nbsp;</td>
 						</tr>
 					</table>
@@ -187,9 +187,9 @@
 						<?php
 							}else{
 								while ($fila_fam_dep = $familia_depn->fetch_object()) {
-									if ($fila_fam_dep -> estudiaf == 1) $estudiafd = 'Si';
+									if ($fila_fam_dep->estudiaf == 1) $estudiafd = 'Si';
 									else $estudiafd = 'No';
-									list($afd,$mfd,$dfd) = explode("-",$fila_fam_dep -> fecha_nacf);
+									list($afd,$mfd,$dfd) = explode("-",$fila_fam_dep->fecha_nacf);
 									$A_actual = date("Y");
 									$M_actual = date("n");
 									$D_actual = date("j");
@@ -245,8 +245,8 @@
 								</tr>
 						<?php }else{
 								while ($fila_fam_emp = $familia_emp->fetch_object()) {
-									if ($fila_fam_emp -> empleadof == 1) $dependencia = 'De la institución';
-									elseif ($fila_fam_emp -> empleadof == 2) $dependencia = 'De la alcaldia';
+									if ($fila_fam_emp->empleadof == 1) $dependencia = 'De la institución';
+									elseif ($fila_fam_emp->empleadof == 2) $dependencia = 'De la alcaldia';
 						?>
 									<!-- FILA 3 -->
 									<tr>
@@ -329,85 +329,85 @@
 						<!-- FILA 3 -->
 						<tr>
 							<td><b>PARTIDA DE NACIMIENTO</b></td>
-							<td><b>SI</b><?php if ($fila -> partida_naci == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> partida_naci == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->partida_naci == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->partida_naci == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 4 -->
 						<tr>
 							<td><b>INSCRIPCION MILITAR</b></td>
-							<td><b>SI</b><?php if ($fila -> inscrip_militar == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> inscrip_militar == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->inscrip_militar == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->inscrip_militar == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 5 -->
 						<tr>
 							<td><b>CEDULA DE IDENTIDAD AMPLIADA</b></td>
-							<td><b>SI</b><?php if ($fila -> cedula_ident == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> cedula_ident == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->cedula_ident == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->cedula_ident == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 6 -->
 						<tr>
 							<td><b>RIF</b></td>
-							<td><b>SI</b><?php if ($fila -> rif == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> rif == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->rif == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->rif == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 7 -->
 						<tr>
 							<td><b>DECLARACION JURADA</b></td>
-							<td><b>SI</b><?php if ($fila -> declaracion_jurada == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> declaracion_jurada == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->declaracion_jurada == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->declaracion_jurada == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 8 -->
 						<tr>
 							<td><b>INFORME MEDICO actualizado si lo amerita</b></td>
-							<td><b>SI</b><?php if ($fila -> informe_medico == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> informe_medico == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->informe_medico == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->informe_medico == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 9 -->
 						<tr>
 							<td><b>PARTIDA DE NACIMIENTO DE HIJOS</b></td>
-							<td><b>SI</b><?php if ($fila -> parti_nac_h == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> parti_nac_h == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->parti_nac_h == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->parti_nac_h == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 10 -->
 						<tr>
 							<td><b>ACTA DE MATRIMONIO Y/O DIVORCIO</b></td>
-							<td><b>SI</b><?php if ($fila -> acta_mat_div == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> acta_mat_div == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->acta_mat_div == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->acta_mat_div == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 11 -->
 						<tr>
 							<td><b>DEFUNCIONES</b></td>
-							<td><b>SI</b><?php if ($fila -> defunciones == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> defunciones == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->defunciones == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->defunciones == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 12 -->
 						<tr>
 							<td><b>TITULOS</b></td>
-							<td><b>SI</b><?php if ($fila -> titulos == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> titulos == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->titulos == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->titulos == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 13 -->
 						<tr>
 							<td><b>CERTIFICADOS</b></td>
-							<td><b>SI</b><?php if ($fila -> certificados == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> certificados == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->certificados == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->certificados == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 						<!-- FILA 14 -->
 						<tr>
 							<td><b>CONSTANCIAS Y HORARIOS DE ESTUDIO</b></td>
-							<td><b>SI</b><?php if ($fila -> const_hor_est == 1) echo '<span class="dato"> X </span>'; ?></td>
-							<td><b>NO</b><?php if ($fila -> const_hor_est == 0) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>SI</b><?php if ($fila->const_hor_est == 1) echo '<span class="dato"> X </span>'; ?></td>
+							<td><b>NO</b><?php if ($fila->const_hor_est == 0) echo '<span class="dato"> X </span>'; ?></td>
 							<td>&nbsp;</td>
 						</tr>
 					</table>
@@ -427,10 +427,10 @@
 						<!-- FILA 3 -->
 						<?php while ($fila_r = $referencia-> fetch_object()) { ?>
 							<tr>
-								<td><span class="dato"><?=$fila_r -> apellido_rp.' '.$fila_r -> nombre_rp?></span></td>
-								<td><span class="dato"><?=$fila_r -> cedula_rp?></span></td>
-								<td><span class="dato"><?=$fila_r -> ocupacion_rp?></span></td>
-								<td><span class="dato"><?=$fila_r -> telefono_rp?></span></td>
+								<td><span class="dato"><?=$fila_r->apellido_rp.' '.$fila_r->nombre_rp?></span></td>
+								<td><span class="dato"><?=$fila_r->cedula_rp?></span></td>
+								<td><span class="dato"><?=$fila_r->ocupacion_rp?></span></td>
+								<td><span class="dato"><?=$fila_r->telefono_rp?></span></td>
 							</tr>
 						<?php } ?>
 					</table>
@@ -448,22 +448,22 @@
 						<!-- FILA 3 -->
 						<tr>
 							<td><b>CAMISA</b></td>
-							<td><span class="dato"><?=$fila -> camisa?></span></td>
+							<td><span class="dato"><?=$fila->camisa?></span></td>
 						</tr>
 						<!-- FILA 4 -->
 						<tr>
 							<td><b>PANTALON</b></td>
-							<td><span class="dato"><?=$fila -> pantalon?></span></td>
+							<td><span class="dato"><?=$fila->pantalon?></span></td>
 						</tr>
 						<!-- FILA 5 -->
 						<tr>
 							<td><b>CALZADO</b></td>
-							<td><span class="dato"><?=$fila -> calzado?></span></td>
+							<td><span class="dato"><?=$fila->calzado?></span></td>
 						</tr>
 					</table>
 					<br />
 					<br />
-					<p class="n">Yo, <?=$fila -> apellido.' '.$fila -> nombre?> Cedula de Identidad N° <?=$fila -> cedula?> declaro que toda la informacion suministrada es verdadera y autorizo 
+					<p class="n">Yo, <?=$fila->apellido.' '.$fila->nombre?> Cedula de Identidad N° <?=$fila->cedula?> declaro que toda la informacion suministrada es verdadera y autorizo 
 						a la Direccion del I.A.M. Clinica Popular "Jose Marti", para que verifique la misma y de ser 
 						falsa o maliciosa que se tomen las acciones correspondientes.</p>
 					<br />

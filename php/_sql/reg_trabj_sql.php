@@ -93,7 +93,7 @@
 	$sql = "INSERT INTO trabajador (cedula,nombre,apellido,ciudadania,pasaporte,libreta_militr,fe_nac,lug_nac,est_civil,nconyugue,estudia,direccion,telefono,telefono_em,estado,actualizado)
 			VALUES ('$cedula','$nombre','$apellido','$nacionalidad','$pasaporte','$libreta_militr','$fecha_nac','$lug_nac','$est_civil','$nconyugue','$estudia','$direccion','$telefono','$telefono_em','1','$actualizacion')";
 		
-	$cnx_bd -> query($sql);
+	$cnx_bd->query($sql);
 	
 	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 	error_sql($cnx_bd);
@@ -107,7 +107,7 @@
 	$sql = "INSERT INTO laboral (cedula,fecha_ingreso,cargo,rango,area_desemp,resolucion,ley)
 			VALUES ('$cedula','$fecha_ing','$cargo','$rango','$area_d','$resolucion','$ley')";
 		
-	$cnx_bd -> query($sql);
+	$cnx_bd->query($sql);
 	
 	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 	error_sql($cnx_bd);
@@ -127,7 +127,7 @@
 			$sql = "INSERT INTO familia (cedula,cedulaf,nombref,apellidof,fecha_nacf,parentescof,estudiaf,empleadof,cargof)
 					VALUES ('$cedula','$cedula_f','$nombres_fam[$ciclo_fam]','$apellidos_fam[$ciclo_fam]','$fecha_nac_fam','$parentesco_fam[$ciclo_fam]','$estudia_fam[$ciclo_fam]','$empl_fam[$ciclo_fam]','$cargo_fam[$ciclo_fam]')";
 
-			$cnx_bd -> query($sql);
+			$cnx_bd->query($sql);
 	
 			//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 			error_sql($cnx_bd);
@@ -146,7 +146,7 @@
 	$sql = "INSERT INTO estudios (cedula,estudios,lugar_estudio,anno,titulo,observacion)
 			VALUES ('$cedula','$estudio','$lug_estudio','$ano','$titulos','$observacion')";
 		
-	$cnx_bd -> query($sql);
+	$cnx_bd->query($sql);
 	
 	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 	error_sql($cnx_bd);
@@ -161,7 +161,7 @@
 	$sql = "INSERT INTO documentos (cedula,partida_naci,inscrip_militar,cedula_ident,rif,declaracion_jurada,informe_medico,parti_nac_h,acta_mat_div,defunciones,titulos,certificados,const_hor_est)
 			VALUES ('$cedula','$part_nac','$ins_milt','$ced_iden','$rif','$dec_jur','$inf_med','$part_nac_h','$matr_divr','$defunc','$titul','$certf','$const_hora')";
 		
-	$cnx_bd -> query($sql);
+	$cnx_bd->query($sql);
 	
 	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 	error_sql($cnx_bd);
@@ -178,7 +178,7 @@
 		$sql = "INSERT INTO referencia_personal (cedula_rp,nombre_rp,apellido_rp,ocupacion_rp,telefono_rp,cedula)
 				VALUES ('$cedula_rp[$i]','$nombre_rp[$i]','$apellido_rp[$i]','$ocupacion_rp[$i]','$telefono_rp[$i]','$cedula')";
 
-		$cnx_bd -> query($sql);
+		$cnx_bd->query($sql);
 
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
@@ -195,7 +195,7 @@
 	$sql = "INSERT INTO uniforme (cedula,camisa,pantalon,calzado)
 			VALUES ('$cedula','$tall_cam','$tall_pant','$tall_calz')";
 		
-	$cnx_bd -> query($sql);
+	$cnx_bd->query($sql);
 	
 	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 	error_sql($cnx_bd);

@@ -30,7 +30,7 @@
 	$sql = "INSERT INTO trabajador (cedula,nombre,apellido,ciudadania,pasaporte,libreta_militr,fe_nac,lug_nac,est_civil,nconyugue,estudia,direccion,telefono,estado,actualizado)
 			VALUES ('$cedula','$nombre','$apellido','$nacionalidad','$pasaporte','$libreta_militr','$fecha_nac','$lug_nac','$est_civil','$nconyugue','$estudia','$direccion','$telefono','1','$actualizacion')";
 		
-	$cnx_bd -> query($sql);
+	$cnx_bd->query($sql);
 	
 	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 	error_sql($cnx_bd);
@@ -45,7 +45,7 @@
 	$sql = "INSERT INTO comision_servicio (cedula,dpt_envia,fecha_ingreso,cargo,observacion)
 			VALUES ('$cedula','$dept_env','$fecha_ing','$cargo','$observacion')";
 		
-	$cnx_bd -> query($sql);
+	$cnx_bd->query($sql);
 	
 	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 	error_sql($cnx_bd);

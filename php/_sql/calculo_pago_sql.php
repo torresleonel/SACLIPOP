@@ -219,19 +219,19 @@
 		//SE CONSULTA SI YA EXISTE UN CALCULO DE SALARIO GENERADO PARA EL PERIODO Y TRABAJADOR INGRESADO
 		$sql = "SELECT * FROM salario WHERE inicio_quincena = '$inicio_quincena' AND cedula = '$cedula'";
 			
-		$resultado = $cnx_bd -> query($sql);
+		$resultado = $cnx_bd->query($sql);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
 
-		if ($resultado -> num_rows > 0){
+		if ($resultado->num_rows > 0){
 
 
 			$sql = "UPDATE salario 
 				SET sueldo_quincena = '$salr_quincena',dia_adicional = '$d_adicional',total_dia_adic = '$t_dia_adic',retro_sueldo = '$retro_suld',retro_aguinaldos = '$retro_agin',retro_vacaciones = '$retro_vaci',sso = '$sso',spf = '$spf',faov = '$faov',islr = '$islr',inasistencias = '$inasistencia',total_inasist = '$t_inasist',total_asignaciones = '$t_asign',total_deducciones = '$t_deduccion',total_pagar = '$total_pagar' 
 				WHERE cedula = '$cedula' AND inicio_quincena = '$inicio_quincena'";
 			
-			$cnx_bd -> query($sql);
+			$cnx_bd->query($sql);
 			
 			//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 			error_sql($cnx_bd);
@@ -246,7 +246,7 @@
 			$sql = "INSERT INTO salario (sueldo_quincena,dia_adicional,total_dia_adic,retro_sueldo,retro_aguinaldos,retro_vacaciones,sso,spf,faov,islr,inasistencias,total_inasist,inicio_quincena,fin_quincena,total_asignaciones,total_deducciones,total_pagar,cedula)
 				VALUES ('$salr_quincena','$d_adicional','$t_dia_adic','$retro_suld','$retro_agin','$retro_vaci','$sso','$spf','$faov','$islr','$inasistencia','$t_inasist','$inicio_quincena','$fin_quincena','$t_asign','$t_deduccion','$total_pagar','$cedula')";
 			
-			$cnx_bd -> query($sql);
+			$cnx_bd->query($sql);
 			
 			//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 			error_sql($cnx_bd);
@@ -396,16 +396,16 @@
 					DESC
 					LIMIT 1";
 				
-			$resultado = $cnx_bd -> query($sql);
+			$resultado = $cnx_bd->query($sql);
 			
 			//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 			error_sql($cnx_bd);
 
 			$x = 0;
-			if ($resultado -> num_rows > 0) {
-				$fila = $resultado -> fetch_object();
-				$id = $fila -> id_bono;
-				list($x,,) = explode('-',$fila -> ini_vacac);
+			if ($resultado->num_rows > 0) {
+				$fila = $resultado->fetch_object();
+				$id = $fila->id_bono;
+				list($x,,) = explode('-',$fila->ini_vacac);
 			}
 
 			if ($_POST['ano'] == $x){
@@ -414,7 +414,7 @@
 						SET ini_vacac = '$ini_vacac',fin_vacac = '$fin_vacac',reincorpor = '$fecha_rein',dia_vacac = '$dias_vacac',dia_adicional = '$dias_adic',sueldo_dia = '$salr_dia',total_dia_v = '$total_dia_v',total_dia_adic = '$total_dia_adic',total_pagar = '$bono_vacac' 
 						WHERE id_bono = '$id'";
 				
-				$cnx_bd -> query($sql);
+				$cnx_bd->query($sql);
 				
 				//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 				error_sql($cnx_bd);
@@ -429,7 +429,7 @@
 				$sql = "INSERT INTO bono_vacac (ini_vacac,fin_vacac,reincorpor,dia_vacac,dia_adicional,sueldo_dia,total_dia_v,total_dia_adic,total_pagar,cedula)
 						VALUES ('$ini_vacac','$fin_vacac','$fecha_rein','$dias_vacac','$dias_adic','$salr_dia','$total_dia_v','$total_dia_adic','$bono_vacac','$cedula')";
 				
-				$cnx_bd -> query($sql);
+				$cnx_bd->query($sql);
 				
 				//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 				error_sql($cnx_bd);
@@ -492,16 +492,16 @@
 					DESC
 					LIMIT 1";
 				
-			$resultado = $cnx_bd -> query($sql);
+			$resultado = $cnx_bd->query($sql);
 			
 			//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 			error_sql($cnx_bd);
 
 			$x = 0;
-			if ($resultado -> num_rows > 0) {
-				$fila = $resultado -> fetch_object();
-				$id = $fila -> id_aguinaldo;
-				$x = $fila -> anno_calculo;
+			if ($resultado->num_rows > 0) {
+				$fila = $resultado->fetch_object();
+				$id = $fila->id_aguinaldo;
+				$x = $fila->anno_calculo;
 			}
 
 			$a_actu = date('Y');
@@ -511,7 +511,7 @@
 						SET cantidad_mes = '$meses',sid = '$sid',total_pagar = '$aguinaldos' 
 						WHERE id_aguinaldo = '$id'";
 				
-				$cnx_bd -> query($sql);
+				$cnx_bd->query($sql);
 				
 				//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 				error_sql($cnx_bd);
@@ -526,7 +526,7 @@
 				$sql = "INSERT INTO aguinaldo (cantidad_mes,anno_calculo,sid,total_pagar,cedula)
 						VALUES ('$meses','$a_actu','$sid','$aguinaldos','$cedula')";
 				
-				$cnx_bd -> query($sql);
+				$cnx_bd->query($sql);
 				
 				//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 				error_sql($cnx_bd);

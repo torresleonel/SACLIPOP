@@ -34,7 +34,7 @@
 										$cnx_bd = conexion();
 										include('../_sql/usuario_sql.php');
 										$user = conslt_usuario_all($cnx_bd);
-										$cnx_bd -> close();
+										$cnx_bd->close();
 									?>
 									<div class="derecha">
 										<div class="campo">
@@ -58,8 +58,8 @@
 											<select name="u" id="u" title="Por favor elija el nombre de usuario que desea consultar" required>
 												<option value="Todos los usuarios">Todos los usuarios</option>
 												<?php
-													while ($fila = $user -> fetch_object()) echo '<option value="'.$fila -> id_usuario.'">'.$fila -> id_usuario.'</option>';
-													$user -> free();
+													while ($fila = $user->fetch_object()) echo '<option value="'.$fila->id_usuario.'">'.$fila->id_usuario.'</option>';
+													$user->free();
 												?>
 											</select>
 										</div>

@@ -26,7 +26,7 @@
 					$cnx_bd = conexion();
 					include('recuperar_pass_sql.php');
 					cambio_pass($cnx_bd);
-					$cnx_bd -> close();
+					$cnx_bd->close();
 				?>
 				<div id="imgsesion">
 				</div>

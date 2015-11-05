@@ -30,8 +30,8 @@
 						$cnx_bd = conexion();
 						include('../_sql/conslt_trabj_sql.php');
 						$resultado = conslt_bono_vac($cnx_bd);
-						$cnx_bd -> close();
-						if ($resultado -> num_rows <= 0) {
+						$cnx_bd->close();
+						if ($resultado->num_rows <= 0) {
 					?>
 							<div id="msnproceso">
 								<h3>No se ha calculado bono vacacional del trabajador:<?=' '.$_POST['trbj']?></h3>
@@ -41,11 +41,11 @@
 					<?php
 							exit();
 						}else{
-							$fila = $resultado -> fetch_object();
-							list($a,$m,$d) = explode('-',$fila -> fecha_ingreso);
-							list($ai,$mi,$di) = explode('-',$fila -> ini_vacac);
-							list($af,$mf,$df) = explode('-',$fila -> fin_vacac);
-							list($ar,$mr,$dr) = explode('-',$fila -> reincorpor);
+							$fila = $resultado->fetch_object();
+							list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
+							list($ai,$mi,$di) = explode('-',$fila->ini_vacac);
+							list($af,$mf,$df) = explode('-',$fila->fin_vacac);
+							list($ar,$mr,$dr) = explode('-',$fila->reincorpor);
 					?>
 							<b>NOMBRES Y APPELLIDOS:</b><?=' '.$fila->nombre.' '.$fila->apellido?>
 							<br>
@@ -53,7 +53,7 @@
 							<br>
 							<b>FECHA DE INGRESO:</b><?=' '.$d.'-'.$m.'-'.$a.' '?>
 							<br>
-							<b>SUELDO MENSUAL Bs.:</b><?=' '.$fila -> sueldo_mensual?>
+							<b>SUELDO MENSUAL Bs.:</b><?=' '.$fila->sueldo_mensual?>
 							<br>
 							<b>SALARIO DIARIO Bs.:</b><?=' '.$fila->sueldo_mensual/30?>
 							<br><br>
