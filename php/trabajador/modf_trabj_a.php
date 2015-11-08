@@ -163,6 +163,7 @@
 										<div class='campo'>
 											<label for="cedula" class='rotulo' title="Por favor ingrese la cédula de identidad del trabajador">Cédula</label>
 											<input type="text" name="cedula" value="<?php echo $fila->cedula; ?>" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
+											<input type="hidden" name="cedula_o" value="<?=$fila->cedula?>" />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador">Nacionalidad</label>
@@ -170,9 +171,9 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador estudia">Estudia</label>
-											<input type="radio" name="estudia" value="1" <?php if($fila->estudia == 1) echo 'checked="checked"'?> id="estudia_s" title="Si estudia">
+											<input type="radio" name="estudia_t" value="1" <?php if($fila->estudia == 1) echo 'checked="checked"'?> id="estudia_s" title="Si estudia">
 											<label for="estudia_s" title="Si estudia" class="rotulo_r">Si</label>
-											<input type="radio" name="estudia" value="0" <?php if($fila->estudia == 0) echo 'checked="checked"'?> id="estudia_n" title="No estudia">
+											<input type="radio" name="estudia_t" value="0" <?php if($fila->estudia == 0) echo 'checked="checked"'?> id="estudia_n" title="No estudia">
 											<label for="estudia_n" title="No estudia" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
@@ -360,27 +361,7 @@
 										</div>
 									</div>
 								</fieldset>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+								<!-- FIELDSET PARA DATOS FAMILIARES -->
 								<fieldset class="step">
 									<legend>Familia</legend>
 									<div id='sheepItForm'>
@@ -465,27 +446,8 @@
 											<a id="agregar" title="Haga click para agregar los datos del familiar del trabajador"><span>Agregar Familiar</span></a>
 										</div>
 									</div>
-
 									<!-- /Controls -->
 								</fieldset>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-								
 								<fieldset class="step">
 									<legend>Educación</legend>
 									<div class='derecha'>
@@ -622,26 +584,26 @@
 											</div>
 											<div class='derecha'>
 												<div class='campo'>
-													<label class='rotulo' for="nombre_rp_<?php echo $i; ?>" title="Por favor ingrese el nombre completo">Nombres</label>
-													<input type="text" name="nombre_rp[]" value="<?php echo $fila_r->nombre_rp; ?>" id="nombre_rp_<?php echo $i; ?>" title="Por favor ingrese el nombre completo" required />
+													<label class='rotulo' for="nombre_rp_<?=$i?>" title="Por favor ingrese el nombre completo">Nombres</label>
+													<input type="text" name="nombre_rp[]" value="<?=$fila_r->nombre_rp?>" id="nombre_rp_<?=$i?>" title="Por favor ingrese el nombre completo" required />
 												</div>
 												<div class='campo'>
-													<label class='rotulo' for="cedula_rp_<?php echo $i; ?>" title="Por favor ingrese la cédula de identidad">Cédula</label>
-													<input type="text" name="cedula_rp[]" value="<?php echo $fila_r->cedula_rp; ?>" id="cedula_rp_<?php echo $i; ?>" title="Por favor ingrese la cédula de identidad" required />
+													<label class='rotulo' for="cedula_rp_<?=$i?>" title="Por favor ingrese la cédula de identidad">Cédula</label>
+													<input type="text" name="cedula_rp[]" value="<?=$fila_r->cedula_rp?>" id="cedula_rp_<?=$i?>" title="Por favor ingrese la cédula de identidad" required />
 												</div>
 												<div class='campo'>
-													<label class='rotulo' for="telefono_rp_<?php echo $i; ?>" title="Por favor ingrese el número telefónico con formato 0000-0000000">Teléfono</label>
-													<input type="text" name="telefono_rp[]" value="<?php echo $fila_r->telefono_rp; ?>" id="telefono_rp_<?php echo $i; ?>" title="Por favor ingrese el número telefónico con formato 0000-0000000" size="20" maxlength="12" required />
+													<label class='rotulo' for="telefono_rp_<?=$i?>" title="Por favor ingrese el número telefónico con formato 0000-0000000">Teléfono</label>
+													<input type="text" name="telefono_rp[]" value="<?=$fila_r->telefono_rp?>" id="telefono_rp_<?=$i?>" title="Por favor ingrese el número telefónico con formato 0000-0000000" size="20" maxlength="12" required />
 												</div>
 											</div>
 											<div class='izquierda'>
 												<div class='campo'>
-													<label class='rotulo' for="apellido_rp_<?php echo $i; ?>" title="Por favor ingrese los apellidos">Apellidos</label>
-													<input type="text" name="apellido_rp[]" value="<?php echo $fila_r->apellido_rp; ?>" id="apellido_rp_<?php echo $i; ?>" title="Por favor ingrese los apellidos" required />
+													<label class='rotulo' for="apellido_rp_<?=$i?>" title="Por favor ingrese los apellidos">Apellidos</label>
+													<input type="text" name="apellido_rp[]" value="<?=$fila_r->apellido_rp?>" id="apellido_rp_<?=$i?>" title="Por favor ingrese los apellidos" required />
 												</div>
 												<div class='campo'>
-													<label class='rotulo' for="ocupacion_rp_<?php echo $i; ?>" title="Por favor ingrese la ocupación">Ocupación</label>
-													<input type="text" name="ocupacion_rp[]" value="<?php echo $fila_r->ocupacion_rp; ?>" id="ocupacion_rp_<?php echo $i; ?>" title="Por favor ingrese la ocupación" required />
+													<label class='rotulo' for="ocupacion_rp_<?=$i?>" title="Por favor ingrese la ocupación">Ocupación</label>
+													<input type="text" name="ocupacion_rp[]" value="<?=$fila_r->ocupacion_rp?>" id="ocupacion_rp_<?=$i?>" title="Por favor ingrese la ocupación" required />
 												</div>
 											</div>
 									<?php

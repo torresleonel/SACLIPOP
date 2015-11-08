@@ -1,6 +1,6 @@
 <?php
 	$archivo=$_GET['a'];
-    $directorio='C:\xampp\htdocs\CPJMprueba\php\respaldo\archivo';
+    $directorio='C:\xampp\htdocs\SACLIPOP\php\respaldo\archivo';
 	$ruta=$directorio.'\\'.$archivo;
 	$resultado=unlink($ruta);
     if(!$resultado){

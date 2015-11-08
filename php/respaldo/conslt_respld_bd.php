@@ -25,7 +25,7 @@
                         <th>Acciones</th>
                     </tr>
                     <?php
-                        $dir='C:\xampp\htdocs\CPJMprueba\php\respaldo\archivo';// ruta donde se encuentran los archivos que quiero mostrar
+                        $dir='C:\xampp\htdocs\SACLIPOP\php\respaldo\archivo';// ruta donde se encuentran los archivos que quiero mostrar
                         $directorio=opendir($dir);//opendir() funcion para el manejo de archivos
                         while ($archivo=readdir($directorio)){//readdir() funcion para el manejo de archivos
                             if($archivo=='.' or $archivo=='..') continue;// no muestra el . y .. que estan al principio de las carpetas

@@ -2,7 +2,7 @@
 	$archivo = $_GET['a'];
 	$user = 'root';
 	$password = 'root';
-	$directorio = 'C:\xampp\htdocs\CPJMprueba\php\respaldo\archivo';// ruta donde se encuentran el archivo que quiero recuperar
+	$directorio = 'C:\xampp\htdocs\SACLIPOP\php\respaldo\archivo';// ruta donde se encuentran el archivo que quiero recuperar
 	$dir = $directorio.'\\'.$archivo; //concatena la ruta con el nombre del archivo
 	$comando = "C:\\xampp\mysql\bin\mysql.exe  --user=$user --password=$password cpjm < $dir";
 	system($comando,$error);

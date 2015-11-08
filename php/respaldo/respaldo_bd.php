@@ -5,7 +5,7 @@
     $user = 'root';
     $password = 'root';
     $nombre = 'respaldo_SACLIPOP_'.date('Y-m-d').'.sql';
-    $directorio = 'C:\xampp\htdocs\CPJMprueba\php\respaldo\archivo';
+    $directorio = 'C:\xampp\htdocs\SACLIPOP\php\respaldo\archivo';
     $dir = $directorio.'\\'.$nombre;
     $comando = "C:\\xampp\mysql\bin\mysqldump.exe  --user=$user --password=$password cpjm > $dir";
     system($comando,$error);
