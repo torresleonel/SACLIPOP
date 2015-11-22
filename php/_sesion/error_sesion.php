@@ -14,4 +14,7 @@
 	if (isset($_GET["errorusuario"]) && $_GET["errorusuario"]=="5"){
 		echo "<span class='errse'>Las contraseñas no coinciden, por favor vuelva a intentarlo</span>";
 	}
+	if (isset($_GET["errorusuario"]) && $_GET["errorusuario"]=="6"){
+		echo "<span class='errse'>No tiene autorización para acceder a la dirección que intenta ingresar</span>";
+	}
 ?>
