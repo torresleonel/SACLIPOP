@@ -2,6 +2,7 @@
     // Constantes con rutas
     define('DS', DIRECTORY_SEPARATOR);
     define('ROOT', realpath($_SERVER["DOCUMENT_ROOT"]) . DS);
+    // "MYSQL_HOME" es declarado especificamento por xampp-windows, no funciona en otros paquetes de servidores http
     define('MYSQL', realpath($_SERVER["MYSQL_HOME"]) . DS);
 
 	$user = 'root';
