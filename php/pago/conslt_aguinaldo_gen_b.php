@@ -51,6 +51,13 @@
 								<th>Aguinaldos</th>
 							</tr>
 							<?php
+							if ($alto->num_rows < 1) {
+							?>
+							<tr>
+								<td colspan="6">No hay Personal de Alto Nivel registrado</td>
+							</tr>
+							<?php
+							}else{
 								while($fila = $alto->fetch_object()){
 									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
 							?>
@@ -65,7 +72,8 @@
 							<?php
 									$subt_a += $fila->total_pagar;
 								}
-								$alto->free();
+							}
+							$alto->free();
 							?>
 							<tr>
 								<td colspan="5">SUB-TOTAL</td>
@@ -83,6 +91,13 @@
 								<th>Aguinaldos</th>
 							</tr>
 							<?php
+							if ($empleado->num_rows < 1) {
+							?>
+							<tr>
+								<td colspan="6">No hay Personal Empleado registrado</td>
+							</tr>
+							<?php
+							}else{
 								while($fila = $empleado->fetch_object()){
 									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
 							?>
@@ -97,7 +112,8 @@
 							<?php
 									$subt_e += $fila->total_pagar;
 								}
-								$empleado->free();
+							}
+							$empleado->free();
 							?>
 							<tr>
 								<td colspan="5">SUB-TOTAL</td>
@@ -115,6 +131,13 @@
 								<th>Aguinaldos</th>
 							</tr>
 							<?php
+							if ($obrero->num_rows < 1) {
+							?>
+							<tr>
+								<td colspan="6">No hay Personal Obrero registrado</td>
+							</tr>
+							<?php
+							}else{
 								while($fila = $obrero->fetch_object()){
 									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
 							?>
@@ -129,7 +152,8 @@
 							<?php
 									$subt_o += $fila->total_pagar;
 								}
-								$obrero->free();
+							}
+							$obrero->free();
 							?>
 							<tr>
 								<td colspan="5">SUB-TOTAL</td>
@@ -147,6 +171,13 @@
 								<th>Aguinaldos</th>
 							</tr>
 							<?php
+							if ($contratado->num_rows < 1) {
+							?>
+							<tr>
+								<td colspan="6">No hay Personal Contratado registrado</td>
+							</tr>
+							<?php
+							}else{
 								while($fila = $contratado->fetch_object()){
 									list($a,$m,$d) = explode('-',$fila->fecha_ingreso);
 							?>
@@ -161,7 +192,8 @@
 							<?php
 									$subt_c += $fila->total_pagar;
 								}
-								$contratado->free();
+							}
+							$contratado->free();
 							?>
 							<tr>
 								<td colspan="5">SUB-TOTAL</td>

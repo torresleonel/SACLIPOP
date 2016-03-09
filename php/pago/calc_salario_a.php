@@ -40,11 +40,23 @@
 						<th>Ultima Quincena</th>
 					</tr>
 					<?php
+					if ($alto->num_rows < 1) {
+					?>
+					<tr>
+						<td colspan="6">No hay Personal de Alto Nivel registrado</td>
+					</tr>
+					<?php
+					}else{
 						while ($fila = $alto->fetch_object()){
 							$fcha = conslt_fch_qicn($cnx_bd,$fila->cedula);
-							$fch_fila = $fcha->fetch_object();
-							list(,,$di) = explode('-', $fch_fila->inicio_quincena);
-							list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
+							$di = "00";
+							$af = "0000";
+							$mf = "00";
+							$df = "00";
+							if ($fch_fila = $fcha->fetch_object()) {
+								list(,,$di) = explode('-', $fch_fila->inicio_quincena);
+								list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
+							}
 					?>
 							<tr>
 								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cedula?></a></td>
@@ -57,7 +69,8 @@
 					<?php
 							$fcha->free();
 						}
-						$alto->free();
+					}
+					$alto->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -70,12 +83,24 @@
 						<th>Sueldo Mensual</th>
 						<th>Ultima Quincena</th>
 					</tr>
-					<?php 
+					<?php
+					if ($empleado->num_rows < 1) {
+					?>
+					<tr>
+						<td colspan="6">No hay Personal Empleado registrado</td>
+					</tr>
+					<?php
+					}else{
 						while ($fila = $empleado->fetch_object()){
 							$fcha = conslt_fch_qicn($cnx_bd,$fila->cedula);
-							$fch_fila = $fcha->fetch_object();
-							list(,,$di) = explode('-', $fch_fila->inicio_quincena);
-							list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
+							$di = "00";
+							$af = "0000";
+							$mf = "00";
+							$df = "00";
+							if ($fch_fila = $fcha->fetch_object()) {
+								list(,,$di) = explode('-', $fch_fila->inicio_quincena);
+								list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
+							}
 					?>
 							<tr>
 								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cedula?></a></td>
@@ -88,7 +113,8 @@
 					<?php
 							$fcha->free();
 						}
-						$empleado->free();
+					}
+					$empleado->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -101,12 +127,24 @@
 						<th>Sueldo Mensual</th>
 						<th>Ultima Quincena</th>
 					</tr>
-					<?php 
+					<?php
+					if ($obrero->num_rows < 1) {
+					?>
+					<tr>
+						<td colspan="6">No hay Personal Obrero registrado</td>
+					</tr>
+					<?php
+					}else{
 						while ($fila = $obrero->fetch_object()){
 							$fcha = conslt_fch_qicn($cnx_bd,$fila->cedula);
-							$fch_fila = $fcha->fetch_object();
-							list(,,$di) = explode('-', $fch_fila->inicio_quincena);
-							list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
+							$di = "00";
+							$af = "0000";
+							$mf = "00";
+							$df = "00";
+							if ($fch_fila = $fcha->fetch_object()) {
+								list(,,$di) = explode('-', $fch_fila->inicio_quincena);
+								list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
+							}
 					?>
 							<tr>
 								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cedula?></a></td>
@@ -119,7 +157,8 @@
 					<?php
 							$fcha->free();
 						}
-						$obrero->free();
+					}
+					$obrero->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -132,12 +171,24 @@
 						<th>Sueldo Mensual</th>
 						<th>Ultima Quincena</th>
 					</tr>
-					<?php 
+					<?php
+					if ($contratado->num_rows < 1) {
+					?>
+					<tr>
+						<td colspan="6">No hay Personal Contratado registrado</td>
+					</tr>
+					<?php
+					}else{
 						while ($fila = $contratado->fetch_object()){
 							$fcha = conslt_fch_qicn($cnx_bd,$fila->cedula);
-							$fch_fila = $fcha->fetch_object();
-							list(,,$di) = explode('-', $fch_fila->inicio_quincena);
-							list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
+							$di = "00";
+							$af = "0000";
+							$mf = "00";
+							$df = "00";
+							if ($fch_fila = $fcha->fetch_object()) {
+								list(,,$di) = explode('-', $fch_fila->inicio_quincena);
+								list($af,$mf,$df) = explode('-', $fch_fila->fin_quincena);
+							}
 					?>
 							<tr>
 								<td><a href="#" title="Click para calcular el salario del trabajador" OnClick="envia_calc_salr('<?=$fila->sueldo_mensual?>','<?=$fila->cedula?>')"><?=$fila->cedula?></a></td>
@@ -150,8 +201,9 @@
 					<?php
 							$fcha->free();
 						}
-						$contratado->free();
-						$cnx_bd->close();
+					}
+					$contratado->free();
+					$cnx_bd->close();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

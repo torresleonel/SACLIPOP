@@ -25,34 +25,46 @@
                         <th>Acciones</th>
                     </tr>
                     <?php
-                        // Constantes con rutas
-                        define('DS', DIRECTORY_SEPARATOR);
-                        define('ROOT', realpath($_SERVER["DOCUMENT_ROOT"]) . DS);
-                        // ruta donde se encuentran los archivos de respaldo
-                        $dir = ROOT . 'SACLIPOP' . DS . 'php' . DS . 'respaldo'. DS . 'archivo';
+                    // Constantes con rutas
+                    define('DS', DIRECTORY_SEPARATOR);
+                    define('ROOT', realpath($_SERVER["DOCUMENT_ROOT"]) . DS);
+                    // ruta donde se encuentran los archivos de respaldo
+                    $dir = ROOT . 'SACLIPOP' . DS . 'php' . DS . 'respaldo'. DS . 'archivo';
+                    $directorio=opendir($dir);//opendir() funcion para el manejo de archivos
+                    while ($nombre_archivo = readdir($directorio)) $archivos[] = $nombre_archivo;
+                    $cant = count($archivos)-2;
+                    if ($cant < 1) {
+                        closedir($directorio);
+                    ?>
+                        <tr>
+                            <td colspan="2">No hay archivos de respaldo.</td>
+                        </tr>
+                    <?php
+                    }else{
                         $directorio=opendir($dir);//opendir() funcion para el manejo de archivos
                         while ($archivo=readdir($directorio)){//readdir() funcion para el manejo de archivos
                             if($archivo=='.' or $archivo=='..') continue;// no muestra el . y .. que estan al principio de las carpetas
                     ?>
-                                <tr>
-                                    <td>
-                                        <a href="#"><?php echo $archivo; ?></a>
-                                    </td>
-                                    <td>
-                                        <div class="izq">
-                                            <a href="restaura_bd.php?a=<?=$archivo?>" class="restaurar" title="Click para restaurar esta versión de la base de datos de SACLIPOP">Restaurar</a>
-                                        </div>
-                                        <div class="izq">
-                                            <a href= "archivo/<?=$archivo?>" class="descargar" title="Click para descargar el respaldo de la Base de Datos de SACLIPOP">Descargar</a>
-                                        </div>
-                                        <div class="izq">
-                                            <a href= "#" class="eliminar" title="Click para eliminar el respaldo de la Base de Datos de SACLIPOP" onclick="envia_elim_bd('<?php echo $archivo; ?>')">Eliminar</a>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    <a href="#"><?php echo $archivo; ?></a>
+                                </td>
+                                <td>
+                                    <div class="izq">
+                                        <a href="restaura_bd.php?a=<?=$archivo?>" class="restaurar" title="Click para restaurar esta versión de la base de datos de SACLIPOP">Restaurar</a>
+                                    </div>
+                                    <div class="izq">
+                                        <a href= "archivo/<?=$archivo?>" class="descargar" title="Click para descargar el respaldo de la Base de Datos de SACLIPOP">Descargar</a>
+                                    </div>
+                                    <div class="izq">
+                                        <a href= "#" class="eliminar" title="Click para eliminar el respaldo de la Base de Datos de SACLIPOP" onclick="envia_elim_bd('<?php echo $archivo; ?>')">Eliminar</a>
+                                    </div>
+                                </td>
+                            </tr>
                     <?php
                         }
                         closedir($directorio);
+                    }
                     ?>
                 </table>
                 <a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

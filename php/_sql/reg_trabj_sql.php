@@ -20,6 +20,7 @@
 	$nconyugue = $_POST["nconyugue"];
 	$cargo = $_POST["cargo"];
 	$rango = $_POST["rango"];
+	$condicion = $_POST["condicion"];
 	$area_d = $_POST["area_d"];
 	$fecha_ing = $_POST["anoing"].'-'.$_POST["mesing"].'-'.$_POST["diaing"];
 	$resolucion = $_POST["resolucion"];
@@ -104,8 +105,8 @@
 	bitacora($cnx_bd);
 
 /*..........................................INSERCCION DE DATOS LABORALES.........................................*/
-	$sql = "INSERT INTO laboral (cedula,fecha_ingreso,cargo,rango,area_desemp,resolucion,ley)
-			VALUES ('$cedula','$fecha_ing','$cargo','$rango','$area_d','$resolucion','$ley')";
+	$sql = "INSERT INTO laboral (cedula,fecha_ingreso,condicion,cargo,rango,area_desemp,resolucion,ley)
+			VALUES ('$cedula','$fecha_ing','$condicion','$cargo','$rango','$area_d','$resolucion','$ley')";
 		
 	$cnx_bd->query($sql);
 	

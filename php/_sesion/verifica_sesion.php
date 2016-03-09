@@ -37,7 +37,8 @@
 			'recibo_quin.php',
 			'recibo_vacac.php',
 			'recibo_aguin.php',
-			'modf_usuario_a.php'
+			'modf_usuario_a.php',
+			'modf_usuario_b.php'
 		);
 
 		$autorizado = false;

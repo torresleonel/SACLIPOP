@@ -36,24 +36,33 @@
 						<th>Acción</th>
 					</tr>
 					<?php
+					if ($resultado->num_rows < 2) {
+					?>
+					<tr>
+						<td colspan="5">No hay usuarios que se puedan eliminar.</td>
+					</tr>
+					<?php
+					}else{
 						while ($fila = $resultado->fetch_object()){
+							if ($fila->id_usuario == $_SESSION["usuario"]) continue;
 							if ($fila->nivel == 1) $nivel = "Administrador";
 							else $nivel = "Básico";
 					?>
 							<tr>
-								<td><?php echo $fila->nombre; ?></td>
-								<td><?php echo $fila->apellido; ?></td>
-								<td><?php echo $fila->id_usuario; ?></td>
-								<td><?php echo $nivel; ?></td>
+								<td><?=$fila->nombre?></td>
+								<td><?=$fila->apellido?></td>
+								<td><?=$fila->id_usuario?></td>
+								<td><?=$nivel?></td>
 								<td>				
 									<div class="izq">
-										<a href= "#" class="eliminar" title="Click para eliminar usuario de SACLIPOP" onclick="envia_elim('<?php echo $fila->id_usuario; ?>')">Eliminar</a>
+										<a href= "#" class="eliminar" title="Click para eliminar usuario de SACLIPOP" onclick="envia_elim('<?=$fila->id_usuario?>')">Eliminar</a>
 									</div>
 								</td>
 							</tr>
 					<?php
 						}
-						$resultado->free();
+					}
+					$resultado->free();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

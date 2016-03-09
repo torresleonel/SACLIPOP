@@ -1,4 +1,4 @@
-<?php include('../_sesion/verifica_sesion.php'); ?>
+Ôªø<?php include('../_sesion/verifica_sesion.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
 	<head>
@@ -37,7 +37,7 @@
 								<li title="Ingresar datos de estudios del trabajador">
 									<a href="#">Estudios</a>
 								</li>
-								<li title="Ingresar documentaciÛn consignada por el trabajador">
+								<li title="Ingresar documentaci√≥n consignada por el trabajador">
 									<a href="#">Documentos</a>
 								</li>
 								<li title="Ingresar referencias personales del trabajador">
@@ -61,8 +61,8 @@
 											<input type="text" name="nombre" id="nombre" title="Por favor ingrese el nombre completo del trabajador" required />
 										</div>
 										<div class='campo'>
-											<label for="cedula" class='rotulo' title="Por favor ingrese la cÈdula de identidad del trabajador">CÈdula</label>
-											<input type="text" name="cedula" id="cedula" title="Por favor ingrese la cÈdula de identidad del trabajador" required />
+											<label for="cedula" class='rotulo' title="Por favor ingrese la c√©dula de identidad del trabajador">C√©dula</label>
+											<input type="text" name="cedula" id="cedula" title="Por favor ingrese la c√©dula de identidad del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador">Nacionalidad</label>
@@ -76,8 +76,8 @@
 											<label for="estudia_n" title="No estudia" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
-											<label for="direccion" class='rotulo' title="Por favor ingrese la direcciÛn de habitaciÛn del tabajador">DirecciÛn</label>
-											<textarea name="direccion" id="direccion" title="Por favor ingrese la direcciÛn de habitaciÛn del tabajador" required></textarea>
+											<label for="direccion" class='rotulo' title="Por favor ingrese la direcci√≥n de habitaci√≥n del tabajador">Direcci√≥n</label>
+											<textarea name="direccion" id="direccion" title="Por favor ingrese la direcci√≥n de habitaci√≥n del tabajador" required></textarea>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija el estado civil del tabajador">Estado Civil</label>
@@ -99,8 +99,8 @@
 											</select>
 										</div>
 										<div class='campo'>
-											<label class='rotulo' title="Por favor elija la condiciÛn laboral del tabajador">CondiciÛn Laboral</label>
-											<select name="condicion" title="Por favor elija la condiciÛn laboral del tabajador" required>
+											<label class='rotulo' title="Por favor elija la condici√≥n laboral del tabajador">Condici√≥n Laboral</label>
+											<select name="condicion" title="Por favor elija la condici√≥n laboral del tabajador" required>
 												<option value=""></option>
 												<option value="Fijo">Fijo</option>
 												<option value="Contratado">Contratado</option>
@@ -116,7 +116,7 @@
 												<option value="Fisioterapeuta">Fisioterapeuta</option>
 												<option value="Medico Fisiatra">Medico Fisiatra</option>
 												<option value="Auxiliar Fisioterapeuta">Auxiliar Fisioterapeuta</option>
-												<option value="Auxiliar Esterilizacion">Auxiliar EsterilizaciÛn</option>
+												<option value="Auxiliar Esterilizacion">Auxiliar Esterilizaci√≥n</option>
 												<option value="Secretaria">Secretaria</option>
 												<option value="Recepcionista">Recepcionista</option>
 												<option value="Portero(a)">Portero(a)</option>
@@ -125,14 +125,14 @@
 											</select>
 										</div>
 										<div class='campo'>
-											<label class='rotulo' title="Por favor elija el ·rea de desempeÒo del tabajador">¡rea de DesempeÒo</label>
-											<select name="area_d" title="Por favor elija el ·rea de desempeÒo del tabajador" required>
+											<label class='rotulo' title="Por favor elija el √°rea de desempe√±o del tabajador">√Årea de Desempe√±o</label>
+											<select name="area_d" title="Por favor elija el √°rea de desempe√±o del tabajador" required>
 												<option value=""></option>
-												<option value="Direccion">DirecciÛn</option>
-												<option value="Administracion">AdministraciÛn</option>
+												<option value="Direccion">Direcci√≥n</option>
+												<option value="Administracion">Administraci√≥n</option>
 												<option value="Fisiatria">Fisiatria</option>
 												<option value="Odontologia">Odontologia</option>
-												<option value="Recepcion">RecepciÛn</option>
+												<option value="Recepcion">Recepci√≥n</option>
 												<option value="Mantenimiento">Mantenimiento</option>
 											</select>
 										</div>
@@ -143,12 +143,12 @@
 											<input type="text" name="apellido" id="apellido" title="Por favor ingrese los apellidos del trabajador" required />
 										</div>
 										<div class='campo'>
-											<label for="libreta_militr" class='rotulo' title="Por favor ingrese el n˙mero de la libreta militar">Libreta Militar</label>
-											<input type="text" name="libreta_militr" id="libreta_militr" title="Por favor ingrese el n˙mero de la libreta militar" required />
+											<label for="libreta_militr" class='rotulo' title="Por favor ingrese el n√∫mero de la libreta militar">Libreta Militar</label>
+											<input type="text" name="libreta_militr" id="libreta_militr" title="Por favor ingrese el n√∫mero de la libreta militar" required />
 										</div>
 										<div class='campo'>
 											<label for="pasaporte" class='rotulo' title="Por favor ingrese los datos del pasaporte">Pasaporte</label>
-											<input type="text" name="pasaporte" id="pasaporte" title="Por favor ingrese el n˙mero de pasaporte" required />
+											<input type="text" name="pasaporte" id="pasaporte" title="Por favor ingrese el n√∫mero de pasaporte" required />
 										</div>
 										<div class='campo'>
 											<label for="lug_nac" class='rotulo' title="Por favor ingrese el lugar de nacimiento del trabajador">Lugar de Nacimiento</label>
@@ -167,18 +167,18 @@
 													for($i=1;$i<=12;$i++) echo '<option value='.$i.'>'.$meses[$i].'</option>';
 												?>
 											</select>
-											<select name="anonac" id="anonac" title="Seleccione el aÒo de nacimiento del trabajador" required>
+											<select name="anonac" id="anonac" title="Seleccione el a√±o de nacimiento del trabajador" required>
 												<option></option>
 												<?php for($i=date('o'); $i>=1950; $i--) echo '<option value='.$i.'>'.$i.'</option>'; ?>
 											</select>
 										</div>
 										<div class='campo'>
-											<label for="telefono" class='rotulo' title="Por favor ingrese el n˙mero telefÛnico del trabajador con formato 0000-0000000">TelÈfono</label>
-											<input name="telefono" type="text" id="telefono" title="Por favor ingrese el n˙mero telefÛnico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
+											<label for="telefono" class='rotulo' title="Por favor ingrese el n√∫mero telef√≥nico del trabajador con formato 0000-0000000">Tel√©fono</label>
+											<input name="telefono" type="text" id="telefono" title="Por favor ingrese el n√∫mero telef√≥nico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
 										</div>
 										<div class='campo'>
-											<label for="telefono_em" class='rotulo' title="Por favor ingrese un n˙mero telefÛnico para caso de emergencia, con formato 0000-0000000">TelÈfono Emergencia</label>
-											<input name="telefono_em" type="text" id="telefono_em" title="Por favor ingrese un n˙mero telefÛnico para caso de emergencia, con formato 0000-0000000" size="20" maxlength="12"  required />
+											<label for="telefono_em" class='rotulo' title="Por favor ingrese un n√∫mero telef√≥nico para caso de emergencia, con formato 0000-0000000">Tel√©fono Emergencia</label>
+											<input name="telefono_em" type="text" id="telefono_em" title="Por favor ingrese un n√∫mero telef√≥nico para caso de emergencia, con formato 0000-0000000" size="20" maxlength="12"  required />
 										</div>
 										<div class='campo'>
 											<label for="nconyugue" class='rotulo' title="Por favor ingrese el nombre del conyugue">Nombre del Conyugue</label>
@@ -197,21 +197,21 @@
 													for($i=1;$i<=12;$i++) echo '<option value='.$i.'>'.$meses[$i].'</option>';
 												?>
 											</select>
-											<select name="anoing" id="anoing" title="Seleccione el aÒo de ingreso a la clinica" required>
+											<select name="anoing" id="anoing" title="Seleccione el a√±o de ingreso a la clinica" required>
 												<option></option>
 												<?php for($i=date('o'); $i>=1980; $i--) echo '<option value='.$i.'>'.$i.'</option>'; ?>
 											</select>
 										</div>
 										<div class='campo'>
-											<label for="resolucion" class='rotulo' title="Por favor ingrese el n˙mero de resolucion">ResoluciÛn</label>
-											<input type="text" name="resolucion" id="resolucion" title="Por favor ingrese el n˙mero de resolucion" required />
+											<label for="resolucion" class='rotulo' title="Por favor ingrese el n√∫mero de resolucion">Resoluci√≥n</label>
+											<input type="text" name="resolucion" id="resolucion" title="Por favor ingrese el n√∫mero de resolucion" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija la ley bajo la cual esta amparado el tabajador">Amparado Bajo</label>
 											<select name="ley" title="Por favor elija la ley bajo la cual esta amparado el tabajador" required>
 												<option value=""></option>
-												<option value="LOTTT" title="Ley Org·nica del Trabajo, los Trabajadores y Trabajadoras">LOTTT</option>
-												<option value="LEFP" title="Ley del Estatuto de la FunciÛn P˙blica">LEFP</option>
+												<option value="LOTTT" title="Ley Org√°nica del Trabajo, los Trabajadores y Trabajadoras">LOTTT</option>
+												<option value="LEFP" title="Ley del Estatuto de la Funci√≥n P√∫blica">LEFP</option>
 											</select>
 										</div>
 									</div>
@@ -229,8 +229,8 @@
 													<input id='sheepItForm_#index#nombre' name='nombres_fam[#index#]' type='text' title="Por favor ingrese el nombre del familiar del trabajador" required />
 												</div>
 												<div class='campo'>
-													<label class='rotulo' for="sheepItForm_#index#cedula" title="Por favor ingrese el n˙mero de cÈdula del familiar del trabajador">CÈdula</label>
-													<input id='sheepItForm_#index#cedula' name='cedula_fam[#index#]' type='text' title="Por favor ingrese el n˙mero de cÈdula del familiar del trabajador" required />
+													<label class='rotulo' for="sheepItForm_#index#cedula" title="Por favor ingrese el n√∫mero de c√©dula del familiar del trabajador">C√©dula</label>
+													<input id='sheepItForm_#index#cedula' name='cedula_fam[#index#]' type='text' title="Por favor ingrese el n√∫mero de c√©dula del familiar del trabajador" required />
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="sheepItForm_#index#parentesco" title="Por favor indique el parentesco del familiar con el trabajador">Parentesco</label>
@@ -241,7 +241,7 @@
 													<select name="empl_fam[#index#]" title="Por favor indique si el familiar del trabajador es empleado de la institucion o la alcaldia" id="sheepItForm_#index#empl_fam" required>
 														<option value=""></option>
 														<option value="0">Ninguno</option>
-														<option value="1">De la instituciÛn</option>
+														<option value="1">De la instituci√≥n</option>
 														<option value="2">De la alcaldia</option>
 													</select>
 												</div>
@@ -266,7 +266,7 @@
 															for($i=1;$i<=12;$i++) echo '<option value='.$i.'>'.$meses[$i].'</option>';
 														?>
 													</select>
-													<select name="anonac_fam[#index#]" id="sheepItForm_#index#anonac_fam" title="Por favor elija el aÒo de nacimiento del familiar del trabajador" required>
+													<select name="anonac_fam[#index#]" id="sheepItForm_#index#anonac_fam" title="Por favor elija el a√±o de nacimiento del familiar del trabajador" required>
 														<option></option>
 														<?php for($i=date('o'); $i>=1950; $i--) echo '<option value='.$i.'>'.$i.'</option>'; ?>
 													</select>
@@ -302,7 +302,7 @@
 									<!-- /Controls -->
 								</fieldset>
 								<fieldset class="step">
-									<legend>EducaciÛn</legend>
+									<legend>Educaci√≥n</legend>
 									<div class='derecha'>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija el nivel del estudio del trabajador">Estudios</label>
@@ -320,8 +320,8 @@
 											<input type="text" name="lug_estudio" id="lug_estudio" title="Por favor ingrese el lugar de estudio del trabajador" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="ano" title="Por favor ingrese el aÒo de graduaciÛn del trabajador">AÒo</label>
-											<input type="text" name="ano" id="ano" title="Por favor ingrese el aÒo de graduaciÛn del trabajador" required />
+											<label class='rotulo' for="ano" title="Por favor ingrese el a√±o de graduaci√≥n del trabajador">A√±o</label>
+											<input type="text" name="ano" id="ano" title="Por favor ingrese el a√±o de graduaci√≥n del trabajador" required />
 										</div>
 									</div>
 									<div class='izquierda'>
@@ -336,7 +336,7 @@
 									</div>
 								</fieldset>
 								<fieldset class="step">
-									<legend>DocumentaciÛn Personal</legend>
+									<legend>Documentaci√≥n Personal</legend>
 									<div class='derecha'>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno partida de nacimiento">Partida de nacimiento</label>
@@ -346,18 +346,18 @@
 											<label for="part_nac_no" title="No consigno partida de nacimiento" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
-											<label class='rotulo' title="Por favor indique si el trabajador consigno inscripciÛn militar">InscripciÛn Militar</label>
-											<input type="radio" name="ins_milt" value="1" id="ins_milt_si" title="Si consigno inscripciÛn militar" />
-											<label for="ins_milt_si" title="Si consigno inscripciÛn militar" class="rotulo_r">Si</label>
-											<input type="radio" name="ins_milt" value="0" id="ins_milt_no" title="No consigno inscripciÛn militar" />
-											<label for="ins_milt_no" title="No consigno inscripciÛn militar" class="rotulo_r">No</label>
+											<label class='rotulo' title="Por favor indique si el trabajador consigno inscripci√≥n militar">Inscripci√≥n Militar</label>
+											<input type="radio" name="ins_milt" value="1" id="ins_milt_si" title="Si consigno inscripci√≥n militar" />
+											<label for="ins_milt_si" title="Si consigno inscripci√≥n militar" class="rotulo_r">Si</label>
+											<input type="radio" name="ins_milt" value="0" id="ins_milt_no" title="No consigno inscripci√≥n militar" />
+											<label for="ins_milt_no" title="No consigno inscripci√≥n militar" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
-											<label class='rotulo' title="Por favor indique si el trabajador consigno cÈdula de identidad">CÈdula de Identidad</label>
-											<input type="radio" name="ced_iden" value="1" id="ced_iden_si" title="Si consigno cÈdula de identidad" />
-											<label for="ced_iden_si" title="Si consigno cÈdula de identidad" class="rotulo_r">Si</label>
-											<input type="radio" name="ced_iden" value="0" id="ced_iden_no" title="No consigno cÈdula de identidad" />
-											<label for="ced_iden_no" title="No consigno cÈdula de identidad" class="rotulo_r">No</label>
+											<label class='rotulo' title="Por favor indique si el trabajador consigno c√©dula de identidad">C√©dula de Identidad</label>
+											<input type="radio" name="ced_iden" value="1" id="ced_iden_si" title="Si consigno c√©dula de identidad" />
+											<label for="ced_iden_si" title="Si consigno c√©dula de identidad" class="rotulo_r">Si</label>
+											<input type="radio" name="ced_iden" value="0" id="ced_iden_no" title="No consigno c√©dula de identidad" />
+											<label for="ced_iden_no" title="No consigno c√©dula de identidad" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno RIF">RIF</label>
@@ -367,11 +367,11 @@
 											<label for="rif_no" title="No consigno RIF" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
-											<label class='rotulo' title="Por favor indique si el trabajador consigno declaraciÛn jurada">DeclaraciÛn Jurada</label>
-											<input type="radio" name="dec_jur" value="1" id="dec_jur_si" title="Si consigno declaraciÛn jurada" />
-											<label for="dec_jur_si" title="Si consigno declaraciÛn jurada" class="rotulo_r">Si</label>
-											<input type="radio" name="dec_jur" value="0" id="dec_jur_no" title="No consigno declaraciÛn jurada" />
-											<label for="dec_jur_no" title="No consigno declaraciÛn jurada" class="rotulo_r">No</label>
+											<label class='rotulo' title="Por favor indique si el trabajador consigno declaraci√≥n jurada">Declaraci√≥n Jurada</label>
+											<input type="radio" name="dec_jur" value="1" id="dec_jur_si" title="Si consigno declaraci√≥n jurada" />
+											<label for="dec_jur_si" title="Si consigno declaraci√≥n jurada" class="rotulo_r">Si</label>
+											<input type="radio" name="dec_jur" value="0" id="dec_jur_no" title="No consigno declaraci√≥n jurada" />
+											<label for="dec_jur_no" title="No consigno declaraci√≥n jurada" class="rotulo_r">No</label>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno informe medico">Informe Medico</label>
@@ -429,7 +429,7 @@
 								<fieldset class="step">
 									<legend>Referencias Personales</legend>
 									<div class='division'>
-										<h3>Referencia n˙mero 1</h3>
+										<h3>Referencia n√∫mero 1</h3>
 									</div>
 									<div class='derecha'>
 										<div class='campo'>
@@ -437,12 +437,12 @@
 											<input type="text" name="nombre_rp_1" id="nombre_rp_1" title="Por favor ingrese el nombre completo" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="cedula_rp_1" title="Por favor ingrese la cÈdula de identidad">CÈdula</label>
-											<input type="text" name="cedula_rp_1" id="cedula_rp_1" title="Por favor ingrese la cÈdula de identidad" required />
+											<label class='rotulo' for="cedula_rp_1" title="Por favor ingrese la c√©dula de identidad">C√©dula</label>
+											<input type="text" name="cedula_rp_1" id="cedula_rp_1" title="Por favor ingrese la c√©dula de identidad" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="telefono_rp_1" title="Por favor ingrese el n˙mero telefÛnico con formato 0000-0000000">TelÈfono</label>
-											<input name="telefono_rp_1" type="text" id="telefono_rp_1" title="Por favor ingrese el n˙mero telefÛnico con formato 0000-0000000" size="20" maxlength="12" required />
+											<label class='rotulo' for="telefono_rp_1" title="Por favor ingrese el n√∫mero telef√≥nico con formato 0000-0000000">Tel√©fono</label>
+											<input name="telefono_rp_1" type="text" id="telefono_rp_1" title="Por favor ingrese el n√∫mero telef√≥nico con formato 0000-0000000" size="20" maxlength="12" required />
 										</div>
 									</div>
 									<div class='izquierda'>
@@ -451,12 +451,12 @@
 											<input type="text" name="apellido_rp_1" id="apellido_rp_1" title="Por favor ingrese los apellidos" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="ocupacion_rp_1" title="Por favor ingrese la ocupaciÛn">OcupaciÛn</label>
-											<input type="text" name="ocupacion_rp_1" id="ocupacion_rp_1" title="Por favor ingrese la ocupaciÛn" required />
+											<label class='rotulo' for="ocupacion_rp_1" title="Por favor ingrese la ocupaci√≥n">Ocupaci√≥n</label>
+											<input type="text" name="ocupacion_rp_1" id="ocupacion_rp_1" title="Por favor ingrese la ocupaci√≥n" required />
 										</div>
 									</div>
 									<div class='division'>
-										<h3>Referencia n˙mero 2</h3>
+										<h3>Referencia n√∫mero 2</h3>
 									</div>
 									<div class='derecha'>
 										<div class='campo'>
@@ -464,12 +464,12 @@
 											<input type="text" name="nombre_rp_2" id="nombre_rp" title="Por favor ingrese el nombre completo" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="cedula_rp_2" title="Por favor ingrese la cÈdula de identidad">CÈdula</label>
-											<input type="text" name="cedula_rp_2" id="cedula_rp_2" title="Por favor ingrese la cÈdula de identidad" required />
+											<label class='rotulo' for="cedula_rp_2" title="Por favor ingrese la c√©dula de identidad">C√©dula</label>
+											<input type="text" name="cedula_rp_2" id="cedula_rp_2" title="Por favor ingrese la c√©dula de identidad" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="telefono_rp_2" title="Por favor ingrese el n˙mero telefÛnico con formato 0000-0000000">TelÈfono</label>
-											<input name="telefono_rp_2" type="text" id="telefono_rp_2" title="Por favor ingrese el n˙mero telefÛnico con formato 0000-0000000" size="20" maxlength="12" required />
+											<label class='rotulo' for="telefono_rp_2" title="Por favor ingrese el n√∫mero telef√≥nico con formato 0000-0000000">Tel√©fono</label>
+											<input name="telefono_rp_2" type="text" id="telefono_rp_2" title="Por favor ingrese el n√∫mero telef√≥nico con formato 0000-0000000" size="20" maxlength="12" required />
 										</div>
 									</div>
 									<div class='izquierda'>
@@ -478,12 +478,12 @@
 											<input type="text" name="apellido_rp_2" id="apellido_rp_2" title="Por favor ingrese los apellidos" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="ocupacion_rp_2" title="Por favor ingrese la ocupaciÛn">OcupaciÛn</label>
-											<input type="text" name="ocupacion_rp_2" id="ocupacion_rp_2" title="Por favor ingrese la ocupaciÛn" required />
+											<label class='rotulo' for="ocupacion_rp_2" title="Por favor ingrese la ocupaci√≥n">Ocupaci√≥n</label>
+											<input type="text" name="ocupacion_rp_2" id="ocupacion_rp_2" title="Por favor ingrese la ocupaci√≥n" required />
 										</div>
 									</div>
 									<div class='division'>
-										<h3>Referencia n˙mero 3</h3>
+										<h3>Referencia n√∫mero 3</h3>
 									</div>
 									<div class='derecha'>
 										<div class='campo'>
@@ -491,12 +491,12 @@
 											<input type="text" name="nombre_rp_3" id="nombre_rp_3" title="Por favor ingrese el nombre completo" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="cedula_rp_3" title="Por favor ingrese la cÈdula de identidad">CÈdula</label>
-											<input type="text" name="cedula_rp_3" id="cedula_rp_3" title="Por favor ingrese la cÈdula de identidad" required />
+											<label class='rotulo' for="cedula_rp_3" title="Por favor ingrese la c√©dula de identidad">C√©dula</label>
+											<input type="text" name="cedula_rp_3" id="cedula_rp_3" title="Por favor ingrese la c√©dula de identidad" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="telefono_rp_3" title="Por favor ingrese el n˙mero telefÛnico con formato 0000-0000000">TelÈfono</label>
-											<input name="telefono_rp_3" type="text" id="telefono_rp_3" title="Por favor ingrese el n˙mero telefÛnico con formato 0000-0000000" size="20" maxlength="12" required />
+											<label class='rotulo' for="telefono_rp_3" title="Por favor ingrese el n√∫mero telef√≥nico con formato 0000-0000000">Tel√©fono</label>
+											<input name="telefono_rp_3" type="text" id="telefono_rp_3" title="Por favor ingrese el n√∫mero telef√≥nico con formato 0000-0000000" size="20" maxlength="12" required />
 										</div>
 									</div>
 									<div class='izquierda'>
@@ -505,8 +505,8 @@
 											<input type="text" name="apellido_rp_3" id="apellido_rp_3" title="Por favor ingrese los apellidos" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="ocupacion_rp_3" title="Por favor ingrese la ocupaciÛn">OcupaciÛn</label>
-											<input type="text" name="ocupacion_rp_3" id="ocupacion_rp_3" title="Por favor ingrese la ocupaciÛn" required />
+											<label class='rotulo' for="ocupacion_rp_3" title="Por favor ingrese la ocupaci√≥n">Ocupaci√≥n</label>
+											<input type="text" name="ocupacion_rp_3" id="ocupacion_rp_3" title="Por favor ingrese la ocupaci√≥n" required />
 										</div>
 									</div>
 								</fieldset>

@@ -21,6 +21,7 @@
 	$nconyugue = $_POST["nconyugue"];
 	$cargo = $_POST["cargo"];
 	$rango = $_POST["rango"];
+	$condicion = $_POST["condicion"];
 	$area_d = $_POST["area_d"];
 	$fecha_ing = $_POST["anoing"].'-'.$_POST["mesing"].'-'.$_POST["diaing"];
 	$resolucion = $_POST["resolucion"];
@@ -96,7 +97,7 @@
 	bitacora($cnx_bd);
 
 /*..........................................ACTUALIZACIÓN DE DATOS LABORALES.........................................*/
-	$sql = "UPDATE laboral SET fecha_ingreso = '{$fecha_ing}', cargo = '{$cargo}', rango = '{$rango}', area_desemp = '{$area_d}', resolucion = '{$resolucion}', ley = '{$ley}'
+	$sql = "UPDATE laboral SET fecha_ingreso = '{$fecha_ing}', condicion = '{$condicion}', cargo = '{$cargo}', rango = '{$rango}', area_desemp = '{$area_d}', resolucion = '{$resolucion}', ley = '{$ley}'
 			WHERE cedula = '{$cedula}'";
 		
 	$cnx_bd->query($sql);

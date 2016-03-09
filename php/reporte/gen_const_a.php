@@ -34,20 +34,30 @@
 						<th>Apellidos</th>
 						<th>Constancia Trabajo</th>
 					</tr>
-					<?php while ($fila = $trb_actv->fetch_object()){ ?>
-						<tr>
-							<td><?=$fila->cedula?></td>
-							<td><?=$fila->nombre?></td>
-							<td><?=$fila->apellido?></td>
-							<td>
-								<div class="izq">
-									<a href= "gen_const_b.php?c=<?=$fila->cedula?>" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
-								</div>
-							</td>
-						</tr>
+					<?php
+					if ($trb_actv->num_rows < 1) {
+					?>
+					<tr>
+						<td colspan="4">No hay Personal Activo registrado</td>
+					</tr>
+					<?php
+					}else{
+						while ($fila = $trb_actv->fetch_object()){
+					?>
+							<tr>
+								<td><?=$fila->cedula?></td>
+								<td><?=$fila->nombre?></td>
+								<td><?=$fila->apellido?></td>
+								<td>
+									<div class="izq">
+										<a href= "gen_const_b.php?c=<?=$fila->cedula?>" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
+									</div>
+								</td>
+							</tr>
 					<?php
 						}
-						$trb_actv->free();
+					}
+					$trb_actv->free();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>

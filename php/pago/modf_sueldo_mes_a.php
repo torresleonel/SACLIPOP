@@ -39,18 +39,27 @@
 							<th>Cargo</th>
 							<th>Sueldo Mensual</th>
 						</tr>
-						<?php while ($fila = $alto->fetch_object()){ ?>
-							<tr>
-								<td><a href="#"><?=$fila->cedula?></a></td>
-								<td><a href="#"><?=$fila->nombre?></a></td>
-								<td><a href="#"><?=$fila->apellido?></a></td>
-								<td><a href="#"><?=$fila->cargo?></a></td>
-								<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
-								<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
-							</tr>
+						<?php
+						if ($alto->num_rows < 1) {
+						?>
+						<tr>
+							<td colspan="5">No hay Personal de Alto Nivel registrado</td>
+						</tr>
+						<?php
+						}else{
+							while ($fila = $alto->fetch_object()){
+						?>
+								<tr>
+									<td><a href="#"><?=$fila->cedula?></a></td>
+									<td><a href="#"><?=$fila->nombre?></a></td>
+									<td><a href="#"><?=$fila->apellido?></a></td>
+									<td><a href="#"><?=$fila->cargo?></a></td>
+									<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
+								</tr>
 						<?php
 							}
-							$alto->free();
+						}
 						?>
 					</table>
 					<table id="tabla">
@@ -62,18 +71,27 @@
 							<th>Cargo</th>
 							<th>Sueldo Mensual</th>
 						</tr>
-						<?php while ($fila = $empleado->fetch_object()){ ?>
-							<tr>
-								<td><a href="#"><?=$fila->cedula?></a></td>
-								<td><a href="#"><?=$fila->nombre?></a></td>
-								<td><a href="#"><?=$fila->apellido?></a></td>
-								<td><a href="#"><?=$fila->cargo?></a></td>
-								<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
-								<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
-							</tr>
+						<?php
+						if ($empleado->num_rows < 1) {
+						?>
+						<tr>
+							<td colspan="5">No hay Personal Empleado registrado</td>
+						</tr>
+						<?php
+						}else{
+							while ($fila = $empleado->fetch_object()){
+						?>
+								<tr>
+									<td><a href="#"><?=$fila->cedula?></a></td>
+									<td><a href="#"><?=$fila->nombre?></a></td>
+									<td><a href="#"><?=$fila->apellido?></a></td>
+									<td><a href="#"><?=$fila->cargo?></a></td>
+									<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
+								</tr>
 						<?php
 							}
-							$empleado->free();
+						}
 						?>
 					</table>
 					<table id="tabla">
@@ -85,18 +103,27 @@
 							<th>Cargo</th>
 							<th>Sueldo Mensual</th>
 						</tr>
-						<?php while ($fila = $obrero->fetch_object()){ ?>
-							<tr>
-								<td><a href="#"><?=$fila->cedula?></a></td>
-								<td><a href="#"><?=$fila->nombre?></a></td>
-								<td><a href="#"><?=$fila->apellido?></a></td>
-								<td><a href="#"><?=$fila->cargo?></a></td>
-								<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
-								<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
-							</tr>
+						<?php
+						if ($obrero->num_rows < 1) {
+						?>
+						<tr>
+							<td colspan="5">No hay Personal Obrero registrado</td>
+						</tr>
+						<?php
+						}else{
+							while ($fila = $obrero->fetch_object()){
+						?>
+								<tr>
+									<td><a href="#"><?=$fila->cedula?></a></td>
+									<td><a href="#"><?=$fila->nombre?></a></td>
+									<td><a href="#"><?=$fila->apellido?></a></td>
+									<td><a href="#"><?=$fila->cargo?></a></td>
+									<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
+								</tr>
 						<?php
 							}
-							$obrero->free();
+						}
 						?>
 					</table>
 					<table id="tabla">
@@ -108,22 +135,41 @@
 							<th>Cargo</th>
 							<th>Sueldo Mensual</th>
 						</tr>
-						<?php while ($fila = $contratado->fetch_object()){ ?>
-							<tr>
-								<td><a href="#"><?=$fila->cedula?></a></td>
-								<td><a href="#"><?=$fila->nombre?></a></td>
-								<td><a href="#"><?=$fila->apellido?></a></td>
-								<td><a href="#"><?=$fila->cargo?></a></td>
-								<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
-								<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
-							</tr>
+						<?php
+						if ($contratado->num_rows < 1) {
+						?>
+						<tr>
+							<td colspan="5">No hay Personal Contratado registrado</td>
+						</tr>
+						<?php
+						}else{
+							while ($fila = $contratado->fetch_object()){
+						?>
+								<tr>
+									<td><a href="#"><?=$fila->cedula?></a></td>
+									<td><a href="#"><?=$fila->nombre?></a></td>
+									<td><a href="#"><?=$fila->apellido?></a></td>
+									<td><a href="#"><?=$fila->cargo?></a></td>
+									<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
+								</tr>
 						<?php
 							}
-							$contratado->free();
+						}
 						?>
 					</table>
 					<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>
+					<?php
+					if ($alto->num_rows > 0 || $empleado->num_rows > 0 || $obrero->num_rows > 0 || $contratado->num_rows > 0) {
+					?>
 					<input type="submit" name="modificar" value="Modificar" id="boton" />
+					<?php
+					}
+					$alto->free();
+					$empleado->free();
+					$obrero->free();
+					$contratado->free();
+					?>
 				</form>
 			</div>
 		</div>

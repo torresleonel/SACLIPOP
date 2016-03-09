@@ -66,28 +66,38 @@
 								<th>Total Deducciones</th>
 								<th>TOTAL A PAGAR</th>
 							</tr>
-							<?php while($fila = $alto->fetch_object()){ ?>
-										<tr>
-											<td><?=$fila->nombre.' '.$fila->apellido?></td>
-											<td><?=$fila->cedula?></td>
-											<td>Bs <?=$fila->sueldo_quincena?></td>
-											<td>Bs <?=$fila->total_dia_adic?></td>
-											<td>Bs <?=$fila->retro_sueldo?></td>
-											<td>Bs <?=$fila->retro_vacaciones?></td>
-											<td>Bs <?=$fila->retro_aguinaldos?></td>
-											<td>Bs <?=$fila->sso?></td>
-											<td>Bs <?=$fila->spf?></td>
-											<td>Bs <?=$fila->faov?></td>
-											<td>Bs <?=$fila->islr?></td>
-											<td>Bs <?=$fila->total_inasist?></td>
-											<td>Bs <?=$fila->total_asignaciones?></td>
-											<td>Bs <?=$fila->total_deducciones?></td>
-											<td>Bs <?=$fila->total_pagar?></td>
-										</tr>
+							<?php
+							if ($alto->num_rows < 1) {
+							?>
+							<tr>
+								<td colspan="15">No hay Personal de Alto Nivel registrado</td>
+							</tr>
+							<?php
+							}else{
+								while($fila = $alto->fetch_object()){
+							?>
+									<tr>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
+										<td>Bs <?=$fila->sueldo_quincena?></td>
+										<td>Bs <?=$fila->total_dia_adic?></td>
+										<td>Bs <?=$fila->retro_sueldo?></td>
+										<td>Bs <?=$fila->retro_vacaciones?></td>
+										<td>Bs <?=$fila->retro_aguinaldos?></td>
+										<td>Bs <?=$fila->sso?></td>
+										<td>Bs <?=$fila->spf?></td>
+										<td>Bs <?=$fila->faov?></td>
+										<td>Bs <?=$fila->islr?></td>
+										<td>Bs <?=$fila->total_inasist?></td>
+										<td>Bs <?=$fila->total_asignaciones?></td>
+										<td>Bs <?=$fila->total_deducciones?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
+									</tr>
 							<?php
 									$subt_a += $fila->total_pagar;
 								}
-								$alto->free();
+							}
+							$alto->free();
 							?>
 							<tr>
 								<td colspan="14">SUB-TOTAL</td>
@@ -113,28 +123,38 @@
 								<th>Total Deducciones</th>
 								<th>TOTAL A PAGAR</th>
 							</tr>
-							<?php while($fila = $empleado->fetch_object()){ ?>
-										<tr>
-											<td><?=$fila->nombre.' '.$fila->apellido?></td>
-											<td><?=$fila->cedula?></td>
-											<td>Bs <?=$fila->sueldo_quincena?></td>
-											<td>Bs <?=$fila->total_dia_adic?></td>
-											<td>Bs <?=$fila->retro_sueldo?></td>
-											<td>Bs <?=$fila->retro_vacaciones?></td>
-											<td>Bs <?=$fila->retro_aguinaldos?></td>
-											<td>Bs <?=$fila->sso?></td>
-											<td>Bs <?=$fila->spf?></td>
-											<td>Bs <?=$fila->faov?></td>
-											<td>Bs <?=$fila->islr?></td>
-											<td>Bs <?=$fila->total_inasist?></td>
-											<td>Bs <?=$fila->total_asignaciones?></td>
-											<td>Bs <?=$fila->total_deducciones?></td>
-											<td>Bs <?=$fila->total_pagar?></td>
-										</tr>
+							<?php
+							if ($empleado->num_rows < 1) {
+							?>
+							<tr>
+								<td colspan="15">No hay Personal Empleado registrado</td>
+							</tr>
+							<?php
+							}else{
+								while($fila = $empleado->fetch_object()){
+							?>
+									<tr>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
+										<td>Bs <?=$fila->sueldo_quincena?></td>
+										<td>Bs <?=$fila->total_dia_adic?></td>
+										<td>Bs <?=$fila->retro_sueldo?></td>
+										<td>Bs <?=$fila->retro_vacaciones?></td>
+										<td>Bs <?=$fila->retro_aguinaldos?></td>
+										<td>Bs <?=$fila->sso?></td>
+										<td>Bs <?=$fila->spf?></td>
+										<td>Bs <?=$fila->faov?></td>
+										<td>Bs <?=$fila->islr?></td>
+										<td>Bs <?=$fila->total_inasist?></td>
+										<td>Bs <?=$fila->total_asignaciones?></td>
+										<td>Bs <?=$fila->total_deducciones?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
+									</tr>
 							<?php
 									$subt_e += $fila->total_pagar;
 								}
-								$empleado->free();
+							}
+							$empleado->free();
 							?>
 							<tr>
 								<td colspan="14">SUB-TOTAL</td>
@@ -160,7 +180,16 @@
 								<th>Total Deducciones</th>
 								<th>TOTAL A PAGAR</th>
 							</tr>
-							<?php while($fila = $obrero->fetch_object()){ ?>
+							<?php
+							if ($obrero->num_rows < 1) {
+							?>
+							<tr>
+								<td colspan="15">No hay Personal Obrero registrado</td>
+							</tr>
+							<?php
+							}else{
+								while($fila = $obrero->fetch_object()){
+							?>
 										<tr>
 											<td><?=$fila->nombre.' '.$fila->apellido?></td>
 											<td><?=$fila->cedula?></td>
@@ -181,7 +210,8 @@
 							<?php
 									$subt_o += $fila->total_pagar;
 								}
-								$obrero->free();
+							}
+							$obrero->free();
 							?>
 							<tr>
 								<td colspan="14">SUB-TOTAL</td>
@@ -207,28 +237,38 @@
 								<th>Total Deducciones</th>
 								<th>TOTAL A PAGAR</th>
 							</tr>
-							<?php while($fila = $contratado->fetch_object()){ ?>
-										<tr>
-											<td><?=$fila->nombre.' '.$fila->apellido?></td>
-											<td><?=$fila->cedula?></td>
-											<td>Bs <?=$fila->sueldo_quincena?></td>
-											<td>Bs <?=$fila->total_dia_adic?></td>
-											<td>Bs <?=$fila->retro_sueldo?></td>
-											<td>Bs <?=$fila->retro_vacaciones?></td>
-											<td>Bs <?=$fila->retro_aguinaldos?></td>
-											<td>Bs <?=$fila->sso?></td>
-											<td>Bs <?=$fila->spf?></td>
-											<td>Bs <?=$fila->faov?></td>
-											<td>Bs <?=$fila->islr?></td>
-											<td>Bs <?=$fila->total_inasist?></td>
-											<td>Bs <?=$fila->total_asignaciones?></td>
-											<td>Bs <?=$fila->total_deducciones?></td>
-											<td>Bs <?=$fila->total_pagar?></td>
-										</tr>
+							<?php
+							if ($contratado->num_rows < 1) {
+							?>
+							<tr>
+								<td colspan="15">No hay Personal Contratado registrado</td>
+							</tr>
+							<?php
+							}else{
+								while($fila = $contratado->fetch_object()){
+							?>
+									<tr>
+										<td><?=$fila->nombre.' '.$fila->apellido?></td>
+										<td><?=$fila->cedula?></td>
+										<td>Bs <?=$fila->sueldo_quincena?></td>
+										<td>Bs <?=$fila->total_dia_adic?></td>
+										<td>Bs <?=$fila->retro_sueldo?></td>
+										<td>Bs <?=$fila->retro_vacaciones?></td>
+										<td>Bs <?=$fila->retro_aguinaldos?></td>
+										<td>Bs <?=$fila->sso?></td>
+										<td>Bs <?=$fila->spf?></td>
+										<td>Bs <?=$fila->faov?></td>
+										<td>Bs <?=$fila->islr?></td>
+										<td>Bs <?=$fila->total_inasist?></td>
+										<td>Bs <?=$fila->total_asignaciones?></td>
+										<td>Bs <?=$fila->total_deducciones?></td>
+										<td>Bs <?=$fila->total_pagar?></td>
+									</tr>
 							<?php
 									$subt_c += $fila->total_pagar;
 								}
-								$contratado->free();
+							}
+							$contratado->free();
 							?>
 							<tr>
 								<td colspan="14">SUB-TOTAL</td>

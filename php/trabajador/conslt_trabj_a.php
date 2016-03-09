@@ -35,23 +35,33 @@
 						<th>Apellidos</th>
 						<th>Acciones</th>
 					</tr>
-					<?php while ($fila = $trb_actv->fetch_object()){ ?>
-						<tr>
-							<td><a href="conslt_trabj_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->cedula; ?></a></td>
-							<td><a href="conslt_trabj_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->nombre; ?></a></td>
-							<td><a href="conslt_trabj_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->apellido; ?></a></td>
-							<td>				
-								<div class="izq">
-									<a href= "modf_trabj_a.php?c=<?php echo $fila->cedula; ?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
-								</div>
-								<div class="izq">
-									<a href= "../reporte/gen_const_b.php?c=<?php echo $fila->cedula; ?>" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
-								</div>
-							</td>
-						</tr>
+					<?php
+					if ($trb_actv->num_rows < 1) {
+					?>
+					<tr>
+						<td colspan="4">No hay Personal Activo registrado</td>
+					</tr>
+					<?php
+					}else{
+						while ($fila = $trb_actv->fetch_object()){
+					?>
+							<tr>
+								<td><a href="conslt_trabj_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->cedula?></a></td>
+								<td><a href="conslt_trabj_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->nombre?></a></td>
+								<td><a href="conslt_trabj_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->apellido?></a></td>
+								<td>				
+									<div class="izq">
+										<a href= "modf_trabj_a.php?c=<?=$fila->cedula?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
+									</div>
+									<div class="izq">
+										<a href= "../reporte/gen_const_b.php?c=<?=$fila->cedula?>" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
+									</div>
+								</td>
+							</tr>
 					<?php
 						}
-						$trb_actv->free();
+					}
+					$trb_actv->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -62,20 +72,30 @@
 						<th>Apellidos</th>
 						<th>Acciones</th>
 					</tr>
-					<?php while ($fila = $trb_inactv->fetch_object()){ ?>
-						<tr>
-							<td><a href="conslt_trabj_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->cedula; ?></a></td>
-							<td><a href="conslt_trabj_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->nombre; ?></a></td>
-							<td><a href="conslt_trabj_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->apellido; ?></a></td>
-							<td>				
-								<div class="izq">
-									<a href= "modf_trabj_a.php?c=<?php echo $fila->cedula; ?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
-								</div>
-							</td>
-						</tr>
+					<?php
+					if ($trb_inactv->num_rows < 1) {
+					?>
+					<tr>
+						<td colspan="4">No hay Personal Inactivo registrado</td>
+					</tr>
+					<?php
+					}else{
+						while ($fila = $trb_inactv->fetch_object()){
+					?>
+							<tr>
+								<td><a href="conslt_trabj_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->cedula?></a></td>
+								<td><a href="conslt_trabj_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->nombre?></a></td>
+								<td><a href="conslt_trabj_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->apellido?></a></td>
+								<td>				
+									<div class="izq">
+										<a href= "modf_trabj_a.php?c=<?=$fila->cedula?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
+									</div>
+								</td>
+							</tr>
 					<?php
 						}
-						$trb_inactv->free();
+					}
+					$trb_inactv->free();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>
