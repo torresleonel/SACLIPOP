@@ -35,20 +35,30 @@
 						<th>Apellidos</th>
 						<th>Acciones</th>
 					</tr>
-					<?php while ($fila = $com_actv->fetch_object()){ ?>
-						<tr>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->cedula; ?></a></td>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->nombre; ?></a></td>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->apellido; ?></a></td>
-							<td>				
-								<div class="izq">
-									<a href= "modf_com_serv_a.php?c=<?php echo $fila->cedula; ?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
-								</div>
-							</td>
-						</tr>
+					<?php
+					if ($com_actv->num_rows < 1) {
+					?>
+					<tr>
+						<td colspan="4">No hay Comisión de Servicio Activo registrado</td>
+					</tr>
+					<?php
+					}else{
+						while ($fila = $com_actv->fetch_object()){
+					?>
+							<tr>
+								<td><a href="conslt_com_serv_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->cedula?></a></td>
+								<td><a href="conslt_com_serv_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->nombre?></a></td>
+								<td><a href="conslt_com_serv_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->apellido?></a></td>
+								<td>				
+									<div class="izq">
+										<a href= "modf_com_serv_a.php?c=<?=$fila->cedula?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
+									</div>
+								</td>
+							</tr>
 					<?php
 						}
-						$com_actv->free();
+					}
+					$com_actv->free();
 					?>
 				</table>
 				<table id="tabla">
@@ -59,23 +69,33 @@
 						<th>Apellidos</th>
 						<th>Acciones</th>
 					</tr>
-					<?php while ($fila = $com_inactv->fetch_object()){ ?>
-						<tr>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->cedula; ?></a></td>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->nombre; ?></a></td>
-							<td><a href="conslt_com_serv_b.php?c=<?php echo $fila->cedula; ?>" title="Click para consultar los datos del trabajador"><?php echo $fila->apellido; ?></a></td>
-							<td>				
-								<div class="izq">
-									<a href= "modf_com_serv_a.php?c=<?php echo $fila->cedula; ?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
-								</div>
-								<div class="izq">
-									<a href= "pdf/constancia.php?id=<?php echo $fila->cedula; ?>" target="_blank" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
-								</div>
-							</td>
-						</tr>
+					<?php
+					if ($com_inactv->num_rows < 1) {
+					?>
+					<tr>
+						<td colspan="4">No hay Comisión de Servicio Inactivo registrado</td>
+					</tr>
+					<?php
+					}else{
+						while ($fila = $com_inactv->fetch_object()){
+					?>
+							<tr>
+								<td><a href="conslt_com_serv_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->cedula?></a></td>
+								<td><a href="conslt_com_serv_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->nombre?></a></td>
+								<td><a href="conslt_com_serv_b.php?c=<?=$fila->cedula?>" title="Click para consultar los datos del trabajador"><?=$fila->apellido?></a></td>
+								<td>				
+									<div class="izq">
+										<a href= "modf_com_serv_a.php?c=<?=$fila->cedula?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
+									</div>
+									<div class="izq">
+										<a href= "pdf/constancia.php?id=<?=$fila->cedula?>" target="_blank" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
+									</div>
+								</td>
+							</tr>
 					<?php
 						}
-						$com_inactv->free();
+					}
+					$com_inactv->free();
 					?>
 				</table>
 				<a href="../inicio.php" class="enlaceboton" title="Click para ir al inicio de SACLIPOP">Inicio</a>
