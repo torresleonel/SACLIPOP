@@ -1,4 +1,4 @@
-﻿<?php include('../_sesion/verifica_sesion.php'); ?>
+<?php include('../_sesion/verifica_sesion.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
 	<head>
