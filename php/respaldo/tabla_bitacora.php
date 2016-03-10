@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	/*SE LLAMA A LOS ARCHIVOS QUE CONTIENEN LA FUNCION DE CONEXION A LA BD Y LA CONSULTA DE BITACORA*/
 	include('../_conexion/conexion_funcion.php');
 	$cnx_bd = conexion();

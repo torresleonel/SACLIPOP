@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     // Constantes con rutas
     define('DS', DIRECTORY_SEPARATOR);
     define('ROOT', realpath($_SERVER["DOCUMENT_ROOT"]) . DS);

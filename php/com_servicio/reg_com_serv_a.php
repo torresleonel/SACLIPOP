@@ -1,4 +1,4 @@
-<?php include('../_sesion/verifica_sesion.php'); ?>
+﻿<?php include('../_sesion/verifica_sesion.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
 	<head>
@@ -53,10 +53,11 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador estudia">Estudia</label>
-											<input type="radio" name="estudia" value="1" id="estudia_s" title="Si estudia" />
-											<label for="estudia_s" title="Si estudia" class="rotulo_r">Si</label>
-											<input type="radio" name="estudia" value="0" id="estudia_n" title="No estudia" />
-											<label for="estudia_n" title="No estudia" class="rotulo_r">No</label>
+											<select name="estudia" title="Por favor indique si el trabajador estudia" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label for="direccion" class='rotulo' title="Por favor ingrese la dirección de habitación del tabajador">Dirección</label>

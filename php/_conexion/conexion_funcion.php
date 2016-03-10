@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	//ZONA HORARIA
 	date_default_timezone_set('America/Caracas');
 

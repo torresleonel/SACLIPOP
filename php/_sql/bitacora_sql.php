@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 //++++++++++++++++++++++++++++++++++++++++++++FUNCIONES PARA CONSULTA DEL BITACORA DE SACLIPOP+++++++++++++++++++++++++++++++++++++++++++++++
 
 	function conslt_bitacora($cnx_bd){

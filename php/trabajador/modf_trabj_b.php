@@ -1,4 +1,4 @@
-<?php include('../_sesion/verifica_sesion.php'); ?>
+﻿<?php include('../_sesion/verifica_sesion.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>

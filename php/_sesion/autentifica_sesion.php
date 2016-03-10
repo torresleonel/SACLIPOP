@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	include("../_conexion/conexion_funcion.php");
 	$cnx_bd = conexion();
 	

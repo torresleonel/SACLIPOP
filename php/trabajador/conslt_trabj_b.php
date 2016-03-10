@@ -1,4 +1,4 @@
-<?php include('../_sesion/verifica_sesion.php'); ?>
+Ôªø<?php include('../_sesion/verifica_sesion.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
 	<head>
@@ -50,7 +50,7 @@
 				?>
 				<div id="content">
 					<h1>Detalles del Personal</h1>
-					<h4>Ultima ActualizaciÛn: <?=$d.'-'.$m.'-'.$a; ?></h4>
+					<h4>Ultima Actualizaci√≥n: <?=$d.'-'.$m.'-'.$a; ?></h4>
 					<div id="wrapper">
 						<div id="navigation">
 							<ul>
@@ -63,7 +63,7 @@
 								<li title="Datos de estudios del trabajador">
 									<a href="#">Estudios</a>
 								</li>
-								<li title="DocumentaciÛn consignada por el trabajador">
+								<li title="Documentaci√≥n consignada por el trabajador">
 									<a href="#">Documentos</a>
 								</li>
 								<li title="Referencias personales del trabajador">
@@ -84,7 +84,7 @@
 											<span class="text_cons"><?=$fila->nombre?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>CÈdula</label>
+											<label class='rotulo'>C√©dula</label>
 											<span class="text_cons"><?=$fila->cedula?></span>
 										</div>
 										<div class='campo'>
@@ -96,7 +96,7 @@
 											<span class="text_cons"><?=$estud?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>DirecciÛn</label>
+											<label class='rotulo'>Direcci√≥n</label>
 											<span class="text_cons"><?=$fila->direccion?></span>
 										</div>
 										<div class='campo'>
@@ -108,7 +108,7 @@
 											<span class="text_cons"><?=$fila->rango?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>CondiciÛn Laboral</label>
+											<label class='rotulo'>Condici√≥n Laboral</label>
 											<span class="text_cons"><?=$fila->condicion?></span>
 										</div>
 										<div class='campo'>
@@ -116,7 +116,7 @@
 											<span class="text_cons"><?=$fila->cargo?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>¡rea de DesempeÒo</label>
+											<label class='rotulo'>√Årea de Desempe√±o</label>
 											<span class="text_cons"><?=$fila->area_desemp?></span>
 										</div>
 									</div>
@@ -142,11 +142,11 @@
 											<span class="text_cons"><?=$dn.'-'.$mn.'-'.$an?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>TelÈfono</label>
+											<label class='rotulo'>Tel√©fono</label>
 											<span class="text_cons"><?=$fila->telefono?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>TelÈfono Emergencia</label>
+											<label class='rotulo'>Tel√©fono Emergencia</label>
 											<span class="text_cons"><?=$fila->telefono_em?></span>
 										</div>
 										<div class='campo'>
@@ -158,7 +158,7 @@
 											<span class="text_cons"><?=$di.'-'.$mi.'-'.$ai?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>ResoluciÛn</label>
+											<label class='rotulo'>Resoluci√≥n</label>
 											<span class="text_cons"><?=$fila->resolucion?></span>
 										</div>
 										<div class='campo'>
@@ -175,7 +175,7 @@
 												$num_filas_f = $familia->num_rows;
 												if ($num_filas_f != 0) {
 													while ($fila_f = $familia->fetch_object()) {
-														if ($fila_f->empleadof == 0) $empf = 'No'; elseif ($fila_f->empleadof == 1) $empf = 'De la instituciÛn'; else $empf = 'De la alcaldia';
+														if ($fila_f->empleadof == 0) $empf = 'No'; elseif ($fila_f->empleadof == 1) $empf = 'De la instituci√≥n'; else $empf = 'De la alcaldia';
 														if ($fila_f->estudiaf == 0) $estf = 'No'; else $estf = 'Si';
 														list($af,$mf,$df) = explode("-",$fila_f->fecha_nacf);
 														$A_actual= date("Y");
@@ -199,7 +199,7 @@
 																<span class="text_cons"><?=$fila_f->nombref?></span>
 															</div>
 															<div class='campo'>
-																<label class='rotulo'>CÈdula</label>
+																<label class='rotulo'>C√©dula</label>
 																<span class="text_cons"><?=$fila_f->cedulaf?></span>
 															</div>
 															<div class='campo'>
@@ -244,7 +244,7 @@
 											?>
 								</fieldset>
 								<fieldset class="step">
-									<legend>EducaciÛn</legend>
+									<legend>Educaci√≥n</legend>
 									<div class='derecha'>
 										<div class='campo'>
 											<label class='rotulo'>Estudios</label>
@@ -255,7 +255,7 @@
 											<span class="text_cons"><?=$fila->lugar_estudio?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>AÒo</label>
+											<label class='rotulo'>A√±o</label>
 											<span class="text_cons"><?=$fila->anno?></span>
 										</div>
 									</div>
@@ -271,18 +271,18 @@
 									</div>
 								</fieldset>
 								<fieldset class="step">
-									<legend>DocumentaciÛn Personal</legend>
+									<legend>Documentaci√≥n Personal</legend>
 									<div class='derecha'>
 										<div class='campo'>
 											<label class='rotulo'>Partida de nacimiento</label>
 											<span class="text_cons"><?=$prtnac?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>InscripciÛn Militar</label>
+											<label class='rotulo'>Inscripci√≥n Militar</label>
 											<span class="text_cons"><?=$insmil?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>CÈdula de Identidad</label>
+											<label class='rotulo'>C√©dula de Identidad</label>
 											<span class="text_cons"><?=$ced?></span>
 										</div>
 										<div class='campo'>
@@ -290,7 +290,7 @@
 											<span class="text_cons"><?=$rif?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>DeclaraciÛn Jurada</label>
+											<label class='rotulo'>Declaraci√≥n Jurada</label>
 											<span class="text_cons"><?=$decjur?></span>
 										</div>
 										<div class='campo'>
@@ -332,7 +332,7 @@
 										while ($fila_r = $referencia-> fetch_object()) {
 									?>
 											<div class='division'>
-												<h3>Referencia n˙mero <?=$i++?></h3>
+												<h3>Referencia n√∫mero <?=$i++?></h3>
 											</div>
 											<div class='derecha'>
 												<div class='campo'>
@@ -340,11 +340,11 @@
 													<span class="text_cons"><?=$fila_r->nombre_rp?></span>
 												</div>
 												<div class='campo'>
-													<label class='rotulo'>CÈdula</label>
+													<label class='rotulo'>C√©dula</label>
 													<span class="text_cons"><?=$fila_r->cedula_rp?></span>
 												</div>
 												<div class='campo'>
-													<label class='rotulo'>TelÈfono</label>
+													<label class='rotulo'>Tel√©fono</label>
 													<span class="text_cons"><?=$fila_r->telefono_rp?></span>
 												</div>
 											</div>
@@ -354,7 +354,7 @@
 													<span class="text_cons"><?=$fila_r->apellido_rp?></span>
 												</div>
 												<div class='campo'>
-													<label class='rotulo'>OcupaciÛn</label>
+													<label class='rotulo'>Ocupaci√≥n</label>
 													<span class="text_cons"><?=$fila_r->ocupacion_rp?></span>
 												</div>
 											</div>

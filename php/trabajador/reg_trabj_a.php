@@ -70,10 +70,11 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador estudia">Estudia</label>
-											<input type="radio" name="estudia" value="1" id="estudia_s" title="Si estudia" />
-											<label for="estudia_s" title="Si estudia" class="rotulo_r">Si</label>
-											<input type="radio" name="estudia" value="0" id="estudia_n" title="No estudia" />
-											<label for="estudia_n" title="No estudia" class="rotulo_r">No</label>
+											<select name="estudia" title="Por favor indique si el trabajador estudia" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label for="direccion" class='rotulo' title="Por favor ingrese la dirección de habitación del tabajador">Dirección</label>
@@ -273,10 +274,11 @@
 												</div>
 												<div class='campo'>
 													<label class='rotulo' title="Por favor indique si el familiar del trabajador estudia">Estudia</label>
-													<input type="radio" name="estudia_fam[#index#]" value="1" id="sheepItForm_#index#estudia_s" title="Si estudia" />
-													<label for="sheepItForm_#index#estudia_s" title="Si estudia" class="rotulo_r">Si</label>
-													<input type="radio" name="estudia_fam[#index#]" value="0" id="sheepItForm_#index#estudia_n" title="No estudia" />
-													<label for="sheepItForm_#index#estudia_n" title="No estudia" class="rotulo_r">No</label>
+													<select name="estudia_fam[#index#]" title="Por favor indique si el familiar del trabajador estudia" id="sheepItForm_#index#estudia" required>
+														<option value=""></option>
+														<option value="0">No</option>
+														<option value="1">Si</option>
+													</select>
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="sheepItForm_#index#cargo" title="Por favor ingrese el cargo del familiar del trabajador">Cargo</label>
@@ -340,89 +342,101 @@
 									<div class='derecha'>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno partida de nacimiento">Partida de nacimiento</label>
-											<input type="radio" name="part_nac" value="1" id="part_nac_si" title="Si consigno partida de nacimiento" />
-											<label for="part_nac_si" title="Si consigno partida de nacimiento" class="rotulo_r">Si</label>
-											<input type="radio" name="part_nac" value="0" id="part_nac_no" title="No consigno partida de nacimineto" />
-											<label for="part_nac_no" title="No consigno partida de nacimiento" class="rotulo_r">No</label>
+											<select name="part_nac" title="Por favor indique si el trabajador consigno partida de nacimiento" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno inscripción militar">Inscripción Militar</label>
-											<input type="radio" name="ins_milt" value="1" id="ins_milt_si" title="Si consigno inscripción militar" />
-											<label for="ins_milt_si" title="Si consigno inscripción militar" class="rotulo_r">Si</label>
-											<input type="radio" name="ins_milt" value="0" id="ins_milt_no" title="No consigno inscripción militar" />
-											<label for="ins_milt_no" title="No consigno inscripción militar" class="rotulo_r">No</label>
+											<select name="ins_milt" title="Por favor indique si el trabajador consigno inscripción militar" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno cédula de identidad">Cédula de Identidad</label>
-											<input type="radio" name="ced_iden" value="1" id="ced_iden_si" title="Si consigno cédula de identidad" />
-											<label for="ced_iden_si" title="Si consigno cédula de identidad" class="rotulo_r">Si</label>
-											<input type="radio" name="ced_iden" value="0" id="ced_iden_no" title="No consigno cédula de identidad" />
-											<label for="ced_iden_no" title="No consigno cédula de identidad" class="rotulo_r">No</label>
+											<select name="ced_iden" title="Por favor indique si el trabajador consigno cédula de identidad" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno RIF">RIF</label>
-											<input type="radio" name="rif" value="1" id="rif_si" title="Si consigno RIF" />
-											<label for="rif_si" title="Si consigno RIF" class="rotulo_r">Si</label>
-											<input type="radio" name="rif" value="0" id="rif_no" title="No consigno RIF" />
-											<label for="rif_no" title="No consigno RIF" class="rotulo_r">No</label>
+											<select name="rif" title="Por favor indique si el trabajador consigno RIF" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno declaración jurada">Declaración Jurada</label>
-											<input type="radio" name="dec_jur" value="1" id="dec_jur_si" title="Si consigno declaración jurada" />
-											<label for="dec_jur_si" title="Si consigno declaración jurada" class="rotulo_r">Si</label>
-											<input type="radio" name="dec_jur" value="0" id="dec_jur_no" title="No consigno declaración jurada" />
-											<label for="dec_jur_no" title="No consigno declaración jurada" class="rotulo_r">No</label>
+											<select name="dec_jur" title="Por favor indique si el trabajador consigno declaración jurada" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno informe medico">Informe Medico</label>
-											<input type="radio" name="inf_med" value="1" id="inf_med_si" title="Si consigno informe medico" />
-											<label for="inf_med_si" title="Si consigno informe medico" class="rotulo_r">Si</label>
-											<input type="radio" name="inf_med" value="0" id="inf_med_no" title="No consigno informe medico" />
-											<label for="inf_med_no" title="No consigno informe medico" class="rotulo_r">No</label>
+											<select name="inf_med" title="Por favor indique si el trabajador consigno informe medico" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 									</div>
 									<div class='izquierda'>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno partida de nacimiento de hijos">Partida de Nacimiento de Hijos</label>
-											<input type="radio" name="part_nac_h" value="1" id="part_nac_h_si" title="Si consigno partida de nacimiento de hijos" />
-											<label for="part_nac_h_si" title="Si consigno partida de nacimiento de hijos" class="rotulo_r">Si</label>
-											<input type="radio" name="part_nac_h" value="0" id="part_nac_h_no" title="No consigno partida de nacimiento de hijos" />
-											<label for="part_nac_h_no" title="No consigno partida de nacimiento de hijos" class="rotulo_r">No</label>
+											<select name="part_nac_h" title="Por favor indique si el trabajador consigno partida de nacimiento de hijos" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno acta de matrimonio y/o divorcio">Acta de Matrimonio y/o Divorcio</label>
-											<input type="radio" name="matr_divr" value="1" id="matr_divr_si" title="Si consigno acta de matrimonio y/o divorcio" />
-											<label for="matr_divr_si" title="Si consigno acta de matrimonio y/o divorcio" class="rotulo_r">Si</label>
-											<input type="radio" name="matr_divr" value="0" id="matr_divr_no" title="No consigno acta de matrimonio y/o divorcio" />
-											<label for="matr_divr_no" title="No consigno acta de matrimonio y/o divorcio" class="rotulo_r">No</label>
+											<select name="matr_divr" title="Por favor indique si el trabajador consigno acta de matrimonio y/o divorcio" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno defunciones">Defunciones</label>
-											<input type="radio" name="defunc" value="1" id="defunc_si" title="Si consigno defunciones" />
-											<label for="defunc_si" title="Si consigno defunciones" class="rotulo_r">Si</label>
-											<input type="radio" name="defunc" value="0" id="defunc_no" title="No consigno defunciones" />
-											<label for="defunc_no" title="No consigno defunciones" class="rotulo_r">No</label>
+											<select name="defunc" title="Por favor indique si el trabajador consigno defunciones" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno titulos">Titulos</label>
-											<input type="radio" name="titul" value="1" id="titul_si" title="Si consigno titulos" />
-											<label for="titul_si" title="Si consigno titulos" class="rotulo_r">Si</label>
-											<input type="radio" name="titul" value="0" id="titul_no" title="No consigno titulos" />
-											<label for="titul_no" title="No consigno titulos" class="rotulo_r">No</label>
+											<select name="titul" title="Por favor indique si el trabajador consigno titulos" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno certificados">Certificados</label>
-											<input type="radio" name="certf" value="1" id="certf_si" title="Si consigno certificados" />
-											<label for="certf_si" title="Si consigno certificados" class="rotulo_r">Si</label>
-											<input type="radio" name="certf" value="0" id="certf_no" title="No consigno certificados" />
-											<label for="certf_no" title="No consigno certificados" class="rotulo_r">No</label>
+											<select name="certf" title="Por favor indique si el trabajador consigno certificados" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador consigno constancias y horarios de estudios">Constancias y Horarios de Estudios</label>
-											<input type="radio" name="const_hora" value="1" id="const_hora_si" title="Si consigno constancias y horarios de estudios" />
-											<label for="const_hora_si" title="Si consigno constancias y horarios de estudios" class="rotulo_r">Si</label>
-											<input type="radio" name="const_hora" value="0" id="const_hora_no" title="No consigno constancias y horarios de estudios" />
-											<label for="const_hora_no" title="No consigno constancias y horarios de estudios" class="rotulo_r">No</label>
+											<select name="const_hora" title="Por favor indique si el trabajador consigno constancias y horarios de estudios" required>
+												<option value=""></option>
+												<option value="1">Si</option>
+												<option value="0">No</option>
+											</select>
 										</div>
 									</div>
 								</fieldset>

@@ -1,4 +1,4 @@
-<ul>
+﻿<ul>
 	<li title="Click para ir al inicio de SACLIPOP"><a href="../inicio.php"><span>Inicio</span></a></li>
 	<li class="has-sub" title="Opciones para gestión del personal"><a href="#"><span>Gestionar Personal</span></a>
 		<ul>

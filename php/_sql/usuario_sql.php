@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 	function reg_usuario($cnx_bd){
 		$usuario = $_POST['usuario'];

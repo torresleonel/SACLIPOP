@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	//++++++++++++++++++++++++++++++++++++++++++++++++++ FUNCIONES BASE PARA CALCULAR PAGOS ++++++++++++++++++++++++++++++++++++++++++++++
 
 	//FUNCION PARA DETERMINAR AÑOS DE SERVICIO

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     //programa que deben llamar para realizar respaldo de la base de datos
     // Constantes con rutas
     define('DS', DIRECTORY_SEPARATOR);

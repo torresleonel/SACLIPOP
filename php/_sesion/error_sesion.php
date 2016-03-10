@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	if (isset($_GET["errorusuario"]) && $_GET["errorusuario"]=="1"){
 		echo "<span class='errse'>Usuario y/o contraseña incorrectos</span>";
 	}

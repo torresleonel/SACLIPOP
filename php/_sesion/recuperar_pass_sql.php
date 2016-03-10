@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	
 	function verifica_usuario($cnx_bd){
 		
