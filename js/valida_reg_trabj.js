@@ -1,6 +1,5 @@
 /*+++++++++++++++---------------------++++++++++++++FUNCION PARA SheepIt ++++++++++++++-------------------------------+++++++++++++++++++++*/
 
-
 $(document).ready(function() {
 
 				var sheepItForm = $('#sheepItForm').sheepIt({
@@ -20,5 +19,6 @@ $(document).ready(function() {
 					removeCurrentConfirmationMsg: '¿Está seguro que desea eliminar los datos del familiar del trabajador?',
 					removeAllConfirmationMsg: '¿Está seguro que desea eliminar los datos del familiar del trabajador?',
 				});
+      			$('.tlf_formato').mask('9999-9999999');
 
 			});

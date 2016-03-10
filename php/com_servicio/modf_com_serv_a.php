@@ -7,6 +7,7 @@
 		<link type="image/x-icon" href="../../imagen/sys.ico" rel="shortcut icon" />
 		<link rel="stylesheet" href="../../css/estilo.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.mask.js"></script>
 		<script type="text/javascript" src="../../js/sliding.form.js"></script>
 		<script type="text/javascript" src="../../js/sheepIt.js"></script>
 		<script type="text/javascript" src="../../js/funcion_general.js"></script>
@@ -169,7 +170,7 @@
 										</div>
 										<div class='campo'>
 											<label for="telefono" class='rotulo' title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000">Teléfono</label>
-											<input name="telefono" value="<?php echo $fila->telefono; ?>" type="text" id="telefono" title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
+											<input name="telefono" value="<?php echo $fila->telefono; ?>" type="text" id="telefono" class="tlf_formato" title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="cargo" title="Por favor ingrese el cargo del trabajador">Cargo</label>

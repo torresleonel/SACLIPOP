@@ -7,6 +7,7 @@
 		<link type="image/x-icon" href="../../imagen/sys.ico" rel="shortcut icon" />
 		<link rel="stylesheet" href="../../css/estilo.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="../../js/jquery.mask.js"></script>
 		<script type="text/javascript" src="../../js/sliding.form.js"></script>
 		<script type="text/javascript" src="../../js/sheepIt.js"></script>
 		<script type="text/javascript" src="../../js/funcion_general.js"></script>
@@ -14,7 +15,7 @@
 		<script type="text/javascript">  
 	       
 			$(document).ready(function() {
-
+				$('.tlf_formato').mask('9999-9999999');
 				var sheepItForm = $('#sheepItForm').sheepIt({
 					separator: '',
 					allowRemoveLast: true,
@@ -298,11 +299,11 @@
 										</div>
 										<div class='campo'>
 											<label for="telefono" class='rotulo' title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000">Teléfono</label>
-											<input name="telefono" value="<?php echo $fila->telefono; ?>" type="text" id="telefono" title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
+											<input name="telefono" value="<?php echo $fila->telefono; ?>" type="text" id="telefono" class="tlf_formato" title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
 										</div>
 										<div class='campo'>
 											<label for="telefono_em" class='rotulo' title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000">Teléfono Emergencia</label>
-											<input name="telefono_em" value="<?php echo $fila->telefono_em; ?>" type="text" id="telefono_em" title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000" size="20" maxlength="12"  required />
+											<input name="telefono_em" value="<?php echo $fila->telefono_em; ?>" type="text" id="telefono_em" class="tlf_formato" title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000" size="20" maxlength="12"  required />
 										</div>
 										<div class='campo'>
 											<label for="nconyugue" class='rotulo' title="Por favor ingrese el nombre del conyugue">Nombre del Conyugue</label>
@@ -606,7 +607,7 @@
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="telefono_rp_<?=$i?>" title="Por favor ingrese el número telefónico con formato 0000-0000000">Teléfono</label>
-													<input type="text" name="telefono_rp[]" value="<?=$fila_r->telefono_rp?>" id="telefono_rp_<?=$i?>" title="Por favor ingrese el número telefónico con formato 0000-0000000" size="20" maxlength="12" required />
+													<input type="text" name="telefono_rp[]" value="<?=$fila_r->telefono_rp?>" id="telefono_rp_<?=$i?>" class="tlf_formato" title="Por favor ingrese el número telefónico con formato 0000-0000000" size="20" maxlength="12" required />
 												</div>
 											</div>
 											<div class='izquierda'>
