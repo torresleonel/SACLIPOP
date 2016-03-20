@@ -32,23 +32,35 @@
 				<form name="usuario" action="3_new_pass.php" method="POST" autocomplete="off" class="sesion">
 					<h2>Recuperar contraseña</h2>
 					<br>
-					<div>
-						<label title="Pregunta de seguridad">Pregunta de seguridad</label>
-						<?php
-							if($fila->pregunta == 1) $resp = '¿Nombre de su primera mascota?';
-							if($fila->pregunta == 2) $resp = '¿Nombre de su mejor amigo de la infancia?';
-							if($fila->pregunta == 3) $resp = '¿Lugar de nacimiento de la madre?';
-							if($fila->pregunta == 4) $resp = '¿Nombre de su primera escuela?';
-							if($fila->pregunta == 5) $resp = '¿En que año egreso de la escuela?';
-						?>
-						<input type="text" name="pregunta" value="<?php echo $resp; ?>" class="input-pregunta" title="Pregunta de Seguridad" size="41" readonly>
-					</div>
-					<br>
-					<div>
-						<input type="hidden" name="usuario" value="<?php echo $fila->id_usuario; ?>">
-						<input type="text" name="respuesta" size="30" placeholder="Respuesta" class="input-pregunta" title="Ingrese aqui la respuesta a su pregunta de seguridad" required>
-					</div>
-					<INPUT type="submit" value="Verificar" id="boton" title="Click para verificar la respuesta a su pregunta de seguridad">
+					<?php
+					if ($fila->pregunta == 0) {
+					?>
+						<div>
+							<h4>No se ha definido la pregunta de seguridad, por favor contacte al administrador de SACLIPOP.</h4>
+						</div>
+					<?php
+					}else{
+					?>
+						<div>
+							<label title="Pregunta de seguridad">Pregunta de seguridad</label>
+							<?php
+								if($fila->pregunta == 1) $resp = '¿Nombre de su primera mascota?';
+								if($fila->pregunta == 2) $resp = '¿Nombre de su mejor amigo de la infancia?';
+								if($fila->pregunta == 3) $resp = '¿Lugar de nacimiento de la madre?';
+								if($fila->pregunta == 4) $resp = '¿Nombre de su primera escuela?';
+								if($fila->pregunta == 5) $resp = '¿En que año egreso de la escuela?';
+							?>
+							<input type="text" name="pregunta" value="<?=$resp?>" class="input-pregunta" title="Pregunta de Seguridad" size="41" readonly>
+						</div>
+						<br>
+						<div>
+							<input type="hidden" name="usuario" value="<?=$fila->id_usuario?>">
+							<input type="text" name="respuesta" size="30" placeholder="Respuesta" class="input-pregunta" title="Ingrese aqui la respuesta a su pregunta de seguridad" required>
+						</div>
+						<INPUT type="submit" value="Verificar" id="boton" title="Click para verificar la respuesta a su pregunta de seguridad">
+					<?php
+					}
+					?>
 				</form>
 			</div>
 		</div>

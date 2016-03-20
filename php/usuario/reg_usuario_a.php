@@ -59,10 +59,11 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique el nivel de acceso del usuario">Nivel</label>
-											<input type="radio" name="nivel" value="1" id="1" title="Nivel para usuario administrador" />
-											<label for="1" title="Nivel para usuario administrador" class="rotulo_r">Administrador</label>
-											<input type="radio" name="nivel" value="2" id="2" title="Nivel para usuario básico" />
-											<label for="2" title="Nivel para usuario básico" class="rotulo_r">Básico</label>
+											<select name="nivel" title="Por favor indique el nivel de acceso del usuario" required>
+												<option value=""></option>
+												<option value="1">Administrador</option>
+												<option value="2">Básico</option>
+											</select>
 										</div>
 									</div>
 									<div class="bot_cent">
