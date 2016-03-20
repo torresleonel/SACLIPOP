@@ -30,8 +30,10 @@
 		$_SESSION["sentencia"] = $sql;
 		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
 		bitacora($cnx_bd);
-
-		header("Location: ../inicio.php");
+		if ($fila->pregunta == 0)
+			header("Location: modf_usuario_a.php");
+		else
+			header("Location: ../inicio.php");
 	}else {
 		//si no existe se va a index.php
 		session_unset();
