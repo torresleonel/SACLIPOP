@@ -67,7 +67,12 @@
 				<li title="Click para regitrar un usuario en SACLIPOP"><a href="reg_usuario_a.php"><span>Registrar Usuario</span></a></li>
 				<li title="Click para eliminar un usuario de SACLIPOP"><a href="elim_usuario_a.php"><span>Eliminar Usuario</span></a></li>
 			<?php } ?>
-			<li title="Click para modificar su perfil de usuario"><a href="modf_usuario_a.php"><span>Modificar Usuario</span></a></li>
+			<li class="has-sub" title="Sección para modificar los datos del usuario"><a href="#"><span>Modificar Usuario</span></a>
+				<ul>
+					<li title="Click para modificar el perfil del usuario"><a href="modf_perfil_a.php"><span>Perfil</span></a></li>
+					<li title="Click para modificar la contraseña del usuario"><a href="modf_pass_a.php"><span>Contraseña</span></a></li>
+				</ul>
+			</li>
 		</ul>
 	</li>
 		<li class="has-sub" title="Opciones para gestionar SACLIPOP"><a href="#"><span>Gestionar Sistema</span></a>

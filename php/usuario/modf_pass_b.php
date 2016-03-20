@@ -1,4 +1,4 @@
-﻿<?php include('../_sesion/verifica_sesion.php'); ?>
+<?php include('../_sesion/verifica_sesion.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
 	<head>
@@ -22,11 +22,11 @@
 					include('../_conexion/conexion_funcion.php');
 					$cnx_bd = conexion();
 					include('../_sql/usuario_sql.php');
-					modf_usuario($cnx_bd);
+					modf_pass($cnx_bd);
 					$cnx_bd->close();
 				?>
 				<div id="msnproceso">
-					<h3>SE HAN MODIFICADO CON EXITO LOS DATOS DEL USUARIO</h3>
+					<h3>SE HAN MODIFICADO CON EXITO LA CONTRASEÑA DEL USUARIO</h3>
 				</div>
 			</div>
 		</div>

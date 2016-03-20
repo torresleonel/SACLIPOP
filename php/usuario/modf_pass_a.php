@@ -1,4 +1,4 @@
-﻿<?php include('verifica_sesion.php'); ?>
+<?php include('../_sesion/verifica_sesion.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
 	<head>
@@ -14,9 +14,7 @@
 		<div id="cuerpo">
 			<div id="menu">
 				<div id="cssmenu">
-					<ul>
-						<li><a href="#"><span>&nbsp;</span></a></li>
-					</ul>
+					<?php include('../_menu/menu_usuario.php'); ?>
 				</div>
 			</div>
 			<div id="inicio">
@@ -32,23 +30,23 @@
 					$fila = $resultado->fetch_object();
 				?>
 				<div id="content">
-					<h1>Modificar Perfil de Usuario</h1>
+					<h1>Modificar Contraseña de Usuario</h1>
 					<div id="wrapper">
 						<div id="navigation">
 							<ul>
 								<li class="selected">
-									<a href="#">Datos del Usuario</a>
+									<a href="#">Datos</a>
 								</li>
 							</ul>
 						</div>
 						<div id="steps">
-							<form id="formElem" name="formElem" action="modf_usuario_b.php" method="post">
+							<form id="formElem" name="formElem" action="modf_perfil_b.php" method="post">
 								<fieldset class="step">
 									<legend>Datos del Usuario</legend>
 									<div class='derecha'>
 										<div class='campo'>
-											<label for="usuario" class='rotulo' title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP">ID Usuario</label>
-											<input type="text" name="usuario" value="<?=$fila->id_usuario?>" id="usuario" title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP" required />
+											<label for="usuario" class='rotulo' title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP">Usuario</label>
+											<input type="text" name="usuario" value="<?php echo $fila->id_usuario; ?>" id="usuario" title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP" required />
 										</div>
 										<div class='campo'>
 											<label for="clave" class='rotulo' title="Por favor ingrese la nueva clave con la que ingresara a SACLIPOP">Nueva Clave</label>
@@ -108,7 +106,7 @@
 									</div>
 									<div class="bot_cent">
 										<br>
-										<button id="registerButton" type="submit" title="Hacer cliclk para modificar los datos del usuario en SACLIPOP">Continuar</button>
+										<button id="registerButton" type="submit" title="Hacer cliclk para modificar los datos del usuario en SACLIPOP">Modificar</button>
 									</div>
 								</fieldset>
 							</form>

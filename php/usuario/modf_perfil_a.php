@@ -40,24 +40,14 @@
 							</ul>
 						</div>
 						<div id="steps">
-							<form id="formElem" name="formElem" action="modf_usuario_b.php" method="post">
+							<form id="formElem" name="formElem" action="modf_perfil_b.php" method="post">
 								<fieldset class="step">
-									<legend>Datos del Usuario</legend>
+									<legend>Datos</legend>
 									<div class='derecha'>
 										<div class='campo'>
-											<label for="usuario" class='rotulo' title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP">Usuario</label>
+											<label for="usuario" class='rotulo' title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP">ID Usuario</label>
 											<input type="text" name="usuario" value="<?php echo $fila->id_usuario; ?>" id="usuario" title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP" required />
 										</div>
-										<div class='campo'>
-											<label for="clave" class='rotulo' title="Por favor ingrese la nueva clave con la que ingresara a SACLIPOP">Nueva Clave</label>
-											<input type="password" name="clave" id="clave" title="Por favor ingrese la nueva clave con la que ingresara a SACLIPOP" required />
-										</div>
-										<div class='campo'>
-											<label class='rotulo' for="rep_clave" title="Por favor ingrese nuevamente la clave con la que ingresara a SACLIPOP">Repita Clave</label>
-											<input type="password" name="rep_clave" id="rep_clave" title="Por favor ingrese nuevamente la clave con la que ingresara a SACLIPOP" required />
-										</div>
-									</div>
-									<div class='izquierda'>
 										<div class='campo'>
 											<label for="nombre" class='rotulo' title="Por favor ingrese el nombre del usuario">Nombres</label>
 											<input type="text" name="nombre" value="<?php echo $fila->nombre; ?>" id="nombre" title="Por favor ingrese el nombre del usuario" required />
@@ -66,6 +56,8 @@
 											<label for="apellido" class='rotulo' title="Por favor ingrese los apellidos del usuario">Apellidos</label>
 											<input type="text" name="apellido" value="<?php echo $fila->apellido; ?>" id="apellido" title="Por favor ingrese los apellidos del usuario" required />
 										</div>
+									</div>
+									<div class='izquierda'>
 											<?php if(isset($fila->respuesta)){ ?>
 													<div class='campo'>
 														<div class="select_prgunta">
