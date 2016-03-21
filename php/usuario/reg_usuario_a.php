@@ -36,7 +36,7 @@
 									<legend>Datos del Usuario</legend>
 									<div class='derecha'>
 										<div class='campo'>
-											<label for="usuario" class='rotulo' title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP">Usuario</label>
+											<label for="usuario" class='rotulo' title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP">ID Usuario</label>
 											<input type="text" name="usuario" id="usuario" title="Por favor ingrese el nombre de usuario con el que ingresara a SACLIPOP" required />
 										</div>
 										<div class='campo'>

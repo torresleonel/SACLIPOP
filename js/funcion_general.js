@@ -57,6 +57,10 @@ function envia_elim_bd(id){
 	if(confirm("¿Está seguro que desea eliminar el archivo <<"+id+">>?")) window.location.href="borrar_respld.php?a="+id;
 }
 
+function envia_restaura_bd(id){
+	if(confirm("¿Está seguro que desea restaurar el archivo <<"+id+">>?")) window.location.href="restaura_bd.php?a="+id;
+}
+
 //FUNCION PARA ENVIAR A CALCULAR SALARIO Y/O MODIFICAR SUELDO MENSUAL INDIVIDUAL
 function envia_calc_salr(suld,ced){
 	if (suld == 0) window.location.href="modf_suld_indv.php?c="+ced;

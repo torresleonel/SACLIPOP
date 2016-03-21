@@ -51,13 +51,13 @@
                                 </td>
                                 <td>
                                     <div class="izq">
-                                        <a href="restaura_bd.php?a=<?=$archivo?>" class="restaurar" title="Click para restaurar esta versión de la base de datos de SACLIPOP">Restaurar</a>
+                                        <a href="#" class="restaurar" title="Click para restaurar esta versión de la base de datos de SACLIPOP" onclick="envia_restaura_bd('<?=$archivo?>')">Restaurar</a>
                                     </div>
                                     <div class="izq">
                                         <a href= "archivo/<?=$archivo?>" class="descargar" title="Click para descargar el respaldo de la Base de Datos de SACLIPOP">Descargar</a>
                                     </div>
                                     <div class="izq">
-                                        <a href= "#" class="eliminar" title="Click para eliminar el respaldo de la Base de Datos de SACLIPOP" onclick="envia_elim_bd('<?php echo $archivo; ?>')">Eliminar</a>
+                                        <a href= "#" class="eliminar" title="Click para eliminar el respaldo de la Base de Datos de SACLIPOP" onclick="envia_elim_bd('<?=$archivo?>')">Eliminar</a>
                                     </div>
                                 </td>
                             </tr>
