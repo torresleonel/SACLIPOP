@@ -4,8 +4,8 @@ function reg_usuario($cnx_bd)
 {
 	$usuario = $_POST['usuario'];
 	$clave = $_POST['clave'];
-	$nombre = $_POST['nombre'];
-	$apellido = $_POST['apellido'];
+	$nombre = ucwords(strtolower($_POST['nombre']));
+	$apellido = ucwords(strtolower($_POST['apellido']);
 	$nivel = $_POST['nivel'];
 	$pass = md5($clave);
 
@@ -75,8 +75,8 @@ function modf_usuario($cnx_bd)
 	$viejo_usuario = $_SESSION['usuario'];
 	$usuario = $_POST['usuario'];
 	$clave = $_POST['rep_clave'];
-	$nombre = $_POST['nombre'];
-	$apellido = $_POST['apellido'];
+	$nombre = ucwords(strtolower($_POST['nombre']));
+	$apellido = ucwords(strtolower($_POST['apellido']));
 	$preg_seg = $_POST['preg_seg'];
 	$respuesta = $_POST['respuesta'];
 	$clave = md5($clave);
@@ -101,8 +101,8 @@ function modf_perfil($cnx_bd)
 {
 	$viejo_usuario = $_SESSION['usuario'];
 	$usuario = $_POST['usuario'];
-	$nombre = $_POST['nombre'];
-	$apellido = $_POST['apellido'];
+	$nombre = ucwords(strtolower($_POST['nombre']));
+	$apellido = ucwords(strtolower($_POST['apellido']));
 	$preg_seg = $_POST['preg_seg'];
 	$respuesta = $_POST['respuesta'];
 	$respuesta = md5($respuesta);

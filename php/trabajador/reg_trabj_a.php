@@ -324,7 +324,10 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="ano" title="Por favor ingrese el año de graduación del trabajador">Año</label>
-											<input type="text" name="ano" id="ano" title="Por favor ingrese el año de graduación del trabajador" required />
+											<select name="ano" id="ano" title="Por favor ingrese el año de graduación del trabajador" required>
+												<option></option>
+												<?php for($i=date('o'); $i>=1960; $i--) echo '<option value='.$i.'>'.$i.'</option>'; ?>
+											</select>
 										</div>
 									</div>
 									<div class='izquierda'>

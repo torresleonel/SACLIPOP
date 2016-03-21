@@ -5,25 +5,25 @@
 
 /*.........................DATOS PERSONALES.....................*/
 	$estado  = $_POST["estado"];
-	$nombre = $_POST["nombre"];
-	$apellido = $_POST["apellido"];
+	$nombre = ucwords(strtolower($_POST["nombre"]));
+	$apellido = ucwords(strtolower($_POST["apellido"]));
 	$ced_vj = $_POST["c"];
 	$cedula = $_POST["cedula"];
-	$nacionalidad = $_POST["nacionalidad"];
+	$nacionalidad = ucwords(strtolower($_POST["nacionalidad"]));
 	$libreta_militr = $_POST["libreta_militr"];
 	$pasaporte = $_POST["pasaporte"];
 	$est_civil = $_POST["est_civil"];
 	$estudia = $_POST["estudia"];
 	$direccion = $_POST["direccion"];
-	$lug_nac = $_POST["lug_nac"];
+	$lug_nac = ucwords(strtolower($_POST["lug_nac"]));
 	$fecha_nac = $_POST["anonac"].'-'.$_POST["mesnac"].'-'.$_POST["dianac"];
 	$telefono = $_POST["telefono"];
-	$nconyugue = $_POST["nconyugue"];
-	$cargo = $_POST["cargo"];
+	$nconyugue = ucwords(strtolower($_POST["nconyugue"]));
+	$cargo = ucwords(strtolower($_POST["cargo"]));
 	$fecha_ing = $_POST["anoing"].'-'.$_POST["mesing"].'-'.$_POST["diaing"];
 	$actualizacion = date("Y").'-'.date("n").'-'.date("j");
-	$dept_env = $_POST['dept_env'];
-	$observacion = $_POST['observacion'];
+	$dept_env = ucwords(strtolower($_POST["dept_env"]));
+	$observacion = ucwords(strtolower($_POST["observacion"]));
 
 
 /* +++++++++++++++++++++++++++++++++++++++++++SENTENCIAS SQL PARA TODOS LOS DATOS DEL TRABAJADOR++++++++++++++++++++++++++++++++++++ */

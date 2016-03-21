@@ -4,20 +4,20 @@
 
 
 /*.........................DATOS PERSONALES.....................*/
-	$nombre = $_POST["nombre"];
-	$apellido = $_POST["apellido"];
+	$nombre = ucwords(strtolower($_POST["nombre"]));
+	$apellido = ucwords(strtolower($_POST["apellido"]));
 	$cedula = $_POST["cedula"];
-	$nacionalidad = $_POST["nacionalidad"];
+	$nacionalidad = ucwords(strtolower($_POST["nacionalidad"]));
 	$libreta_militr = $_POST["libreta_militr"];
 	$pasaporte = $_POST["pasaporte"];
 	$est_civil = $_POST["est_civil"];
 	$estudia = $_POST["estudia"];
 	$direccion = $_POST["direccion"];
-	$lug_nac = $_POST["lug_nac"];
+	$lug_nac = ucwords(strtolower($_POST["lug_nac"]));
 	$fecha_nac = $_POST["anonac"].'-'.$_POST["mesnac"].'-'.$_POST["dianac"];
 	$telefono = $_POST["telefono"];
 	$telefono_em = $_POST["telefono_em"];
-	$nconyugue = $_POST["nconyugue"];
+	$nconyugue = ucwords(strtolower($_POST["nconyugue"]));
 	$cargo = $_POST["cargo"];
 	$rango = $_POST["rango"];
 	$condicion = $_POST["condicion"];
@@ -31,24 +31,24 @@
 	$familia = false;
 	if (isset($_POST["cedula_fam"])) {
 		$familia = true;
-		$nombres_fam = $_POST["nombres_fam"];
+		$nombres_fam = ucwords(strtolower($_POST["nombres_fam"]));
 		$cedula_fam = $_POST["cedula_fam"];
-		$parentesco_fam = $_POST["parentesco_fam"];
+		$parentesco_fam = ucwords(strtolower($_POST["parentesco_fam"]));
 		$empl_fam = $_POST["empl_fam"];
-		$apellidos_fam = $_POST["apellidos_fam"];
+		$apellidos_fam = ucwords(strtolower($_POST["apellidos_fam"]));
 		$estudia_fam = $_POST["estudia_fam"];
 		$dianac_fam = $_POST["dianac_fam"];
 		$mesnac_fam = $_POST["mesnac_fam"];
 		$anonac_fam = $_POST["anonac_fam"];
-		$cargo_fam = $_POST["cargo_fam"];
+		$cargo_fam = ucwords(strtolower($_POST["cargo_fam"]));
 	}
 
 /*.....................DATOS ESTUDIOS...........................*/
 	$estudio = $_POST["estudio"];
-	$lug_estudio = $_POST["lug_estudio"];
+	$lug_estudio = ucwords(strtolower($_POST["lug_estudio"]));
 	$ano = $_POST["ano"];
 	$titulos = $_POST["titulos"];
-	$observacion = $_POST["observacion"];
+	$observacion = ucwords(strtolower($_POST["observacion"]));
 
 /*................DATOS DE DOCUMENTOS CONSIGNADOS................*/
 	$part_nac = $_POST["part_nac"];
@@ -65,21 +65,21 @@
 	$const_hora = $_POST["const_hora"];
 
 /*.................DATOS DE REFERENCIAS PERSONALES................*/
-	$nombre_rp[0] = $_POST["nombre_rp_1"];
-	$apellido_rp[0] = $_POST["apellido_rp_1"];
+	$nombre_rp[0] = ucwords(strtolower($_POST["nombre_rp_1"]));
+	$apellido_rp[0] = ucwords(strtolower($_POST["apellido_rp_1"]));
 	$cedula_rp[0] = $_POST["cedula_rp_1"];
 	$telefono_rp[0] = $_POST["telefono_rp_1"];
-	$ocupacion_rp[0] = $_POST["ocupacion_rp_1"];
-	$nombre_rp[1] = $_POST["nombre_rp_2"];
-	$apellido_rp[1] = $_POST["apellido_rp_2"];
+	$ocupacion_rp[0] = ucwords(strtolower($_POST["ocupacion_rp_1"]));
+	$nombre_rp[1] = ucwords(strtolower($_POST["nombre_rp_2"]));
+	$apellido_rp[1] = ucwords(strtolower($_POST["apellido_rp_2"]));
 	$cedula_rp[1] = $_POST["cedula_rp_2"];
 	$telefono_rp[1] = $_POST["telefono_rp_2"];
-	$ocupacion_rp[1] = $_POST["ocupacion_rp_2"];
-	$nombre_rp[2] = $_POST["nombre_rp_3"];
-	$apellido_rp[2] = $_POST["apellido_rp_3"];
+	$ocupacion_rp[1] = ucwords(strtolower($_POST["ocupacion_rp_2"]));
+	$nombre_rp[2] = ucwords(strtolower($_POST["nombre_rp_3"]));
+	$apellido_rp[2] = ucwords(strtolower($_POST["apellido_rp_3"]));
 	$cedula_rp[2] = $_POST["cedula_rp_3"];
 	$telefono_rp[2] = $_POST["telefono_rp_3"];
-	$ocupacion_rp[2] = $_POST["ocupacion_rp_3"];
+	$ocupacion_rp[2] = ucwords(strtolower($_POST["ocupacion_rp_3"]));
 
 /*.................DATOS DE OTRAS CATEGORIAS(uniforme)..................*/
 	$tall_cam = $_POST["tall_cam"];
