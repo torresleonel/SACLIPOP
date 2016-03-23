@@ -55,7 +55,7 @@
 						<!-- FILA 2 -->
 						<tr>
 							<td> </td>
-							<th colspan="3">FICHA HISTORICA DEL TRABAJDOR</th>
+							<th colspan="3">FICHA HISTORICA DEL TRABAJADOR</th>
 							<td> </td>
 							<td> </td>
 							<td> </td>

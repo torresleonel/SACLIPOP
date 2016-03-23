@@ -5,7 +5,7 @@ function reg_usuario($cnx_bd)
 	$usuario = $_POST['usuario'];
 	$clave = $_POST['clave'];
 	$nombre = ucwords(strtolower($_POST['nombre']));
-	$apellido = ucwords(strtolower($_POST['apellido']);
+	$apellido = ucwords(strtolower($_POST['apellido']));
 	$nivel = $_POST['nivel'];
 	$pass = md5($clave);
 

@@ -12,9 +12,17 @@
 		<div id="cuerpo">
 			<div id="menu">
 				<div id="cssmenu">
+					<?php
+					if ($_POST['usuario'] != $_SESSION["usuario"] || $_POST['nombre'] != $_SESSION["nombre"] || $_POST['apellido'] != $_SESSION["apellido"]) {
+					?>
 					<ul>
 						<li><a href="../../index.php" title="Click para ir al inicio de SACLIPOP"><span>Inicio</span></a></li>
 					</ul>
+					<?php
+					} else {
+						include('../_menu/menu_usuario.php');
+					}
+					?>
 				</div>
 			</div>
 			<div id="inicio">
@@ -26,15 +34,21 @@
 					include('../_sql/usuario_sql.php');
 					modf_perfil($cnx_bd);
 					$cnx_bd->close();
-					session_unset();
-					session_destroy();
 				?>
 				<div id="msnproceso">
 					<h3>SE HAN MODIFICADO CON EXITO EL PERFIL DEL USUARIO</h3>
-					<h4>Debe iniciar sesión nuevamente</h4>
-					<div>
-						<a href="../../index.php" class="enlaceboton" title="Click para iniciar sesión nuevamente en SACLIPOP">Ingresar</a>
-					</div>
+					<?php
+					if ($_POST['usuario'] != $_SESSION["usuario"] || $_POST['nombre'] != $_SESSION["nombre"] || $_POST['apellido'] != $_SESSION["apellido"]) {
+						session_unset();
+						session_destroy();
+					?>
+						<h4>Debe iniciar sesión nuevamente</h4>
+						<div>
+							<a href="../../index.php" class="enlaceboton" title="Click para iniciar sesión nuevamente en SACLIPOP">Ingresar</a>
+						</div>
+					<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
