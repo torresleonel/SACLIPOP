@@ -668,7 +668,7 @@ p{
 }
 #content{
     text-align:left;
-    width:900px;
+    width:1000px;
     position:relative;
 }
 #wrapper{
@@ -680,7 +680,7 @@ p{
     border-radius:10px;
     border:2px solid #fff;
     background-color:#f9f9f9;
-    width:900px;
+    width:1000px;
     overflow:hidden;
 }
 #steps{
@@ -689,7 +689,7 @@ p{
 }
 .step{
     float:left;
-    width:900px;
+    width:1000px;
 }
 #navigation{
     height:45px;
@@ -777,7 +777,7 @@ span.error{
     text-shadow:1px 1px 1px #fff;
     font-weight:bold;
     float:left;
-    width:890px;
+    width:990px;
     padding:5px 0px 5px 10px;
     margin:10px 0px;
     border-bottom:1px solid #fff;

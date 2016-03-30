@@ -120,6 +120,9 @@
 								<li class="selected" title="Ingresar datos personales del trabajador">
 									<a href="#">Datos Personales</a>
 								</li>
+								<li title="Ingresar datos laborales del trabajador">
+									<a href="#">Laboral</a>
+								</li>
 								<li title="Ingresar datos familiares del trabajador">
 									<a href="#">Familia</a>
 								</li>
@@ -193,51 +196,8 @@
 											</select>
 										</div>
 										<div class='campo'>
-											<label class='rotulo' title="Por favor elija el rango laboral del tabajador">Rango</label>
-											<select name="rango" title="Por favor elija el rango laboral del tabajador" required>
-												<option value=""></option>
-												<option value="Personal de Alto Nivel" <?php if($fila->rango == 'Personal de Alto Nivel') echo 'selected="selected"'; ?>>Personal de Alto Nivel</option>
-												<option value="Personal Empleado" <?php if($fila->rango == 'Personal Empleado') echo 'selected="selected"'; ?>>Personal Empleado</option>
-												<option value="Personal Obrero" <?php if($fila->rango == 'Personal Obrero') echo 'selected="selected"'; ?>>Personal Obrero</option>
-											</select>
-										</div>
-										<div class='campo'>
-											<label class='rotulo' title="Por favor elija la condición laboral del tabajador">Condición Laboral</label>
-											<select name="condicion" title="Por favor elija la condición laboral del tabajador" required>
-												<option value=""></option>
-												<option value="Fijo" <?php if($fila->condicion == 'Fijo') echo 'selected="selected"'; ?>>Fijo</option>
-												<option value="Contratado" <?php if($fila->condicion == 'Contratado') echo 'selected="selected"'; ?>>Contratado</option>
-											</select>
-										</div>
-										<div class='campo'>
-											<label class='rotulo' title="Por favor ingrese el cargo del trabajador">Cargo</label>
-											<select name="cargo" title="Por favor ingrese el cargo del trabajador" required>
-												<option value=""></option>
-												<option value="Director(a)" <?php if($fila->cargo == 'Director(a)') echo 'selected="selected"'; ?>>Director(a)</option>
-												<option value="Administrador(a)" <?php if($fila->cargo == 'Administrador(a)') echo 'selected="selected"'; ?>>Administrador(a)</option>
-												<option value="Coordinador(a)" <?php if($fila->cargo == 'Coordinador(a)') echo 'selected="selected"'; ?>>Coordinador(a)</option>
-												<option value="Fisioterapeuta" <?php if($fila->cargo == 'Fisioterapeuta') echo 'selected="selected"'; ?>>Fisioterapeuta</option>
-												<option value="Medico Fisiatra" <?php if($fila->cargo == 'Medico Fisiatra') echo 'selected="selected"'; ?>>Medico Fisiatra</option>
-												<option value="Auxiliar Fisioterapeuta" <?php if($fila->cargo == 'Auxiliar Fisioterapeuta') echo 'selected="selected"'; ?>>Auxiliar Fisioterapeuta</option>
-												<option value="Auxiliar Esterilizacion" <?php if($fila->cargo == 'Auxiliar Esterilizacion') echo 'selected="selected"'; ?>>Auxiliar Esterilización</option>
-												<option value="Secretaria" <?php if($fila->cargo == 'Secretaria') echo 'selected="selected"'; ?>>Secretaria</option>
-												<option value="Recepcionista" <?php if($fila->cargo == 'Recepcionista') echo 'selected="selected"'; ?>>Recepcionista</option>
-												<option value="Portero(a)" <?php if($fila->cargo == 'Portero(a)') echo 'selected="selected"'; ?>>Portero(a)</option>
-												<option value="Mantenimiento" <?php if($fila->cargo == 'Mantenimiento') echo 'selected="selected"'; ?>>Mantenimiento</option>
-												<option value="Aseador(a)" <?php if($fila->cargo == 'Aseador(a)') echo 'selected="selected"'; ?>>Aseador(a)</option>
-											</select>
-										</div>
-										<div class='campo'>
-											<label class='rotulo' title="Por favor elija el área de desempeño del tabajador">Área de Desempeño</label>
-											<select name="area_d" title="Por favor elija el área de desempeño del tabajador" required>
-												<option value=""></option>
-												<option value="Direccion" <?php if($fila->area_desemp == 'Direccion') echo 'selected="selected"'; ?>>Dirección</option>
-												<option value="Administracion" <?php if($fila->area_desemp == 'Administracion') echo 'selected="selected"'; ?>>Administración</option>
-												<option value="Fisiatria" <?php if($fila->area_desemp == 'Fisiatria') echo 'selected="selected"'; ?>>Fisiatria</option>
-												<option value="Odontologia" <?php if($fila->area_desemp == 'Odontologia') echo 'selected="selected"'; ?>>Odontologia</option>
-												<option value="Recepcion" <?php if($fila->area_desemp == 'Recepcion') echo 'selected="selected"'; ?>>Recepción</option>
-												<option value="Mantenimiento" <?php if($fila->area_desemp == 'Mantenimiento') echo 'selected="selected"'; ?>>Mantenimiento</option>
-											</select>
+											<label for="nconyugue" class='rotulo' title="Por favor ingrese el nombre del conyugue">Nombre del Conyugue</label>
+											<input type="text" name="nconyugue" value="<?php echo $fila->nconyugue; ?>" id="nconyugue" title="Por favor ingrese el nombre del conyugue" />
 										</div>
 									</div>
 									<div class='izquierda'>
@@ -305,10 +265,61 @@
 											<label for="telefono_em" class='rotulo' title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000">Teléfono Emergencia</label>
 											<input name="telefono_em" value="<?php echo $fila->telefono_em; ?>" type="text" id="telefono_em" class="tlf_formato" title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000" size="20" maxlength="12"  required />
 										</div>
+									</div>
+								</fieldset>
+								<!-- FIELDSET PARA DATOS LABORALES -->
+								<fieldset class="step">
+									<legend>Datos Laborales</legend>
+									<div class='derecha'>
 										<div class='campo'>
-											<label for="nconyugue" class='rotulo' title="Por favor ingrese el nombre del conyugue">Nombre del Conyugue</label>
-											<input type="text" name="nconyugue" value="<?php echo $fila->nconyugue; ?>" id="nconyugue" title="Por favor ingrese el nombre del conyugue" />
+											<label class='rotulo' title="Por favor elija el rango laboral del tabajador">Rango</label>
+											<select name="rango" title="Por favor elija el rango laboral del tabajador" required>
+												<option value=""></option>
+												<option value="Personal de Alto Nivel" <?php if($fila->rango == 'Personal de Alto Nivel') echo 'selected="selected"'; ?>>Personal de Alto Nivel</option>
+												<option value="Personal Empleado" <?php if($fila->rango == 'Personal Empleado') echo 'selected="selected"'; ?>>Personal Empleado</option>
+												<option value="Personal Obrero" <?php if($fila->rango == 'Personal Obrero') echo 'selected="selected"'; ?>>Personal Obrero</option>
+											</select>
 										</div>
+										<div class='campo'>
+											<label class='rotulo' title="Por favor elija la condición laboral del tabajador">Condición Laboral</label>
+											<select name="condicion" title="Por favor elija la condición laboral del tabajador" required>
+												<option value=""></option>
+												<option value="Fijo" <?php if($fila->condicion == 'Fijo') echo 'selected="selected"'; ?>>Fijo</option>
+												<option value="Contratado" <?php if($fila->condicion == 'Contratado') echo 'selected="selected"'; ?>>Contratado</option>
+											</select>
+										</div>
+										<div class='campo'>
+											<label class='rotulo' title="Por favor ingrese el cargo del trabajador">Cargo</label>
+											<select name="cargo" title="Por favor ingrese el cargo del trabajador" required>
+												<option value=""></option>
+												<option value="Director(a)" <?php if($fila->cargo == 'Director(a)') echo 'selected="selected"'; ?>>Director(a)</option>
+												<option value="Administrador(a)" <?php if($fila->cargo == 'Administrador(a)') echo 'selected="selected"'; ?>>Administrador(a)</option>
+												<option value="Coordinador(a)" <?php if($fila->cargo == 'Coordinador(a)') echo 'selected="selected"'; ?>>Coordinador(a)</option>
+												<option value="Fisioterapeuta" <?php if($fila->cargo == 'Fisioterapeuta') echo 'selected="selected"'; ?>>Fisioterapeuta</option>
+												<option value="Medico Fisiatra" <?php if($fila->cargo == 'Medico Fisiatra') echo 'selected="selected"'; ?>>Medico Fisiatra</option>
+												<option value="Auxiliar Fisioterapeuta" <?php if($fila->cargo == 'Auxiliar Fisioterapeuta') echo 'selected="selected"'; ?>>Auxiliar Fisioterapeuta</option>
+												<option value="Auxiliar Esterilizacion" <?php if($fila->cargo == 'Auxiliar Esterilizacion') echo 'selected="selected"'; ?>>Auxiliar Esterilización</option>
+												<option value="Secretaria" <?php if($fila->cargo == 'Secretaria') echo 'selected="selected"'; ?>>Secretaria</option>
+												<option value="Recepcionista" <?php if($fila->cargo == 'Recepcionista') echo 'selected="selected"'; ?>>Recepcionista</option>
+												<option value="Portero(a)" <?php if($fila->cargo == 'Portero(a)') echo 'selected="selected"'; ?>>Portero(a)</option>
+												<option value="Mantenimiento" <?php if($fila->cargo == 'Mantenimiento') echo 'selected="selected"'; ?>>Mantenimiento</option>
+												<option value="Aseador(a)" <?php if($fila->cargo == 'Aseador(a)') echo 'selected="selected"'; ?>>Aseador(a)</option>
+											</select>
+										</div>
+										<div class='campo'>
+											<label class='rotulo' title="Por favor elija el área de desempeño del tabajador">Área de Desempeño</label>
+											<select name="area_d" title="Por favor elija el área de desempeño del tabajador" required>
+												<option value=""></option>
+												<option value="Direccion" <?php if($fila->area_desemp == 'Direccion') echo 'selected="selected"'; ?>>Dirección</option>
+												<option value="Administracion" <?php if($fila->area_desemp == 'Administracion') echo 'selected="selected"'; ?>>Administración</option>
+												<option value="Fisiatria" <?php if($fila->area_desemp == 'Fisiatria') echo 'selected="selected"'; ?>>Fisiatria</option>
+												<option value="Odontologia" <?php if($fila->area_desemp == 'Odontologia') echo 'selected="selected"'; ?>>Odontologia</option>
+												<option value="Recepcion" <?php if($fila->area_desemp == 'Recepcion') echo 'selected="selected"'; ?>>Recepción</option>
+												<option value="Mantenimiento" <?php if($fila->area_desemp == 'Mantenimiento') echo 'selected="selected"'; ?>>Mantenimiento</option>
+											</select>
+										</div>
+									</div>
+									<div class='izquierda'>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija la fecha en que ingreso el trabajador a la clinica">Fecha de Ingreso</label>
 											<select name="diaing" id="diaing" title="Seleccione el dia de ingreso a la clinica" required>

@@ -32,6 +32,9 @@
 								<li class="selected" title="Ingresar datos personales del trabajador">
 									<a href="#">Personales</a>
 								</li>
+								<li title="Ingresar datos laborales del trabajador">
+									<a href="#">Laboral</a>
+								</li>
 								<li title="Ingresar datos familiares del trabajador">
 									<a href="#">Familia</a>
 								</li>
@@ -92,6 +95,59 @@
 											</select>
 										</div>
 										<div class='campo'>
+											<label for="nconyugue" class='rotulo' title="Por favor ingrese el nombre del conyugue">Nombre del Conyugue</label>
+											<input type="text" name="nconyugue"  value='' id="nconyugue" title="Por favor ingrese el nombre del conyugue" />
+										</div>
+									</div>
+									<div class='izquierda'>
+										<div class='campo'>
+											<label for="apellido" class='rotulo' title="Por favor ingrese los apellidos del trabajador">Apellidos</label>
+											<input type="text" name="apellido" id="apellido" title="Por favor ingrese los apellidos del trabajador" required />
+										</div>
+										<div class='campo'>
+											<label for="libreta_militr" class='rotulo' title="Por favor ingrese el número de la libreta militar">Libreta Militar</label>
+											<input type="text" name="libreta_militr" id="libreta_militr" title="Por favor ingrese el número de la libreta militar" required />
+										</div>
+										<div class='campo'>
+											<label for="pasaporte" class='rotulo' title="Por favor ingrese los datos del pasaporte">Pasaporte</label>
+											<input type="text" name="pasaporte" id="pasaporte" title="Por favor ingrese el número de pasaporte" required />
+										</div>
+										<div class='campo'>
+											<label for="lug_nac" class='rotulo' title="Por favor ingrese el lugar de nacimiento del trabajador">Lugar de Nacimiento</label>
+											<input type="text" name="lug_nac" id="lug_nac" title="Por favor ingrese el lugar de nacimiento del trabajador" required />
+										</div>
+										<div class='campo'>
+											<label class='rotulo' title="Por favor ingrese la fecha de nacimiento del trabajador">Fecha de Nacimiento</label>
+											<select name="dianac" id="dianac" title="Seleccione el dia de nacimiento del trabajador" required>
+												<option></option>
+												<?php for($i=1;$i<=31;$i++) echo '<option value='.$i.'>'.$i.'</option>'; ?>
+											</select>
+											<select name="mesnac" id="mesnac" title="Seleccione el mes de nacimiento del trabajador" required>
+												<option></option>
+												<?php
+													$meses = array("","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+													for($i=1;$i<=12;$i++) echo '<option value='.$i.'>'.$meses[$i].'</option>';
+												?>
+											</select>
+											<select name="anonac" id="anonac" title="Seleccione el año de nacimiento del trabajador" required>
+												<option></option>
+												<?php for($i=date('o'); $i>=1950; $i--) echo '<option value='.$i.'>'.$i.'</option>'; ?>
+											</select>
+										</div>
+										<div class='campo'>
+											<label for="telefono" class='rotulo' title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000">Teléfono</label>
+											<input name="telefono" type="text" id="telefono" class="tlf_formato" title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
+										</div>
+										<div class='campo'>
+											<label for="telefono_em" class='rotulo' title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000">Teléfono Emergencia</label>
+											<input name="telefono_em" type="text" id="telefono_em" class="tlf_formato" title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000" size="20" maxlength="12"  required />
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="step">
+									<legend>Datos Laborales</legend>
+									<div class='derecha'>
+										<div class='campo'>
 											<label class='rotulo' title="Por favor elija el rango laboral del tabajador">Rango</label>
 											<select name="rango" title="Por favor elija el rango laboral del tabajador" required>
 												<option value=""></option>
@@ -140,52 +196,6 @@
 										</div>
 									</div>
 									<div class='izquierda'>
-										<div class='campo'>
-											<label for="apellido" class='rotulo' title="Por favor ingrese los apellidos del trabajador">Apellidos</label>
-											<input type="text" name="apellido" id="apellido" title="Por favor ingrese los apellidos del trabajador" required />
-										</div>
-										<div class='campo'>
-											<label for="libreta_militr" class='rotulo' title="Por favor ingrese el número de la libreta militar">Libreta Militar</label>
-											<input type="text" name="libreta_militr" id="libreta_militr" title="Por favor ingrese el número de la libreta militar" required />
-										</div>
-										<div class='campo'>
-											<label for="pasaporte" class='rotulo' title="Por favor ingrese los datos del pasaporte">Pasaporte</label>
-											<input type="text" name="pasaporte" id="pasaporte" title="Por favor ingrese el número de pasaporte" required />
-										</div>
-										<div class='campo'>
-											<label for="lug_nac" class='rotulo' title="Por favor ingrese el lugar de nacimiento del trabajador">Lugar de Nacimiento</label>
-											<input type="text" name="lug_nac" id="lug_nac" title="Por favor ingrese el lugar de nacimiento del trabajador" required />
-										</div>
-										<div class='campo'>
-											<label class='rotulo' title="Por favor ingrese la fecha de nacimiento del trabajador">Fecha de Nacimiento</label>
-											<select name="dianac" id="dianac" title="Seleccione el dia de nacimiento del trabajador" required>
-												<option></option>
-												<?php for($i=1;$i<=31;$i++) echo '<option value='.$i.'>'.$i.'</option>'; ?>
-											</select>
-											<select name="mesnac" id="mesnac" title="Seleccione el mes de nacimiento del trabajador" required>
-												<option></option>
-												<?php
-													$meses = array("","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-													for($i=1;$i<=12;$i++) echo '<option value='.$i.'>'.$meses[$i].'</option>';
-												?>
-											</select>
-											<select name="anonac" id="anonac" title="Seleccione el año de nacimiento del trabajador" required>
-												<option></option>
-												<?php for($i=date('o'); $i>=1950; $i--) echo '<option value='.$i.'>'.$i.'</option>'; ?>
-											</select>
-										</div>
-										<div class='campo'>
-											<label for="telefono" class='rotulo' title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000">Teléfono</label>
-											<input name="telefono" type="text" id="telefono" class="tlf_formato" title="Por favor ingrese el número telefónico del trabajador con formato 0000-0000000" size="20" maxlength="12"  required />
-										</div>
-										<div class='campo'>
-											<label for="telefono_em" class='rotulo' title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000">Teléfono Emergencia</label>
-											<input name="telefono_em" type="text" id="telefono_em" class="tlf_formato" title="Por favor ingrese un número telefónico para caso de emergencia, con formato 0000-0000000" size="20" maxlength="12"  required />
-										</div>
-										<div class='campo'>
-											<label for="nconyugue" class='rotulo' title="Por favor ingrese el nombre del conyugue">Nombre del Conyugue</label>
-											<input type="text" name="nconyugue"  value='' id="nconyugue" title="Por favor ingrese el nombre del conyugue" />
-										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor elija la fecha en que ingreso el trabajador a la clinica">Fecha de Ingreso</label>
 											<select name="diaing" id="diaing" title="Seleccione el dia de ingreso a la clinica" required>

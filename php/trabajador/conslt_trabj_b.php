@@ -57,6 +57,9 @@
 								<li class="selected" title="Datos personales del trabajador">
 									<a href="#">Datos Personales</a>
 								</li>
+								<li title="Ingresar datos laborales del trabajador">
+									<a href="#">Laboral</a>
+								</li>
 								<li title="Datos familiares del trabajador">
 									<a href="#">Familia</a>
 								</li>
@@ -104,20 +107,8 @@
 											<span class="text_cons"><?=$fila->est_civil?></span>
 										</div>
 										<div class='campo'>
-											<label class='rotulo'>Rango</label>
-											<span class="text_cons"><?=$fila->rango?></span>
-										</div>
-										<div class='campo'>
-											<label class='rotulo'>Condición Laboral</label>
-											<span class="text_cons"><?=$fila->condicion?></span>
-										</div>
-										<div class='campo'>
-											<label class='rotulo'>Cargo</label>
-											<span class="text_cons"><?=$fila->cargo?></span>
-										</div>
-										<div class='campo'>
-											<label class='rotulo'>Área de Desempeño</label>
-											<span class="text_cons"><?=$fila->area_desemp?></span>
+											<label class='rotulo'>Nombre del Conyugue</label>
+											<span class="text_cons"><?=$fila->nconyugue?></span>
 										</div>
 									</div>
 									<div class='izquierda'>
@@ -149,10 +140,29 @@
 											<label class='rotulo'>Teléfono Emergencia</label>
 											<span class="text_cons"><?=$fila->telefono_em?></span>
 										</div>
+									</div>
+								</fieldset>
+								<fieldset class="step">
+									<legend>Datos Laborales</legend>
+									<div class='derecha'>
 										<div class='campo'>
-											<label class='rotulo'>Nombre del Conyugue</label>
-											<span class="text_cons"><?=$fila->nconyugue?></span>
+											<label class='rotulo'>Rango</label>
+											<span class="text_cons"><?=$fila->rango?></span>
 										</div>
+										<div class='campo'>
+											<label class='rotulo'>Condición Laboral</label>
+											<span class="text_cons"><?=$fila->condicion?></span>
+										</div>
+										<div class='campo'>
+											<label class='rotulo'>Cargo</label>
+											<span class="text_cons"><?=$fila->cargo?></span>
+										</div>
+										<div class='campo'>
+											<label class='rotulo'>Área de Desempeño</label>
+											<span class="text_cons"><?=$fila->area_desemp?></span>
+										</div>
+									</div>
+									<div class='izquierda'>
 										<div class='campo'>
 											<label class='rotulo'>Fecha de Ingreso</label>
 											<span class="text_cons"><?=$di.'-'.$mi.'-'.$ai?></span>
