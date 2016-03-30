@@ -69,8 +69,12 @@
 											<input type="text" name="cedula" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador">Nacionalidad</label>
-											<input type="text" name="nacionalidad" id="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador" required />
+											<label class='rotulo' title="Por favor ingrese la nacionalidad del trabajador">Nacionalidad</label>
+											<select name="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador" required>
+												<option value=""></option>
+												<option value="Venezolano">Venezolano</option>
+												<option value="Extranjero">Extranjero</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador estudia">Estudia</label>
