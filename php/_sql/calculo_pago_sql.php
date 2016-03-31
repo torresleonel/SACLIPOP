@@ -66,31 +66,42 @@
 		return array($lun_c,$mar_c,$jue_s,$vie_s);
 	}
 
+	//FUNCION PARA CONSULTAR LOS DIAS FERIADOS NO LABORABLES ALMACENADOS
+	function conslt_dias_feriados($cnx_bd)
+	{
+		$query = "SELECT dia FROM feriado";
+		$result = $cnx_bd->query($query);
+		
+		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
+		error_sql($cnx_bd);
+
+		$cont = 0;
+		while ($fila = $result->fetch_object()) {
+			$feriado[$cont] = $fila->dia;
+			$cont++;
+		}
+		return $feriado;
+	}
+
 
 	//FUNCION PARA CALCULAR PERIODO VACACIONAL SIN DIAS FERIADOS NO LABORABLES
-	function feriados($inicio,$fin){
-		//ARREGLO DE DIAS FERIADOS NO LABORABLES DD-MM
-		$feriados = array(
-			'01-01',
-			'19-04',
-			'01-05',
-			'24-06',
-			'05-07',
-			'24-07',
-			'12-10',
-			'24-12',
-			'25-12',
-			'31-12'
-		);
+	function feriados($inicio,$fin,$cnx_bd){
+		//LLAMADO DE LA FUNCION QUE DEVUELVE DIAS FERIADOS NO LABORABLES DD-MM
+		$feriados = conslt_dias_feriados($cnx_bd);
+		//SE CUENTA LA CANTIDAD DE DIAS FERIADOS NO LABORABLES
+		$cant = count($feriados);
 		list($a_i,,) = explode('-',date('Y-m-d',$inicio));
 		list($a_f,,) = explode('-',date('Y-m-d',$fin));
 		$a = $a_i;
 		$ciclo = 1;
-		if($a_i != $a_f) $ciclo = 2;
+		if($a_i != $a_f)
+			$ciclo = 2;
+
 		$d_feria = 0;
 		for($i=0;$i<$ciclo;$i++) {
-			if($i == 10) $a = $a_f;
-			for($j=0;$j < 10;$j++) {
+			if($i == 10)
+				$a = $a_f;
+			for($j=0;$j < $cant;$j++) {
 				list($dia,$mes) = explode('-',$feriados[$j]);
 				$fecha = mktime(0,0,0,$mes,$dia,$a);
 				if($inicio <= $fecha && $fin >= $fecha) {
@@ -307,7 +318,7 @@
 			//CONTIENE LA FECHA EN LA CUAL INICIA EL PERIODO VACACIONAL
 			$inicio = mktime(0,0,0,$_POST['mes'],$_POST['dia'],$_POST['ano']);
 			//LLAMADO DE LA FUNCION QUE DEVUELVE LA CANTIDAD DE DIAS FERIADOS NO LABORABLES DENTRO DEL PERIODO VACACIONAL
-			$d_feria = feriados($inicio,$fin_vacac);
+			$d_feria = feriados($inicio,$fin_vacac,$cnx_bd);
 			//ES NECESARIO EVALUAR FINES DE SEMANA Y DIAS FERIADOS HASTA QUE ARROJE CERO DIAS FERIADOS
 			while($d_feria != 0){
 				list($anno,$mes,$dia) = explode('-',date("Y-m-d",$fin_vacac));
@@ -317,25 +328,17 @@
 				//CONTIENE LA FECHA EN LA CUAL CULMINAN LAS VACACIONES DEL TRABAJADOR (PRIMERA FASE)
 				$fin = mktime(0, 0, 0, $mes,$dia,$anno);
 				//LLAMADO DE LA FUNCION QUE DEVUELVE LA CANTIDAD DE DIAS FERIADOS NO LABORABLES DENTRO DEL PERIODO VACACIONAL
-				$d_feria = feriados($fin_vacac,$fin);
+				$d_feria = feriados($fin_vacac,$fin,$cnx_bd);
 				$fin_vacac = $fin;
 			}
 			//CONTIENE LA FECHA EN LA CUAL CULMINAN LAS VACACIONES DEL TRABAJADOR (SEGUNDA FASE)
 			$fin_vacac = date('Y-m-d',$fin_vacac);
 
 			//ARREGLO DE DIAS FERIADOS NO LABORABLES DD-MM
-			$feriados = array(
-				'01-01',
-				'19-04',
-				'01-05',
-				'24-06',
-				'05-07',
-				'24-07',
-				'12-10',
-				'24-12',
-				'25-12',
-				'31-12'
-			);
+			//LLAMADO DE LA FUNCION QUE DEVUELVE DIAS FERIADOS NO LABORABLES DD-MM
+			$feriados = conslt_dias_feriados($cnx_bd);
+			//SE CUENTA LA CANTIDAD DE DIAS FERIADOS NO LABORABLES
+			$cant = count($feriados);
 			list($a,$m,$d) = explode('-',$fin_vacac);
 			$num_dia = date('N',strtotime($fin_vacac));
 			
@@ -356,7 +359,7 @@
 				list($a,$m,$d) = explode('-',date('Y-m-d',$fecha_rein));
 				//LLAMADO DE LA FUNCION QUE NOS DEVUELVE LUNES Y MARTES DE CARNAVAL, JUEVES Y VIERNES SANTO
 				list($lun_c,$mar_c,$jue_s,$vie_s) = pascua($a);
-				for ($i=0; $i<10 ; $i++) { 
+				for ($i=0; $i<$cant ; $i++) { 
 					list($d_fe,$m_fe) = explode('-',$feriados[$i]);
 					$f = mktime(0,0,0,$m_fe,$d_fe,$a);
 					if ($fecha_rein == $f) {
