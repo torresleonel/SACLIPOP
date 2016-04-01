@@ -31,16 +31,16 @@
 	$familia = false;
 	if (isset($_POST["cedula_fam"])) {
 		$familia = true;
-		$nombres_fam = ucwords(strtolower($_POST["nombres_fam"]));
+		$nombres_fam = $_POST["nombres_fam"];
 		$cedula_fam = $_POST["cedula_fam"];
-		$parentesco_fam = ucwords(strtolower($_POST["parentesco_fam"]));
+		$parentesco_fam = $_POST["parentesco_fam"];
 		$empl_fam = $_POST["empl_fam"];
-		$apellidos_fam = ucwords(strtolower($_POST["apellidos_fam"]));
+		$apellidos_fam = $_POST["apellidos_fam"];
 		$estudia_fam = $_POST["estudia_fam"];
 		$dianac_fam = $_POST["dianac_fam"];
 		$mesnac_fam = $_POST["mesnac_fam"];
 		$anonac_fam = $_POST["anonac_fam"];
-		$cargo_fam = ucwords(strtolower($_POST["cargo_fam"]));
+		$cargo_fam = $_POST["cargo_fam"];
 	}
 
 /*.....................DATOS ESTUDIOS...........................*/

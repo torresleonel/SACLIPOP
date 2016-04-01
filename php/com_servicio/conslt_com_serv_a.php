@@ -87,9 +87,6 @@
 									<div class="izq">
 										<a href= "modf_com_serv_a.php?c=<?=$fila->cedula?>" class="modificar" title="Click para modificar los datos del trabajador">Modificar</a>
 									</div>
-									<div class="izq">
-										<a href= "pdf/constancia.php?id=<?=$fila->cedula?>" target="_blank" class="constancia" title="Click para generar constancia de trabajo">Constancia</a>
-									</div>
 								</td>
 							</tr>
 					<?php
