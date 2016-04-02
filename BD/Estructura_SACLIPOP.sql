@@ -99,24 +99,26 @@ CREATE TABLE IF NOT EXISTS `familia` (
 
 CREATE TABLE IF NOT EXISTS `feriado` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dia` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
+  `dia` int(2) NOT NULL,
+  `mes` int(2) NOT NULL,
+  `descripcion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=16 ;
 
-INSERT INTO `feriado` (`id`, `dia`) VALUES
-(1, '01-01'),
-(2, '18-01'),
-(3, '19-04'),
-(4, '01-05'),
-(5, '24-06'),
-(6, '05-07'),
-(7, '14-07'),
-(8, '16-07'),
-(9, '24-07'),
-(10, '12-10'),
-(11, '24-12'),
-(12, '25-12'),
-(13, '31-12');
+INSERT INTO `feriado` (`id`, `dia`, `mes`, `descripcion`) VALUES
+(1, 1, 1, 'AÃ±o Nuevo'),
+(2, 18, 1, 'JÃºbilo Municipal'),
+(3, 19, 4, 'DeclaraciÃ³n de la Independencia'),
+(4, 1, 5, 'DÃ­a del Trabajo'),
+(5, 24, 6, 'Batalla de Carabobo'),
+(6, 5, 7, 'DÃ­a de la Independencia'),
+(7, 14, 7, 'JÃºbilo Municipal'),
+(8, 16, 7, 'JÃºbilo Municipal'),
+(9, 24, 7, 'Natalicio de SimÃ³n BolÃ­var'),
+(10, 12, 10, 'DÃ­a de la Resistencia IndÃ­gena'),
+(11, 24, 12, 'VÃ­spera de Navidad'),
+(12, 25, 12, 'Navidad'),
+(13, 31, 12, 'Fiesta de Fin de AÃ±o');
 
 CREATE TABLE IF NOT EXISTS `laboral` (
   `cedula` int(12) NOT NULL,
@@ -206,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 INSERT INTO `usuario` (`id_usuario`, `clave`, `nombre`, `apellido`, `pregunta`, `respuesta`, `nivel`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrador', 'Administrador', 0, '', 1);
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrador', 'Administrador', 1, 'd44b121fc3524fe5cdc4f3feb31ceb78', 1);
 
 
 ALTER TABLE `aguinaldo`

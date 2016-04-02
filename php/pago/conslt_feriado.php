@@ -19,9 +19,11 @@
             </div>
             <div id="pagina">
                 <h1>Lista de dias feriados no laborables</h1>
+                <p>Los dias <b>Lunes</b> y <b>Martes</b> de <b>Carnaval</b>, <b>Jueves</b> y <b>Viernes</b> <b>Santos</b>, no se reflejan en la lista ya que se generan segun el año en curso.</p>
                 <table id="tabla">
                     <tr>
                         <th>Dia feriado no laborable</th>
+                        <th>Descripción</th>
                         <th>Acción</th>
                     </tr>
                     <?php
@@ -35,16 +37,19 @@
                     if ($cant < 1) {
                     ?>
                         <tr>
-                            <td colspan="2">No hay dias feriados registrados.</td>
+                            <td colspan="3">No hay dias feriados registrados.</td>
                         </tr>
                     <?php
                     }else{
                         for ($i=0; $i < $cant; $i++) {
-							list($d,$m) = explode("-",$feriado[$i]);
+							list($d,$m,$descripcion) = explode("-",$feriado[$i]);
                     ?>
                             <tr>
                                 <td>
                                     <a href="#"><?=$d.' de '.nombre_fecha('mes',intval($m))?></a>
+                                </td>
+                                <td>
+                                    <a href="#"><?=$descripcion?></a>
                                 </td>
                                 <td>
                                     <div class="izq">

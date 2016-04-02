@@ -26,8 +26,8 @@
 							<form id="formElem" name="formElem" action="reg_feriado_b.php" method="post">
 								<fieldset class="step">
 									<legend>Datos</legend>
-									<div class='centro'>
-										<div class='campo'>
+									<div class="derecha">
+										<div class="campo">
 											<label class='rotulo' title="Por favor elija la fecha del nuevo dia feriado">Dia Feriado</label>
 											<select name="dia" id="dia" title="Seleccione el dia" required>
 												<option></option>
@@ -40,6 +40,12 @@
 													for($i=1;$i<=12;$i++) echo '<option value='.$i.'>'.$meses[$i].'</option>';
 												?>
 											</select>
+										</div>
+									</div>
+									<div class='izquierda'>
+										<div class='campo'>
+											<label for="descripcion" class='rotulo' title="Ingrese la descripcion del dia feriado">Descripción</label>
+											<input type="text" name="descripcion" id="descripcion" title="Ingrese la descripcion del dia feriado" required />
 										</div>
 									</div>
 									<div class="bot_cent">

@@ -71,8 +71,9 @@
 	{
 		$dia = $_POST['dia'];
 		$mes = $_POST['mes'];
+		$descripcion = $_POST['descripcion'];
 		$feriado = $dia.'-'.$mes;
-		$query = "INSERT INTO feriado (dia) VALUES ('{$feriado}')";
+		$query = "INSERT INTO feriado (dia, mes, descripcion) VALUES ('{$dia}', '{$mes}', '{$descripcion}')";
 		$cnx_bd->query($query);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
@@ -82,15 +83,17 @@
 	//FUNCION PARA CONSULTAR LOS DIAS FERIADOS NO LABORABLES ALMACENADOS
 	function conslt_dias_feriados($cnx_bd)
 	{
-		$query = "SELECT dia FROM feriado";
+		$query = "SELECT dia, mes, descripcion
+				FROM feriado
+				ORDER BY mes ASC, dia ASC";
 		$result = $cnx_bd->query($query);
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
-
+		$feriado = null;
 		$cont = 0;
 		while ($fila = $result->fetch_object()) {
-			$feriado[$cont] = $fila->dia;
+			$feriado[$cont] = $fila->dia.'-'.$fila->mes.'-'.$fila->descripcion;
 			$cont++;
 		}
 		return $feriado;
@@ -126,7 +129,7 @@
 			if($i == 10)
 				$a = $a_f;
 			for($j=0;$j < $cant;$j++) {
-				list($dia,$mes) = explode('-',$feriados[$j]);
+				list($dia,$mes,) = explode('-',$feriados[$j]);
 				$fecha = mktime(0,0,0,$mes,$dia,$a);
 				if($inicio <= $fecha && $fin >= $fecha) {
 					$num_dia = date('N',$fecha);
@@ -384,7 +387,7 @@
 				//LLAMADO DE LA FUNCION QUE NOS DEVUELVE LUNES Y MARTES DE CARNAVAL, JUEVES Y VIERNES SANTO
 				list($lun_c,$mar_c,$jue_s,$vie_s) = pascua($a);
 				for ($i=0; $i<$cant ; $i++) { 
-					list($d_fe,$m_fe) = explode('-',$feriados[$i]);
+					list($d_fe,$m_fe,) = explode('-',$feriados[$i]);
 					$f = mktime(0,0,0,$m_fe,$d_fe,$a);
 					if ($fecha_rein == $f) {
 						$fecha_rein = mktime(0,0,0,$m,++$d,$a);
