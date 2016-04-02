@@ -15,7 +15,25 @@
 	<?php if($_SESSION["nivel_usuario"] == 1){ ?>
 			<li class="has-sub" title="Opciones para gestión de pagos"><a href="#"><span>Gestionar Pagos</span></a>
 				<ul>
-					<li title="Click para modificar el sueldo mensual del personal"><a href="../pago/modf_sueldo_mes_a.php"><span>Modificar Sueldo Mensual</span></a></li>
+					<li class="has-sub" title="Opciones para configurar el proceso de pago"><a href="#"><span>Configuración</span></a>
+						<ul>
+							<li title="Click para modificar el sueldo mensual del personal"><a href="../pago/modf_sueldo_mes_a.php"><span>Modificar Sueldo Mensual</span></a></li>
+							<li class="has-sub" title="Opciones para gestionar el pago del ISLR"><a href="#"><span>ISLR</span></a>
+								<ul>
+									<li title="Click para modificar el valor de la U.T."><a href="#"><span>Valor Unidad Tributaria</span></a></li>
+									<li title="Click para determinar que trabajadores pagan ISLR"><a href="#"><span>Asignar Pago ISLR</span></a></li>
+								</ul>
+							</li>
+							<li class="has-sub" title="Opciones para gestionar las primas"><a href="#"><span>Primas</span></a>
+								<ul>
+									<li title="Click para crear nueva prima"><a href="#"><span>Gestionar Primas</span></a></li>
+									<li title="Click para determinar que trabajadores recibira prima"><a href="#"><span>Asignar Primas</span></a></li>
+								</ul>
+							</li>
+							<li title="Click para modificar el period de quincena donde se realizan las deducciones"><a href="#"><span>Periodo Deducciones</span></a></li>
+							<li title="Click para gestionar los dias feriados no laborables"><a href="../pago/conslt_feriado.php"><span>Gestionar Feriados</span></a></li>
+						</ul>
+					</li>
 					<li class="has-sub" title="Opciones para calcular pagos"><a href="#"><span>Calcular Pagos</span></a>
 						<ul>
 							<li title="Click para calcular salario del personal"><a href="../pago/calc_salario_a.php"><span>Salario</span></a></li>

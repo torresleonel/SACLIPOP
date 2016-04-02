@@ -57,6 +57,11 @@ function envia_elim_bd(id){
 	if(confirm("¿Está seguro que desea eliminar el archivo <<"+id+">>?")) window.location.href="borrar_respld.php?a="+id;
 }
 
+function envia_elim(id){
+	if(confirm("¿Está seguro que desea eliminar el dia feriado <<"+id+">>?"))
+		window.location.href="eliminar_feriado.php?f="+id;
+}
+
 function envia_restaura_bd(id){
 	if(confirm("¿Está seguro que desea restaurar el archivo <<"+id+">>?")) window.location.href="restaura_bd.php?a="+id;
 }

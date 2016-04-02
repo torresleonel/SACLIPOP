@@ -77,8 +77,12 @@
 											<input type="text" name="cedula" value="<?php echo $fila->cedula; ?>" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
 										</div>
 										<div class='campo'>
-											<label class='rotulo' for="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador">Nacionalidad</label>
-											<input type="text" name="nacionalidad" value="<?php echo $fila->ciudadania; ?>" id="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador" required />
+											<label class='rotulo' title="Por favor ingrese la nacionalidad del trabajador">Nacionalidad</label>
+											<select name="nacionalidad" title="Por favor ingrese la nacionalidad del trabajador" required>
+												<option value=""></option>
+												<option value="Venezolano" <?php if($fila->ciudadania == 'Venezolano') echo 'selected="selected"'; ?>>Venezolano</option>
+												<option value="Extranjero" <?php if($fila->ciudadania == 'Extranjero') echo 'selected="selected"'; ?>>Extranjero</option>
+											</select>
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor indique si el trabajador estudia">Estudia</label>

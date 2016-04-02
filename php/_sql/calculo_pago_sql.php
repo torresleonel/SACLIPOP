@@ -66,6 +66,19 @@
 		return array($lun_c,$mar_c,$jue_s,$vie_s);
 	}
 
+	//FUNCION PARA INSERTAR DIAS FERIADOS NO LABORABLES
+	function reg_dias_feriados($cnx_bd)
+	{
+		$dia = $_POST['dia'];
+		$mes = $_POST['mes'];
+		$feriado = $dia.'-'.$mes;
+		$query = "INSERT INTO feriado (dia) VALUES ('{$feriado}')";
+		$cnx_bd->query($query);
+		
+		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
+		error_sql($cnx_bd);
+	}
+
 	//FUNCION PARA CONSULTAR LOS DIAS FERIADOS NO LABORABLES ALMACENADOS
 	function conslt_dias_feriados($cnx_bd)
 	{
@@ -81,6 +94,17 @@
 			$cont++;
 		}
 		return $feriado;
+	}
+
+	//FUNCION PARA ELIMINAR LOS DIAS FERIADOS NO LABORABLES ALMACENADOS
+	function elimina_dias_feriados($cnx_bd)
+	{
+		$feriado = $_GET['f'];
+		$query = "DELETE FROM feriado WHERE dia = '{$feriado}'";
+		$cnx_bd->query($query);
+		
+		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
+		error_sql($cnx_bd);
 	}
 
 
