@@ -89,15 +89,15 @@
 
 
 /* +++++++++++++++++++++++++++++++++++++++++++SENTENCIAS SQL PARA TODOS LOS DATOS DEL TRABAJADOR++++++++++++++++++++++++++++++++++++ */
-
+	$cnx_bd->autocommit(FALSE);
 /*..........................................INSERCCION DE DATOS PERSONALES.........................................*/
 	$sql = "INSERT INTO trabajador (cedula,nombre,apellido,ciudadania,pasaporte,libreta_militr,fe_nac,lug_nac,est_civil,nconyugue,estudia,direccion,telefono,telefono_em,estado,actualizado)
 			VALUES ('$cedula','$nombre','$apellido','$nacionalidad','$pasaporte','$libreta_militr','$fecha_nac','$lug_nac','$est_civil','$nconyugue','$estudia','$direccion','$telefono','$telefono_em','1','$actualizacion')";
 		
-	$cnx_bd->query($sql);
-	
-	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
-	error_sql($cnx_bd);
+	if ($cnx_bd->query($sql))
+		$error[0] = false;
+	else
+		$error[0] = true;
 
 	//SE ALMACENA LA SENTENCIA SQL
 	$_SESSION['sentencia'] = $sql;
@@ -108,10 +108,79 @@
 	$sql = "INSERT INTO laboral (cedula,fecha_ingreso,condicion,cargo,rango,area_desemp,resolucion,ley)
 			VALUES ('$cedula','$fecha_ing','$condicion','$cargo','$rango','$area_d','$resolucion','$ley')";
 		
-	$cnx_bd->query($sql);
-	
-	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
-	error_sql($cnx_bd);
+	if ($cnx_bd->query($sql))
+		$error[1] = false;
+	else
+		$error[1] = true;
+
+	//SE ALMACENA LA SENTENCIA SQL
+	$_SESSION['sentencia'] = $sql;
+	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+	bitacora($cnx_bd);
+
+
+/*......................................INSERCCION DE DATOS DE ESTUDIO..........................................*/
+	$sql = "INSERT INTO estudios (cedula,estudios,lugar_estudio,anno,titulo,observacion)
+			VALUES ('$cedula','$estudio','$lug_estudio','$ano','$titulos','$observacion')";
+		
+	if ($cnx_bd->query($sql))
+		$error[2] = false;
+	else
+		$error[2] = true;
+
+	//SE ALMACENA LA SENTENCIA SQL
+	$_SESSION['sentencia'] = $sql;
+	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+	bitacora($cnx_bd);
+
+
+/*...............................INSERCCION DE DATOS DE DOCUMENTACION CONSIGNADA................................*/
+	$sql = "INSERT INTO documentos (cedula,partida_naci,inscrip_militar,cedula_ident,rif,declaracion_jurada,informe_medico,parti_nac_h,acta_mat_div,defunciones,titulos,certificados,const_hor_est)
+			VALUES ('$cedula','$part_nac','$ins_milt','$ced_iden','$rif','$dec_jur','$inf_med','$part_nac_h','$matr_divr','$defunc','$titul','$certf','$const_hora')";
+		
+	if ($cnx_bd->query($sql))
+		$error[3] = false;
+	else
+		$error[3] = true;
+
+	//SE ALMACENA LA SENTENCIA SQL
+	$_SESSION['sentencia'] = $sql;
+	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+	bitacora($cnx_bd);
+
+
+/*.................................INSERCCION DE DATOS DE REFERENCIAS PERSONALES...................................*/
+	$cont = 4;
+	for($i=0;$i<=2;$i++){
+
+		$sql = "INSERT INTO referencia_personal (cedula_rp,nombre_rp,apellido_rp,ocupacion_rp,telefono_rp,cedula)
+				VALUES ('$cedula_rp[$i]','$nombre_rp[$i]','$apellido_rp[$i]','$ocupacion_rp[$i]','$telefono_rp[$i]','$cedula')";
+
+		if ($cnx_bd->query($sql))
+			$error[$cont] = false;
+		else
+			$error[$cont] = true;
+
+		$cont++;
+
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $sql;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
+
+	}
+
+
+/*...............................INSERCCION DE DATOS DE OTRAS CATEGORIAS(uniforme)...................................*/
+	$sql = "INSERT INTO uniforme (cedula,camisa,pantalon,calzado)
+			VALUES ('$cedula','$tall_cam','$tall_pant','$tall_calz')";
+		
+	if ($cnx_bd->query($sql))
+		$error[$cont] = false;
+	else
+		$error[$cont] = true;
+
+	$cont++;
 
 	//SE ALMACENA LA SENTENCIA SQL
 	$_SESSION['sentencia'] = $sql;
@@ -128,11 +197,12 @@
 			$sql = "INSERT INTO familia (cedula,cedulaf,nombref,apellidof,fecha_nacf,parentescof,estudiaf,empleadof,cargof)
 					VALUES ('$cedula','$cedula_f','$nombres_fam[$ciclo_fam]','$apellidos_fam[$ciclo_fam]','$fecha_nac_fam','$parentesco_fam[$ciclo_fam]','$estudia_fam[$ciclo_fam]','$empl_fam[$ciclo_fam]','$cargo_fam[$ciclo_fam]')";
 
-			$cnx_bd->query($sql);
-	
-			//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
-			error_sql($cnx_bd);
+			if ($cnx_bd->query($sql))
+				$error[$cont] = false;
+			else
+				$error[$cont] = true;
 
+			$cont++;
 			$ciclo_fam++;
 
 			//SE ALMACENA LA SENTENCIA SQL
@@ -142,68 +212,17 @@
 		}
 	}
 
-
-/*......................................INSERCCION DE DATOS DE ESTUDIO..........................................*/
-	$sql = "INSERT INTO estudios (cedula,estudios,lugar_estudio,anno,titulo,observacion)
-			VALUES ('$cedula','$estudio','$lug_estudio','$ano','$titulos','$observacion')";
-		
-	$cnx_bd->query($sql);
-	
-	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
-	error_sql($cnx_bd);
-
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
-
-
-/*...............................INSERCCION DE DATOS DE DOCUMENTACION CONSIGNADA................................*/
-	$sql = "INSERT INTO documentos (cedula,partida_naci,inscrip_militar,cedula_ident,rif,declaracion_jurada,informe_medico,parti_nac_h,acta_mat_div,defunciones,titulos,certificados,const_hor_est)
-			VALUES ('$cedula','$part_nac','$ins_milt','$ced_iden','$rif','$dec_jur','$inf_med','$part_nac_h','$matr_divr','$defunc','$titul','$certf','$const_hora')";
-		
-	$cnx_bd->query($sql);
-	
-	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
-	error_sql($cnx_bd);
-
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
-
-
-/*.................................INSERCCION DE DATOS DE REFERENCIAS PERSONALES...................................*/
-	for($i=0;$i<=2;$i++){
-
-		$sql = "INSERT INTO referencia_personal (cedula_rp,nombre_rp,apellido_rp,ocupacion_rp,telefono_rp,cedula)
-				VALUES ('$cedula_rp[$i]','$nombre_rp[$i]','$apellido_rp[$i]','$ocupacion_rp[$i]','$telefono_rp[$i]','$cedula')";
-
-		$cnx_bd->query($sql);
-
-		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
-		error_sql($cnx_bd);
-
-		//SE ALMACENA LA SENTENCIA SQL
-		$_SESSION['sentencia'] = $sql;
-		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-		bitacora($cnx_bd);
-
+	$e = false;
+	for ($i=0; $i < $cont; $i++) { 
+		if ($error[$i]) {
+			$e = true;
+			break;
+		}
 	}
 
-
-/*...............................INSERCCION DE DATOS DE OTRAS CATEGORIAS(uniforme)...................................*/
-	$sql = "INSERT INTO uniforme (cedula,camisa,pantalon,calzado)
-			VALUES ('$cedula','$tall_cam','$tall_pant','$tall_calz')";
-		
-	$cnx_bd->query($sql);
-	
-	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
-	error_sql($cnx_bd);
-
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
+	if ($e)
+		$cnx_bd->rollback();
+	else
+		$cnx_bd->commit();
 
 ?>

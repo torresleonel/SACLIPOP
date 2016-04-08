@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `feriado` (
   `mes` int(2) NOT NULL,
   `descripcion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=14 ;
 
 INSERT INTO `feriado` (`id`, `dia`, `mes`, `descripcion`) VALUES
 (1, 1, 1, 'AÃ±o Nuevo'),
@@ -134,15 +134,16 @@ CREATE TABLE IF NOT EXISTS `laboral` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `referencia_personal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `cedula_rp` int(12) NOT NULL,
   `nombre_rp` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `apellido_rp` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `ocupacion_rp` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `telefono_rp` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
   `cedula` int(12) NOT NULL,
-  PRIMARY KEY (`cedula_rp`),
+  PRIMARY KEY (`id`),
   KEY `cedula` (`cedula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `salario` (
   `id_salario` int(7) NOT NULL AUTO_INCREMENT,

@@ -665,11 +665,11 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="tall_pant" title="Por favor ingrese la talla del pantalon del trabajador">Talla Pantalon</label>
-											<input type="text" name="tall_pant" value="<?php echo $fila->pantalon; ?>" id="tall_pant" title="Por favor ingrese la talla del pantalon del trabajador" required />
+											<input type="number" name="tall_pant" value="<?php echo $fila->pantalon; ?>" id="tall_pant" title="Por favor ingrese la talla del pantalon del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="tall_calz" title="Por favor ingrese la talla del calzado del trabajador">Talla Calzado</label>
-											<input type="text" name="tall_calz" value="<?php echo $fila->calzado; ?>" id="tall_calz" title="Por favor ingrese la talla del calzado del trabajador" required />
+											<input type="number" name="tall_calz" value="<?php echo $fila->calzado; ?>" id="tall_calz" title="Por favor ingrese la talla del calzado del trabajador" required />
 										</div>
 									</div>
 								</fieldset>

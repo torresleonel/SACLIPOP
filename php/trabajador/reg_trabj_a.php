@@ -557,11 +557,11 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="tall_pant" title="Por favor ingrese la talla del pantalon del trabajador">Talla Pantalon</label>
-											<input type="text" name="tall_pant" id="tall_pant" title="Por favor ingrese la talla del pantalon del trabajador" required />
+											<input type="number" name="tall_pant" id="tall_pant" title="Por favor ingrese la talla del pantalon del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="tall_calz" title="Por favor ingrese la talla del calzado del trabajador">Talla Calzado</label>
-											<input name="tall_calz" type="text" id="tall_calz" title="Por favor ingrese la talla del calzado del trabajador" required />
+											<input name="tall_calz" type="number" id="tall_calz" title="Por favor ingrese la talla del calzado del trabajador" required />
 										</div>
 									</div>
 								</fieldset>

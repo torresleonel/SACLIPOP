@@ -23,9 +23,13 @@
 					$cnx_bd = conexion();
 					include('../_sql/reg_trabj_sql.php');
 					$cnx_bd->close();
+					if ($e)
+						$mensaje = '<h3>LOS DATOS DEL TRABAJADOR NO SE REGISTRARON DEBIDO A UN ERROR, POR FAVOR INTENTELO DE NUEVO</h3>';
+					else
+						$mensaje = '<h3>REGISTRO DE DATOS DEL TRABAJADOR CORRECTOS</h3>';
 				?>
 				<div id="msnproceso">
-					<h3>REGISTRO DE DATOS DEL TRABAJADOR CORRECTOS</h3>
+					<?=$mensaje?>
 				</div>
 			</div>
 		</div>
