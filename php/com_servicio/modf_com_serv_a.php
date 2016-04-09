@@ -74,7 +74,7 @@
 										</div>
 										<div class='campo'>
 											<label for="cedula" class='rotulo' title="Por favor ingrese la cédula de identidad del trabajador">Cédula</label>
-											<input type="text" name="cedula" value="<?php echo $fila->cedula; ?>" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
+											<input type="number" name="cedula" value="<?php echo $fila->cedula; ?>" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor ingrese la nacionalidad del trabajador">Nacionalidad</label>

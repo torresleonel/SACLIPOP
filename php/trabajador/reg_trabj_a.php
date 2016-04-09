@@ -66,7 +66,7 @@
 										</div>
 										<div class='campo'>
 											<label for="cedula" class='rotulo' title="Por favor ingrese la cédula de identidad del trabajador">Cédula</label>
-											<input type="text" name="cedula" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
+											<input type="number" name="cedula" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' title="Por favor ingrese la nacionalidad del trabajador">Nacionalidad</label>
@@ -246,7 +246,7 @@
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="sheepItForm_#index#cedula" title="Por favor ingrese el número de cédula del familiar del trabajador">Cédula</label>
-													<input id='sheepItForm_#index#cedula' name='cedula_fam[#index#]' type='text' title="Por favor ingrese el número de cédula del familiar del trabajador" required />
+													<input id='sheepItForm_#index#cedula' name='cedula_fam[#index#]' type='number' title="Por favor ingrese el número de cédula del familiar del trabajador" required />
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="sheepItForm_#index#parentesco" title="Por favor indique el parentesco del familiar con el trabajador">Parentesco</label>
@@ -470,7 +470,7 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="cedula_rp_1" title="Por favor ingrese la cédula de identidad">Cédula</label>
-											<input type="text" name="cedula_rp_1" id="cedula_rp_1" title="Por favor ingrese la cédula de identidad" required />
+											<input type="number" name="cedula_rp_1" id="cedula_rp_1" title="Por favor ingrese la cédula de identidad" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="telefono_rp_1" title="Por favor ingrese el número telefónico con formato 0000-0000000">Teléfono</label>
@@ -497,7 +497,7 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="cedula_rp_2" title="Por favor ingrese la cédula de identidad">Cédula</label>
-											<input type="text" name="cedula_rp_2" id="cedula_rp_2" title="Por favor ingrese la cédula de identidad" required />
+											<input type="number" name="cedula_rp_2" id="cedula_rp_2" title="Por favor ingrese la cédula de identidad" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="telefono_rp_2" title="Por favor ingrese el número telefónico con formato 0000-0000000">Teléfono</label>
@@ -524,7 +524,7 @@
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="cedula_rp_3" title="Por favor ingrese la cédula de identidad">Cédula</label>
-											<input type="text" name="cedula_rp_3" id="cedula_rp_3" title="Por favor ingrese la cédula de identidad" required />
+											<input type="number" name="cedula_rp_3" id="cedula_rp_3" title="Por favor ingrese la cédula de identidad" required />
 										</div>
 										<div class='campo'>
 											<label class='rotulo' for="telefono_rp_3" title="Por favor ingrese el número telefónico con formato 0000-0000000">Teléfono</label>

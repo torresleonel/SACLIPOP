@@ -166,7 +166,7 @@
 										</div>
 										<div class='campo'>
 											<label for="cedula" class='rotulo' title="Por favor ingrese la cédula de identidad del trabajador">Cédula</label>
-											<input type="text" name="cedula" value="<?php echo $fila->cedula; ?>" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
+											<input type="number" name="cedula" value="<?php echo $fila->cedula; ?>" id="cedula" title="Por favor ingrese la cédula de identidad del trabajador" required />
 											<input type="hidden" name="cedula_o" value="<?=$fila->cedula?>" />
 										</div>
 										<div class='campo'>
@@ -393,7 +393,7 @@
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="sheepItForm_#index#cedula" title="Por favor ingrese el número de cédula del familiar del trabajador">Cédula</label>
-													<input id='sheepItForm_#index#cedula' name='cedula_fam[#index#]' type='text' title="Por favor ingrese el número de cédula del familiar del trabajador" required />
+													<input id='sheepItForm_#index#cedula' name='cedula_fam[#index#]' type="text" title="Por favor ingrese el número de cédula del familiar del trabajador" required />
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="sheepItForm_#index#parentesco" title="Por favor indique el parentesco del familiar con el trabajador">Parentesco</label>
@@ -629,7 +629,7 @@
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="cedula_rp_<?=$i?>" title="Por favor ingrese la cédula de identidad">Cédula</label>
-													<input type="text" name="cedula_rp[]" value="<?=$fila_r->cedula_rp?>" id="cedula_rp_<?=$i?>" title="Por favor ingrese la cédula de identidad" required />
+													<input type="number" name="cedula_rp[]" value="<?=$fila_r->cedula_rp?>" id="cedula_rp_<?=$i?>" title="Por favor ingrese la cédula de identidad" required />
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="telefono_rp_<?=$i?>" title="Por favor ingrese el número telefónico con formato 0000-0000000">Teléfono</label>
