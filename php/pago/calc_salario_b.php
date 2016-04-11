@@ -48,25 +48,25 @@
 										</div>
 										<div class='campo'>
 											<label for="d_adicional" class='rotulo' title="Por favor ingrese la cantidad de dias adicionales">Dias Adicionales</label>
-											<input type="text" name="d_adicional" id="d_adicional" title="Por favor ingrese la cantidad de dias adicionales" required />
+											<input type="number" name="d_adicional" value="0" id="d_adicional" title="Por favor ingrese la cantidad de dias adicionales" required />
 										</div>
 										<div class='campo'>
 											<label for="inasistencia" class='rotulo' title="Por favor ingrese la cantidad de inasistencias del trabajador">Inasistencias</label>
-											<input type="text" name="inasistencia" id="inasistencia" title="Por favor ingrese la cantidad de inasistencias del trabajador" required />
+											<input type="number" name="inasistencia" value="0" id="inasistencia" title="Por favor ingrese la cantidad de inasistencias del trabajador" required />
 										</div>
 									</div>
 									<div class='izquierda'>
 										<div class='campo'>
 											<label for="retro_suld" class='rotulo' title="Por favor ingrese el retroactivo de sueldo del trabajador">Retroactivo Sueldo</label>
-											<input type="text" name="retro_suld" id="retro_suld" title="Por favor ingrese el retroactivo del trabajador" required />
+											<input type="number" step="any" name="retro_suld" value="0" placeholder="0,00" id="retro_suld" title="Por favor ingrese el retroactivo del trabajador, ejm: 0,00" required />
 										</div>
 										<div class='campo'>
 											<label for="retro_agin" class='rotulo' title="Por favor ingrese el retroactivo de aguinaldos del trabajador">Retroactivo Aguinaldos</label>
-											<input type="text" name="retro_agin" id="retro_agin" title="Por favor ingrese el retroactivo del trabajador" required />
+											<input type="number" step="any" name="retro_agin" value="0" placeholder="0,00" id="retro_agin" title="Por favor ingrese el retroactivo del trabajador, ejm: 0,00" required />
 										</div>
 										<div class='campo'>
 											<label for="retro_vaci" class='rotulo' title="Por favor ingrese el retroactivo de vacaciones del trabajador">Retroactivo Vacaciones</label>
-											<input type="text" name="retro_vaci" id="retro_vaci" title="Por favor ingrese el retroactivo del trabajador" required />
+											<input type="number" step="any" name="retro_vaci" value="0" placeholder="0,00" id="retro_vaci" title="Por favor ingrese el retroactivo del trabajador, ejm: 0,00" required />
 										</div>
 									</div>
 									<input type="hidden" name="cargo" value="<?=$fila->cargo?>" />

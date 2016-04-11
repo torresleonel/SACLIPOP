@@ -54,7 +54,7 @@
 									<td><a href="#"><?=$fila->nombre?></a></td>
 									<td><a href="#"><?=$fila->apellido?></a></td>
 									<td><a href="#"><?=$fila->cargo?></a></td>
-									<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+								$sueldo_mensual = floatval($fila->sueldo_mensual);
 									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 								</tr>
 						<?php
@@ -86,7 +86,7 @@
 									<td><a href="#"><?=$fila->nombre?></a></td>
 									<td><a href="#"><?=$fila->apellido?></a></td>
 									<td><a href="#"><?=$fila->cargo?></a></td>
-									<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+								$sueldo_mensual = floatval($fila->sueldo_mensual);
 									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 								</tr>
 						<?php
@@ -118,7 +118,7 @@
 									<td><a href="#"><?=$fila->nombre?></a></td>
 									<td><a href="#"><?=$fila->apellido?></a></td>
 									<td><a href="#"><?=$fila->cargo?></a></td>
-									<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+								$sueldo_mensual = floatval($fila->sueldo_mensual);
 									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 								</tr>
 						<?php
@@ -150,7 +150,7 @@
 									<td><a href="#"><?=$fila->nombre?></a></td>
 									<td><a href="#"><?=$fila->apellido?></a></td>
 									<td><a href="#"><?=$fila->cargo?></a></td>
-									<td><input type="text" name="suld_mes[]" value="<?=$fila->sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador" required /></td>
+								$sueldo_mensual = floatval($fila->sueldo_mensual);
 									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 								</tr>
 						<?php
