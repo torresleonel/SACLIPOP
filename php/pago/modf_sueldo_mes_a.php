@@ -48,13 +48,14 @@
 						<?php
 						}else{
 							while ($fila = $alto->fetch_object()){
+								$sueldo_mensual = floatval($fila->sueldo_mensual);
 						?>
 								<tr>
 									<td><a href="#"><?=$fila->cedula?></a></td>
 									<td><a href="#"><?=$fila->nombre?></a></td>
 									<td><a href="#"><?=$fila->apellido?></a></td>
 									<td><a href="#"><?=$fila->cargo?></a></td>
-								$sueldo_mensual = floatval($fila->sueldo_mensual);
+									<td><input type="number" step="any" name="suld_mes[]" value="<?=$sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador, ejm: 0,00" required /></td>
 									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 								</tr>
 						<?php
@@ -80,13 +81,14 @@
 						<?php
 						}else{
 							while ($fila = $empleado->fetch_object()){
+								$sueldo_mensual = floatval($fila->sueldo_mensual);
 						?>
 								<tr>
 									<td><a href="#"><?=$fila->cedula?></a></td>
 									<td><a href="#"><?=$fila->nombre?></a></td>
 									<td><a href="#"><?=$fila->apellido?></a></td>
 									<td><a href="#"><?=$fila->cargo?></a></td>
-								$sueldo_mensual = floatval($fila->sueldo_mensual);
+									<td><input type="number" step="any" name="suld_mes[]" value="<?=$sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador, ejm: 0,00" required /></td>
 									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 								</tr>
 						<?php
@@ -112,13 +114,14 @@
 						<?php
 						}else{
 							while ($fila = $obrero->fetch_object()){
+								$sueldo_mensual = floatval($fila->sueldo_mensual);
 						?>
 								<tr>
 									<td><a href="#"><?=$fila->cedula?></a></td>
 									<td><a href="#"><?=$fila->nombre?></a></td>
 									<td><a href="#"><?=$fila->apellido?></a></td>
 									<td><a href="#"><?=$fila->cargo?></a></td>
-								$sueldo_mensual = floatval($fila->sueldo_mensual);
+									<td><input type="number" step="any" name="suld_mes[]" value="<?=$sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador, ejm: 0,00" required /></td>
 									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 								</tr>
 						<?php
@@ -144,13 +147,14 @@
 						<?php
 						}else{
 							while ($fila = $contratado->fetch_object()){
+								$sueldo_mensual = floatval($fila->sueldo_mensual);
 						?>
 								<tr>
 									<td><a href="#"><?=$fila->cedula?></a></td>
 									<td><a href="#"><?=$fila->nombre?></a></td>
 									<td><a href="#"><?=$fila->apellido?></a></td>
 									<td><a href="#"><?=$fila->cargo?></a></td>
-								$sueldo_mensual = floatval($fila->sueldo_mensual);
+									<td><input type="number" step="any" name="suld_mes[]" value="<?=$sueldo_mensual?>" id="suld_mes" title="Por favor ingrese el nuevo sueldo del trabajador, ejm: 0,00" required /></td>
 									<input type="hidden" name="ced_suld[]" value="<?=$fila->cedula?>" />
 								</tr>
 						<?php
