@@ -55,6 +55,13 @@ CREATE TABLE IF NOT EXISTS `comision_servicio` (
   PRIMARY KEY (`cedula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+CREATE TABLE IF NOT EXISTS `configuracion` (
+  `periodo_deduccion` tinyint(4) NOT NULL COMMENT 'determina en que quincena se hacen las deducciones'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+INSERT INTO `configuracion` (`periodo_deduccion`) VALUES
+(1);
+
 CREATE TABLE IF NOT EXISTS `documentos` (
   `cedula` int(12) NOT NULL,
   `partida_naci` int(1) NOT NULL,

@@ -186,7 +186,8 @@
 		$retro_agin = $_POST['retro_agin'];
 		$retro_vaci = $_POST['retro_vaci'];
 		$gen_islr = $_POST['gen_islr'];
-
+		$reslt = $cnx_bd->query("SELECT periodo_deduccion FROM configuracion");
+		$fila = $reslt->fetch_object();
 
 		//------------------ESTRUCTURA PARA DETERMINAR DIA INICIO DE QUINCENA----------------------------------
 
@@ -201,20 +202,35 @@
 		elseif ($dia_i == 16) $dia_f = date('t',strtotime($inicio_quincena));
 		$fin_quincena = $aa.'-'.$ma.'-'.$dia_f;
 
-		//------------------ESTRUCTURA PARA DETERMINAR NUMERO DE LUNES EN LA QUINCENA----------------------------------
-		
-		$num_dia = date('N',strtotime($inicio_quincena));
-		
-		$num_lun = 0;
-		$linea_dia = $dia_i;
+		//------------------ESTRUCTURA PARA DETERMINAR NUMERO DE LUNES EN LA QUINCENA O EL MES------------
+		if ($fila->periodo_deduccion == 2) {
+			$num_dia = date('N',strtotime($inicio_quincena));
+			
+			$num_lun = 0;
+			$linea_dia = $dia_i;
 
-		if ($num_dia != 1) {
-			$dia_falt = 8 - $num_dia;
-			$linea_dia += $dia_falt;
-		}
-		while ($linea_dia <= $dia_f) {
-			++$num_lun;
-			$linea_dia += 7;
+			if ($num_dia != 1) {
+				$dia_falt = 8 - $num_dia;
+				$linea_dia += $dia_falt;
+			}
+			while ($linea_dia <= $dia_f) {
+				++$num_lun;
+				$linea_dia += 7;
+			}
+		} else {
+			$num_dia = date('N',strtotime($aa.'-'.$ma.'-1'));
+			$dia_final_mes = date('t',strtotime($aa.'-'.$ma.'-1'));
+			$num_lun = 0;
+			$linea_dia = 1;
+
+			if ($num_dia != 1) {
+				$dia_falt = 8 - $num_dia;
+				$linea_dia += $dia_falt;
+			}
+			while ($linea_dia <= $dia_final_mes) {
+				++$num_lun;
+				$linea_dia += 7;
+			}
 		}
 
 		/*+++++++++++++++++++++++++++++++INICIO DE CALCULOS+++++++++++++++++++++++++++++++++++*/
@@ -224,29 +240,48 @@
 		$salr_dia = $salr_mes / 30;
 		//TOTAL A PAGAR POR DIAS ADICIONALES
 		$t_dia_adic = $d_adicional * $salr_dia;
-		//TOTAL A DESCONTAR POR INANSISTENCIAS
-		$t_inasist = $inasistencia * $salr_dia;
-		//CALCULO BASE NECESARIO PARA SSO Y SPF
-		$calc_ini = ($salr_quincena * 12) / 52;
-		//CALCULO DE SSO
-		$sso = $calc_ini * 0.04 * $num_lun;
-		//CALCULO DE SPF
-		$spf = $calc_ini * 0.005 * $num_lun;
-		//LLAMADO DE LA FUNCION QUE DETERMINA LOS AÑOS DE SERVCIO
-		$a_serv = a_servicio($fin_quincena);
-		//LLAMADO DE LA FUNCION QUE CALCULA EL BONO VACACIONAL
-		list($bono_vacac,,,,) = calc_bono_vac($a_serv,$salr_dia);
-		//CALCULO DE ALICUOTA VACACIONAL MENSUAL
-		$ali_vacac = $bono_vacac / 12;
-		//CALCULO DE SUELDO INTEGRAL MENSUAL
-		$sim = $salr_mes + $ali_vacac;
-		//CALCULO DE FAOV QUINCENAL
-		$faov = $sim * 0.01 / 2;
 		//CALCULO DE ASIGNACIONES
 		$t_asign = $salr_quincena + $t_dia_adic + $retro_suld + $retro_vaci + $retro_agin;
-		//CALCULO DE ISLR
-		$islr = 0;
-		if ($gen_islr == 1) $islr = $t_asign * 0.0059;
+
+
+		//SI EL PERIODO DE DEDUCCIONES ES 2 SE DEBEN DESCONTAR LAS DEDUCCIONES EN CADA QUINCENA
+		//SI EL PERIODO DE DEDUCCIONES ES 1 Y EL DIA FINAL DE QUINCENA ES MAYOR A 15 SIGNIFICA
+		//QUE SE HARAN LAS DEDUCCIONES SOLO EN LA ULTIMA QUINCENA DEL MES
+		if (($fila->periodo_deduccion == 2) || ($fila->periodo_deduccion == 1 && $dia_f > 15)) {
+			//CALCULO BASE NECESARIO PARA SSO Y SPF
+			$calc_ini = ($salr_quincena * 12) / 52;
+			//CALCULO DE SSO
+			$sso = $calc_ini * 0.04 * $num_lun;
+			//CALCULO DE SPF
+			$spf = $calc_ini * 0.005 * $num_lun;
+			//LLAMADO DE LA FUNCION QUE DETERMINA LOS AÑOS DE SERVCIO
+			$a_serv = a_servicio($fin_quincena);
+			//LLAMADO DE LA FUNCION QUE CALCULA EL BONO VACACIONAL
+			list($bono_vacac,,,,) = calc_bono_vac($a_serv,$salr_dia);
+			//CALCULO DE ALICUOTA VACACIONAL MENSUAL
+			$ali_vacac = $bono_vacac / 12;
+			//CALCULO DE SUELDO INTEGRAL MENSUAL
+			$sim = $salr_mes + $ali_vacac;
+			//SI EL PERIODO DE DEDUCCIONES ES 2 ENTONCES SE DEBE DESCONTAR EL FAOV EN CADA QUINCENA
+			if ($fila->periodo_deduccion == 2)
+				$faov = $sim * 0.01 / 2;//CALCULO DE FAOV QUINCENAL
+			else
+				$faov = $sim * 0.01;//CALCULO DE FAOV MENSUAL
+			//CALCULO DE ISLR
+			$islr = 0;
+			if ($gen_islr == 1)
+				$islr = $t_asign * 0.0059;
+		} else {
+			//sino se hacen las deducciones entonces se asigna 0 para no crear conflicto en el calculo
+			$sso = 0;
+			$spf = 0;
+			$faov = 0;
+			$islr = 0;
+		}
+
+
+		//TOTAL A DESCONTAR POR INANSISTENCIAS
+		$t_inasist = $inasistencia * $salr_dia;
 		//CALCULO DE DEDUCCIONES
 		$t_deduccion = $sso + $spf + $faov + $t_inasist + $islr;
 		//CALCULO TOTAL A PAGAR EN LA QUINCENA
