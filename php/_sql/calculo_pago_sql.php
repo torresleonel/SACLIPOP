@@ -1,6 +1,22 @@
 ﻿<?php
 	//++++++++++++++++++++++++++++++++++++++++++++++++++ FUNCIONES BASE PARA CALCULAR PAGOS ++++++++++++++++++++++++++++++++++++++++++++++
 
+//OBTIENE EL ESTATUS DEL PERIODO EN EL QUE SE DEBEN REALIZAR LAS DEDUCCIONES DEL SALARIO
+// 1 = deducciones en la quincena de fin de mes
+// 2 = deducciones en ambas quincenas
+function conslt_periodo_deduccion($cnx_bd)
+{
+	$reslt = $cnx_bd->query("SELECT periodo_deduccion FROM configuracion");
+	return $reslt->fetch_object();
+}
+		
+//MODIFICA EL ESTATUS DEL PERIODO EN EL QUE SE DEBEN REALIZAR LAS DEDUCCIONES DEL SALARIO
+function modf_periodo_deduccion($cnx_bd)
+{
+	$periodo = $_POST['periodo'];
+	$cnx_bd->query("UPDATE configuracion SET periodo_deduccion='{$periodo}'");
+}
+
 	//FUNCION PARA DETERMINAR AÑOS DE SERVICIO
 	function a_servicio($fch_vacac){
 
@@ -186,8 +202,7 @@
 		$retro_agin = $_POST['retro_agin'];
 		$retro_vaci = $_POST['retro_vaci'];
 		$gen_islr = $_POST['gen_islr'];
-		$reslt = $cnx_bd->query("SELECT periodo_deduccion FROM configuracion");
-		$fila = $reslt->fetch_object();
+		$fila = conslt_periodo_deduccion($cnx_bd);
 
 		//------------------ESTRUCTURA PARA DETERMINAR DIA INICIO DE QUINCENA----------------------------------
 

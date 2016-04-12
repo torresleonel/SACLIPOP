@@ -30,7 +30,7 @@
 									<li title="Click para determinar que trabajadores recibira prima"><a href="#"><span>Asignar Primas</span></a></li>
 								</ul>
 							</li>
-							<li title="Click para modificar el period de quincena donde se realizan las deducciones"><a href="#"><span>Periodo Deducciones</span></a></li>
+							<li title="Click para modificar el periodo de quincena donde se realizan las deducciones"><a href="modf_periodo_deduc_a.php"><span>Periodo Deducciones</span></a></li>
 							<li title="Click para gestionar los dias feriados no laborables"><a href="conslt_feriado.php"><span>Gestionar Feriados</span></a></li>
 						</ul>
 					</li>
