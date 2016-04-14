@@ -25,12 +25,12 @@
 						include('../_conexion/conexion_funcion.php');
 						$cnx_bd = conexion();
 						include('../_sql/calculo_pago_sql.php');
-						$fila = conslt_periodo_deduccion($cnx_bd);
+						$periodo = conslt_configuracion($cnx_bd, 'periodo');
 						$cnx_bd->close();
-						if ($fila->periodo_deduccion == 1)
-							$periodo = 'Ultima quincena';
+						if ($periodo == 1)
+							$estatus = 'Ultima quincena';
 						else
-							$periodo = 'Ambas quincenas';
+							$estatus = 'Ambas quincenas';
 					?>
 					<h1>Periodo Deducción Salarial</h1>
 					<div id="wrapper">
@@ -39,12 +39,12 @@
 								<fieldset class="step">
 									<legend>Datos</legend>
 									<div class='centro'>
-										<h3>Periodo actual: <?=$periodo?></h3>
+										<h3>Periodo actual: <?=$estatus?></h3>
 										<div class='campo'>
 											<label class='rotulo' title="Elija el periodo para realizar las deducciones">Periodo</label>
-											<select name="periodo" title="Elija el periodo para realizar las deducciones" required>
-												<option value="2"<?php if ($fila->periodo_deduccion == 2) echo 'selected="selected"';?>>Ambas quincenas</option>
-												<option value="1"<?php if ($fila->periodo_deduccion == 1) echo 'selected="selected"';?>>Ultima quincena</option>
+											<select name="estatus" title="Elija el periodo para realizar las deducciones" required>
+												<option value="2"<?php if ($periodo == 2) echo 'selected="selected"';?>>Ambas quincenas</option>
+												<option value="1"<?php if ($periodo == 1) echo 'selected="selected"';?>>Ultima quincena</option>
 											</select>
 										</div>
 									</div>

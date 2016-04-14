@@ -53,6 +53,9 @@
 								case 'comision_servicio':
 								$tabla = 'Comisión de Servicio';
 								break;
+								case 'configuracion':
+								$tabla = 'Configuración';
+								break;
 								case 'documentos':
 								$tabla = 'Documentos';
 								break;
@@ -61,6 +64,9 @@
 								break;
 								case 'familia':
 								$tabla = 'Familia';
+								break;
+								case 'feriado':
+								$tabla = 'Feriado';
 								break;
 								case 'laboral':
 								$tabla = 'Laboral';

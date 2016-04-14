@@ -22,7 +22,7 @@
 					include('../_conexion/conexion_funcion.php');
 					$cnx_bd = conexion();
 					include('../_sql/calculo_pago_sql.php');
-					modf_periodo_deduccion($cnx_bd);
+					modf_configuracion($cnx_bd, 'periodo');
 					$cnx_bd->close();
 				?>
 				<div id="msnproceso">

@@ -1,21 +1,28 @@
 ﻿<?php
 	//++++++++++++++++++++++++++++++++++++++++++++++++++ FUNCIONES BASE PARA CALCULAR PAGOS ++++++++++++++++++++++++++++++++++++++++++++++
 
-//OBTIENE EL ESTATUS DEL PERIODO EN EL QUE SE DEBEN REALIZAR LAS DEDUCCIONES DEL SALARIO
-// 1 = deducciones en la quincena de fin de mes
-// 2 = deducciones en ambas quincenas
-function conslt_periodo_deduccion($cnx_bd)
-{
-	$reslt = $cnx_bd->query("SELECT periodo_deduccion FROM configuracion");
-	return $reslt->fetch_object();
-}
-		
-//MODIFICA EL ESTATUS DEL PERIODO EN EL QUE SE DEBEN REALIZAR LAS DEDUCCIONES DEL SALARIO
-function modf_periodo_deduccion($cnx_bd)
-{
-	$periodo = $_POST['periodo'];
-	$cnx_bd->query("UPDATE configuracion SET periodo_deduccion='{$periodo}'");
-}
+	//OBTIENE EL ESTATUS DEL PERIODO EN EL QUE SE DEBEN REALIZAR LAS DEDUCCIONES DEL SALARIO
+	// 1 = deducciones en la quincena de fin de mes
+	// 2 = deducciones en ambas quincenas
+	function conslt_configuracion($cnx_bd, $nombre)
+	{
+		$reslt = $cnx_bd->query("SELECT estatus FROM configuracion WHERE nombre = '{$nombre}'");
+		$fila = $reslt->fetch_object();
+		return $fila->estatus;
+	}
+			
+	//MODIFICA EL ESTATUS DEL PERIODO EN EL QUE SE DEBEN REALIZAR LAS DEDUCCIONES DEL SALARIO
+	function modf_configuracion($cnx_bd, $nombre)
+	{
+		$estatus = $_POST['estatus'];
+		$sql = "UPDATE configuracion SET estatus='{$estatus}' WHERE nombre='{$nombre}'";
+		$cnx_bd->query($sql);
+
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $sql;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
+	}
 
 	//FUNCION PARA DETERMINAR AÑOS DE SERVICIO
 	function a_servicio($fch_vacac){
@@ -94,6 +101,11 @@ function modf_periodo_deduccion($cnx_bd)
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
+
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $query;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
 	}
 
 	//FUNCION PARA CONSULTAR LOS DIAS FERIADOS NO LABORABLES ALMACENADOS
@@ -124,6 +136,11 @@ function modf_periodo_deduccion($cnx_bd)
 		
 		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
 		error_sql($cnx_bd);
+
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $query;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
 	}
 
 
@@ -202,7 +219,7 @@ function modf_periodo_deduccion($cnx_bd)
 		$retro_agin = $_POST['retro_agin'];
 		$retro_vaci = $_POST['retro_vaci'];
 		$gen_islr = $_POST['gen_islr'];
-		$fila = conslt_periodo_deduccion($cnx_bd);
+		$periodo = conslt_configuracion($cnx_bd, 'periodo');
 
 		//------------------ESTRUCTURA PARA DETERMINAR DIA INICIO DE QUINCENA----------------------------------
 
@@ -218,7 +235,7 @@ function modf_periodo_deduccion($cnx_bd)
 		$fin_quincena = $aa.'-'.$ma.'-'.$dia_f;
 
 		//------------------ESTRUCTURA PARA DETERMINAR NUMERO DE LUNES EN LA QUINCENA O EL MES------------
-		if ($fila->periodo_deduccion == 2) {
+		if ($periodo == 2) {
 			$num_dia = date('N',strtotime($inicio_quincena));
 			
 			$num_lun = 0;
@@ -262,7 +279,7 @@ function modf_periodo_deduccion($cnx_bd)
 		//SI EL PERIODO DE DEDUCCIONES ES 2 SE DEBEN DESCONTAR LAS DEDUCCIONES EN CADA QUINCENA
 		//SI EL PERIODO DE DEDUCCIONES ES 1 Y EL DIA FINAL DE QUINCENA ES MAYOR A 15 SIGNIFICA
 		//QUE SE HARAN LAS DEDUCCIONES SOLO EN LA ULTIMA QUINCENA DEL MES
-		if (($fila->periodo_deduccion == 2) || ($fila->periodo_deduccion == 1 && $dia_f > 15)) {
+		if (($periodo == 2) || ($periodo == 1 && $dia_f > 15)) {
 			//CALCULO BASE NECESARIO PARA SSO Y SPF
 			$calc_ini = ($salr_quincena * 12) / 52;
 			//CALCULO DE SSO
@@ -278,7 +295,7 @@ function modf_periodo_deduccion($cnx_bd)
 			//CALCULO DE SUELDO INTEGRAL MENSUAL
 			$sim = $salr_mes + $ali_vacac;
 			//SI EL PERIODO DE DEDUCCIONES ES 2 ENTONCES SE DEBE DESCONTAR EL FAOV EN CADA QUINCENA
-			if ($fila->periodo_deduccion == 2)
+			if ($periodo == 2)
 				$faov = $sim * 0.01 / 2;//CALCULO DE FAOV QUINCENAL
 			else
 				$faov = $sim * 0.01;//CALCULO DE FAOV MENSUAL

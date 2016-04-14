@@ -56,11 +56,18 @@ CREATE TABLE IF NOT EXISTS `comision_servicio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `configuracion` (
-  `periodo_deduccion` tinyint(4) NOT NULL COMMENT 'determina en que quincena se hacen las deducciones'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `estatus` tinyint(1) NOT NULL,
+  PRIMARY KEY (`nombre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Segun el estatus activa o desactiva funciones';
 
-INSERT INTO `configuracion` (`periodo_deduccion`) VALUES
-(1);
+INSERT INTO `configuracion` (`nombre`, `estatus`) VALUES
+('antiguedad', 0),
+('hijo', 0),
+('hogar', 0),
+('otra', 0),
+('periodo', 1),
+('profesionalizacion', 0);
 
 CREATE TABLE IF NOT EXISTS `documentos` (
   `cedula` int(12) NOT NULL,
