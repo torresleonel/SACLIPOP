@@ -292,10 +292,10 @@
 						<!-- FILA 5 -->
 						<tr>
 							<td><b>UNIVERSITARIO</b></td>
-							<td><?php if($fila->estudios == 'Universitario') echo '<span class="dato">'.$fila->lugar_estudio.'</span>'; else echo '&nbsp;';?></td>
-							<td><?php if($fila->estudios == 'Universitario') echo '<span class="dato">'.$fila->anno.'</span>'; else echo '&nbsp;';?></td>
-							<td><?php if($fila->estudios == 'Universitario') echo '<span class="dato">'.$fila->titulo.'</span>'; else echo '&nbsp;';?></td>
-							<td><?php if($fila->estudios == 'Universitario') echo '<span class="dato">'.$fila->observacion.'</span>'; else echo '&nbsp;';?></td>
+							<td><?php if($fila->estudios == 'Universitario/Corta' || $fila->estudios == 'Universitario/Larga') echo '<span class="dato">'.$fila->lugar_estudio.'</span>'; else echo '&nbsp;';?></td>
+							<td><?php if($fila->estudios == 'Universitario/Corta' || $fila->estudios == 'Universitario/Larga') echo '<span class="dato">'.$fila->anno.'</span>'; else echo '&nbsp;';?></td>
+							<td><?php if($fila->estudios == 'Universitario/Corta' || $fila->estudios == 'Universitario/Larga') echo '<span class="dato">'.$fila->titulo.'</span>'; else echo '&nbsp;';?></td>
+							<td><?php if($fila->estudios == 'Universitario/Corta' || $fila->estudios == 'Universitario/Larga') echo '<span class="dato">'.$fila->observacion.'</span>'; else echo '&nbsp;';?></td>
 						</tr>
 						<!-- FILA 6 -->
 						<tr>
