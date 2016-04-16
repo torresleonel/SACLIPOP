@@ -43,13 +43,13 @@
 							$RES4[$cont_fam]['fecha_nacf']=$fila_f->fecha_nacf;
 							$RES4[$cont_fam]['empleadof']=$fila_f->empleadof;
 							$RES4[$cont_fam]['estudiaf']=$fila_f->estudiaf;
+							$RES4[$cont_fam]['parentescof']=$fila_f->parentescof;
 							if($cont_fam==0) echo "data: [";
 							echo "
 								{
 									'sheepItForm_#index#nombre': '$fila_f->nombref',
 									'sheepItForm_#index#apellido': '$fila_f->apellidof',
 									'sheepItForm_#index#cedula': '$fila_f->cedulaf',
-									'sheepItForm_#index#parentesco': '$fila_f->parentescof',
 									'sheepItForm_#index#cargo': '$fila_f->cargof',
 								},
 							";
@@ -88,6 +88,7 @@
 							$dia_temp=(int) $dia_temp;
 							$perte_temp=$RES4[$i]['empleadof'];
 							$est_temp=$RES4[$i]['estudiaf'];
+							$parents_temp=$RES4[$i]['parentescof'];
 
 							echo "
 								<script type='text/javascript'>  
@@ -98,6 +99,7 @@
 								var anonac_fam = '#sheepItForm_'+$i+'anonac_fam';
 								var estudia = '#sheepItForm_'+$i+'estudia';
 								var empleado = '#sheepItForm_'+$i+'empl_fam';
+								var parentesco = '#sheepItForm_'+$i+'parentesco';
 
 								
 								$(dianac_fam).val('$dia_temp');
@@ -105,6 +107,7 @@
 								$(anonac_fam).val('$ano_temp');
 								$(estudia).val('$est_temp');
 								$(empleado).val('$perte_temp');
+								$(parentesco).val('$parents_temp');
 
 								});	
 								</script>";
@@ -397,7 +400,23 @@
 												</div>
 												<div class='campo'>
 													<label class='rotulo' for="sheepItForm_#index#parentesco" title="Por favor indique el parentesco del familiar con el trabajador">Parentesco</label>
-													<input id='sheepItForm_#index#parentesco' name='parentesco_fam[#index#]' type='text' title="Por favor indique el parentesco del familiar con el trabajador" required />
+													<select name="parentesco_fam[#index#]" title="Por favor indique el parentesco del familiar con el trabajador" id="sheepItForm_#index#parentesco" required>
+														<option value=""></option>
+														<option value="Abuelo(a)">Abuelo(a)</option>
+														<option value="Bisabuelo(a)">Bisabuelo(a)</option>
+														<option value="Bisnieto(a)">Bisnieto(a)</option>
+														<option value="Esposo(a)">Esposo(a)</option>
+														<option value="Hermano(a)">Hermano(a)</option>
+														<option value="Hijo(a)">Hijo(a)</option>
+														<option value="Nieto(a)">Nieto(a)</option>
+														<option value="Padre/Madre">Padre/Madre</option>
+														<option value="Primo(a)">Primo(a)</option>
+														<option value="Sobrino(a)">Sobrino(a)</option>
+														<option value="Suegro(a)">Suegro(a)</option>
+														<option value="Tatarabuelo(a)">Tatarabuelo(a)</option>
+														<option value="Tataranieto(a)">Tataranieto(a)</option>
+														<option value="Tío(a)">Tío(a)</option>
+													</select>
 												</div>
 												<div class='campo'>
 													<label class='rotulo' title="Por favor indique si el familiar del trabajador es empleado de la institucion o la alcaldia">Empleado</label>
@@ -474,7 +493,8 @@
 												<option value=""></option>
 												<option value="Primaria" <?php if($fila->estudios == 'Primaria') echo 'selected="selected"'; ?>>Primaria</option>
 												<option value="Secundaria" <?php if($fila->estudios == 'Secundaria') echo 'selected="selected"'; ?>>Secundaria</option>
-												<option value="Universitario" <?php if($fila->estudios == 'Universitario') echo 'selected="selected"'; ?>>Universitario</option>
+												<option value="Universitario/Corta" <?php if($fila->estudios == 'Universitario/Corta') echo 'selected="selected"'; ?>>Universitario/Corta</option>
+												<option value="Universitario/Larga" <?php if($fila->estudios == 'Universitario/Larga') echo 'selected="selected"'; ?>>Universitario/Larga</option>
 												<option value="Postgrado" <?php if($fila->estudios == 'Postgrado') echo 'selected="selected"'; ?>>Post/grado</option>
 												<option value="Otros" <?php if($fila->estudios == 'Otros') echo 'selected="selected"'; ?>>Otros</option>
 											</select>

@@ -26,7 +26,7 @@
 							</li>
 							<li class="has-sub" title="Opciones para gestionar las primas"><a href="#"><span>Primas</span></a>
 								<ul>
-									<li title="Click para crear nueva prima"><a href="#"><span>Gestionar Primas</span></a></li>
+									<li title="Click para crear nueva prima"><a href="../pago/gest_prima_a.php"><span>Gestionar Primas</span></a></li>
 									<li title="Click para determinar que trabajadores recibira prima"><a href="#"><span>Asignar Primas</span></a></li>
 								</ul>
 							</li>

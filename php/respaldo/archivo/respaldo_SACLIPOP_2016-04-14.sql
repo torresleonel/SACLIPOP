@@ -156,7 +156,7 @@ CREATE TABLE `configuracion` (
 
 LOCK TABLES `configuracion` WRITE;
 /*!40000 ALTER TABLE `configuracion` DISABLE KEYS */;
-INSERT INTO `configuracion` VALUES ('antiguedad',0),('hijo',0),('hogar',0),('otra',0),('periodo',1),('profesionalizacion',0);
+INSERT INTO `configuracion` VALUES ('adicional',0),('antiguedad',0),('hijo',0),('hogar',0),('periodo',1),('profesionalizacion',0);
 /*!40000 ALTER TABLE `configuracion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -327,7 +327,8 @@ DROP TABLE IF EXISTS `prima`;
 CREATE TABLE `prima` (
   `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad_ut` int(11) NOT NULL,
-  PRIMARY KEY (`nombre`)
+  KEY `nombre` (`nombre`),
+  CONSTRAINT `prima_ibfk_1` FOREIGN KEY (`nombre`) REFERENCES `configuracion` (`nombre`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -337,7 +338,7 @@ CREATE TABLE `prima` (
 
 LOCK TABLES `prima` WRITE;
 /*!40000 ALTER TABLE `prima` DISABLE KEYS */;
-INSERT INTO `prima` VALUES ('adicional',0),('antiguedad',0),('hijo',0),('hogar',0),('profesionalizacion',0);
+INSERT INTO `prima` VALUES ('antiguedad',0),('hijo',0),('hogar',0),('adicional',0),('profesionalizacion',0);
 /*!40000 ALTER TABLE `prima` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -518,4 +519,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-13 22:28:56
+-- Dump completed on 2016-04-14  1:56:23

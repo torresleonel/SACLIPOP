@@ -71,6 +71,9 @@
 								case 'laboral':
 								$tabla = 'Laboral';
 								break;
+								case 'prima':
+								$tabla = 'Primas';
+								break;
 								case 'referencia_personal':
 								$tabla = 'Referencia Personal';
 								break;

@@ -62,10 +62,10 @@ CREATE TABLE IF NOT EXISTS `configuracion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Segun el estatus activa o desactiva funciones';
 
 INSERT INTO `configuracion` (`nombre`, `estatus`) VALUES
+('adicional', 0),
 ('antiguedad', 0),
 ('hijo', 0),
 ('hogar', 0),
-('otra', 0),
 ('periodo', 1),
 ('profesionalizacion', 0);
 
@@ -146,6 +146,19 @@ CREATE TABLE IF NOT EXISTS `laboral` (
   `ley` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`cedula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+CREATE TABLE IF NOT EXISTS `prima` (
+  `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `cantidad_ut` int(11) NOT NULL,
+  KEY `nombre` (`nombre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+INSERT INTO `prima` (`nombre`, `cantidad_ut`) VALUES
+('antiguedad', 0),
+('hijo', 0),
+('hogar', 0),
+('adicional', 0),
+('profesionalizacion', 0);
 
 CREATE TABLE IF NOT EXISTS `referencia_personal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -246,6 +259,9 @@ ALTER TABLE `familia`
 
 ALTER TABLE `laboral`
   ADD CONSTRAINT `laboral_ibfk_1` FOREIGN KEY (`cedula`) REFERENCES `trabajador` (`cedula`) ON UPDATE CASCADE;
+
+ALTER TABLE `prima`
+  ADD CONSTRAINT `prima_ibfk_1` FOREIGN KEY (`nombre`) REFERENCES `configuracion` (`nombre`) ON UPDATE CASCADE;
 
 ALTER TABLE `referencia_personal`
   ADD CONSTRAINT `referencia_personal_ibfk_1` FOREIGN KEY (`cedula`) REFERENCES `trabajador` (`cedula`) ON UPDATE CASCADE;

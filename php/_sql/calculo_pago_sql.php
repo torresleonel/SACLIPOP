@@ -24,6 +24,53 @@
 		bitacora($cnx_bd);
 	}
 
+
+	//CONSULTA LAS PRIMAS
+	function conslt_prima($cnx_bd)
+	{
+		$query = "SELECT *
+				FROM prima
+				JOIN configuracion ON configuracion.nombre = prima.nombre";
+		$reslt = $cnx_bd->query($query);
+		return $reslt;
+	}
+
+	//MODIFICA LA CANTIDAD DE UNIDADES TRIBUTARIAS POR PRIMA Y EL ESTATUS DE LAS MISMAS
+	function modf_prima($cnx_bd)
+	{
+
+		$nombre = $_POST['nombre'];
+		$cantidad_ut = $_POST['cantidad_ut'];
+		$estatus = $_POST['estatus'];
+		
+		$num_prima = count($nombre);
+		
+		for ($i=0; $i < $num_prima; $i++) {
+			$sql = "UPDATE configuracion 
+					SET estatus = '$estatus[$i]'
+					WHERE nombre = '$nombre[$i]'";
+			
+			$cnx_bd->query($sql);
+
+			//SE ALMACENA LA SENTENCIA SQL
+			$_SESSION['sentencia'] = $sql;
+			//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+			bitacora($cnx_bd);
+
+			$sql = "UPDATE prima 
+					SET cantidad_ut = '$cantidad_ut[$i]'
+					WHERE nombre = '$nombre[$i]'";
+			
+			$cnx_bd->query($sql);
+
+			//SE ALMACENA LA SENTENCIA SQL
+			$_SESSION['sentencia'] = $sql;
+			//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+			bitacora($cnx_bd);
+		}
+	}
+
+
 	//FUNCION PARA DETERMINAR AÑOS DE SERVICIO
 	function a_servicio($fch_vacac){
 
