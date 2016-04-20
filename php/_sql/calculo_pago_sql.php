@@ -1,5 +1,14 @@
 ﻿<?php
-	//++++++++++++++++++++++++++++++++++++++++++++++++++ FUNCIONES BASE PARA CALCULAR PAGOS ++++++++++++++++++++++++++++++++++++++++++++++
+	//++++++++++++++++++++++++++ FUNCIONES BASE PARA CALCULAR PAGOS +++++++++++++++++++++++++++++++++++
+	
+	//OBTIENE EL VALOR DE LA UNIDAD TRIBUTARIA (UT)
+	function conslt_ut($cnx_bd)
+	{
+		$reslt = $cnx_bd->query("SELECT * FROM unidad_tributaria");
+		$fila = $reslt->fetch_object();
+		return $fila->valor;
+	}
+
 
 	//OBTIENE EL ESTATUS DEL PERIODO EN EL QUE SE DEBEN REALIZAR LAS DEDUCCIONES DEL SALARIO
 	// 1 = deducciones en la quincena de fin de mes
@@ -88,6 +97,114 @@
 			}
 		}
 		return $a_serv;
+	}
+
+
+	//REALIZA LA COMPROBACION DEL TRABAJADOR QUE CUMPLE LAS CONDICIONS PARA PRCIBIR PRIMAS
+	//Y REALIZA EL CALCULO CORRESPONDIENTE A CADA UNA
+	function gestion_primas($cnx_bd, $cedula, $fin_quincena)
+	{
+		$valor_ut = conslt_ut($cnx_bd);
+		$prima = conslt_prima($cnx_bd);
+		list($a_quinc, $m_quinc, $d_quinc) = explode('-', $fin_quincena);
+
+		while ($fila_p = $prima->fetch_object()) {
+			if ($fila_p->estatus = 1) {
+				switch ($fila_p->nombre) {
+					case 'antiguedad':
+						$prima_antiguedad = 0;
+						$fecha_rslt = $cnx_bd->query("SELECT fecha_ingreso FROM laboral WHERE cedula = '{$cedula}'");
+						$fecha_fila = $fecha_rslt->fetch_object();
+						list($a_ing, $m_ing, $d_ing) = explode('-', $fecha_fila->fecha_ingreso);
+						
+						$a_serv = $a_quinc - $a_ing;
+						if ($m_ing > $m_quinc) {
+							--$a_serv;
+						} else if ($m_ing == $m_quinc) {
+							if ($d_ing > $d_quinc)
+								--$a_serv;
+						}
+						// 3 es la cantidad de años que debe tener el trabajador como minimo
+						// para percibir prima por antiguedad
+						if ($a_serv >= 3)
+							$prima_antiguedad = $valor_ut * $fila_p->cantidad_ut;
+						break;
+					
+					case 'hijo':
+						$prima_hijo = 0;
+						$hijo_rslt = $cnx_bd->query("SELECT fecha_nacf FROM familia WHERE cedula = '{$cedula}' AND parentescof = 'Hijo(a)'");
+						if ($hijo_rslt->num_rows > 0) {
+							while ($hijo_fila = $hijo_rslt->fetch_object()) {
+								list($a, $m, $d) = explode('-', $hijo_fila->fecha_nacf);
+								$edad = $a_quinc - $a;
+								if ($m > $m_quinc) {
+									--$edad;
+								} else if ($m == $m_quinc) {
+									if ($d > $d_quinc)
+										--$edad;
+								}
+								// Si la edad del hijo es menor a 18 años, se le pagara prima por hijos
+								if ($edad <= 18)
+									$prima_hijo += $valor_ut * $fila_p->cantidad_ut;
+							}
+						}
+						break;
+					
+					case 'hogar':
+						$prima_hogar = 0;
+						$query = "SELECT nconyugue, parentescof
+								FROM trabajador
+								JOIN familia ON familia.cedula = trabajador.cedula
+								WHERE trabajador.cedula = '{$cedula}' AND parentescof = 'Hijo(a)'";
+						$hogar_rslt = $cnx_bd->query($query);
+						// Si el resultado es igual a 0 significa que no tiene hijos, no le corresponde la prima
+						if ($hogar_rslt->num_rows > 0) {
+							$hogar_fila = $hogar_rslt->fetch_objet();
+							// Si es igual a N/a entonces tampoco le corresponde esta prima
+							if ($hogar_fila->nconyugue != 'N/a')
+								$prima_hogar = $valor_ut * $fila_p->cantidad_ut;
+						}
+						break;
+					
+					case 'profesionalizacion/corta':
+						$prima_pro_cor = 0;
+						$prof_cor_rslt = $cnx_bd->query("SELECT estudios FROM estudios WHERE cedula = '{$cedula}' AND estudios = 'Universitario/Corta'");
+						if ($prof_cor_rslt->num_rows > 0)
+							$prima_pro_cor = $valor_ut * $fila_p->cantidad_ut;
+						break;
+					
+					case 'profesionalizacion/larga':
+						$prima_pro_lar = 0;
+						$prof_lar_rslt = $cnx_bd->query("SELECT estudios FROM estudios WHERE (cedula = '{$cedula}') AND (estudios = 'Universitario/Larga' OR estudios = 'Postgrado')");
+						if ($prof_lar_rslt->num_rows > 0)
+							$prima_pro_lar = $valor_ut * $fila_p->cantidad_ut;
+						break;
+				}
+			} else {
+				switch ($fila_p->nombre) {
+					case 'antiguedad':
+						$prima_antiguedad = 0;
+						break;
+					
+					case 'hijo':
+						$prima_hijo = 0;
+						break;
+					
+					case 'hogar':
+						$prima_hogar = 0;
+						break;
+					
+					case 'profesionalizacion/corta':
+						$prima_pro_cor = 0;
+						break;
+					
+					case 'profesionalizacion/larga':
+						$prima_pro_lar = 0;
+						break;
+				}
+			}
+		}
+		return array($prima_antiguedad, $prima_hijo, $prima_hogar, $prima_pro_cor, $prima_pro_lar);
 	}
 
 
@@ -326,7 +443,19 @@
 		//SI EL PERIODO DE DEDUCCIONES ES 2 SE DEBEN DESCONTAR LAS DEDUCCIONES EN CADA QUINCENA
 		//SI EL PERIODO DE DEDUCCIONES ES 1 Y EL DIA FINAL DE QUINCENA ES MAYOR A 15 SIGNIFICA
 		//QUE SE HARAN LAS DEDUCCIONES SOLO EN LA ULTIMA QUINCENA DEL MES
+		//ADEMAS TAMBIEN APLICA PARA EL PAGO DE PRIMAS
 		if (($periodo == 2) || ($periodo == 1 && $dia_f > 15)) {
+			//DEVUELVE EL VALOR DEL CALCULO DE LAS PRIMAS
+			list($prima_antiguedad, $prima_hijo, $prima_hogar, $prima_pro_cor, $prima_pro_lar) = gestion_primas($cnx_bd, $cedula, $fin_quincena);
+			if ($periodo == 2) {
+				$prima_antiguedad = $prima_antiguedad / 2;
+				$prima_hijo = $prima_hijo / 2;
+				$prima_hogar = $prima_hogar / 2;
+				$prima_pro_cor = $prima_pro_cor / 2;
+				$prima_pro_lar = $prima_pro_lar / 2;
+			}
+			//CALCULO DE ASIGNACIONES + PRIMAS
+			$t_asign += $prima_antiguedad + $prima_hijo + $prima_hogar + $prima_pro_cor + $prima_pro_lar;
 			//CALCULO BASE NECESARIO PARA SSO Y SPF
 			$calc_ini = ($salr_quincena * 12) / 52;
 			//CALCULO DE SSO
@@ -356,6 +485,11 @@
 			$spf = 0;
 			$faov = 0;
 			$islr = 0;
+			$prima_antiguedad = 0;
+			$prima_hijo = 0;
+			$prima_hogar = 0;
+			$prima_pro_cor = 0;
+			$prima_pro_lar = 0;
 		}
 
 
