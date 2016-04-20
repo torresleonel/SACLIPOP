@@ -203,8 +203,8 @@
 											</select>
 										</div>
 										<div class='campo'>
-											<label for="nconyugue" class='rotulo' title="Por favor ingrese el nombre del conyugue">Nombre del Conyugue</label>
-											<input type="text" name="nconyugue" value="<?php echo $fila->nconyugue; ?>" id="nconyugue" title="Por favor ingrese el nombre del conyugue" />
+											<label for="nconyugue" class='rotulo' title="Por favor ingrese el nombre del conyugue, sino posee solo ingrese N/a">Nombre del Conyugue</label>
+											<input type="text" name="nconyugue" value="<?php echo $fila->nconyugue; ?>" id="nconyugue" title="Por favor ingrese el nombre del conyugue, sino posee solo ingrese N/a" required />
 										</div>
 									</div>
 									<div class='izquierda'>
