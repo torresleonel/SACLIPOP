@@ -23,7 +23,7 @@
 					include('../_conexion/conexion_funcion.php');
 					$cnx_bd = conexion();
 					include('../_sql/calculo_pago_sql.php');
-					list($inicio_quincena,$fin_quincena,$salr_quincena,$d_adicional,$t_dia_adic,$retro_suld,$retro_agin,$retro_vaci,$sso,$spf,$faov,$inasistencia,$t_inasist,$islr,$t_deduccion,$t_asign,$total_pagar) = calc_salario($cnx_bd);
+					list($inicio_quincena, $fin_quincena, $salr_quincena, $d_adicional, $t_dia_adic, $retro_suld, $retro_agin, $retro_vaci, $sso, $spf, $faov, $inasistencia, $t_inasist, $islr, $t_deduccion, $t_asign, $total_pagar, $prima_antiguedad, $prima_hijo, $prima_hogar, $prima_pro_cor, $prima_pro_lar) = calc_salario($cnx_bd);
 					$cnx_bd->close();
 					list($ai,$mi,$di) = explode('-',$inicio_quincena);
 					list($af,$mf,$df) = explode('-',$fin_quincena);
@@ -54,6 +54,58 @@
 						<td>Bs <?php printf("%.2f",$t_dia_adic); ?></td>
 						<td></td>
 					</tr>
+					<?php
+					if ($prima_antiguedad > 0) {
+					?>
+						<tr>
+							<td>Prima Antigüdad</td>
+							<td></td>
+							<td>Bs <?php printf("%.2f",$prima_antiguedad); ?></td>
+							<td></td>
+						</tr>
+					<?php
+					}
+					if ($prima_hijo > 0) {
+					?>
+						<tr>
+							<td>Prima Hijos</td>
+							<td></td>
+							<td>Bs <?php printf("%.2f",$prima_hijo); ?></td>
+							<td></td>
+						</tr>
+					<?php
+					}
+					if ($prima_hogar > 0) {
+					?>
+						<tr>
+							<td>Prima Hogar</td>
+							<td></td>
+							<td>Bs <?php printf("%.2f",$prima_hogar); ?></td>
+							<td></td>
+						</tr>
+					<?php
+					}
+					if ($prima_pro_cor > 0 || $prima_pro_lar > 0) {
+					?>
+						<tr>
+							<td>Prima Profesionalización</td>
+							<td></td>
+							<?php
+							if ($prima_pro_cor > 0) {
+							?>
+								<td>Bs <?php printf("%.2f",$prima_pro_cor); ?></td>
+							<?php
+							} else {
+							?>
+								<td>Bs <?php printf("%.2f",$prima_pro_lar); ?></td>
+							<?php
+							}
+							?>
+							<td></td>
+						</tr>
+					<?php
+					}
+					?>
 					<tr>
 						<td>Retroactivo Sueldo</td>
 						<td></td>

@@ -159,7 +159,7 @@
 						$hogar_rslt = $cnx_bd->query($query);
 						// Si el resultado es igual a 0 significa que no tiene hijos, no le corresponde la prima
 						if ($hogar_rslt->num_rows > 0) {
-							$hogar_fila = $hogar_rslt->fetch_objet();
+							$hogar_fila = $hogar_rslt->fetch_object();
 							// Si es igual a N/a entonces tampoco le corresponde esta prima
 							if ($hogar_fila->nconyugue != 'N/a')
 								$prima_hogar = $valor_ut * $fila_p->cantidad_ut;
@@ -544,7 +544,7 @@
 
 		}
 
-		return array($inicio_quincena,$fin_quincena,$salr_quincena,$d_adicional,$t_dia_adic,$retro_suld,$retro_agin,$retro_vaci,$sso,$spf,$faov,$inasistencia,$t_inasist,$islr,$t_deduccion,$t_asign,$total_pagar);
+		return array($inicio_quincena, $fin_quincena, $salr_quincena, $d_adicional, $t_dia_adic, $retro_suld, $retro_agin, $retro_vaci, $sso, $spf, $faov, $inasistencia, $t_inasist, $islr, $t_deduccion, $t_asign, $total_pagar, $prima_antiguedad, $prima_hijo, $prima_hogar, $prima_pro_cor, $prima_pro_lar);
 	}
 
 
