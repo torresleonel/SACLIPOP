@@ -26,8 +26,7 @@
 					$resultado = conslt_pago($cnx_bd,'salario','inicio_quincena');
 					$cnx_bd->close();
 					if ($resultado->num_rows <= 0) {
-						if ($_POST['dia'] == 1) $d = 'primera quincena';
-						else $d = 'segunda quincena';
+						$d = ($_POST['dia'] == 1) ? 'primera quincena' : 'segunda quincena';
 				?>
 						<div id="msnproceso">
 							<h3>No se ha calculado quincena del trabajador:<?=' '.$_POST['trbj']?></h3>
@@ -67,6 +66,58 @@
 								<td>Bs <?=$fila->total_dia_adic?></td>
 								<td></td>
 							</tr>
+							<?php
+							if ($fila->prima_antiguedad > 0) {
+							?>
+								<tr>
+									<td>Prima Antigüdad</td>
+									<td></td>
+									<td>Bs <?php printf("%.2f",$fila->prima_antiguedad); ?></td>
+									<td></td>
+								</tr>
+							<?php
+							}
+							if ($fila->prima_hijo > 0) {
+							?>
+								<tr>
+									<td>Prima Hijos</td>
+									<td></td>
+									<td>Bs <?php printf("%.2f",$fila->prima_hijo); ?></td>
+									<td></td>
+								</tr>
+							<?php
+							}
+							if ($fila->prima_hogar > 0) {
+							?>
+								<tr>
+									<td>Prima Hogar</td>
+									<td></td>
+									<td>Bs <?php printf("%.2f",$fila->prima_hogar); ?></td>
+									<td></td>
+								</tr>
+							<?php
+							}
+							if ($fila->prima_prof_corta > 0 || $fila->prima_prof_larga > 0) {
+							?>
+								<tr>
+									<td>Prima Profesionalización</td>
+									<td></td>
+									<?php
+									if ($fila->prima_prof_corta > 0) {
+									?>
+										<td>Bs <?php printf("%.2f",$fila->prima_prof_corta); ?></td>
+									<?php
+									} else {
+									?>
+										<td>Bs <?php printf("%.2f",$fila->prima_prof_larga); ?></td>
+									<?php
+									}
+									?>
+									<td></td>
+								</tr>
+							<?php
+							}
+							?>
 							<tr>
 								<td>Retroactivo Sueldo</td>
 								<td></td>

@@ -514,7 +514,7 @@
 
 
 			$sql = "UPDATE salario 
-				SET sueldo_quincena = '$salr_quincena',dia_adicional = '$d_adicional',total_dia_adic = '$t_dia_adic',retro_sueldo = '$retro_suld',retro_aguinaldos = '$retro_agin',retro_vacaciones = '$retro_vaci',sso = '$sso',spf = '$spf',faov = '$faov',islr = '$islr',inasistencias = '$inasistencia',total_inasist = '$t_inasist',total_asignaciones = '$t_asign',total_deducciones = '$t_deduccion',total_pagar = '$total_pagar' 
+				SET sueldo_quincena = '$salr_quincena',dia_adicional = '$d_adicional',total_dia_adic = '$t_dia_adic',retro_sueldo = '$retro_suld',retro_aguinaldos = '$retro_agin',retro_vacaciones = '$retro_vaci',prima_antiguedad='$prima_antiguedad', prima_hijo='$prima_hijo', prima_hogar='$prima_hogar', prima_prof_corta='$prima_pro_cor', prima_prof_larga='$prima_pro_lar', sso = '$sso',spf = '$spf',faov = '$faov',islr = '$islr',inasistencias = '$inasistencia',total_inasist = '$t_inasist',total_asignaciones = '$t_asign',total_deducciones = '$t_deduccion',total_pagar = '$total_pagar' 
 				WHERE cedula = '$cedula' AND inicio_quincena = '$inicio_quincena'";
 			
 			$cnx_bd->query($sql);
@@ -529,8 +529,8 @@
 
 		}else{
 
-			$sql = "INSERT INTO salario (sueldo_quincena,dia_adicional,total_dia_adic,retro_sueldo,retro_aguinaldos,retro_vacaciones,sso,spf,faov,islr,inasistencias,total_inasist,inicio_quincena,fin_quincena,total_asignaciones,total_deducciones,total_pagar,cedula)
-				VALUES ('$salr_quincena','$d_adicional','$t_dia_adic','$retro_suld','$retro_agin','$retro_vaci','$sso','$spf','$faov','$islr','$inasistencia','$t_inasist','$inicio_quincena','$fin_quincena','$t_asign','$t_deduccion','$total_pagar','$cedula')";
+			$sql = "INSERT INTO salario (sueldo_quincena,dia_adicional,total_dia_adic,retro_sueldo,retro_aguinaldos,retro_vacaciones,prima_antiguedad,prima_hijo,prima_hogar,prima_prof_corta,prima_prof_larga,sso,spf,faov,islr,inasistencias,total_inasist,inicio_quincena,fin_quincena,total_asignaciones,total_deducciones,total_pagar,cedula)
+				VALUES ('$salr_quincena','$d_adicional','$t_dia_adic','$retro_suld','$retro_agin','$retro_vaci','$prima_antiguedad','$prima_hijo','$prima_hogar','$prima_pro_cor','$prima_pro_lar','$sso','$spf','$faov','$islr','$inasistencia','$t_inasist','$inicio_quincena','$fin_quincena','$t_asign','$t_deduccion','$total_pagar','$cedula')";
 			
 			$cnx_bd->query($sql);
 			
