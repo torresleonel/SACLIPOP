@@ -38,6 +38,16 @@ em{
 	width:1200px;
 	border:1px solid #6d6c6c;
 }
+
+
+.cuerpo {
+  margin:0 auto;
+  padding:0;
+  text-align:left;
+  width:95%;
+  border:1px solid #6d6c6c;
+}
+
 #inicio {
 	height:170px;
 	background:#0431B4 url(../imagen/logo.png);

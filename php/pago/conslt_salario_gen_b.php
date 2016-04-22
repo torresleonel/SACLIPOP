@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="../../css/estilo.css" type="text/css" media="screen" />
     </head>
 	<body>
-		<div id="cuerpo">
+		<div class="cuerpo">
 			<div id="menu">
 				<div id="cssmenu">
 					<?php include('../_menu/menu_pago.php'); ?>
@@ -29,8 +29,7 @@
 					$contratado = conslt_pago_condicion_gen($cnx_bd,'salario','Contratado','inicio_quincena');
 					$cnx_bd->close();
 					if ($alto->num_rows <= 0 && $empleado->num_rows <= 0 && $obrero->num_rows <= 0 && $contratado->num_rows <= 0) {
-						if ($_POST['dia'] == 1) $d = 'primera quincena';
-						else $d = 'segunda quincena';
+						$d = ($_POST['dia'] == 1) ? 'primera quincena' : 'segunda quincena';
 				?>
 						<div id="msnproceso">
 							<h3>No se ha realizado calculado para la<?=' '.$d.' de '.nombre_fecha('mes',$_POST['mes']).' de '.$_POST['ano']?></h3>
@@ -54,9 +53,8 @@
 								<th>Cédula</th>
 								<th>Sueldo Quincenal</th>
 								<th>Asignación Dias Adicionales</th>
-								<th>Retroactivo Sueldo</th>
-								<th>Retroactivo Vacaciones</th>
-								<th>Retroactivo Aguinaldos</th>
+								<th>Retroactivos Total</th>
+								<th>Primas Total</th>
 								<th>S.S.O.</th>
 								<th>S.P.F.</th>
 								<th>F.A.O.V.</th>
@@ -70,20 +68,21 @@
 							if ($alto->num_rows < 1) {
 							?>
 							<tr>
-								<td colspan="15">No hay Personal de Alto Nivel registrado</td>
+								<td colspan="14">No hay Personal de Alto Nivel registrado</td>
 							</tr>
 							<?php
 							}else{
 								while($fila = $alto->fetch_object()){
+									$retroactivoT = $fila->retro_sueldo + $fila->retro_vacaciones + $fila->retro_aguinaldos;
+									$primaT = $fila->prima_antiguedad + $fila->prima_hijo + $fila->prima_hogar + $fila->prima_prof_corta + $fila->prima_prof_larga;
 							?>
 									<tr>
 										<td><?=$fila->nombre.' '.$fila->apellido?></td>
 										<td><?=$fila->cedula?></td>
 										<td>Bs <?=$fila->sueldo_quincena?></td>
 										<td>Bs <?=$fila->total_dia_adic?></td>
-										<td>Bs <?=$fila->retro_sueldo?></td>
-										<td>Bs <?=$fila->retro_vacaciones?></td>
-										<td>Bs <?=$fila->retro_aguinaldos?></td>
+										<td>Bs <?php printf("%.2f",$retroactivoT); ?></td>
+										<td>Bs <?php printf("%.2f",$primaT); ?></td>
 										<td>Bs <?=$fila->sso?></td>
 										<td>Bs <?=$fila->spf?></td>
 										<td>Bs <?=$fila->faov?></td>
@@ -100,7 +99,7 @@
 							$alto->free();
 							?>
 							<tr>
-								<td colspan="14">SUB-TOTAL</td>
+								<td colspan="13">SUB-TOTAL</td>
 								<td>Bs <?php printf("%.2f",$subt_a); ?></td>
 							</tr>
 						</table>
@@ -111,9 +110,8 @@
 								<th>Cédula</th>
 								<th>Sueldo Quincenal</th>
 								<th>Asignación Dias Adicionales</th>
-								<th>Retroactivo Sueldo</th>
-								<th>Retroactivo Vacaciones</th>
-								<th>Retroactivo Aguinaldos</th>
+								<th>Retroactivos Total</th>
+								<th>Primas Total</th>
 								<th>S.S.O.</th>
 								<th>S.P.F.</th>
 								<th>F.A.O.V.</th>
@@ -127,20 +125,21 @@
 							if ($empleado->num_rows < 1) {
 							?>
 							<tr>
-								<td colspan="15">No hay Personal Empleado registrado</td>
+								<td colspan="14">No hay Personal Empleado registrado</td>
 							</tr>
 							<?php
 							}else{
 								while($fila = $empleado->fetch_object()){
+									$retroactivoT = $fila->retro_sueldo + $fila->retro_vacaciones + $fila->retro_aguinaldos;
+									$primaT = $fila->prima_antiguedad + $fila->prima_hijo + $fila->prima_hogar + $fila->prima_prof_corta + $fila->prima_prof_larga;
 							?>
 									<tr>
 										<td><?=$fila->nombre.' '.$fila->apellido?></td>
 										<td><?=$fila->cedula?></td>
 										<td>Bs <?=$fila->sueldo_quincena?></td>
 										<td>Bs <?=$fila->total_dia_adic?></td>
-										<td>Bs <?=$fila->retro_sueldo?></td>
-										<td>Bs <?=$fila->retro_vacaciones?></td>
-										<td>Bs <?=$fila->retro_aguinaldos?></td>
+										<td>Bs <?php printf("%.2f",$retroactivoT); ?></td>
+										<td>Bs <?php printf("%.2f",$primaT); ?></td>
 										<td>Bs <?=$fila->sso?></td>
 										<td>Bs <?=$fila->spf?></td>
 										<td>Bs <?=$fila->faov?></td>
@@ -157,7 +156,7 @@
 							$empleado->free();
 							?>
 							<tr>
-								<td colspan="14">SUB-TOTAL</td>
+								<td colspan="13">SUB-TOTAL</td>
 								<td>Bs <?php printf("%.2f",$subt_e); ?></td>
 							</tr>
 						</table>
@@ -168,9 +167,8 @@
 								<th>Cédula</th>
 								<th>Sueldo Quincenal</th>
 								<th>Asignación Dias Adicionales</th>
-								<th>Retroactivo Sueldo</th>
-								<th>Retroactivo Vacaciones</th>
-								<th>Retroactivo Aguinaldos</th>
+								<th>Retroactivos Total</th>
+								<th>Primas Total</th>
 								<th>S.S.O.</th>
 								<th>S.P.F.</th>
 								<th>F.A.O.V.</th>
@@ -184,20 +182,21 @@
 							if ($obrero->num_rows < 1) {
 							?>
 							<tr>
-								<td colspan="15">No hay Personal Obrero registrado</td>
+								<td colspan="14">No hay Personal Obrero registrado</td>
 							</tr>
 							<?php
 							}else{
 								while($fila = $obrero->fetch_object()){
+									$retroactivoT = $fila->retro_sueldo + $fila->retro_vacaciones + $fila->retro_aguinaldos;
+									$primaT = $fila->prima_antiguedad + $fila->prima_hijo + $fila->prima_hogar + $fila->prima_prof_corta + $fila->prima_prof_larga;
 							?>
 										<tr>
 											<td><?=$fila->nombre.' '.$fila->apellido?></td>
 											<td><?=$fila->cedula?></td>
 											<td>Bs <?=$fila->sueldo_quincena?></td>
 											<td>Bs <?=$fila->total_dia_adic?></td>
-											<td>Bs <?=$fila->retro_sueldo?></td>
-											<td>Bs <?=$fila->retro_vacaciones?></td>
-											<td>Bs <?=$fila->retro_aguinaldos?></td>
+											<td>Bs <?php printf("%.2f",$retroactivoT); ?></td>
+											<td>Bs <?php printf("%.2f",$primaT); ?></td>
 											<td>Bs <?=$fila->sso?></td>
 											<td>Bs <?=$fila->spf?></td>
 											<td>Bs <?=$fila->faov?></td>
@@ -214,7 +213,7 @@
 							$obrero->free();
 							?>
 							<tr>
-								<td colspan="14">SUB-TOTAL</td>
+								<td colspan="13">SUB-TOTAL</td>
 								<td>Bs <?php printf("%.2f",$subt_o); ?></td>
 							</tr>
 						</table>
@@ -225,9 +224,8 @@
 								<th>Cédula</th>
 								<th>Sueldo Quincenal</th>
 								<th>Asignación Dias Adicionales</th>
-								<th>Retroactivo Sueldo</th>
-								<th>Retroactivo Vacaciones</th>
-								<th>Retroactivo Aguinaldos</th>
+								<th>Retroactivos Total</th>
+								<th>Primas Total</th>
 								<th>S.S.O.</th>
 								<th>S.P.F.</th>
 								<th>F.A.O.V.</th>
@@ -241,20 +239,21 @@
 							if ($contratado->num_rows < 1) {
 							?>
 							<tr>
-								<td colspan="15">No hay Personal Contratado registrado</td>
+								<td colspan="14">No hay Personal Contratado registrado</td>
 							</tr>
 							<?php
 							}else{
 								while($fila = $contratado->fetch_object()){
+									$retroactivoT = $fila->retro_sueldo + $fila->retro_vacaciones + $fila->retro_aguinaldos;
+									$primaT = $fila->prima_antiguedad + $fila->prima_hijo + $fila->prima_hogar + $fila->prima_prof_corta + $fila->prima_prof_larga;
 							?>
 									<tr>
 										<td><?=$fila->nombre.' '.$fila->apellido?></td>
 										<td><?=$fila->cedula?></td>
 										<td>Bs <?=$fila->sueldo_quincena?></td>
 										<td>Bs <?=$fila->total_dia_adic?></td>
-										<td>Bs <?=$fila->retro_sueldo?></td>
-										<td>Bs <?=$fila->retro_vacaciones?></td>
-										<td>Bs <?=$fila->retro_aguinaldos?></td>
+										<td>Bs <?php printf("%.2f",$retroactivoT); ?></td>
+										<td>Bs <?php printf("%.2f",$primaT); ?></td>
 										<td>Bs <?=$fila->sso?></td>
 										<td>Bs <?=$fila->spf?></td>
 										<td>Bs <?=$fila->faov?></td>
@@ -271,11 +270,11 @@
 							$contratado->free();
 							?>
 							<tr>
-								<td colspan="14">SUB-TOTAL</td>
+								<td colspan="13">SUB-TOTAL</td>
 								<td>Bs <?php printf("%.2f",$subt_c); ?></td>
 							</tr>
 							<tr>
-								<td colspan="14">TOTAL GENERAL</td>
+								<td colspan="13">TOTAL GENERAL</td>
 								<td>Bs <?php printf("%.2f",$subt_a + $subt_e + $subt_o + $subt_c); ?></td>
 							</tr>
 						</table>
