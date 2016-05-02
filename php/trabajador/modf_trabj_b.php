@@ -22,13 +22,10 @@
 					$cnx_bd = conexion();
 					include('../_sql/modf_trabj_sql.php');
 					$cnx_bd->close();
-					if ($e)
-						$mensaje = '<h3>LOS DATOS DEL TRABAJADOR NO SE ACTUALIZARON DEBIDO A UN ERROR, POR FAVOR INTENTELO DE NUEVO</h3>';
-					else
-						$mensaje = '<h3>ACTUALIZACIÓN DE DATOS CORRECTOS</h3>';
+					$mensaje = ($error) ? 'LOS DATOS DEL TRABAJADOR NO SE ACTUALIZARON DEBIDO A UN ERROR, POR FAVOR INTENTELO DE NUEVO' : 'ACTUALIZACIÓN DE DATOS CORRECTOS';
 				?>
 				<div id="msnproceso">
-					<?=$mensaje?>
+					<h3><?=$mensaje?></h3>
 				</div>
 			</div>
 		</div>

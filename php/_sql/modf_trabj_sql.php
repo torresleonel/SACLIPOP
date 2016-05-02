@@ -82,172 +82,148 @@
 
 /* +++++++++++++++++++++++++++++++++++++++++++SENTENCIAS SQL PARA TODOS LOS DATOS DEL TRABAJADOR++++++++++++++++++++++++++++++++++++ */
 	$cnx_bd->autocommit(FALSE);
-/*..........................................ACTUALIZACIÓN DATOS PERSONALES.........................................*/
-	$sql = "UPDATE trabajador SET cedula = '{$cedula}', nombre = '{$nombre}', apellido = '{$apellido}', ciudadania = '{$nacionalidad}', pasaporte = '{$pasaporte}', libreta_militr = '{$libreta_militr}', fe_nac = '{$fecha_nac}', lug_nac = '{$lug_nac}', est_civil = '{$est_civil}', nconyugue = '{$nconyugue}', estudia = '{$estudia}',direccion = '{$direccion}', telefono = '{$telefono}', telefono_em = '{$telefono_em}', estado = '{$estado}', actualizado = '{$actualizacion}'
-			WHERE cedula = '{$cedula_o}'";
-		
-	if ($cnx_bd->query($sql))
-		$error[0] = false;
-	else
-		$error[0] = true;
 
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
-
-/*..........................................ACTUALIZACIÓN DE DATOS LABORALES.........................................*/
-	$sql = "UPDATE laboral SET fecha_ingreso = '{$fecha_ing}', condicion = '{$condicion}', cargo = '{$cargo}', rango = '{$rango}', area_desemp = '{$area_d}', resolucion = '{$resolucion}', ley = '{$ley}'
-			WHERE cedula = '{$cedula}'";
-		
-	if ($cnx_bd->query($sql))
-		$error[1] = false;
-	else
-		$error[1] = true;
-
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
-
-
-/*......................................ACTUALIZACIÓN DE DATOS DE ESTUDIO..........................................*/
-	$sql = "UPDATE estudios SET estudios = '{$estudio}', lugar_estudio = '{$lug_estudio}', anno = '{$ano}', titulo = '{$titulos}', observacion = '{$observacion}'
-			WHERE cedula = '{$cedula}'";
-		
-	if ($cnx_bd->query($sql))
-		$error[2] = false;
-	else
-		$error[2] = true;
-
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
-
-
-/*...............................ACTUALIZACIÓN DE DATOS DE DOCUMENTACION CONSIGNADA................................*/
-	$sql = "UPDATE documentos SET partida_naci = '{$part_nac}', inscrip_militar = '{$ins_milt}', cedula_ident = '{$ced_iden}', rif = '{$rif}', declaracion_jurada = '{$dec_jur}', informe_medico = '{$inf_med}', parti_nac_h = '{$part_nac_h}', acta_mat_div = '{$matr_divr}', defunciones = '{$defunc}', titulos = '{$titul}', certificados = '{$certf}', const_hor_est = '{$const_hora}'
-			WHERE cedula = '{$cedula}'";
-		
-	if ($cnx_bd->query($sql))
-		$error[3] = false;
-	else
-		$error[3] = true;
-
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
-
-
-/*.................................ACTUALIZACIÓN DE DATOS DE REFERENCIAS PERSONALES...................................*/
-
-	//SE ELIMINAN LOS DATOS DE REFERENCIAS PERSONALES PARA QUE SI EXITEN
-	//DATOS DE NUEVAS REFERENCIAS PERSONALES PUEDAN SER INSERTADOS
-
-	$sql = "DELETE FROM referencia_personal WHERE cedula = '{$cedula}'";
-	
-	$cnx_bd->query($sql);
-	
-	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
-	error_sql($cnx_bd);
-
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
-	
-	$cont = 4;
-	for($i=0;$i<=2;$i++){
-
-		$sql = "INSERT INTO referencia_personal (cedula_rp,nombre_rp,apellido_rp,ocupacion_rp,telefono_rp,cedula)
-				VALUES ('{$cedula_rp[$i]}','{$nombre_rp[$i]}','{$apellido_rp[$i]}','{$ocupacion_rp[$i]}','{$telefono_rp[$i]}','{$cedula}')";
-
-		if ($cnx_bd->query($sql))
-			$error[$cont] = false;
-		else
-			$error[$cont] = true;
-
-		$cont++;
+	try {
+		/*..........................................ACTUALIZACIÓN DATOS PERSONALES.........................................*/
+		$sql = "UPDATE trabajador SET cedula = '{$cedula}', nombre = '{$nombre}', apellido = '{$apellido}', ciudadania = '{$nacionalidad}', pasaporte = '{$pasaporte}', libreta_militr = '{$libreta_militr}', fe_nac = '{$fecha_nac}', lug_nac = '{$lug_nac}', est_civil = '{$est_civil}', nconyugue = '{$nconyugue}', estudia = '{$estudia}',direccion = '{$direccion}', telefono = '{$telefono}', telefono_em = '{$telefono_em}', estado = '{$estado}', actualizado = '{$actualizacion}'
+				WHERE cedula = '{$cedula_o}'";
+			
+		if (!$cnx_bd->query($sql))
+			throw new Exception();
 
 		//SE ALMACENA LA SENTENCIA SQL
 		$_SESSION['sentencia'] = $sql;
 		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
 		bitacora($cnx_bd);
 
-	}
+		/*..........................................ACTUALIZACIÓN DE DATOS LABORALES.........................................*/
+		$sql = "UPDATE laboral SET fecha_ingreso = '{$fecha_ing}', condicion = '{$condicion}', cargo = '{$cargo}', rango = '{$rango}', area_desemp = '{$area_d}', resolucion = '{$resolucion}', ley = '{$ley}'
+				WHERE cedula = '{$cedula}'";
+			
+		if (!$cnx_bd->query($sql))
+			throw new Exception();
+
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $sql;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
 
 
-/*...............................ACTUALIZACIÓN DE DATOS DE OTRAS CATEGORIAS(uniforme)...................................*/
-	$sql = "UPDATE uniforme SET camisa = '{$tall_cam}', pantalon = '{$tall_pant}', calzado = '{$tall_calz}'
-			WHERE cedula = '{$cedula}'";
+		/*......................................ACTUALIZACIÓN DE DATOS DE ESTUDIO..........................................*/
+		$sql = "UPDATE estudios SET estudios = '{$estudio}', lugar_estudio = '{$lug_estudio}', anno = '{$ano}', titulo = '{$titulos}', observacion = '{$observacion}'
+				WHERE cedula = '{$cedula}'";
+			
+		if (!$cnx_bd->query($sql))
+			throw new Exception();
+
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $sql;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
+
+
+		/*...............................ACTUALIZACIÓN DE DATOS DE DOCUMENTACION CONSIGNADA................................*/
+		$sql = "UPDATE documentos SET partida_naci = '{$part_nac}', inscrip_militar = '{$ins_milt}', cedula_ident = '{$ced_iden}', rif = '{$rif}', declaracion_jurada = '{$dec_jur}', informe_medico = '{$inf_med}', parti_nac_h = '{$part_nac_h}', acta_mat_div = '{$matr_divr}', defunciones = '{$defunc}', titulos = '{$titul}', certificados = '{$certf}', const_hor_est = '{$const_hora}'
+				WHERE cedula = '{$cedula}'";
+			
+		if (!$cnx_bd->query($sql))
+			throw new Exception();
+
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $sql;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
+
+
+		/*.................................ACTUALIZACIÓN DE DATOS DE REFERENCIAS PERSONALES...................................*/
+
+		//SE ELIMINAN LOS DATOS DE REFERENCIAS PERSONALES PARA QUE SI EXITEN
+		//DATOS DE NUEVAS REFERENCIAS PERSONALES PUEDAN SER INSERTADOS
+
+		$sql = "DELETE FROM referencia_personal WHERE cedula = '{$cedula}'";
 		
-	if ($cnx_bd->query($sql))
-		$error[$cont] = false;
-	else
-		$error[$cont] = true;
+		$cnx_bd->query($sql);
+		
+		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
+		error_sql($cnx_bd);
 
-	$cont++;
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $sql;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
+		
+		for($i=0;$i<=2;$i++){
 
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
+			$sql = "INSERT INTO referencia_personal (cedula_rp,nombre_rp,apellido_rp,ocupacion_rp,telefono_rp,cedula)
+					VALUES ('{$cedula_rp[$i]}','{$nombre_rp[$i]}','{$apellido_rp[$i]}','{$ocupacion_rp[$i]}','{$telefono_rp[$i]}','{$cedula}')";
 
-/*............................................ACTUALIZACIÓN DE DATOS FAMILIARES.........................................*/
-
-	//SE ELIMINAN LOS DATOS DE LA FAMILIA PARA QUE SI EXITEN
-	//DATOS DE NUEVOS FAMILIARES PUEDANS SER INSERTADOS
-
-	$sql = "DELETE FROM familia WHERE cedula = '{$cedula}'";
-	
-	$cnx_bd->query($sql);
-	
-	//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
-	error_sql($cnx_bd);
-
-	//SE ALMACENA LA SENTENCIA SQL
-	$_SESSION['sentencia'] = $sql;
-	//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
-	bitacora($cnx_bd);
-
-	if($familia){
-
-		$ciclo_fam = 0;
-		foreach($cedula_fam as $cedula_f){
-
-			$fecha_nac_fam = $anonac_fam[$ciclo_fam].'-'.$mesnac_fam[$ciclo_fam].'-'.$dianac_fam[$ciclo_fam];
-
-			$sql = "INSERT INTO familia (cedula,cedulaf,nombref,apellidof,fecha_nacf,parentescof,estudiaf,empleadof,cargof)
-					VALUES ('{$cedula}','{$cedula_f}','{$nombres_fam[$ciclo_fam]}','{$apellidos_fam[$ciclo_fam]}','{$fecha_nac_fam}','{$parentesco_fam[$ciclo_fam]}','{$estudia_fam[$ciclo_fam]}','{$empl_fam[$ciclo_fam]}','{$cargo_fam[$ciclo_fam]}')";
-
-			if ($cnx_bd->query($sql))
-				$error[$cont] = false;
-			else
-				$error[$cont] = true;
-
-			$cont++;
-			$ciclo_fam++;
+			if (!$cnx_bd->query($sql))
+				throw new Exception();
 
 			//SE ALMACENA LA SENTENCIA SQL
 			$_SESSION['sentencia'] = $sql;
 			//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
 			bitacora($cnx_bd);
-		}
-	}
 
-	$e = false;
-	for ($i=0; $i < $cont; $i++) { 
-		if ($error[$i]) {
-			$e = true;
-			break;
 		}
-	}
 
-	if ($e)
-		$cnx_bd->rollback();
-	else
+
+		/*...............................ACTUALIZACIÓN DE DATOS DE OTRAS CATEGORIAS(uniforme)...................................*/
+		$sql = "UPDATE uniforme SET camisa = '{$tall_cam}', pantalon = '{$tall_pant}', calzado = '{$tall_calz}'
+				WHERE cedula = '{$cedula}'";
+			
+		if (!$cnx_bd->query($sql))
+			throw new Exception();
+
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $sql;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
+
+		/*............................................ACTUALIZACIÓN DE DATOS FAMILIARES.........................................*/
+
+		//SE ELIMINAN LOS DATOS DE LA FAMILIA PARA QUE SI EXITEN
+		//DATOS DE NUEVOS FAMILIARES PUEDANS SER INSERTADOS
+
+		$sql = "DELETE FROM familia WHERE cedula = '{$cedula}'";
+		
+		$cnx_bd->query($sql);
+		
+		//LLAMADO DE LA FUNCION QUE EVALUA ERROR DE CONSULTA A LA BASE DE DATOS
+		error_sql($cnx_bd);
+
+		//SE ALMACENA LA SENTENCIA SQL
+		$_SESSION['sentencia'] = $sql;
+		//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+		bitacora($cnx_bd);
+
+		if($familia){
+
+			$ciclo_fam = 0;
+			foreach($cedula_fam as $cedula_f){
+
+				$fecha_nac_fam = $anonac_fam[$ciclo_fam].'-'.$mesnac_fam[$ciclo_fam].'-'.$dianac_fam[$ciclo_fam];
+
+				$sql = "INSERT INTO familia (cedula,cedulaf,nombref,apellidof,fecha_nacf,parentescof,estudiaf,empleadof,cargof)
+						VALUES ('{$cedula}','{$cedula_f}','{$nombres_fam[$ciclo_fam]}','{$apellidos_fam[$ciclo_fam]}','{$fecha_nac_fam}','{$parentesco_fam[$ciclo_fam]}','{$estudia_fam[$ciclo_fam]}','{$empl_fam[$ciclo_fam]}','{$cargo_fam[$ciclo_fam]}')";
+
+				if (!$cnx_bd->query($sql))
+					throw new Exception();
+
+				$ciclo_fam++;
+
+				//SE ALMACENA LA SENTENCIA SQL
+				$_SESSION['sentencia'] = $sql;
+				//LLAMADO DE LA FUNCION QUE REGISTRA LA BITACORA DE ACCIONES DEL USUARIO
+				bitacora($cnx_bd);
+			}
+		}
+
 		$cnx_bd->commit();
+		$error = false;
+	} catch (Exception $e) {
+		$cnx_bd->rollback();
+		$error = true;
+	}
 
 ?>
